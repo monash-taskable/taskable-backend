@@ -1,7 +1,7 @@
 package com.taskable.backend.api.user;
 
-import com.taskable.protobuf.UserProto;
-import com.taskable.protobuf.UserProto.User;
+import com.taskable.protobufs.UserProto.User;
+import com.taskable.protobufs.UserProto;
 import org.springframework.stereotype.Service;
 
 @Service

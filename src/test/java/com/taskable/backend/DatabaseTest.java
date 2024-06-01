@@ -1,6 +1,6 @@
 package com.taskable.backend;
-import com.taskable.backend.jooq.tables.Users;
-import com.taskable.backend.jooq.tables.records.UsersRecord;
+import com.taskable.jooq.tables.records.UsersRecord;
+import com.taskable.jooq.tables.Users;
 import configurations.TestDBConfig;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

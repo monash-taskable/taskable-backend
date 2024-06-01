@@ -55,8 +55,8 @@
             <version>8.2.0</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -183,8 +183,8 @@
                                     <inputSchema>testdb</inputSchema>
                                 </database>
                                 <target>
-                                    <packageName>com.taskable.backend.jooq</packageName>
-                                    <directory>src/main/java</directory>
+                                    <packageName>com.taskable.jooq</packageName>
+                                    <directory>${project.basedir}/generated-sources/jooq</directory>
                                 </target>
                             </generator>
                         </configuration>
@@ -197,7 +197,8 @@
                 <version>0.6.1</version>
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:3.6.1:exe:${os.detected.classifier}</protocArtifact>
-                    <outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>
+                    <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+                    <outputDirectory>${project.basedir}/generated-sources/protobufs</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -220,7 +221,8 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generated-sources/protobuf/java</source>
+                                <source>${project.basedir}/generated-sources/jooq</source>
+                                <source>${project.basedir}/generated-sources/protobufs</source>
                             </sources>
                         </configuration>
                     </execution>

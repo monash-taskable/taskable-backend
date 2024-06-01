@@ -1,6 +1,6 @@
 package com.taskable.backend.api.user;
 
-import com.taskable.protobuf.UserProto.User;
+import com.taskable.protobufs.UserProto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
