@@ -4,6 +4,7 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Projects;
 import com.taskable.jooq.tables.Users;
 
 
@@ -12,6 +13,11 @@ import com.taskable.jooq.tables.Users;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>testdb.Projects</code>.
+     */
+    public static final Projects PROJECTS = Projects.PROJECTS;
 
     /**
      * The table <code>testdb.Users</code>.

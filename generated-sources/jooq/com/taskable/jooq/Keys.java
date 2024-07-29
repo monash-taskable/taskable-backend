@@ -4,7 +4,9 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Projects;
 import com.taskable.jooq.tables.Users;
+import com.taskable.jooq.tables.records.ProjectsRecord;
 import com.taskable.jooq.tables.records.UsersRecord;
 
 import org.jooq.TableField;
@@ -24,6 +26,8 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<ProjectsRecord> KEY_PROJECTS_NAME = Internal.createUniqueKey(Projects.PROJECTS, DSL.name("KEY_Projects_name"), new TableField[] { Projects.PROJECTS.NAME }, true);
+    public static final UniqueKey<ProjectsRecord> KEY_PROJECTS_PRIMARY = Internal.createUniqueKey(Projects.PROJECTS, DSL.name("KEY_Projects_PRIMARY"), new TableField[] { Projects.PROJECTS.ID }, true);
     public static final UniqueKey<UsersRecord> KEY_USERS_EMAIL = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_email"), new TableField[] { Users.USERS.EMAIL }, true);
     public static final UniqueKey<UsersRecord> KEY_USERS_PRIMARY = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_PRIMARY"), new TableField[] { Users.USERS.ID }, true);
     public static final UniqueKey<UsersRecord> KEY_USERS_USERNAME = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_username"), new TableField[] { Users.USERS.USERNAME }, true);

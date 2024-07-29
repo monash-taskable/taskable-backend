@@ -1,5 +1,6 @@
-package com.taskable.backend.api.user;
+package com.taskable.backend.controllers;
 
+import com.taskable.backend.services.UserService;
 import com.taskable.protobufs.UserProto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user")
-    public User getUser() {
-        return userService.getUser();
+    @GetMapping(value = "/get-user", produces = "application/x-protobuf" )
+    public byte[] getUser() {
+        return userService.getUser().toByteArray();
     }
 }

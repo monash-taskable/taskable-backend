@@ -1,4 +1,4 @@
-package com.taskable.backend.api.user;
+package com.taskable.backend.services;
 
 import com.taskable.protobufs.UserProto.User;
 import com.taskable.protobufs.UserProto;
@@ -12,7 +12,6 @@ public class UserService {
             .setId(1)
             .setUsername("admin alice")
             .setEmail("alice@taskable.com")
-            .setRole(UserProto.Role.ADMIN)
             .build();
     }
 }

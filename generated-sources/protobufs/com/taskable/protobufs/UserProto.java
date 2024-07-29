@@ -14,113 +14,6 @@ public final class UserProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  /**
-   * Protobuf enum {@code Role}
-   */
-  public enum Role
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>ADMIN = 0;</code>
-     */
-    ADMIN(0),
-    /**
-     * <code>TEACHER = 1;</code>
-     */
-    TEACHER(1),
-    /**
-     * <code>STUDENT = 2;</code>
-     */
-    STUDENT(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>ADMIN = 0;</code>
-     */
-    public static final int ADMIN_VALUE = 0;
-    /**
-     * <code>TEACHER = 1;</code>
-     */
-    public static final int TEACHER_VALUE = 1;
-    /**
-     * <code>STUDENT = 2;</code>
-     */
-    public static final int STUDENT_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Role valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static Role forNumber(int value) {
-      switch (value) {
-        case 0: return ADMIN;
-        case 1: return TEACHER;
-        case 2: return STUDENT;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Role>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Role> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Role>() {
-            public Role findValueByNumber(int number) {
-              return Role.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.taskable.protobufs.UserProto.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Role[] VALUES = values();
-
-    public static Role valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Role(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:Role)
-  }
-
   public interface UserOrBuilder extends
       // @@protoc_insertion_point(interface_extends:User)
       com.google.protobuf.MessageOrBuilder {
@@ -149,15 +42,6 @@ public final class UserProto {
      */
     com.google.protobuf.ByteString
         getEmailBytes();
-
-    /**
-     * <code>.Role role = 4;</code>
-     */
-    int getRoleValue();
-    /**
-     * <code>.Role role = 4;</code>
-     */
-    com.taskable.protobufs.UserProto.Role getRole();
   }
   /**
    * Protobuf type {@code User}
@@ -175,7 +59,6 @@ public final class UserProto {
       id_ = 0L;
       username_ = "";
       email_ = "";
-      role_ = 0;
     }
 
     @java.lang.Override
@@ -217,12 +100,6 @@ public final class UserProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               email_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              role_ = rawValue;
               break;
             }
             default: {
@@ -334,23 +211,6 @@ public final class UserProto {
       }
     }
 
-    public static final int ROLE_FIELD_NUMBER = 4;
-    private int role_;
-    /**
-     * <code>.Role role = 4;</code>
-     */
-    public int getRoleValue() {
-      return role_;
-    }
-    /**
-     * <code>.Role role = 4;</code>
-     */
-    public com.taskable.protobufs.UserProto.Role getRole() {
-      @SuppressWarnings("deprecation")
-      com.taskable.protobufs.UserProto.Role result = com.taskable.protobufs.UserProto.Role.valueOf(role_);
-      return result == null ? com.taskable.protobufs.UserProto.Role.UNRECOGNIZED : result;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -374,9 +234,6 @@ public final class UserProto {
       if (!getEmailBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
       }
-      if (role_ != com.taskable.protobufs.UserProto.Role.ADMIN.getNumber()) {
-        output.writeEnum(4, role_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -395,10 +252,6 @@ public final class UserProto {
       }
       if (!getEmailBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
-      }
-      if (role_ != com.taskable.protobufs.UserProto.Role.ADMIN.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, role_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -422,7 +275,6 @@ public final class UserProto {
           .equals(other.getUsername());
       result = result && getEmail()
           .equals(other.getEmail());
-      result = result && role_ == other.role_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -441,8 +293,6 @@ public final class UserProto {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getEmail().hashCode();
-      hash = (37 * hash) + ROLE_FIELD_NUMBER;
-      hash = (53 * hash) + role_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -582,8 +432,6 @@ public final class UserProto {
 
         email_ = "";
 
-        role_ = 0;
-
         return this;
       }
 
@@ -613,7 +461,6 @@ public final class UserProto {
         result.id_ = id_;
         result.username_ = username_;
         result.email_ = email_;
-        result.role_ = role_;
         onBuilt();
         return result;
       }
@@ -672,9 +519,6 @@ public final class UserProto {
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
           onChanged();
-        }
-        if (other.role_ != 0) {
-          setRoleValue(other.getRoleValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -868,51 +712,6 @@ public final class UserProto {
         onChanged();
         return this;
       }
-
-      private int role_ = 0;
-      /**
-       * <code>.Role role = 4;</code>
-       */
-      public int getRoleValue() {
-        return role_;
-      }
-      /**
-       * <code>.Role role = 4;</code>
-       */
-      public Builder setRoleValue(int value) {
-        role_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.Role role = 4;</code>
-       */
-      public com.taskable.protobufs.UserProto.Role getRole() {
-        @SuppressWarnings("deprecation")
-        com.taskable.protobufs.UserProto.Role result = com.taskable.protobufs.UserProto.Role.valueOf(role_);
-        return result == null ? com.taskable.protobufs.UserProto.Role.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.Role role = 4;</code>
-       */
-      public Builder setRole(com.taskable.protobufs.UserProto.Role value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        role_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.Role role = 4;</code>
-       */
-      public Builder clearRole() {
-        
-        role_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -980,11 +779,9 @@ public final class UserProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"H\n\004User\022\n\n\002id\030\001 \001(\003\022\020\n\010user" +
-      "name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\023\n\004role\030\004 \001(\0162" +
-      "\005.Role*+\n\004Role\022\t\n\005ADMIN\020\000\022\013\n\007TEACHER\020\001\022\013" +
-      "\n\007STUDENT\020\002B#\n\026com.taskable.protobufsB\tU" +
-      "serProtob\006proto3"
+      "\n\nuser.proto\"3\n\004User\022\n\n\002id\030\001 \001(\003\022\020\n\010user" +
+      "name\030\002 \001(\t\022\r\n\005email\030\003 \001(\tB#\n\026com.taskabl" +
+      "e.protobufsB\tUserProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1003,7 +800,7 @@ public final class UserProto {
     internal_static_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_User_descriptor,
-        new java.lang.String[] { "Id", "Username", "Email", "Role", });
+        new java.lang.String[] { "Id", "Username", "Email", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

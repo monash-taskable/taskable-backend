@@ -4,6 +4,7 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Projects;
 import com.taskable.jooq.tables.Users;
 
 import java.util.Arrays;
@@ -28,6 +29,11 @@ public class Testdb extends SchemaImpl {
     public static final Testdb TESTDB = new Testdb();
 
     /**
+     * The table <code>testdb.Projects</code>.
+     */
+    public final Projects PROJECTS = Projects.PROJECTS;
+
+    /**
      * The table <code>testdb.Users</code>.
      */
     public final Users USERS = Users.USERS;
@@ -48,6 +54,7 @@ public class Testdb extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Projects.PROJECTS,
             Users.USERS
         );
     }
