@@ -19,9 +19,9 @@ public final class UserProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 id = 1;</code>
+     * <code>int32 id = 1;</code>
      */
-    long getId();
+    int getId();
 
     /**
      * <code>string username = 2;</code>
@@ -56,7 +56,7 @@ public final class UserProto {
       super(builder);
     }
     private User() {
-      id_ = 0L;
+      id_ = 0;
       username_ = "";
       email_ = "";
     }
@@ -87,7 +87,7 @@ public final class UserProto {
               break;
             case 8: {
 
-              id_ = input.readInt64();
+              id_ = input.readInt32();
               break;
             }
             case 18: {
@@ -135,11 +135,11 @@ public final class UserProto {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private long id_;
+    private int id_;
     /**
-     * <code>int64 id = 1;</code>
+     * <code>int32 id = 1;</code>
      */
-    public long getId() {
+    public int getId() {
       return id_;
     }
 
@@ -225,8 +225,8 @@ public final class UserProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0L) {
-        output.writeInt64(1, id_);
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
       }
       if (!getUsernameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, username_);
@@ -243,9 +243,9 @@ public final class UserProto {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0L) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, id_);
+          .computeInt32Size(1, id_);
       }
       if (!getUsernameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, username_);
@@ -287,8 +287,7 @@ public final class UserProto {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getId());
+      hash = (53 * hash) + getId();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + EMAIL_FIELD_NUMBER;
@@ -426,7 +425,7 @@ public final class UserProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0L;
+        id_ = 0;
 
         username_ = "";
 
@@ -509,7 +508,7 @@ public final class UserProto {
 
       public Builder mergeFrom(com.taskable.protobufs.UserProto.User other) {
         if (other == com.taskable.protobufs.UserProto.User.getDefaultInstance()) return this;
-        if (other.getId() != 0L) {
+        if (other.getId() != 0) {
           setId(other.getId());
         }
         if (!other.getUsername().isEmpty()) {
@@ -549,28 +548,28 @@ public final class UserProto {
         return this;
       }
 
-      private long id_ ;
+      private int id_ ;
       /**
-       * <code>int64 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
-      public long getId() {
+      public int getId() {
         return id_;
       }
       /**
-       * <code>int64 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
-      public Builder setId(long value) {
+      public Builder setId(int value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 id = 1;</code>
+       * <code>int32 id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0L;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -779,7 +778,7 @@ public final class UserProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"3\n\004User\022\n\n\002id\030\001 \001(\003\022\020\n\010user" +
+      "\n\nuser.proto\"3\n\004User\022\n\n\002id\030\001 \001(\005\022\020\n\010user" +
       "name\030\002 \001(\t\022\r\n\005email\030\003 \001(\tB#\n\026com.taskabl" +
       "e.protobufsB\tUserProtob\006proto3"
     };

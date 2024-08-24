@@ -1,5 +1,6 @@
 package com.taskable.backend;
 
+import com.taskable.backend.config.ProtobufConfig;
 import com.taskable.backend.controllers.UserController;
 import com.taskable.backend.services.UserService;
 import com.taskable.protobufs.UserProto.User;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@Import(UserService.class)
+@Import({UserService.class, ProtobufConfig.class})
 @WebMvcTest(UserController.class)
 public class UserTest {
     private static final Logger logger = LoggerFactory.getLogger(UserTest.class);
