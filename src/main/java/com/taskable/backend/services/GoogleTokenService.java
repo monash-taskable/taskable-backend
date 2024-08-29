@@ -49,10 +49,10 @@ public class GoogleTokenService {
                 redirectUri
         ).execute();
 
-        // Extract the ID token from the token response
+        // extract id token from the token response
         String idTokenString = tokenResponse.getIdToken();
 
-        // Verify and parse the ID token
+        // verify and parse the ID token
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(httpTransport, JSON_FACTORY)
                 .setAudience(Collections.singletonList(clientId))
                 .build();

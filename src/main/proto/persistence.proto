@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "com.taskable.protobufs";
+option java_outer_classname = "PersistenceProto";
+
+message User {
+  int32 id = 1;
+  string sub = 2;
+  string email = 3;
+  string first_name = 4;
+  string last_name = 5;
+  string status = 6;
+  string language = 7;
+  string color = 8;
+  string theme = 9;
+}
+
+message Classroom {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  string created_at = 4;
+  bool archived = 5;
+}

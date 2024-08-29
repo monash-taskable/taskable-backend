@@ -3,7 +3,7 @@ package com.taskable.backend;
 import com.taskable.backend.config.ProtobufConfig;
 import com.taskable.backend.controllers.UserController;
 import com.taskable.backend.services.UserService;
-import com.taskable.protobufs.UserProto.User;
+import com.taskable.protobufs.PersistenceProto.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class UserTest {
     public void getUserApiTest() throws Exception{
         User expectedOutput = User.newBuilder()
                 .setId(1)
-                .setUsername("admin alice")
+//                .setUsername("admin alice")
                 .setEmail("alice@taskable.com")
                 .build();
         byte[] expectedBytes = expectedOutput.toByteArray();

@@ -3,6 +3,7 @@ package com.taskable.backend.auth.config;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -33,6 +34,8 @@ public class SecurityConfig {
                                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/auth/login-exchange", "/api/auth/get-temp-csrf").permitAll()
+                        // TURN OFF BELOW LATER
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .logout(logout -> logout
@@ -51,4 +54,5 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 }

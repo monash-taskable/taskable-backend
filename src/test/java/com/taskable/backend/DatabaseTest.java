@@ -1,6 +1,6 @@
 package com.taskable.backend;
-import com.taskable.jooq.tables.records.UsersRecord;
-import com.taskable.jooq.tables.Users;
+import com.taskable.jooq.tables.records.UserRecord;
+import com.taskable.jooq.tables.User;
 import configurations.TestDBConfig;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,16 +26,16 @@ class DatabaseTest {
 
     @Test
     public void testUserTableNotEmpty() {
-        var results = dslContext.select().from(Users.USERS).fetch();
+        var results = dslContext.select().from(User.USER).fetch();
         assertFalse(results.isEmpty(), "Users table should not be empty");
         logger.info(results.format());
     }
 
     @Test
     public void testName() {
-        var userRec = dslContext.select().from(Users.USERS).limit(1).fetchOneInto(UsersRecord.class);
-        var name = userRec.getUsername();
-        assertEquals(name, "johndoe", "Name isn't johndoe");
+        var userRec = dslContext.select().from(User.USER).limit(1).fetchOneInto(UserRecord.class);
+        var name = userRec.getFirstName();
+        assertEquals(name, "john", "Name isn't john");
         logger.info(userRec.format());
     }
 }

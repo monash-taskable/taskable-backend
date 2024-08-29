@@ -4,11 +4,18 @@
 package com.taskable.jooq;
 
 
-import com.taskable.jooq.tables.Projects;
-import com.taskable.jooq.tables.Users;
-import com.taskable.jooq.tables.records.ProjectsRecord;
-import com.taskable.jooq.tables.records.UsersRecord;
+import com.taskable.jooq.tables.Classroom;
+import com.taskable.jooq.tables.ClassroomUser;
+import com.taskable.jooq.tables.Project;
+import com.taskable.jooq.tables.Template;
+import com.taskable.jooq.tables.User;
+import com.taskable.jooq.tables.records.ClassroomRecord;
+import com.taskable.jooq.tables.records.ClassroomUserRecord;
+import com.taskable.jooq.tables.records.ProjectRecord;
+import com.taskable.jooq.tables.records.TemplateRecord;
+import com.taskable.jooq.tables.records.UserRecord;
 
+import org.jooq.ForeignKey;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
@@ -19,16 +26,28 @@ import org.jooq.impl.Internal;
  * A class modelling foreign key relationships and constraints of tables in
  * testdb.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Keys {
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<ProjectsRecord> KEY_PROJECTS_NAME = Internal.createUniqueKey(Projects.PROJECTS, DSL.name("KEY_Projects_name"), new TableField[] { Projects.PROJECTS.NAME }, true);
-    public static final UniqueKey<ProjectsRecord> KEY_PROJECTS_PRIMARY = Internal.createUniqueKey(Projects.PROJECTS, DSL.name("KEY_Projects_PRIMARY"), new TableField[] { Projects.PROJECTS.ID }, true);
-    public static final UniqueKey<UsersRecord> KEY_USERS_EMAIL = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_email"), new TableField[] { Users.USERS.EMAIL }, true);
-    public static final UniqueKey<UsersRecord> KEY_USERS_PRIMARY = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_PRIMARY"), new TableField[] { Users.USERS.ID }, true);
-    public static final UniqueKey<UsersRecord> KEY_USERS_USERNAME = Internal.createUniqueKey(Users.USERS, DSL.name("KEY_Users_username"), new TableField[] { Users.USERS.USERNAME }, true);
+    public static final UniqueKey<ClassroomRecord> KEY_CLASSROOM_PRIMARY = Internal.createUniqueKey(Classroom.CLASSROOM, DSL.name("KEY_classroom_PRIMARY"), new TableField[] { Classroom.CLASSROOM.ID }, true);
+    public static final UniqueKey<ClassroomUserRecord> KEY_CLASSROOM_USER_PRIMARY = Internal.createUniqueKey(ClassroomUser.CLASSROOM_USER, DSL.name("KEY_classroom_user_PRIMARY"), new TableField[] { ClassroomUser.CLASSROOM_USER.USER_ID, ClassroomUser.CLASSROOM_USER.CLASSROOM_ID }, true);
+    public static final UniqueKey<ProjectRecord> KEY_PROJECT_NAME = Internal.createUniqueKey(Project.PROJECT, DSL.name("KEY_project_name"), new TableField[] { Project.PROJECT.NAME }, true);
+    public static final UniqueKey<ProjectRecord> KEY_PROJECT_PRIMARY = Internal.createUniqueKey(Project.PROJECT, DSL.name("KEY_project_PRIMARY"), new TableField[] { Project.PROJECT.ID }, true);
+    public static final UniqueKey<TemplateRecord> KEY_TEMPLATE_PRIMARY = Internal.createUniqueKey(Template.TEMPLATE, DSL.name("KEY_template_PRIMARY"), new TableField[] { Template.TEMPLATE.ID }, true);
+    public static final UniqueKey<UserRecord> KEY_USER_EMAIL = Internal.createUniqueKey(User.USER, DSL.name("KEY_user_email"), new TableField[] { User.USER.EMAIL }, true);
+    public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, DSL.name("KEY_user_PRIMARY"), new TableField[] { User.USER.ID }, true);
+    public static final UniqueKey<UserRecord> KEY_USER_SUB = Internal.createUniqueKey(User.USER, DSL.name("KEY_user_sub"), new TableField[] { User.USER.SUB }, true);
+
+    // -------------------------------------------------------------------------
+    // FOREIGN KEY definitions
+    // -------------------------------------------------------------------------
+
+    public static final ForeignKey<ClassroomUserRecord, UserRecord> CLASSROOM_USER_IBFK_1 = Internal.createForeignKey(ClassroomUser.CLASSROOM_USER, DSL.name("classroom_user_ibfk_1"), new TableField[] { ClassroomUser.CLASSROOM_USER.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
+    public static final ForeignKey<ClassroomUserRecord, ClassroomRecord> CLASSROOM_USER_IBFK_2 = Internal.createForeignKey(ClassroomUser.CLASSROOM_USER, DSL.name("classroom_user_ibfk_2"), new TableField[] { ClassroomUser.CLASSROOM_USER.CLASSROOM_ID }, Keys.KEY_CLASSROOM_PRIMARY, new TableField[] { Classroom.CLASSROOM.ID }, true);
+    public static final ForeignKey<ProjectRecord, TemplateRecord> PROJECT_IBFK_1 = Internal.createForeignKey(Project.PROJECT, DSL.name("project_ibfk_1"), new TableField[] { Project.PROJECT.TEMPLATE_ID }, Keys.KEY_TEMPLATE_PRIMARY, new TableField[] { Template.TEMPLATE.ID }, true);
+    public static final ForeignKey<TemplateRecord, ClassroomRecord> TEMPLATE_IBFK_1 = Internal.createForeignKey(Template.TEMPLATE, DSL.name("template_ibfk_1"), new TableField[] { Template.TEMPLATE.CLASSROOM_ID }, Keys.KEY_CLASSROOM_PRIMARY, new TableField[] { Classroom.CLASSROOM.ID }, true);
 }

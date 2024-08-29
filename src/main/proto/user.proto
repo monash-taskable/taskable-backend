@@ -3,9 +3,18 @@ syntax = "proto3";
 option java_package = "com.taskable.protobufs";
 option java_outer_classname = "UserProto";
 
-message User {
+message GetProfileResponse {
   int32 id = 1;
-  string username = 2;
-  string email = 3;
+  string last_name = 2;
+  string first_name = 3;
+  string email = 4;
+  string color = 5;
+  string theme = 6;
+  string language = 7;
 }
 
+message UpdateProfileRequest {
+  string color = 1;
+  string theme = 2;
+  string language = 3;
+}

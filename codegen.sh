@@ -24,3 +24,4 @@ mvn clean generate-sources
 
 # Stop Docker Compose (removes volumes so db is fresh)
 docker compose down -v
+

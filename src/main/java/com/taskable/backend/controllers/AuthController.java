@@ -1,10 +1,13 @@
 package com.taskable.backend.controllers;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.taskable.backend.auth.CustomUserDetails;
+import com.taskable.backend.repositories.UserRepository;
 import com.taskable.backend.services.GoogleTokenService;
 import com.taskable.protobufs.AuthProto.GetCsrfResponse;
 import com.taskable.protobufs.AuthProto.LoginExchangeRequest;
 import com.taskable.protobufs.AuthProto.LoginExchangeResponse;
+import com.taskable.protobufs.PersistenceProto.User;
 import jakarta.servlet.http.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +15,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -26,41 +31,60 @@ public class AuthController {
 
     private final GoogleTokenService googleTokenService;
 
+    private final UserRepository userRepository;
+
     private final SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
 
     CookieCsrfTokenRepository csrfTokenRepository = CookieCsrfTokenRepository.withHttpOnlyFalse();
 
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
-    public AuthController(GoogleTokenService googleTokenService) {
+    public AuthController(GoogleTokenService googleTokenService, UserRepository userRepository) {
         this.googleTokenService = googleTokenService;
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/login-exchange")
-    public LoginExchangeResponse loginExchange(@RequestBody LoginExchangeRequest req, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public LoginExchangeResponse loginExchange(
+            @RequestBody LoginExchangeRequest req,
+            HttpSession httpSession,
+            HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        // Invalidate and create new session if exists
         httpSession.invalidate();
         HttpSession newSession = request.getSession(true);
 
         String authCode = req.getAuthorizationCode();
 
-        GoogleIdToken idToken = googleTokenService.exchangeAuthorizationCodeForIdToken(authCode);
+        var idTokenPayload = googleTokenService.exchangeAuthorizationCodeForIdToken(authCode).getPayload();
+        Integer userId = userRepository.getUserIdBySub(idTokenPayload.getSubject());
+        if (userId == null) {  // If user not already in database, create
+            String lastName = (String) idTokenPayload.get("family_name");
+            String firstName = (String) idTokenPayload.get("given_name");
+            User user = User.newBuilder()
+                    .setEmail(idTokenPayload.getEmail())
+                    .setSub(idTokenPayload.getSubject())
+                    .setFirstName(firstName != null ? firstName : "")
+                    .setLastName(lastName != null ? lastName : "")
+                    .build();
+            userId = userRepository.storeUser(user);
+        }
+        logger.info("user id from repo:" + String.valueOf(userId));
+        UserDetails userDetails = new CustomUserDetails(userId, idTokenPayload.getSubject());
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-                idToken.getPayload().getSubject(),
+                userDetails,
                 null,
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
         );
 
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
-        securityContextRepository.saveContext(securityContext, request, response);
-
-
+        securityContextRepository.saveContext(securityContext, request, response);  // Persist details in session
         logger.info("SecurityContext after setting authentication: {}", SecurityContextHolder.getContext().getAuthentication());
         logger.info("sent session ID:{}", newSession.getId());
 
         CsrfToken csrfToken = csrfTokenRepository.generateToken(request);
         csrfTokenRepository.saveToken(csrfToken, request, response);
-
         return LoginExchangeResponse.newBuilder().setCsrfToken(csrfToken.getToken()).build();
     }
 
