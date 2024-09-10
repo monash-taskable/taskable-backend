@@ -57,6 +57,7 @@ public class ClassRepository {
                 .from(CLASSROOM)
                 .join(CLASSROOM_USER)
                 .on(CLASSROOM.ID.eq(CLASSROOM_USER.CLASSROOM_ID))
+                .where(CLASSROOM_USER.USER_ID.eq(id))
                 .fetch();
         ArrayList<Pair<Classroom, String>> classRolePairList = new ArrayList<>();
         for (Record record : results) {

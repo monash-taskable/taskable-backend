@@ -24,10 +24,10 @@ public class ClassService {
 
     public GetClassesResponse getClasses(Integer userId) {
         var classesRolesList = classRepository.getClassesRolesByUserId(userId);
-        return GetClassesResponse.newBuilder().addAllResponses(classesRolesList.stream().map(p -> {
-                    var classResponseBuilder = buildClassResponse(p.getLeft());
-                    return classResponseBuilder.setRole(p.getRight()).build();
-                }).toList()).build();
+            return GetClassesResponse.newBuilder().addAllResponses(classesRolesList.stream().map(p -> {
+                        var classResponseBuilder = buildClassResponse(p.getLeft());
+                        return classResponseBuilder.setRole(p.getRight()).build();
+                    }).toList()).build();
 
     }
 

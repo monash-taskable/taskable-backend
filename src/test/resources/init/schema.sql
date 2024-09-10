@@ -15,7 +15,7 @@ CREATE TABLE classroom (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(500),
-    created_at TIMESTAMP NOT NULL,
+    created_at DATETIME NOT NULL,
     archived BOOLEAN DEFAULT FALSE
 );
 
@@ -39,13 +39,65 @@ CREATE TABLE project (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     template_id INTEGER,
     name VARCHAR(255) NOT NULL UNIQUE,
-    created_at TIMESTAMP NOT NULL,
+    created_at DATETIME NOT NULL,
     FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE
 );
+
+CREATE TABLE project_user (
+    user_id INTEGER,
+    project_id INTEGER,
+    PRIMARY KEY (user_id, project_id),
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
+);
+
+CREATE TABLE task (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    project_id INTEGER,
+    title VARCHAR(255),
+    description VARCHAR(500),
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
+);
+
+CREATE TABLE subtask (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    task_id INTEGER,
+    title VARCHAR(255),
+    description VARCHAR(1000),
+    status VARCHAR(20),
+    priority VARCHAR(20),
+    start_date DATETIME NOT NULL,
+    due_date DATETIME,
+    completed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (task_id) REFERENCES task(id) ON DELETE CASCADE
+);
+
+CREATE TABLE subtask_assignee (
+    user_id INTEGER,
+    project_id INTEGER,
+    subtask_id INTEGER,
+    PRIMARY KEY (user_id, project_id, subtask_id),
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
+    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE
+);
+
+CREATE TABLE subtask_comment (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    subtask_id INTEGER,
+    user_id INTEGER,
+    comment VARCHAR(1000),
+    create_date DATETIME,
+    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
 
 INSERT INTO user (id, sub, email, first_name, last_name) VALUES (1, '101', 'testemail', 'john', 'pork');
 INSERT INTO classroom (id, name, created_at) VALUES (1, 'test1', '2024-08-20 14:30:00');
 INSERT INTO classroom_user (user_id, classroom_id, role) VALUES (1, 1, "OWNER");
+
+
 
 
 
