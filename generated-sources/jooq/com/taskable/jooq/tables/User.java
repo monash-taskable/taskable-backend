@@ -8,6 +8,10 @@ import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ClassroomUser.ClassroomUserPath;
+import com.taskable.jooq.tables.Project.ProjectPath;
+import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
+import com.taskable.jooq.tables.SubtaskAssignee.SubtaskAssigneePath;
+import com.taskable.jooq.tables.SubtaskComment.SubtaskCommentPath;
 import com.taskable.jooq.tables.records.UserRecord;
 
 import java.util.Arrays;
@@ -203,12 +207,59 @@ public class User extends TableImpl<UserRecord> {
         return _classroomUser;
     }
 
+    private transient ProjectUserPath _projectUser;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.project_user</code> table
+     */
+    public ProjectUserPath projectUser() {
+        if (_projectUser == null)
+            _projectUser = new ProjectUserPath(this, null, Keys.PROJECT_USER_IBFK_1.getInverseKey());
+
+        return _projectUser;
+    }
+
+    private transient SubtaskAssigneePath _subtaskAssignee;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.subtask_assignee</code> table
+     */
+    public SubtaskAssigneePath subtaskAssignee() {
+        if (_subtaskAssignee == null)
+            _subtaskAssignee = new SubtaskAssigneePath(this, null, Keys.SUBTASK_ASSIGNEE_IBFK_1.getInverseKey());
+
+        return _subtaskAssignee;
+    }
+
+    private transient SubtaskCommentPath _subtaskComment;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.subtask_comment</code> table
+     */
+    public SubtaskCommentPath subtaskComment() {
+        if (_subtaskComment == null)
+            _subtaskComment = new SubtaskCommentPath(this, null, Keys.SUBTASK_COMMENT_IBFK_2.getInverseKey());
+
+        return _subtaskComment;
+    }
+
     /**
      * Get the implicit many-to-many join path to the
      * <code>testdb.classroom</code> table
      */
     public ClassroomPath classroom() {
         return classroomUser().classroom();
+    }
+
+    /**
+     * Get the implicit many-to-many join path to the
+     * <code>testdb.project</code> table
+     */
+    public ProjectPath project() {
+        return projectUser().project();
     }
 
     @Override

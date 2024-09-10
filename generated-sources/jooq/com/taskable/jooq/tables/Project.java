@@ -7,7 +7,11 @@ package com.taskable.jooq.tables;
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
+import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
+import com.taskable.jooq.tables.SubtaskAssignee.SubtaskAssigneePath;
+import com.taskable.jooq.tables.Task.TaskPath;
 import com.taskable.jooq.tables.Template.TemplatePath;
+import com.taskable.jooq.tables.User.UserPath;
 import com.taskable.jooq.tables.records.ProjectRecord;
 
 import java.time.LocalDateTime;
@@ -78,7 +82,7 @@ public class Project extends TableImpl<ProjectRecord> {
     /**
      * The column <code>testdb.project.created_at</code>.
      */
-    public final TableField<ProjectRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<ProjectRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     private Project(Name alias, Table<ProjectRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
@@ -182,6 +186,52 @@ public class Project extends TableImpl<ProjectRecord> {
             _template = new TemplatePath(this, Keys.PROJECT_IBFK_1, null);
 
         return _template;
+    }
+
+    private transient ProjectUserPath _projectUser;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.project_user</code> table
+     */
+    public ProjectUserPath projectUser() {
+        if (_projectUser == null)
+            _projectUser = new ProjectUserPath(this, null, Keys.PROJECT_USER_IBFK_2.getInverseKey());
+
+        return _projectUser;
+    }
+
+    private transient SubtaskAssigneePath _subtaskAssignee;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.subtask_assignee</code> table
+     */
+    public SubtaskAssigneePath subtaskAssignee() {
+        if (_subtaskAssignee == null)
+            _subtaskAssignee = new SubtaskAssigneePath(this, null, Keys.SUBTASK_ASSIGNEE_IBFK_2.getInverseKey());
+
+        return _subtaskAssignee;
+    }
+
+    private transient TaskPath _task;
+
+    /**
+     * Get the implicit to-many join path to the <code>testdb.task</code> table
+     */
+    public TaskPath task() {
+        if (_task == null)
+            _task = new TaskPath(this, null, Keys.TASK_IBFK_1.getInverseKey());
+
+        return _task;
+    }
+
+    /**
+     * Get the implicit many-to-many join path to the <code>testdb.user</code>
+     * table
+     */
+    public UserPath user() {
+        return projectUser().user();
     }
 
     @Override

@@ -2708,6 +2708,2565 @@ public final class ClassroomProto {
 
   }
 
+  public interface AddMemberRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AddMemberRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 member_id = 1;</code>
+     */
+    int getMemberId();
+  }
+  /**
+   * Protobuf type {@code AddMemberRequest}
+   */
+  public  static final class AddMemberRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:AddMemberRequest)
+      AddMemberRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddMemberRequest.newBuilder() to construct.
+    private AddMemberRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddMemberRequest() {
+      memberId_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddMemberRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              memberId_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_AddMemberRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_AddMemberRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.ClassroomProto.AddMemberRequest.class, com.taskable.protobufs.ClassroomProto.AddMemberRequest.Builder.class);
+    }
+
+    public static final int MEMBER_ID_FIELD_NUMBER = 1;
+    private int memberId_;
+    /**
+     * <code>int32 member_id = 1;</code>
+     */
+    public int getMemberId() {
+      return memberId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (memberId_ != 0) {
+        output.writeInt32(1, memberId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (memberId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, memberId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.ClassroomProto.AddMemberRequest)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.ClassroomProto.AddMemberRequest other = (com.taskable.protobufs.ClassroomProto.AddMemberRequest) obj;
+
+      boolean result = true;
+      result = result && (getMemberId()
+          == other.getMemberId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MEMBER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getMemberId();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.ClassroomProto.AddMemberRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code AddMemberRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AddMemberRequest)
+        com.taskable.protobufs.ClassroomProto.AddMemberRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_AddMemberRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_AddMemberRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.ClassroomProto.AddMemberRequest.class, com.taskable.protobufs.ClassroomProto.AddMemberRequest.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.ClassroomProto.AddMemberRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        memberId_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_AddMemberRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.AddMemberRequest getDefaultInstanceForType() {
+        return com.taskable.protobufs.ClassroomProto.AddMemberRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.AddMemberRequest build() {
+        com.taskable.protobufs.ClassroomProto.AddMemberRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.AddMemberRequest buildPartial() {
+        com.taskable.protobufs.ClassroomProto.AddMemberRequest result = new com.taskable.protobufs.ClassroomProto.AddMemberRequest(this);
+        result.memberId_ = memberId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.ClassroomProto.AddMemberRequest) {
+          return mergeFrom((com.taskable.protobufs.ClassroomProto.AddMemberRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.ClassroomProto.AddMemberRequest other) {
+        if (other == com.taskable.protobufs.ClassroomProto.AddMemberRequest.getDefaultInstance()) return this;
+        if (other.getMemberId() != 0) {
+          setMemberId(other.getMemberId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.taskable.protobufs.ClassroomProto.AddMemberRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.taskable.protobufs.ClassroomProto.AddMemberRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int memberId_ ;
+      /**
+       * <code>int32 member_id = 1;</code>
+       */
+      public int getMemberId() {
+        return memberId_;
+      }
+      /**
+       * <code>int32 member_id = 1;</code>
+       */
+      public Builder setMemberId(int value) {
+        
+        memberId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 member_id = 1;</code>
+       */
+      public Builder clearMemberId() {
+        
+        memberId_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:AddMemberRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:AddMemberRequest)
+    private static final com.taskable.protobufs.ClassroomProto.AddMemberRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.ClassroomProto.AddMemberRequest();
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.AddMemberRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddMemberRequest>
+        PARSER = new com.google.protobuf.AbstractParser<AddMemberRequest>() {
+      @java.lang.Override
+      public AddMemberRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddMemberRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddMemberRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddMemberRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.ClassroomProto.AddMemberRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetMembersResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetMembersResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember> 
+        getClassMembersList();
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    com.taskable.protobufs.PersistenceProto.ClassroomMember getClassMembers(int index);
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    int getClassMembersCount();
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    java.util.List<? extends com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder> 
+        getClassMembersOrBuilderList();
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder getClassMembersOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code GetMembersResponse}
+   */
+  public  static final class GetMembersResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetMembersResponse)
+      GetMembersResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetMembersResponse.newBuilder() to construct.
+    private GetMembersResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetMembersResponse() {
+      classMembers_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetMembersResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                classMembers_ = new java.util.ArrayList<com.taskable.protobufs.PersistenceProto.ClassroomMember>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              classMembers_.add(
+                  input.readMessage(com.taskable.protobufs.PersistenceProto.ClassroomMember.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          classMembers_ = java.util.Collections.unmodifiableList(classMembers_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_GetMembersResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_GetMembersResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.ClassroomProto.GetMembersResponse.class, com.taskable.protobufs.ClassroomProto.GetMembersResponse.Builder.class);
+    }
+
+    public static final int CLASS_MEMBERS_FIELD_NUMBER = 1;
+    private java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember> classMembers_;
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    public java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember> getClassMembersList() {
+      return classMembers_;
+    }
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    public java.util.List<? extends com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder> 
+        getClassMembersOrBuilderList() {
+      return classMembers_;
+    }
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    public int getClassMembersCount() {
+      return classMembers_.size();
+    }
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    public com.taskable.protobufs.PersistenceProto.ClassroomMember getClassMembers(int index) {
+      return classMembers_.get(index);
+    }
+    /**
+     * <code>repeated .ClassroomMember class_members = 1;</code>
+     */
+    public com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder getClassMembersOrBuilder(
+        int index) {
+      return classMembers_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < classMembers_.size(); i++) {
+        output.writeMessage(1, classMembers_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < classMembers_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, classMembers_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.ClassroomProto.GetMembersResponse)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.ClassroomProto.GetMembersResponse other = (com.taskable.protobufs.ClassroomProto.GetMembersResponse) obj;
+
+      boolean result = true;
+      result = result && getClassMembersList()
+          .equals(other.getClassMembersList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getClassMembersCount() > 0) {
+        hash = (37 * hash) + CLASS_MEMBERS_FIELD_NUMBER;
+        hash = (53 * hash) + getClassMembersList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.ClassroomProto.GetMembersResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetMembersResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetMembersResponse)
+        com.taskable.protobufs.ClassroomProto.GetMembersResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_GetMembersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_GetMembersResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.ClassroomProto.GetMembersResponse.class, com.taskable.protobufs.ClassroomProto.GetMembersResponse.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.ClassroomProto.GetMembersResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getClassMembersFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (classMembersBuilder_ == null) {
+          classMembers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          classMembersBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_GetMembersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.GetMembersResponse getDefaultInstanceForType() {
+        return com.taskable.protobufs.ClassroomProto.GetMembersResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.GetMembersResponse build() {
+        com.taskable.protobufs.ClassroomProto.GetMembersResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.GetMembersResponse buildPartial() {
+        com.taskable.protobufs.ClassroomProto.GetMembersResponse result = new com.taskable.protobufs.ClassroomProto.GetMembersResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (classMembersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            classMembers_ = java.util.Collections.unmodifiableList(classMembers_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.classMembers_ = classMembers_;
+        } else {
+          result.classMembers_ = classMembersBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.ClassroomProto.GetMembersResponse) {
+          return mergeFrom((com.taskable.protobufs.ClassroomProto.GetMembersResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.ClassroomProto.GetMembersResponse other) {
+        if (other == com.taskable.protobufs.ClassroomProto.GetMembersResponse.getDefaultInstance()) return this;
+        if (classMembersBuilder_ == null) {
+          if (!other.classMembers_.isEmpty()) {
+            if (classMembers_.isEmpty()) {
+              classMembers_ = other.classMembers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureClassMembersIsMutable();
+              classMembers_.addAll(other.classMembers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.classMembers_.isEmpty()) {
+            if (classMembersBuilder_.isEmpty()) {
+              classMembersBuilder_.dispose();
+              classMembersBuilder_ = null;
+              classMembers_ = other.classMembers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              classMembersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClassMembersFieldBuilder() : null;
+            } else {
+              classMembersBuilder_.addAllMessages(other.classMembers_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.taskable.protobufs.ClassroomProto.GetMembersResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.taskable.protobufs.ClassroomProto.GetMembersResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember> classMembers_ =
+        java.util.Collections.emptyList();
+      private void ensureClassMembersIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          classMembers_ = new java.util.ArrayList<com.taskable.protobufs.PersistenceProto.ClassroomMember>(classMembers_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.ClassroomMember, com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder, com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder> classMembersBuilder_;
+
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember> getClassMembersList() {
+        if (classMembersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(classMembers_);
+        } else {
+          return classMembersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public int getClassMembersCount() {
+        if (classMembersBuilder_ == null) {
+          return classMembers_.size();
+        } else {
+          return classMembersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.ClassroomMember getClassMembers(int index) {
+        if (classMembersBuilder_ == null) {
+          return classMembers_.get(index);
+        } else {
+          return classMembersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder setClassMembers(
+          int index, com.taskable.protobufs.PersistenceProto.ClassroomMember value) {
+        if (classMembersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClassMembersIsMutable();
+          classMembers_.set(index, value);
+          onChanged();
+        } else {
+          classMembersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder setClassMembers(
+          int index, com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder builderForValue) {
+        if (classMembersBuilder_ == null) {
+          ensureClassMembersIsMutable();
+          classMembers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          classMembersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder addClassMembers(com.taskable.protobufs.PersistenceProto.ClassroomMember value) {
+        if (classMembersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClassMembersIsMutable();
+          classMembers_.add(value);
+          onChanged();
+        } else {
+          classMembersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder addClassMembers(
+          int index, com.taskable.protobufs.PersistenceProto.ClassroomMember value) {
+        if (classMembersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClassMembersIsMutable();
+          classMembers_.add(index, value);
+          onChanged();
+        } else {
+          classMembersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder addClassMembers(
+          com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder builderForValue) {
+        if (classMembersBuilder_ == null) {
+          ensureClassMembersIsMutable();
+          classMembers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          classMembersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder addClassMembers(
+          int index, com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder builderForValue) {
+        if (classMembersBuilder_ == null) {
+          ensureClassMembersIsMutable();
+          classMembers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          classMembersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder addAllClassMembers(
+          java.lang.Iterable<? extends com.taskable.protobufs.PersistenceProto.ClassroomMember> values) {
+        if (classMembersBuilder_ == null) {
+          ensureClassMembersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, classMembers_);
+          onChanged();
+        } else {
+          classMembersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder clearClassMembers() {
+        if (classMembersBuilder_ == null) {
+          classMembers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          classMembersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public Builder removeClassMembers(int index) {
+        if (classMembersBuilder_ == null) {
+          ensureClassMembersIsMutable();
+          classMembers_.remove(index);
+          onChanged();
+        } else {
+          classMembersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder getClassMembersBuilder(
+          int index) {
+        return getClassMembersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder getClassMembersOrBuilder(
+          int index) {
+        if (classMembersBuilder_ == null) {
+          return classMembers_.get(index);  } else {
+          return classMembersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public java.util.List<? extends com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder> 
+           getClassMembersOrBuilderList() {
+        if (classMembersBuilder_ != null) {
+          return classMembersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(classMembers_);
+        }
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder addClassMembersBuilder() {
+        return getClassMembersFieldBuilder().addBuilder(
+            com.taskable.protobufs.PersistenceProto.ClassroomMember.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder addClassMembersBuilder(
+          int index) {
+        return getClassMembersFieldBuilder().addBuilder(
+            index, com.taskable.protobufs.PersistenceProto.ClassroomMember.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ClassroomMember class_members = 1;</code>
+       */
+      public java.util.List<com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder> 
+           getClassMembersBuilderList() {
+        return getClassMembersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.ClassroomMember, com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder, com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder> 
+          getClassMembersFieldBuilder() {
+        if (classMembersBuilder_ == null) {
+          classMembersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.taskable.protobufs.PersistenceProto.ClassroomMember, com.taskable.protobufs.PersistenceProto.ClassroomMember.Builder, com.taskable.protobufs.PersistenceProto.ClassroomMemberOrBuilder>(
+                  classMembers_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          classMembers_ = null;
+        }
+        return classMembersBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetMembersResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetMembersResponse)
+    private static final com.taskable.protobufs.ClassroomProto.GetMembersResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.ClassroomProto.GetMembersResponse();
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.GetMembersResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetMembersResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetMembersResponse>() {
+      @java.lang.Override
+      public GetMembersResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetMembersResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetMembersResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetMembersResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.ClassroomProto.GetMembersResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UpdateMemberRoleRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UpdateMemberRoleRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string role = 1;</code>
+     */
+    java.lang.String getRole();
+    /**
+     * <code>string role = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoleBytes();
+  }
+  /**
+   * Protobuf type {@code UpdateMemberRoleRequest}
+   */
+  public  static final class UpdateMemberRoleRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:UpdateMemberRoleRequest)
+      UpdateMemberRoleRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UpdateMemberRoleRequest.newBuilder() to construct.
+    private UpdateMemberRoleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UpdateMemberRoleRequest() {
+      role_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UpdateMemberRoleRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              role_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_UpdateMemberRoleRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_UpdateMemberRoleRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.class, com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.Builder.class);
+    }
+
+    public static final int ROLE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object role_;
+    /**
+     * <code>string role = 1;</code>
+     */
+    public java.lang.String getRole() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        role_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string role = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoleBytes() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        role_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getRoleBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, role_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getRoleBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, role_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest other = (com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest) obj;
+
+      boolean result = true;
+      result = result && getRole()
+          .equals(other.getRole());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + getRole().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code UpdateMemberRoleRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:UpdateMemberRoleRequest)
+        com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateMemberRoleRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateMemberRoleRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.class, com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        role_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateMemberRoleRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest getDefaultInstanceForType() {
+        return com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest build() {
+        com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest buildPartial() {
+        com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest result = new com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest(this);
+        result.role_ = role_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest) {
+          return mergeFrom((com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest other) {
+        if (other == com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest.getDefaultInstance()) return this;
+        if (!other.getRole().isEmpty()) {
+          role_ = other.role_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object role_ = "";
+      /**
+       * <code>string role = 1;</code>
+       */
+      public java.lang.String getRole() {
+        java.lang.Object ref = role_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          role_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string role = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoleBytes() {
+        java.lang.Object ref = role_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          role_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string role = 1;</code>
+       */
+      public Builder setRole(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string role = 1;</code>
+       */
+      public Builder clearRole() {
+        
+        role_ = getDefaultInstance().getRole();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string role = 1;</code>
+       */
+      public Builder setRoleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:UpdateMemberRoleRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:UpdateMemberRoleRequest)
+    private static final com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest();
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UpdateMemberRoleRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateMemberRoleRequest>() {
+      @java.lang.Override
+      public UpdateMemberRoleRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UpdateMemberRoleRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UpdateMemberRoleRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpdateMemberRoleRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.ClassroomProto.UpdateMemberRoleRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UpdateClassRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UpdateClassRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string class_name = 1;</code>
+     */
+    java.lang.String getClassName();
+    /**
+     * <code>string class_name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getClassNameBytes();
+
+    /**
+     * <code>string class_desc = 2;</code>
+     */
+    java.lang.String getClassDesc();
+    /**
+     * <code>string class_desc = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getClassDescBytes();
+
+    /**
+     * <code>bool archived = 3;</code>
+     */
+    boolean getArchived();
+  }
+  /**
+   * Protobuf type {@code UpdateClassRequest}
+   */
+  public  static final class UpdateClassRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:UpdateClassRequest)
+      UpdateClassRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UpdateClassRequest.newBuilder() to construct.
+    private UpdateClassRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UpdateClassRequest() {
+      className_ = "";
+      classDesc_ = "";
+      archived_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UpdateClassRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              className_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              classDesc_ = s;
+              break;
+            }
+            case 24: {
+
+              archived_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_UpdateClassRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.ClassroomProto.internal_static_UpdateClassRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.ClassroomProto.UpdateClassRequest.class, com.taskable.protobufs.ClassroomProto.UpdateClassRequest.Builder.class);
+    }
+
+    public static final int CLASS_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object className_;
+    /**
+     * <code>string class_name = 1;</code>
+     */
+    public java.lang.String getClassName() {
+      java.lang.Object ref = className_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        className_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string class_name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getClassNameBytes() {
+      java.lang.Object ref = className_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        className_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLASS_DESC_FIELD_NUMBER = 2;
+    private volatile java.lang.Object classDesc_;
+    /**
+     * <code>string class_desc = 2;</code>
+     */
+    public java.lang.String getClassDesc() {
+      java.lang.Object ref = classDesc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        classDesc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string class_desc = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getClassDescBytes() {
+      java.lang.Object ref = classDesc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        classDesc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARCHIVED_FIELD_NUMBER = 3;
+    private boolean archived_;
+    /**
+     * <code>bool archived = 3;</code>
+     */
+    public boolean getArchived() {
+      return archived_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getClassNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, className_);
+      }
+      if (!getClassDescBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, classDesc_);
+      }
+      if (archived_ != false) {
+        output.writeBool(3, archived_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getClassNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, className_);
+      }
+      if (!getClassDescBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, classDesc_);
+      }
+      if (archived_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, archived_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.ClassroomProto.UpdateClassRequest)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.ClassroomProto.UpdateClassRequest other = (com.taskable.protobufs.ClassroomProto.UpdateClassRequest) obj;
+
+      boolean result = true;
+      result = result && getClassName()
+          .equals(other.getClassName());
+      result = result && getClassDesc()
+          .equals(other.getClassDesc());
+      result = result && (getArchived()
+          == other.getArchived());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getClassName().hashCode();
+      hash = (37 * hash) + CLASS_DESC_FIELD_NUMBER;
+      hash = (53 * hash) + getClassDesc().hashCode();
+      hash = (37 * hash) + ARCHIVED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getArchived());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.ClassroomProto.UpdateClassRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code UpdateClassRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:UpdateClassRequest)
+        com.taskable.protobufs.ClassroomProto.UpdateClassRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateClassRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateClassRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.ClassroomProto.UpdateClassRequest.class, com.taskable.protobufs.ClassroomProto.UpdateClassRequest.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.ClassroomProto.UpdateClassRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        className_ = "";
+
+        classDesc_ = "";
+
+        archived_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.ClassroomProto.internal_static_UpdateClassRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateClassRequest getDefaultInstanceForType() {
+        return com.taskable.protobufs.ClassroomProto.UpdateClassRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateClassRequest build() {
+        com.taskable.protobufs.ClassroomProto.UpdateClassRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.ClassroomProto.UpdateClassRequest buildPartial() {
+        com.taskable.protobufs.ClassroomProto.UpdateClassRequest result = new com.taskable.protobufs.ClassroomProto.UpdateClassRequest(this);
+        result.className_ = className_;
+        result.classDesc_ = classDesc_;
+        result.archived_ = archived_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.ClassroomProto.UpdateClassRequest) {
+          return mergeFrom((com.taskable.protobufs.ClassroomProto.UpdateClassRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.ClassroomProto.UpdateClassRequest other) {
+        if (other == com.taskable.protobufs.ClassroomProto.UpdateClassRequest.getDefaultInstance()) return this;
+        if (!other.getClassName().isEmpty()) {
+          className_ = other.className_;
+          onChanged();
+        }
+        if (!other.getClassDesc().isEmpty()) {
+          classDesc_ = other.classDesc_;
+          onChanged();
+        }
+        if (other.getArchived() != false) {
+          setArchived(other.getArchived());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.taskable.protobufs.ClassroomProto.UpdateClassRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.taskable.protobufs.ClassroomProto.UpdateClassRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object className_ = "";
+      /**
+       * <code>string class_name = 1;</code>
+       */
+      public java.lang.String getClassName() {
+        java.lang.Object ref = className_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          className_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string class_name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getClassNameBytes() {
+        java.lang.Object ref = className_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          className_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string class_name = 1;</code>
+       */
+      public Builder setClassName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        className_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string class_name = 1;</code>
+       */
+      public Builder clearClassName() {
+        
+        className_ = getDefaultInstance().getClassName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string class_name = 1;</code>
+       */
+      public Builder setClassNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        className_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object classDesc_ = "";
+      /**
+       * <code>string class_desc = 2;</code>
+       */
+      public java.lang.String getClassDesc() {
+        java.lang.Object ref = classDesc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          classDesc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string class_desc = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getClassDescBytes() {
+        java.lang.Object ref = classDesc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          classDesc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string class_desc = 2;</code>
+       */
+      public Builder setClassDesc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        classDesc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string class_desc = 2;</code>
+       */
+      public Builder clearClassDesc() {
+        
+        classDesc_ = getDefaultInstance().getClassDesc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string class_desc = 2;</code>
+       */
+      public Builder setClassDescBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        classDesc_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean archived_ ;
+      /**
+       * <code>bool archived = 3;</code>
+       */
+      public boolean getArchived() {
+        return archived_;
+      }
+      /**
+       * <code>bool archived = 3;</code>
+       */
+      public Builder setArchived(boolean value) {
+        
+        archived_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool archived = 3;</code>
+       */
+      public Builder clearArchived() {
+        
+        archived_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:UpdateClassRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:UpdateClassRequest)
+    private static final com.taskable.protobufs.ClassroomProto.UpdateClassRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.ClassroomProto.UpdateClassRequest();
+    }
+
+    public static com.taskable.protobufs.ClassroomProto.UpdateClassRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UpdateClassRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateClassRequest>() {
+      @java.lang.Override
+      public UpdateClassRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UpdateClassRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UpdateClassRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpdateClassRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.ClassroomProto.UpdateClassRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CreateClassRequest_descriptor;
   private static final 
@@ -2723,6 +5282,26 @@ public final class ClassroomProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetClassResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AddMemberRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AddMemberRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetMembersResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetMembersResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateMemberRoleRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateMemberRoleRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateClassRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateClassRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2732,15 +5311,21 @@ public final class ClassroomProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017classroom.proto\"O\n\022CreateClassRequest\022" +
-      "\022\n\nclass_name\030\001 \001(\t\022\022\n\nclass_desc\030\002 \001(\t\022" +
-      "\021\n\ttimestamp\030\003 \001(\t\":\n\022GetClassesResponse" +
-      "\022$\n\tresponses\030\001 \003(\0132\021.GetClassResponse\"z" +
-      "\n\020GetClassResponse\022\n\n\002id\030\001 \001(\005\022\022\n\nclass_" +
-      "name\030\002 \001(\t\022\022\n\nclass_desc\030\003 \001(\t\022\014\n\004role\030\004" +
-      " \001(\t\022\020\n\010archived\030\005 \001(\010\022\022\n\ncreated_at\030\006 \001" +
-      "(\tB(\n\026com.taskable.protobufsB\016ClassroomP" +
-      "rotob\006proto3"
+      "\n\017classroom.proto\032\021persistence.proto\"O\n\022" +
+      "CreateClassRequest\022\022\n\nclass_name\030\001 \001(\t\022\022" +
+      "\n\nclass_desc\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\t\":\n" +
+      "\022GetClassesResponse\022$\n\tresponses\030\001 \003(\0132\021" +
+      ".GetClassResponse\"z\n\020GetClassResponse\022\n\n" +
+      "\002id\030\001 \001(\005\022\022\n\nclass_name\030\002 \001(\t\022\022\n\nclass_d" +
+      "esc\030\003 \001(\t\022\014\n\004role\030\004 \001(\t\022\020\n\010archived\030\005 \001(" +
+      "\010\022\022\n\ncreated_at\030\006 \001(\t\"%\n\020AddMemberReques" +
+      "t\022\021\n\tmember_id\030\001 \001(\005\"=\n\022GetMembersRespon" +
+      "se\022\'\n\rclass_members\030\001 \003(\0132\020.ClassroomMem" +
+      "ber\"\'\n\027UpdateMemberRoleRequest\022\014\n\004role\030\001" +
+      " \001(\t\"N\n\022UpdateClassRequest\022\022\n\nclass_name" +
+      "\030\001 \001(\t\022\022\n\nclass_desc\030\002 \001(\t\022\020\n\010archived\030\003" +
+      " \001(\010B(\n\026com.taskable.protobufsB\016Classroo" +
+      "mProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2753,6 +5338,7 @@ public final class ClassroomProto {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.taskable.protobufs.PersistenceProto.getDescriptor(),
         }, assigner);
     internal_static_CreateClassRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2772,6 +5358,31 @@ public final class ClassroomProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetClassResponse_descriptor,
         new java.lang.String[] { "Id", "ClassName", "ClassDesc", "Role", "Archived", "CreatedAt", });
+    internal_static_AddMemberRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_AddMemberRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AddMemberRequest_descriptor,
+        new java.lang.String[] { "MemberId", });
+    internal_static_GetMembersResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_GetMembersResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetMembersResponse_descriptor,
+        new java.lang.String[] { "ClassMembers", });
+    internal_static_UpdateMemberRoleRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_UpdateMemberRoleRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateMemberRoleRequest_descriptor,
+        new java.lang.String[] { "Role", });
+    internal_static_UpdateClassRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_UpdateClassRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateClassRequest_descriptor,
+        new java.lang.String[] { "ClassName", "ClassDesc", "Archived", });
+    com.taskable.protobufs.PersistenceProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -7,6 +7,11 @@ package com.taskable.jooq;
 import com.taskable.jooq.tables.Classroom;
 import com.taskable.jooq.tables.ClassroomUser;
 import com.taskable.jooq.tables.Project;
+import com.taskable.jooq.tables.ProjectUser;
+import com.taskable.jooq.tables.Subtask;
+import com.taskable.jooq.tables.SubtaskAssignee;
+import com.taskable.jooq.tables.SubtaskComment;
+import com.taskable.jooq.tables.Task;
 import com.taskable.jooq.tables.Template;
 import com.taskable.jooq.tables.User;
 
@@ -47,6 +52,31 @@ public class Testdb extends SchemaImpl {
     public final Project PROJECT = Project.PROJECT;
 
     /**
+     * The table <code>testdb.project_user</code>.
+     */
+    public final ProjectUser PROJECT_USER = ProjectUser.PROJECT_USER;
+
+    /**
+     * The table <code>testdb.subtask</code>.
+     */
+    public final Subtask SUBTASK = Subtask.SUBTASK;
+
+    /**
+     * The table <code>testdb.subtask_assignee</code>.
+     */
+    public final SubtaskAssignee SUBTASK_ASSIGNEE = SubtaskAssignee.SUBTASK_ASSIGNEE;
+
+    /**
+     * The table <code>testdb.subtask_comment</code>.
+     */
+    public final SubtaskComment SUBTASK_COMMENT = SubtaskComment.SUBTASK_COMMENT;
+
+    /**
+     * The table <code>testdb.task</code>.
+     */
+    public final Task TASK = Task.TASK;
+
+    /**
      * The table <code>testdb.template</code>.
      */
     public final Template TEMPLATE = Template.TEMPLATE;
@@ -75,6 +105,11 @@ public class Testdb extends SchemaImpl {
             Classroom.CLASSROOM,
             ClassroomUser.CLASSROOM_USER,
             Project.PROJECT,
+            ProjectUser.PROJECT_USER,
+            Subtask.SUBTASK,
+            SubtaskAssignee.SUBTASK_ASSIGNEE,
+            SubtaskComment.SUBTASK_COMMENT,
+            Task.TASK,
             Template.TEMPLATE,
             User.USER
         );

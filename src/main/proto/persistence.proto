@@ -22,3 +22,10 @@ message Classroom {
   string created_at = 4;
   bool archived = 5;
 }
+
+message ClassroomMember {
+  int32 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string role = 4;
+}

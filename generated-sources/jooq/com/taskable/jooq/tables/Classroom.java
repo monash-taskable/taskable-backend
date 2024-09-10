@@ -76,7 +76,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     /**
      * The column <code>testdb.classroom.created_at</code>.
      */
-    public final TableField<ClassroomRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field(DSL.raw("CURRENT_TIMESTAMP"), SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<ClassroomRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
      * The column <code>testdb.classroom.archived</code>.

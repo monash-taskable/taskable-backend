@@ -1,15 +1,13 @@
 package com.taskable.backend.services;
 
-import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.repositories.ClassRepository;
+import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
 import com.taskable.protobufs.ClassroomProto.GetClassesResponse;
 import com.taskable.protobufs.ClassroomProto.CreateClassRequest;
 import com.taskable.protobufs.ClassroomProto.GetClassResponse;
 import com.taskable.protobufs.PersistenceProto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class ClassService {
@@ -23,7 +21,7 @@ public class ClassService {
     }
 
     public GetClassesResponse getClasses(Integer userId) {
-        var classesRolesList = classRepository.getClassesRolesByUserId(userId);
+        var classesRolesList = classRepository.getClassesAndRolesByUserId(userId);
             return GetClassesResponse.newBuilder().addAllResponses(classesRolesList.stream().map(p -> {
                         var classResponseBuilder = buildClassResponse(p.getLeft());
                         return classResponseBuilder.setRole(p.getRight()).build();
@@ -39,5 +37,22 @@ public class ClassService {
                 .setRole("OWNER")
                 .setArchived(classroom.getArchived())
                 .setCreatedAt(classroom.getCreatedAt());
+    }
+
+    public boolean addMemberToClass(Integer assignerId, Integer assigneeId, Integer classId) {
+        // assignerId potentially used for logging
+        return classRepository.addUserToClass(assigneeId, classId, "STUDENT");
+    }
+
+    public GetMembersResponse getMembersInClass(Integer classId) {
+        return GetMembersResponse.newBuilder().addAllClassMembers(classRepository.getMembersFromClass(classId)).build();
+    }
+
+    public void deleteMemberFromClass(Integer memberId, Integer classId) {
+        classRepository.deleteMemberFromClass(memberId, classId);
+    }
+
+    public void updateMemberRoleInClass(Integer memberId, Integer classId, String role) {
+        classRepository.updateMemberRole(memberId, classId, role);
     }
 }

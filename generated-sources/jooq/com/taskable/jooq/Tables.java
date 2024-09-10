@@ -7,6 +7,11 @@ package com.taskable.jooq;
 import com.taskable.jooq.tables.Classroom;
 import com.taskable.jooq.tables.ClassroomUser;
 import com.taskable.jooq.tables.Project;
+import com.taskable.jooq.tables.ProjectUser;
+import com.taskable.jooq.tables.Subtask;
+import com.taskable.jooq.tables.SubtaskAssignee;
+import com.taskable.jooq.tables.SubtaskComment;
+import com.taskable.jooq.tables.Task;
 import com.taskable.jooq.tables.Template;
 import com.taskable.jooq.tables.User;
 
@@ -31,6 +36,31 @@ public class Tables {
      * The table <code>testdb.project</code>.
      */
     public static final Project PROJECT = Project.PROJECT;
+
+    /**
+     * The table <code>testdb.project_user</code>.
+     */
+    public static final ProjectUser PROJECT_USER = ProjectUser.PROJECT_USER;
+
+    /**
+     * The table <code>testdb.subtask</code>.
+     */
+    public static final Subtask SUBTASK = Subtask.SUBTASK;
+
+    /**
+     * The table <code>testdb.subtask_assignee</code>.
+     */
+    public static final SubtaskAssignee SUBTASK_ASSIGNEE = SubtaskAssignee.SUBTASK_ASSIGNEE;
+
+    /**
+     * The table <code>testdb.subtask_comment</code>.
+     */
+    public static final SubtaskComment SUBTASK_COMMENT = SubtaskComment.SUBTASK_COMMENT;
+
+    /**
+     * The table <code>testdb.task</code>.
+     */
+    public static final Task TASK = Task.TASK;
 
     /**
      * The table <code>testdb.template</code>.

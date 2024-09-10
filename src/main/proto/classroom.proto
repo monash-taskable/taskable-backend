@@ -3,6 +3,8 @@ syntax = "proto3";
 option java_package = "com.taskable.protobufs";
 option java_outer_classname = "ClassroomProto";
 
+import "persistence.proto";
+
 message CreateClassRequest {
   string class_name = 1;
   string class_desc = 2;
@@ -21,3 +23,22 @@ message GetClassResponse {
   bool archived = 5;
   string created_at = 6;
 }
+
+message AddMemberRequest {
+  int32 member_id = 1;
+}
+
+message GetMembersResponse {
+  repeated ClassroomMember class_members = 1;
+}
+
+message UpdateMemberRoleRequest {
+  string role = 1;
+}
+
+message UpdateClassRequest {
+  string class_name = 1;
+  string class_desc = 2;
+  bool archived = 3;
+}
+
