@@ -16,16 +16,16 @@ message GetClassesResponse {
 }
 
 message GetClassResponse {
-  int32 id = 1;
-  string class_name = 2;
-  string class_desc = 3;
-  string role = 4;
-  bool archived = 5;
-  string created_at = 6;
+  Classroom classroom = 1;
+  string role = 2;
 }
 
-message AddMemberRequest {
-  int32 member_id = 1;
+message AddMembersRequest {
+  repeated string user_emails = 1;
+}
+
+message AddMembersResponse {
+  repeated string invalid_emails = 1;
 }
 
 message GetMembersResponse {
@@ -41,4 +41,5 @@ message UpdateClassRequest {
   string class_desc = 2;
   bool archived = 3;
 }
+
 

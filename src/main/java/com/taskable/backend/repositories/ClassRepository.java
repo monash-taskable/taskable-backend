@@ -1,8 +1,10 @@
 package com.taskable.backend.repositories;
 
 import com.google.common.collect.ImmutableList;
+import com.taskable.backend.exception_handling.NotFoundOnNull;
 import com.taskable.backend.utils.DbMapper;
 import com.taskable.backend.utils.DbUtils;
+import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.ClassroomMember;
 import com.taskable.protobufs.PersistenceProto.Classroom;
 import org.apache.commons.lang3.tuple.Pair;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.taskable.jooq.tables.User.USER;
 import static com.taskable.jooq.tables.Classroom.CLASSROOM;
@@ -40,12 +43,21 @@ public class ClassRepository {
                 .set(CLASSROOM.DESCRIPTION, description)
                 .set(CLASSROOM.ARCHIVED, (byte) 0)
                 .returning()
-                .fetchOne();
+                .fetchOneInto(CLASSROOM);
         logger.info(res != null ? res.toString() : "storeClass record returned is null");
 
         addUserToClass(userId, res.getId(), "OWNER");
 
         return DbMapper.map(res);
+    }
+
+    @NotFoundOnNull(message = "Resource not found")
+    public Classroom getClassById(Integer classId) {
+        var rec = dsl.select(CLASSROOM.fields())
+                .from(CLASSROOM)
+                .where(CLASSROOM.ID.eq(classId))
+                .fetchOneInto(CLASSROOM);
+        return rec != null ? DbMapper.map(rec) : null;
     }
 
     public boolean addUserToClass(Integer userId, Integer classId, String role) {
@@ -66,13 +78,13 @@ public class ClassRepository {
                 .fetchOneInto(String.class);
     }
 
-    public List<Pair<Classroom, String>> getClassesAndRolesByUserId(Integer id) {
+    public List<Pair<Classroom, String>> getClassesAndRolesByUserId(Integer userId) {
         var results = dsl.select(CLASSROOM.fields())
                 .select(CLASSROOM_USER.ROLE)
                 .from(CLASSROOM)
                 .join(CLASSROOM_USER)
                 .on(CLASSROOM.ID.eq(CLASSROOM_USER.CLASSROOM_ID))
-                .where(CLASSROOM_USER.USER_ID.eq(id))
+                .where(CLASSROOM_USER.USER_ID.eq(userId))
                 .fetch();
         ArrayList<Pair<Classroom, String>> classRolePairList = new ArrayList<>();
         for (Record record : results) {
@@ -99,8 +111,12 @@ public class ClassRepository {
                 .fetch()
                 .map(record -> ClassroomMember.newBuilder()
                         .setId(record.get(CLASSROOM_USER.USER_ID))
-                        .setFirstName(record.get(USER.FIRST_NAME))
-                        .setLastName(record.get(USER.LAST_NAME))
+                        .setBasicInfo(
+                                BasicInfo.newBuilder()
+                                        .setFirstName(record.get(USER.FIRST_NAME))
+                                        .setLastName(record.get(USER.LAST_NAME))
+                                        .build()
+                        )
                         .setRole(record.get(CLASSROOM_USER.ROLE))
                         .build());
     }

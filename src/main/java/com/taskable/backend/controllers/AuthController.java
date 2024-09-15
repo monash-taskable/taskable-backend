@@ -1,12 +1,12 @@
 package com.taskable.backend.controllers;
 
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.repositories.UserRepository;
 import com.taskable.backend.services.GoogleTokenService;
 import com.taskable.protobufs.AuthProto.GetCsrfResponse;
 import com.taskable.protobufs.AuthProto.LoginExchangeRequest;
 import com.taskable.protobufs.AuthProto.LoginExchangeResponse;
+import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.User;
 import jakarta.servlet.http.*;
 import org.slf4j.Logger;
@@ -16,7 +16,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -62,12 +61,13 @@ public class AuthController {
             String lastName = (String) idTokenPayload.get("family_name");
             String firstName = (String) idTokenPayload.get("given_name");
             User user = User.newBuilder()
-                    .setEmail(idTokenPayload.getEmail())
-                    .setSub(idTokenPayload.getSubject())
-                    .setFirstName(firstName != null ? firstName : "")
-                    .setLastName(lastName != null ? lastName : "")
+                    .setBasicInfo(BasicInfo.newBuilder()
+                            .setFirstName(firstName != null ? firstName : "")
+                            .setLastName(lastName != null ? lastName : "")
+                            .setEmail(idTokenPayload.getEmail())
+                            .build())
                     .build();
-            userId = userRepository.storeUser(user);
+            userId = userRepository.storeUser(user, idTokenPayload.getSubject());
         }
         logger.info("user id from repo:" + String.valueOf(userId));
         UserDetails userDetails = new CustomUserDetails(userId, idTokenPayload.getSubject());

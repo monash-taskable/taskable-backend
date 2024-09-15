@@ -19,74 +19,24 @@ public final class UserProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>.User user = 1;</code>
+     * @return Whether the user field is set.
      */
-    int getId();
-
+    boolean hasUser();
     /**
-     * <code>string last_name = 2;</code>
+     * <code>.User user = 1;</code>
+     * @return The user.
      */
-    java.lang.String getLastName();
+    com.taskable.protobufs.PersistenceProto.User getUser();
     /**
-     * <code>string last_name = 2;</code>
+     * <code>.User user = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getLastNameBytes();
-
-    /**
-     * <code>string first_name = 3;</code>
-     */
-    java.lang.String getFirstName();
-    /**
-     * <code>string first_name = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getFirstNameBytes();
-
-    /**
-     * <code>string email = 4;</code>
-     */
-    java.lang.String getEmail();
-    /**
-     * <code>string email = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getEmailBytes();
-
-    /**
-     * <code>string color = 5;</code>
-     */
-    java.lang.String getColor();
-    /**
-     * <code>string color = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getColorBytes();
-
-    /**
-     * <code>string theme = 6;</code>
-     */
-    java.lang.String getTheme();
-    /**
-     * <code>string theme = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getThemeBytes();
-
-    /**
-     * <code>string language = 7;</code>
-     */
-    java.lang.String getLanguage();
-    /**
-     * <code>string language = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getLanguageBytes();
+    com.taskable.protobufs.PersistenceProto.UserOrBuilder getUserOrBuilder();
   }
   /**
    * Protobuf type {@code GetProfileResponse}
    */
-  public  static final class GetProfileResponse extends
+  public static final class GetProfileResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:GetProfileResponse)
       GetProfileResponseOrBuilder {
@@ -96,98 +46,19 @@ public final class UserProto {
       super(builder);
     }
     private GetProfileResponse() {
-      id_ = 0;
-      lastName_ = "";
-      firstName_ = "";
-      email_ = "";
-      color_ = "";
-      theme_ = "";
-      language_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetProfileResponse();
     }
 
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GetProfileResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              id_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              lastName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              firstName_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              color_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              theme_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              language_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -202,217 +73,30 @@ public final class UserProto {
               com.taskable.protobufs.UserProto.GetProfileResponse.class, com.taskable.protobufs.UserProto.GetProfileResponse.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    public static final int USER_FIELD_NUMBER = 1;
+    private com.taskable.protobufs.PersistenceProto.User user_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>.User user = 1;</code>
+     * @return Whether the user field is set.
      */
-    public int getId() {
-      return id_;
-    }
-
-    public static final int LAST_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object lastName_;
-    /**
-     * <code>string last_name = 2;</code>
-     */
-    public java.lang.String getLastName() {
-      java.lang.Object ref = lastName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastName_ = s;
-        return s;
-      }
+    @java.lang.Override
+    public boolean hasUser() {
+      return user_ != null;
     }
     /**
-     * <code>string last_name = 2;</code>
+     * <code>.User user = 1;</code>
+     * @return The user.
      */
-    public com.google.protobuf.ByteString
-        getLastNameBytes() {
-      java.lang.Object ref = lastName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FIRST_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object firstName_;
-    /**
-     * <code>string first_name = 3;</code>
-     */
-    public java.lang.String getFirstName() {
-      java.lang.Object ref = firstName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        firstName_ = s;
-        return s;
-      }
+    @java.lang.Override
+    public com.taskable.protobufs.PersistenceProto.User getUser() {
+      return user_ == null ? com.taskable.protobufs.PersistenceProto.User.getDefaultInstance() : user_;
     }
     /**
-     * <code>string first_name = 3;</code>
+     * <code>.User user = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getFirstNameBytes() {
-      java.lang.Object ref = firstName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        firstName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int EMAIL_FIELD_NUMBER = 4;
-    private volatile java.lang.Object email_;
-    /**
-     * <code>string email = 4;</code>
-     */
-    public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        email_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string email = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEmailBytes() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        email_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int COLOR_FIELD_NUMBER = 5;
-    private volatile java.lang.Object color_;
-    /**
-     * <code>string color = 5;</code>
-     */
-    public java.lang.String getColor() {
-      java.lang.Object ref = color_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        color_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string color = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getColorBytes() {
-      java.lang.Object ref = color_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        color_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int THEME_FIELD_NUMBER = 6;
-    private volatile java.lang.Object theme_;
-    /**
-     * <code>string theme = 6;</code>
-     */
-    public java.lang.String getTheme() {
-      java.lang.Object ref = theme_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        theme_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string theme = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getThemeBytes() {
-      java.lang.Object ref = theme_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        theme_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int LANGUAGE_FIELD_NUMBER = 7;
-    private volatile java.lang.Object language_;
-    /**
-     * <code>string language = 7;</code>
-     */
-    public java.lang.String getLanguage() {
-      java.lang.Object ref = language_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        language_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string language = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLanguageBytes() {
-      java.lang.Object ref = language_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        language_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override
+    public com.taskable.protobufs.PersistenceProto.UserOrBuilder getUserOrBuilder() {
+      return getUser();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -429,28 +113,10 @@ public final class UserProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (user_ != null) {
+        output.writeMessage(1, getUser());
       }
-      if (!getLastNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, lastName_);
-      }
-      if (!getFirstNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, firstName_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
-      }
-      if (!getColorBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, color_);
-      }
-      if (!getThemeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, theme_);
-      }
-      if (!getLanguageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, language_);
-      }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -459,29 +125,11 @@ public final class UserProto {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
+      if (user_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+          .computeMessageSize(1, getUser());
       }
-      if (!getLastNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, lastName_);
-      }
-      if (!getFirstNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, firstName_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
-      }
-      if (!getColorBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, color_);
-      }
-      if (!getThemeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, theme_);
-      }
-      if (!getLanguageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, language_);
-      }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -496,23 +144,13 @@ public final class UserProto {
       }
       com.taskable.protobufs.UserProto.GetProfileResponse other = (com.taskable.protobufs.UserProto.GetProfileResponse) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getLastName()
-          .equals(other.getLastName());
-      result = result && getFirstName()
-          .equals(other.getFirstName());
-      result = result && getEmail()
-          .equals(other.getEmail());
-      result = result && getColor()
-          .equals(other.getColor());
-      result = result && getTheme()
-          .equals(other.getTheme());
-      result = result && getLanguage()
-          .equals(other.getLanguage());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -522,21 +160,11 @@ public final class UserProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (37 * hash) + LAST_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getLastName().hashCode();
-      hash = (37 * hash) + FIRST_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstName().hashCode();
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
-      hash = (37 * hash) + COLOR_FIELD_NUMBER;
-      hash = (53 * hash) + getColor().hashCode();
-      hash = (37 * hash) + THEME_FIELD_NUMBER;
-      hash = (53 * hash) + getTheme().hashCode();
-      hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getLanguage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -653,36 +281,23 @@ public final class UserProto {
 
       // Construct using com.taskable.protobufs.UserProto.GetProfileResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0;
-
-        lastName_ = "";
-
-        firstName_ = "";
-
-        email_ = "";
-
-        color_ = "";
-
-        theme_ = "";
-
-        language_ = "";
-
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -709,48 +324,46 @@ public final class UserProto {
       @java.lang.Override
       public com.taskable.protobufs.UserProto.GetProfileResponse buildPartial() {
         com.taskable.protobufs.UserProto.GetProfileResponse result = new com.taskable.protobufs.UserProto.GetProfileResponse(this);
-        result.id_ = id_;
-        result.lastName_ = lastName_;
-        result.firstName_ = firstName_;
-        result.email_ = email_;
-        result.color_ = color_;
-        result.theme_ = theme_;
-        result.language_ = language_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -764,34 +377,10 @@ public final class UserProto {
 
       public Builder mergeFrom(com.taskable.protobufs.UserProto.GetProfileResponse other) {
         if (other == com.taskable.protobufs.UserProto.GetProfileResponse.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
-        if (!other.getLastName().isEmpty()) {
-          lastName_ = other.lastName_;
-          onChanged();
-        }
-        if (!other.getFirstName().isEmpty()) {
-          firstName_ = other.firstName_;
-          onChanged();
-        }
-        if (!other.getEmail().isEmpty()) {
-          email_ = other.email_;
-          onChanged();
-        }
-        if (!other.getColor().isEmpty()) {
-          color_ = other.color_;
-          onChanged();
-        }
-        if (!other.getTheme().isEmpty()) {
-          theme_ = other.theme_;
-          onChanged();
-        }
-        if (!other.getLanguage().isEmpty()) {
-          language_ = other.language_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -806,463 +395,162 @@ public final class UserProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.taskable.protobufs.UserProto.GetProfileResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getUserFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.taskable.protobufs.UserProto.GetProfileResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+          onChanged();
+        } // finally
+        return this;
+      }
+
+      private com.taskable.protobufs.PersistenceProto.User user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.User, com.taskable.protobufs.PersistenceProto.User.Builder, com.taskable.protobufs.PersistenceProto.UserOrBuilder> userBuilder_;
+      /**
+       * <code>.User user = 1;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.User user = 1;</code>
+       * @return The user.
+       */
+      public com.taskable.protobufs.PersistenceProto.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? com.taskable.protobufs.PersistenceProto.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.User user = 1;</code>
+       */
+      public Builder setUser(com.taskable.protobufs.PersistenceProto.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
         }
-        return this;
-      }
 
-      private int id_ ;
-      /**
-       * <code>int32 id = 1;</code>
-       */
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>int32 id = 1;</code>
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>.User user = 1;</code>
        */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
+      public Builder setUser(
+          com.taskable.protobufs.PersistenceProto.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
 
-      private java.lang.Object lastName_ = "";
+        return this;
+      }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>.User user = 1;</code>
        */
-      public java.lang.String getLastName() {
-        java.lang.Object ref = lastName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastName_ = s;
-          return s;
+      public Builder mergeUser(com.taskable.protobufs.PersistenceProto.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              com.taskable.protobufs.PersistenceProto.User.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          userBuilder_.mergeFrom(value);
         }
-      }
-      /**
-       * <code>string last_name = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getLastNameBytes() {
-        java.lang.Object ref = lastName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string last_name = 2;</code>
-       */
-      public Builder setLastName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        lastName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string last_name = 2;</code>
-       */
-      public Builder clearLastName() {
-        
-        lastName_ = getDefaultInstance().getLastName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string last_name = 2;</code>
-       */
-      public Builder setLastNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastName_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object firstName_ = "";
+        return this;
+      }
       /**
-       * <code>string first_name = 3;</code>
+       * <code>.User user = 1;</code>
        */
-      public java.lang.String getFirstName() {
-        java.lang.Object ref = firstName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          firstName_ = s;
-          return s;
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          user_ = null;
+          userBuilder_ = null;
         }
-      }
-      /**
-       * <code>string first_name = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getFirstNameBytes() {
-        java.lang.Object ref = firstName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          firstName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string first_name = 3;</code>
-       */
-      public Builder setFirstName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        firstName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string first_name = 3;</code>
-       */
-      public Builder clearFirstName() {
-        
-        firstName_ = getDefaultInstance().getFirstName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string first_name = 3;</code>
-       */
-      public Builder setFirstNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        firstName_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object email_ = "";
+        return this;
+      }
       /**
-       * <code>string email = 4;</code>
+       * <code>.User user = 1;</code>
        */
-      public java.lang.String getEmail() {
-        java.lang.Object ref = email_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          email_ = s;
-          return s;
+      public com.taskable.protobufs.PersistenceProto.User.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.User user = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
         } else {
-          return (java.lang.String) ref;
+          return user_ == null ?
+              com.taskable.protobufs.PersistenceProto.User.getDefaultInstance() : user_;
         }
       }
       /**
-       * <code>string email = 4;</code>
+       * <code>.User user = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getEmailBytes() {
-        java.lang.Object ref = email_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          email_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.User, com.taskable.protobufs.PersistenceProto.User.Builder, com.taskable.protobufs.PersistenceProto.UserOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.taskable.protobufs.PersistenceProto.User, com.taskable.protobufs.PersistenceProto.User.Builder, com.taskable.protobufs.PersistenceProto.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
         }
-      }
-      /**
-       * <code>string email = 4;</code>
-       */
-      public Builder setEmail(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        email_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 4;</code>
-       */
-      public Builder clearEmail() {
-        
-        email_ = getDefaultInstance().getEmail();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 4;</code>
-       */
-      public Builder setEmailBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        email_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object color_ = "";
-      /**
-       * <code>string color = 5;</code>
-       */
-      public java.lang.String getColor() {
-        java.lang.Object ref = color_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          color_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string color = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getColorBytes() {
-        java.lang.Object ref = color_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          color_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string color = 5;</code>
-       */
-      public Builder setColor(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        color_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string color = 5;</code>
-       */
-      public Builder clearColor() {
-        
-        color_ = getDefaultInstance().getColor();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string color = 5;</code>
-       */
-      public Builder setColorBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        color_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object theme_ = "";
-      /**
-       * <code>string theme = 6;</code>
-       */
-      public java.lang.String getTheme() {
-        java.lang.Object ref = theme_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          theme_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string theme = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getThemeBytes() {
-        java.lang.Object ref = theme_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          theme_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string theme = 6;</code>
-       */
-      public Builder setTheme(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        theme_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string theme = 6;</code>
-       */
-      public Builder clearTheme() {
-        
-        theme_ = getDefaultInstance().getTheme();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string theme = 6;</code>
-       */
-      public Builder setThemeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        theme_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object language_ = "";
-      /**
-       * <code>string language = 7;</code>
-       */
-      public java.lang.String getLanguage() {
-        java.lang.Object ref = language_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          language_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string language = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getLanguageBytes() {
-        java.lang.Object ref = language_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          language_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string language = 7;</code>
-       */
-      public Builder setLanguage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        language_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string language = 7;</code>
-       */
-      public Builder clearLanguage() {
-        
-        language_ = getDefaultInstance().getLanguage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string language = 7;</code>
-       */
-      public Builder setLanguageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        language_ = value;
-        onChanged();
-        return this;
+        return userBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1292,7 +580,18 @@ public final class UserProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetProfileResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1317,39 +616,24 @@ public final class UserProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string color = 1;</code>
+     * <code>.UserSettings user_settings = 1;</code>
+     * @return Whether the userSettings field is set.
      */
-    java.lang.String getColor();
+    boolean hasUserSettings();
     /**
-     * <code>string color = 1;</code>
+     * <code>.UserSettings user_settings = 1;</code>
+     * @return The userSettings.
      */
-    com.google.protobuf.ByteString
-        getColorBytes();
-
+    com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings();
     /**
-     * <code>string theme = 2;</code>
+     * <code>.UserSettings user_settings = 1;</code>
      */
-    java.lang.String getTheme();
-    /**
-     * <code>string theme = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getThemeBytes();
-
-    /**
-     * <code>string language = 3;</code>
-     */
-    java.lang.String getLanguage();
-    /**
-     * <code>string language = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getLanguageBytes();
+    com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder();
   }
   /**
    * Protobuf type {@code UpdateProfileRequest}
    */
-  public  static final class UpdateProfileRequest extends
+  public static final class UpdateProfileRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:UpdateProfileRequest)
       UpdateProfileRequestOrBuilder {
@@ -1359,71 +643,19 @@ public final class UserProto {
       super(builder);
     }
     private UpdateProfileRequest() {
-      color_ = "";
-      theme_ = "";
-      language_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateProfileRequest();
     }
 
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UpdateProfileRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              color_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              theme_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              language_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1438,106 +670,30 @@ public final class UserProto {
               com.taskable.protobufs.UserProto.UpdateProfileRequest.class, com.taskable.protobufs.UserProto.UpdateProfileRequest.Builder.class);
     }
 
-    public static final int COLOR_FIELD_NUMBER = 1;
-    private volatile java.lang.Object color_;
+    public static final int USER_SETTINGS_FIELD_NUMBER = 1;
+    private com.taskable.protobufs.PersistenceProto.UserSettings userSettings_;
     /**
-     * <code>string color = 1;</code>
+     * <code>.UserSettings user_settings = 1;</code>
+     * @return Whether the userSettings field is set.
      */
-    public java.lang.String getColor() {
-      java.lang.Object ref = color_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        color_ = s;
-        return s;
-      }
+    @java.lang.Override
+    public boolean hasUserSettings() {
+      return userSettings_ != null;
     }
     /**
-     * <code>string color = 1;</code>
+     * <code>.UserSettings user_settings = 1;</code>
+     * @return The userSettings.
      */
-    public com.google.protobuf.ByteString
-        getColorBytes() {
-      java.lang.Object ref = color_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        color_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int THEME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object theme_;
-    /**
-     * <code>string theme = 2;</code>
-     */
-    public java.lang.String getTheme() {
-      java.lang.Object ref = theme_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        theme_ = s;
-        return s;
-      }
+    @java.lang.Override
+    public com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings() {
+      return userSettings_ == null ? com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
     }
     /**
-     * <code>string theme = 2;</code>
+     * <code>.UserSettings user_settings = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getThemeBytes() {
-      java.lang.Object ref = theme_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        theme_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int LANGUAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object language_;
-    /**
-     * <code>string language = 3;</code>
-     */
-    public java.lang.String getLanguage() {
-      java.lang.Object ref = language_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        language_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string language = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLanguageBytes() {
-      java.lang.Object ref = language_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        language_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override
+    public com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder() {
+      return getUserSettings();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1554,16 +710,10 @@ public final class UserProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getColorBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, color_);
+      if (userSettings_ != null) {
+        output.writeMessage(1, getUserSettings());
       }
-      if (!getThemeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, theme_);
-      }
-      if (!getLanguageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, language_);
-      }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1572,16 +722,11 @@ public final class UserProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getColorBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, color_);
+      if (userSettings_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getUserSettings());
       }
-      if (!getThemeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, theme_);
-      }
-      if (!getLanguageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, language_);
-      }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1596,15 +741,13 @@ public final class UserProto {
       }
       com.taskable.protobufs.UserProto.UpdateProfileRequest other = (com.taskable.protobufs.UserProto.UpdateProfileRequest) obj;
 
-      boolean result = true;
-      result = result && getColor()
-          .equals(other.getColor());
-      result = result && getTheme()
-          .equals(other.getTheme());
-      result = result && getLanguage()
-          .equals(other.getLanguage());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (hasUserSettings() != other.hasUserSettings()) return false;
+      if (hasUserSettings()) {
+        if (!getUserSettings()
+            .equals(other.getUserSettings())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1614,13 +757,11 @@ public final class UserProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + COLOR_FIELD_NUMBER;
-      hash = (53 * hash) + getColor().hashCode();
-      hash = (37 * hash) + THEME_FIELD_NUMBER;
-      hash = (53 * hash) + getTheme().hashCode();
-      hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getLanguage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasUserSettings()) {
+        hash = (37 * hash) + USER_SETTINGS_FIELD_NUMBER;
+        hash = (53 * hash) + getUserSettings().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1737,28 +878,23 @@ public final class UserProto {
 
       // Construct using com.taskable.protobufs.UserProto.UpdateProfileRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        color_ = "";
-
-        theme_ = "";
-
-        language_ = "";
-
+        if (userSettingsBuilder_ == null) {
+          userSettings_ = null;
+        } else {
+          userSettings_ = null;
+          userSettingsBuilder_ = null;
+        }
         return this;
       }
 
@@ -1785,44 +921,46 @@ public final class UserProto {
       @java.lang.Override
       public com.taskable.protobufs.UserProto.UpdateProfileRequest buildPartial() {
         com.taskable.protobufs.UserProto.UpdateProfileRequest result = new com.taskable.protobufs.UserProto.UpdateProfileRequest(this);
-        result.color_ = color_;
-        result.theme_ = theme_;
-        result.language_ = language_;
+        if (userSettingsBuilder_ == null) {
+          result.userSettings_ = userSettings_;
+        } else {
+          result.userSettings_ = userSettingsBuilder_.build();
+        }
         onBuilt();
         return result;
       }
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1836,19 +974,10 @@ public final class UserProto {
 
       public Builder mergeFrom(com.taskable.protobufs.UserProto.UpdateProfileRequest other) {
         if (other == com.taskable.protobufs.UserProto.UpdateProfileRequest.getDefaultInstance()) return this;
-        if (!other.getColor().isEmpty()) {
-          color_ = other.color_;
-          onChanged();
+        if (other.hasUserSettings()) {
+          mergeUserSettings(other.getUserSettings());
         }
-        if (!other.getTheme().isEmpty()) {
-          theme_ = other.theme_;
-          onChanged();
-        }
-        if (!other.getLanguage().isEmpty()) {
-          language_ = other.language_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1863,230 +992,162 @@ public final class UserProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.taskable.protobufs.UserProto.UpdateProfileRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getUserSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.taskable.protobufs.UserProto.UpdateProfileRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+          onChanged();
+        } // finally
+        return this;
+      }
+
+      private com.taskable.protobufs.PersistenceProto.UserSettings userSettings_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder> userSettingsBuilder_;
+      /**
+       * <code>.UserSettings user_settings = 1;</code>
+       * @return Whether the userSettings field is set.
+       */
+      public boolean hasUserSettings() {
+        return userSettingsBuilder_ != null || userSettings_ != null;
+      }
+      /**
+       * <code>.UserSettings user_settings = 1;</code>
+       * @return The userSettings.
+       */
+      public com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings() {
+        if (userSettingsBuilder_ == null) {
+          return userSettings_ == null ? com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
+        } else {
+          return userSettingsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.UserSettings user_settings = 1;</code>
+       */
+      public Builder setUserSettings(com.taskable.protobufs.PersistenceProto.UserSettings value) {
+        if (userSettingsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
+          userSettings_ = value;
+          onChanged();
+        } else {
+          userSettingsBuilder_.setMessage(value);
         }
-        return this;
-      }
 
-      private java.lang.Object color_ = "";
+        return this;
+      }
       /**
-       * <code>string color = 1;</code>
+       * <code>.UserSettings user_settings = 1;</code>
        */
-      public java.lang.String getColor() {
-        java.lang.Object ref = color_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          color_ = s;
-          return s;
+      public Builder setUserSettings(
+          com.taskable.protobufs.PersistenceProto.UserSettings.Builder builderForValue) {
+        if (userSettingsBuilder_ == null) {
+          userSettings_ = builderForValue.build();
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          userSettingsBuilder_.setMessage(builderForValue.build());
         }
-      }
-      /**
-       * <code>string color = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getColorBytes() {
-        java.lang.Object ref = color_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          color_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string color = 1;</code>
-       */
-      public Builder setColor(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        color_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string color = 1;</code>
-       */
-      public Builder clearColor() {
-        
-        color_ = getDefaultInstance().getColor();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string color = 1;</code>
-       */
-      public Builder setColorBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        color_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object theme_ = "";
+        return this;
+      }
       /**
-       * <code>string theme = 2;</code>
+       * <code>.UserSettings user_settings = 1;</code>
        */
-      public java.lang.String getTheme() {
-        java.lang.Object ref = theme_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          theme_ = s;
-          return s;
+      public Builder mergeUserSettings(com.taskable.protobufs.PersistenceProto.UserSettings value) {
+        if (userSettingsBuilder_ == null) {
+          if (userSettings_ != null) {
+            userSettings_ =
+              com.taskable.protobufs.PersistenceProto.UserSettings.newBuilder(userSettings_).mergeFrom(value).buildPartial();
+          } else {
+            userSettings_ = value;
+          }
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          userSettingsBuilder_.mergeFrom(value);
         }
-      }
-      /**
-       * <code>string theme = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getThemeBytes() {
-        java.lang.Object ref = theme_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          theme_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string theme = 2;</code>
-       */
-      public Builder setTheme(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        theme_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string theme = 2;</code>
-       */
-      public Builder clearTheme() {
-        
-        theme_ = getDefaultInstance().getTheme();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string theme = 2;</code>
-       */
-      public Builder setThemeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        theme_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object language_ = "";
+        return this;
+      }
       /**
-       * <code>string language = 3;</code>
+       * <code>.UserSettings user_settings = 1;</code>
        */
-      public java.lang.String getLanguage() {
-        java.lang.Object ref = language_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          language_ = s;
-          return s;
+      public Builder clearUserSettings() {
+        if (userSettingsBuilder_ == null) {
+          userSettings_ = null;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          userSettings_ = null;
+          userSettingsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserSettings user_settings = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.UserSettings.Builder getUserSettingsBuilder() {
+        
+        onChanged();
+        return getUserSettingsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UserSettings user_settings = 1;</code>
+       */
+      public com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder() {
+        if (userSettingsBuilder_ != null) {
+          return userSettingsBuilder_.getMessageOrBuilder();
+        } else {
+          return userSettings_ == null ?
+              com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
         }
       }
       /**
-       * <code>string language = 3;</code>
+       * <code>.UserSettings user_settings = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getLanguageBytes() {
-        java.lang.Object ref = language_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          language_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder> 
+          getUserSettingsFieldBuilder() {
+        if (userSettingsBuilder_ == null) {
+          userSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder>(
+                  getUserSettings(),
+                  getParentForChildren(),
+                  isClean());
+          userSettings_ = null;
         }
-      }
-      /**
-       * <code>string language = 3;</code>
-       */
-      public Builder setLanguage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        language_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string language = 3;</code>
-       */
-      public Builder clearLanguage() {
-        
-        language_ = getDefaultInstance().getLanguage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string language = 3;</code>
-       */
-      public Builder setLanguageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        language_ = value;
-        onChanged();
-        return this;
+        return userSettingsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2116,7 +1177,18 @@ public final class UserProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateProfileRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2136,6 +1208,1232 @@ public final class UserProto {
 
   }
 
+  public interface SearchUserRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SearchUserRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @return A list containing the emails.
+     */
+    java.util.List<java.lang.String>
+        getEmailsList();
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @return The count of emails.
+     */
+    int getEmailsCount();
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @param index The index of the element to return.
+     * @return The emails at the given index.
+     */
+    java.lang.String getEmails(int index);
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the emails at the given index.
+     */
+    com.google.protobuf.ByteString
+        getEmailsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code SearchUserRequest}
+   */
+  public static final class SearchUserRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SearchUserRequest)
+      SearchUserRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SearchUserRequest.newBuilder() to construct.
+    private SearchUserRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchUserRequest() {
+      emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SearchUserRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.UserProto.internal_static_SearchUserRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.UserProto.internal_static_SearchUserRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.UserProto.SearchUserRequest.class, com.taskable.protobufs.UserProto.SearchUserRequest.Builder.class);
+    }
+
+    public static final int EMAILS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList emails_;
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @return A list containing the emails.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getEmailsList() {
+      return emails_;
+    }
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @return The count of emails.
+     */
+    public int getEmailsCount() {
+      return emails_.size();
+    }
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @param index The index of the element to return.
+     * @return The emails at the given index.
+     */
+    public java.lang.String getEmails(int index) {
+      return emails_.get(index);
+    }
+    /**
+     * <code>repeated string emails = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the emails at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getEmailsBytes(int index) {
+      return emails_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < emails_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, emails_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < emails_.size(); i++) {
+          dataSize += computeStringSizeNoTag(emails_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getEmailsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.UserProto.SearchUserRequest)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.UserProto.SearchUserRequest other = (com.taskable.protobufs.UserProto.SearchUserRequest) obj;
+
+      if (!getEmailsList()
+          .equals(other.getEmailsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getEmailsCount() > 0) {
+        hash = (37 * hash) + EMAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getEmailsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.UserProto.SearchUserRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SearchUserRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SearchUserRequest)
+        com.taskable.protobufs.UserProto.SearchUserRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.UserProto.SearchUserRequest.class, com.taskable.protobufs.UserProto.SearchUserRequest.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.UserProto.SearchUserRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserRequest getDefaultInstanceForType() {
+        return com.taskable.protobufs.UserProto.SearchUserRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserRequest build() {
+        com.taskable.protobufs.UserProto.SearchUserRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserRequest buildPartial() {
+        com.taskable.protobufs.UserProto.SearchUserRequest result = new com.taskable.protobufs.UserProto.SearchUserRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          emails_ = emails_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.emails_ = emails_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.UserProto.SearchUserRequest) {
+          return mergeFrom((com.taskable.protobufs.UserProto.SearchUserRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.UserProto.SearchUserRequest other) {
+        if (other == com.taskable.protobufs.UserProto.SearchUserRequest.getDefaultInstance()) return this;
+        if (!other.emails_.isEmpty()) {
+          if (emails_.isEmpty()) {
+            emails_ = other.emails_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureEmailsIsMutable();
+            emails_.addAll(other.emails_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureEmailsIsMutable();
+                emails_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureEmailsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          emails_ = new com.google.protobuf.LazyStringArrayList(emails_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @return A list containing the emails.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getEmailsList() {
+        return emails_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @return The count of emails.
+       */
+      public int getEmailsCount() {
+        return emails_.size();
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param index The index of the element to return.
+       * @return The emails at the given index.
+       */
+      public java.lang.String getEmails(int index) {
+        return emails_.get(index);
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the emails at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getEmailsBytes(int index) {
+        return emails_.getByteString(index);
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The emails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmails(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEmailsIsMutable();
+        emails_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param value The emails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEmails(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEmailsIsMutable();
+        emails_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param values The emails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllEmails(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureEmailsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, emails_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEmails() {
+        emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 1;</code>
+       * @param value The bytes of the emails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEmailsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureEmailsIsMutable();
+        emails_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SearchUserRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:SearchUserRequest)
+    private static final com.taskable.protobufs.UserProto.SearchUserRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.UserProto.SearchUserRequest();
+    }
+
+    public static com.taskable.protobufs.UserProto.SearchUserRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchUserRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SearchUserRequest>() {
+      @java.lang.Override
+      public SearchUserRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchUserRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SearchUserRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.UserProto.SearchUserRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SearchUserResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SearchUserResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @return A list containing the invalidEmails.
+     */
+    java.util.List<java.lang.String>
+        getInvalidEmailsList();
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @return The count of invalidEmails.
+     */
+    int getInvalidEmailsCount();
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @param index The index of the element to return.
+     * @return The invalidEmails at the given index.
+     */
+    java.lang.String getInvalidEmails(int index);
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the invalidEmails at the given index.
+     */
+    com.google.protobuf.ByteString
+        getInvalidEmailsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code SearchUserResponse}
+   */
+  public static final class SearchUserResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SearchUserResponse)
+      SearchUserResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SearchUserResponse.newBuilder() to construct.
+    private SearchUserResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SearchUserResponse() {
+      invalidEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SearchUserResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.taskable.protobufs.UserProto.internal_static_SearchUserResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.taskable.protobufs.UserProto.internal_static_SearchUserResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.taskable.protobufs.UserProto.SearchUserResponse.class, com.taskable.protobufs.UserProto.SearchUserResponse.Builder.class);
+    }
+
+    public static final int INVALID_EMAILS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList invalidEmails_;
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @return A list containing the invalidEmails.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getInvalidEmailsList() {
+      return invalidEmails_;
+    }
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @return The count of invalidEmails.
+     */
+    public int getInvalidEmailsCount() {
+      return invalidEmails_.size();
+    }
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @param index The index of the element to return.
+     * @return The invalidEmails at the given index.
+     */
+    public java.lang.String getInvalidEmails(int index) {
+      return invalidEmails_.get(index);
+    }
+    /**
+     * <code>repeated string invalid_emails = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the invalidEmails at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getInvalidEmailsBytes(int index) {
+      return invalidEmails_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < invalidEmails_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, invalidEmails_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < invalidEmails_.size(); i++) {
+          dataSize += computeStringSizeNoTag(invalidEmails_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getInvalidEmailsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.taskable.protobufs.UserProto.SearchUserResponse)) {
+        return super.equals(obj);
+      }
+      com.taskable.protobufs.UserProto.SearchUserResponse other = (com.taskable.protobufs.UserProto.SearchUserResponse) obj;
+
+      if (!getInvalidEmailsList()
+          .equals(other.getInvalidEmailsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getInvalidEmailsCount() > 0) {
+        hash = (37 * hash) + INVALID_EMAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getInvalidEmailsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.taskable.protobufs.UserProto.SearchUserResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.taskable.protobufs.UserProto.SearchUserResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SearchUserResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SearchUserResponse)
+        com.taskable.protobufs.UserProto.SearchUserResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.taskable.protobufs.UserProto.SearchUserResponse.class, com.taskable.protobufs.UserProto.SearchUserResponse.Builder.class);
+      }
+
+      // Construct using com.taskable.protobufs.UserProto.SearchUserResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        invalidEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.taskable.protobufs.UserProto.internal_static_SearchUserResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserResponse getDefaultInstanceForType() {
+        return com.taskable.protobufs.UserProto.SearchUserResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserResponse build() {
+        com.taskable.protobufs.UserProto.SearchUserResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.taskable.protobufs.UserProto.SearchUserResponse buildPartial() {
+        com.taskable.protobufs.UserProto.SearchUserResponse result = new com.taskable.protobufs.UserProto.SearchUserResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          invalidEmails_ = invalidEmails_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.invalidEmails_ = invalidEmails_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.taskable.protobufs.UserProto.SearchUserResponse) {
+          return mergeFrom((com.taskable.protobufs.UserProto.SearchUserResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.taskable.protobufs.UserProto.SearchUserResponse other) {
+        if (other == com.taskable.protobufs.UserProto.SearchUserResponse.getDefaultInstance()) return this;
+        if (!other.invalidEmails_.isEmpty()) {
+          if (invalidEmails_.isEmpty()) {
+            invalidEmails_ = other.invalidEmails_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureInvalidEmailsIsMutable();
+            invalidEmails_.addAll(other.invalidEmails_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInvalidEmailsIsMutable();
+                invalidEmails_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList invalidEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureInvalidEmailsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          invalidEmails_ = new com.google.protobuf.LazyStringArrayList(invalidEmails_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @return A list containing the invalidEmails.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getInvalidEmailsList() {
+        return invalidEmails_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @return The count of invalidEmails.
+       */
+      public int getInvalidEmailsCount() {
+        return invalidEmails_.size();
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param index The index of the element to return.
+       * @return The invalidEmails at the given index.
+       */
+      public java.lang.String getInvalidEmails(int index) {
+        return invalidEmails_.get(index);
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the invalidEmails at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getInvalidEmailsBytes(int index) {
+        return invalidEmails_.getByteString(index);
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The invalidEmails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInvalidEmails(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureInvalidEmailsIsMutable();
+        invalidEmails_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param value The invalidEmails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInvalidEmails(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureInvalidEmailsIsMutable();
+        invalidEmails_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param values The invalidEmails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllInvalidEmails(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureInvalidEmailsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, invalidEmails_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInvalidEmails() {
+        invalidEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string invalid_emails = 1;</code>
+       * @param value The bytes of the invalidEmails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addInvalidEmailsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureInvalidEmailsIsMutable();
+        invalidEmails_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SearchUserResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:SearchUserResponse)
+    private static final com.taskable.protobufs.UserProto.SearchUserResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.taskable.protobufs.UserProto.SearchUserResponse();
+    }
+
+    public static com.taskable.protobufs.UserProto.SearchUserResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SearchUserResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SearchUserResponse>() {
+      @java.lang.Override
+      public SearchUserResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SearchUserResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SearchUserResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.taskable.protobufs.UserProto.SearchUserResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GetProfileResponse_descriptor;
   private static final 
@@ -2146,6 +2444,16 @@ public final class UserProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UpdateProfileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SearchUserRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SearchUserRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SearchUserResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SearchUserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2155,38 +2463,44 @@ public final class UserProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"\206\001\n\022GetProfileResponse\022\n\n\002i" +
-      "d\030\001 \001(\005\022\021\n\tlast_name\030\002 \001(\t\022\022\n\nfirst_name" +
-      "\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\r\n\005color\030\005 \001(\t\022\r\n\005" +
-      "theme\030\006 \001(\t\022\020\n\010language\030\007 \001(\t\"F\n\024UpdateP" +
-      "rofileRequest\022\r\n\005color\030\001 \001(\t\022\r\n\005theme\030\002 " +
-      "\001(\t\022\020\n\010language\030\003 \001(\tB#\n\026com.taskable.pr" +
-      "otobufsB\tUserProtob\006proto3"
+      "\n\nuser.proto\032\021persistence.proto\")\n\022GetPr" +
+      "ofileResponse\022\023\n\004user\030\001 \001(\0132\005.User\"<\n\024Up" +
+      "dateProfileRequest\022$\n\ruser_settings\030\001 \001(" +
+      "\0132\r.UserSettings\"#\n\021SearchUserRequest\022\016\n" +
+      "\006emails\030\001 \003(\t\",\n\022SearchUserResponse\022\026\n\016i" +
+      "nvalid_emails\030\001 \003(\tB#\n\026com.taskable.prot" +
+      "obufsB\tUserProtob\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+          com.taskable.protobufs.PersistenceProto.getDescriptor(),
+        });
     internal_static_GetProfileResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_GetProfileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetProfileResponse_descriptor,
-        new java.lang.String[] { "Id", "LastName", "FirstName", "Email", "Color", "Theme", "Language", });
+        new java.lang.String[] { "User", });
     internal_static_UpdateProfileRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UpdateProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateProfileRequest_descriptor,
-        new java.lang.String[] { "Color", "Theme", "Language", });
+        new java.lang.String[] { "UserSettings", });
+    internal_static_SearchUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_SearchUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SearchUserRequest_descriptor,
+        new java.lang.String[] { "Emails", });
+    internal_static_SearchUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_SearchUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SearchUserResponse_descriptor,
+        new java.lang.String[] { "InvalidEmails", });
+    com.taskable.protobufs.PersistenceProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

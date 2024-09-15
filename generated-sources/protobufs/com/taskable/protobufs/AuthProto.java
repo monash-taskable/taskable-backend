@@ -20,10 +20,12 @@ public final class AuthProto {
 
     /**
      * <code>string authorization_code = 1;</code>
+     * @return The authorizationCode.
      */
     java.lang.String getAuthorizationCode();
     /**
      * <code>string authorization_code = 1;</code>
+     * @return The bytes for authorizationCode.
      */
     com.google.protobuf.ByteString
         getAuthorizationCodeBytes();
@@ -31,7 +33,7 @@ public final class AuthProto {
   /**
    * Protobuf type {@code LoginExchangeRequest}
    */
-  public  static final class LoginExchangeRequest extends
+  public static final class LoginExchangeRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:LoginExchangeRequest)
       LoginExchangeRequestOrBuilder {
@@ -45,53 +47,16 @@ public final class AuthProto {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoginExchangeRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private LoginExchangeRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              authorizationCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -110,7 +75,9 @@ public final class AuthProto {
     private volatile java.lang.Object authorizationCode_;
     /**
      * <code>string authorization_code = 1;</code>
+     * @return The authorizationCode.
      */
+    @java.lang.Override
     public java.lang.String getAuthorizationCode() {
       java.lang.Object ref = authorizationCode_;
       if (ref instanceof java.lang.String) {
@@ -125,7 +92,9 @@ public final class AuthProto {
     }
     /**
      * <code>string authorization_code = 1;</code>
+     * @return The bytes for authorizationCode.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getAuthorizationCodeBytes() {
       java.lang.Object ref = authorizationCode_;
@@ -154,10 +123,10 @@ public final class AuthProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAuthorizationCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authorizationCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, authorizationCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -166,10 +135,10 @@ public final class AuthProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getAuthorizationCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authorizationCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, authorizationCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -184,11 +153,10 @@ public final class AuthProto {
       }
       com.taskable.protobufs.AuthProto.LoginExchangeRequest other = (com.taskable.protobufs.AuthProto.LoginExchangeRequest) obj;
 
-      boolean result = true;
-      result = result && getAuthorizationCode()
-          .equals(other.getAuthorizationCode());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getAuthorizationCode()
+          .equals(other.getAuthorizationCode())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -200,7 +168,7 @@ public final class AuthProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + AUTHORIZATION_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getAuthorizationCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -317,18 +285,13 @@ public final class AuthProto {
 
       // Construct using com.taskable.protobufs.AuthProto.LoginExchangeRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -368,35 +331,35 @@ public final class AuthProto {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -414,7 +377,7 @@ public final class AuthProto {
           authorizationCode_ = other.authorizationCode_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -429,23 +392,42 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.taskable.protobufs.AuthProto.LoginExchangeRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                authorizationCode_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.taskable.protobufs.AuthProto.LoginExchangeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
       private java.lang.Object authorizationCode_ = "";
       /**
        * <code>string authorization_code = 1;</code>
+       * @return The authorizationCode.
        */
       public java.lang.String getAuthorizationCode() {
         java.lang.Object ref = authorizationCode_;
@@ -461,6 +443,7 @@ public final class AuthProto {
       }
       /**
        * <code>string authorization_code = 1;</code>
+       * @return The bytes for authorizationCode.
        */
       public com.google.protobuf.ByteString
           getAuthorizationCodeBytes() {
@@ -477,6 +460,8 @@ public final class AuthProto {
       }
       /**
        * <code>string authorization_code = 1;</code>
+       * @param value The authorizationCode to set.
+       * @return This builder for chaining.
        */
       public Builder setAuthorizationCode(
           java.lang.String value) {
@@ -490,6 +475,7 @@ public final class AuthProto {
       }
       /**
        * <code>string authorization_code = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAuthorizationCode() {
         
@@ -499,6 +485,8 @@ public final class AuthProto {
       }
       /**
        * <code>string authorization_code = 1;</code>
+       * @param value The bytes for authorizationCode to set.
+       * @return This builder for chaining.
        */
       public Builder setAuthorizationCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -514,7 +502,7 @@ public final class AuthProto {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -544,7 +532,18 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginExchangeRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -570,10 +569,12 @@ public final class AuthProto {
 
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The csrfToken.
      */
     java.lang.String getCsrfToken();
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The bytes for csrfToken.
      */
     com.google.protobuf.ByteString
         getCsrfTokenBytes();
@@ -581,7 +582,7 @@ public final class AuthProto {
   /**
    * Protobuf type {@code LoginExchangeResponse}
    */
-  public  static final class LoginExchangeResponse extends
+  public static final class LoginExchangeResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:LoginExchangeResponse)
       LoginExchangeResponseOrBuilder {
@@ -595,53 +596,16 @@ public final class AuthProto {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoginExchangeResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private LoginExchangeResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              csrfToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -660,7 +624,9 @@ public final class AuthProto {
     private volatile java.lang.Object csrfToken_;
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The csrfToken.
      */
+    @java.lang.Override
     public java.lang.String getCsrfToken() {
       java.lang.Object ref = csrfToken_;
       if (ref instanceof java.lang.String) {
@@ -675,7 +641,9 @@ public final class AuthProto {
     }
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The bytes for csrfToken.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getCsrfTokenBytes() {
       java.lang.Object ref = csrfToken_;
@@ -704,10 +672,10 @@ public final class AuthProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCsrfTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(csrfToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, csrfToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -716,10 +684,10 @@ public final class AuthProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCsrfTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(csrfToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, csrfToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -734,11 +702,10 @@ public final class AuthProto {
       }
       com.taskable.protobufs.AuthProto.LoginExchangeResponse other = (com.taskable.protobufs.AuthProto.LoginExchangeResponse) obj;
 
-      boolean result = true;
-      result = result && getCsrfToken()
-          .equals(other.getCsrfToken());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getCsrfToken()
+          .equals(other.getCsrfToken())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -750,7 +717,7 @@ public final class AuthProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CSRF_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getCsrfToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -867,18 +834,13 @@ public final class AuthProto {
 
       // Construct using com.taskable.protobufs.AuthProto.LoginExchangeResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -918,35 +880,35 @@ public final class AuthProto {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -964,7 +926,7 @@ public final class AuthProto {
           csrfToken_ = other.csrfToken_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -979,23 +941,42 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.taskable.protobufs.AuthProto.LoginExchangeResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                csrfToken_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.taskable.protobufs.AuthProto.LoginExchangeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
       private java.lang.Object csrfToken_ = "";
       /**
        * <code>string csrf_token = 1;</code>
+       * @return The csrfToken.
        */
       public java.lang.String getCsrfToken() {
         java.lang.Object ref = csrfToken_;
@@ -1011,6 +992,7 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @return The bytes for csrfToken.
        */
       public com.google.protobuf.ByteString
           getCsrfTokenBytes() {
@@ -1027,6 +1009,8 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @param value The csrfToken to set.
+       * @return This builder for chaining.
        */
       public Builder setCsrfToken(
           java.lang.String value) {
@@ -1040,6 +1024,7 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCsrfToken() {
         
@@ -1049,6 +1034,8 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @param value The bytes for csrfToken to set.
+       * @return This builder for chaining.
        */
       public Builder setCsrfTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -1064,7 +1051,7 @@ public final class AuthProto {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1094,7 +1081,18 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginExchangeResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1120,10 +1118,12 @@ public final class AuthProto {
 
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The csrfToken.
      */
     java.lang.String getCsrfToken();
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The bytes for csrfToken.
      */
     com.google.protobuf.ByteString
         getCsrfTokenBytes();
@@ -1131,7 +1131,7 @@ public final class AuthProto {
   /**
    * Protobuf type {@code GetCsrfResponse}
    */
-  public  static final class GetCsrfResponse extends
+  public static final class GetCsrfResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:GetCsrfResponse)
       GetCsrfResponseOrBuilder {
@@ -1145,53 +1145,16 @@ public final class AuthProto {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetCsrfResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GetCsrfResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              csrfToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1210,7 +1173,9 @@ public final class AuthProto {
     private volatile java.lang.Object csrfToken_;
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The csrfToken.
      */
+    @java.lang.Override
     public java.lang.String getCsrfToken() {
       java.lang.Object ref = csrfToken_;
       if (ref instanceof java.lang.String) {
@@ -1225,7 +1190,9 @@ public final class AuthProto {
     }
     /**
      * <code>string csrf_token = 1;</code>
+     * @return The bytes for csrfToken.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getCsrfTokenBytes() {
       java.lang.Object ref = csrfToken_;
@@ -1254,10 +1221,10 @@ public final class AuthProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCsrfTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(csrfToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, csrfToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1266,10 +1233,10 @@ public final class AuthProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCsrfTokenBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(csrfToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, csrfToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1284,11 +1251,10 @@ public final class AuthProto {
       }
       com.taskable.protobufs.AuthProto.GetCsrfResponse other = (com.taskable.protobufs.AuthProto.GetCsrfResponse) obj;
 
-      boolean result = true;
-      result = result && getCsrfToken()
-          .equals(other.getCsrfToken());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getCsrfToken()
+          .equals(other.getCsrfToken())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1300,7 +1266,7 @@ public final class AuthProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CSRF_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getCsrfToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1417,18 +1383,13 @@ public final class AuthProto {
 
       // Construct using com.taskable.protobufs.AuthProto.GetCsrfResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1468,35 +1429,35 @@ public final class AuthProto {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1514,7 +1475,7 @@ public final class AuthProto {
           csrfToken_ = other.csrfToken_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1529,23 +1490,42 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.taskable.protobufs.AuthProto.GetCsrfResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                csrfToken_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.taskable.protobufs.AuthProto.GetCsrfResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
 
       private java.lang.Object csrfToken_ = "";
       /**
        * <code>string csrf_token = 1;</code>
+       * @return The csrfToken.
        */
       public java.lang.String getCsrfToken() {
         java.lang.Object ref = csrfToken_;
@@ -1561,6 +1541,7 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @return The bytes for csrfToken.
        */
       public com.google.protobuf.ByteString
           getCsrfTokenBytes() {
@@ -1577,6 +1558,8 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @param value The csrfToken to set.
+       * @return This builder for chaining.
        */
       public Builder setCsrfToken(
           java.lang.String value) {
@@ -1590,6 +1573,7 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCsrfToken() {
         
@@ -1599,6 +1583,8 @@ public final class AuthProto {
       }
       /**
        * <code>string csrf_token = 1;</code>
+       * @param value The bytes for csrfToken to set.
+       * @return This builder for chaining.
        */
       public Builder setCsrfTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -1614,7 +1600,7 @@ public final class AuthProto {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1644,7 +1630,18 @@ public final class AuthProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetCsrfResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1694,18 +1691,10 @@ public final class AuthProto {
       "Response\022\022\n\ncsrf_token\030\001 \001(\tB#\n\026com.task" +
       "able.protobufsB\tAuthProtob\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_LoginExchangeRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_LoginExchangeRequest_fieldAccessorTable = new

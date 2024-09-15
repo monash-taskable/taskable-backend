@@ -23,13 +23,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails createNewUser(String sub) {
-        // Generate a new user ID and create the user
-        User newUser = User.newBuilder().setSub(sub).build();
+        User newUser = User.newBuilder().build();
 
-        // Save the new user in the repository
-        userRepository.storeUser(newUser);
+        userRepository.storeUser(newUser, sub);
 
-        // Return the UserDetails for the new user
-        return new CustomUserDetails(newUser.getId(), newUser.getSub());
+        return new CustomUserDetails(newUser.getId(), sub);
     }
 }

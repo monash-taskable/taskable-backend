@@ -4,12 +4,7 @@ package com.taskable.backend.controllers;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.ClassService;
-import com.taskable.protobufs.ClassroomProto;
-import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
-import com.taskable.protobufs.ClassroomProto.AddMemberRequest;
-import com.taskable.protobufs.ClassroomProto.CreateClassRequest;
-import com.taskable.protobufs.ClassroomProto.GetClassResponse;
-import com.taskable.protobufs.ClassroomProto.GetClassesResponse;
+import com.taskable.protobufs.ClassroomProto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +32,22 @@ public class ClassController {
 
     @GetMapping("")
     public GetClassesResponse getClasses(@AuthenticationPrincipal CustomUserDetails userDetails) {
-        logger.info("user id from get-classes: " + userDetails.userId());
         return classService.getClasses(userDetails.userId());
     };
 
+    @GetMapping("/{class_id}")
+    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
+    public GetClassResponse getClassroom(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                     @PathVariable("class_id") Integer classId) {
+        return classService.getClassroom(classId);
+    }
+
     @PostMapping("/{class_id}/members/add")
     @PreAuthorize("@authorizationService.canUserAddToClass(#userDetails.userId(), #classId)")
-    public boolean addMemberToClass(@AuthenticationPrincipal CustomUserDetails userDetails,
-                                    @PathVariable("class_id") Integer classId,
-                                    @RequestBody AddMemberRequest req) {
-        return classService.addMemberToClass(userDetails.userId(), req.getMemberId(), classId);
+    public AddMembersResponse addMembersToClass(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                               @PathVariable("class_id") Integer classId,
+                                                               @RequestBody AddMembersRequest req) {
+        return classService.addMembersToClass(userDetails.userId(), req.getUserEmailsList(), classId);
     }
 
     @GetMapping("/{class_id}/members")
@@ -75,7 +76,7 @@ public class ClassController {
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @PathVariable("class_id") Integer classId,
             @PathVariable("member_id") Integer memberId,
-            @RequestBody ClassroomProto.UpdateMemberRoleRequest req) {
+            @RequestBody UpdateMemberRoleRequest req) {
         classService.updateMemberRoleInClass(memberId, classId, req.getRole());
     }
 
