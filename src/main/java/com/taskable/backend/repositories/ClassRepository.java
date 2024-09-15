@@ -128,6 +128,12 @@ public class ClassRepository {
                 .execute();
     }
 
+    public void deleteClassById(Integer classId) {
+        dsl.deleteFrom(CLASSROOM)
+                .where(CLASSROOM.ID.eq(classId))
+                .execute();
+    }
+
     public void updateMemberRole(Integer userId, Integer classId, String newRole) {
         dsl.update(CLASSROOM_USER)
                 .set(CLASSROOM_USER.ROLE, newRole)

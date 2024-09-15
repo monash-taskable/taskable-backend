@@ -34,6 +34,10 @@ public class AuthorizationService {
         return Set.of("OWNER", "ADMIN").contains(classRepository.getUserRoleInClass(userId, classId));
     }
 
+    public boolean checkOwnerInClass(Integer userId, Integer classId) {
+        return "OWNER".equals(classRepository.getUserRoleInClass(userId, classId));
+    }
+
     public boolean canUserUpdateRole(Integer userId, Integer assigneeId, String newRole, Integer classId) {
         if (userId.equals(assigneeId)) {
             return false;

@@ -80,4 +80,11 @@ public class ClassController {
         classService.updateMemberRoleInClass(memberId, classId, req.getRole());
     }
 
+    @DeleteMapping("/{class_id}/delete")
+    @PreAuthorize("@authorizationService.checkOwnerInClass(#userDetails.userId(), #classId)")
+    public void deleteClassroom(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("class_id") Integer classId) {
+        classService.deleteClassroom(classId);
+    }
 }

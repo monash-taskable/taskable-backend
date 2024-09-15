@@ -77,4 +77,8 @@ public class ClassService {
     public void updateMemberRoleInClass(Integer memberId, Integer classId, String role) {
         classRepository.updateMemberRole(memberId, classId, role);
     }
+
+    public void deleteClassroom(Integer classId) {
+        classRepository.deleteClassById(classId);
+    }
 }
