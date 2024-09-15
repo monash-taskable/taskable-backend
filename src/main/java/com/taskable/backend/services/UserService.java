@@ -2,6 +2,7 @@ package com.taskable.backend.services;
 
 import com.taskable.backend.repositories.UserRepository;
 import com.taskable.protobufs.PersistenceProto.User;
+import com.taskable.protobufs.UserProto.*;
 import com.taskable.protobufs.UserProto.SearchUserResponse;
 import com.taskable.protobufs.UserProto.GetProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,10 @@ public class UserService {
                 .setUser(user)
                 .build();
     }
-
     // TODO: ACCEPT/DENY INVITATION BUTTON
+
+    public void updateProfile(Integer userId, UpdateProfileRequest req) {
+
+    }
 
 }

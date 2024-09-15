@@ -3,9 +3,7 @@ package com.taskable.backend.controllers;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.UserService;
 import com.taskable.protobufs.PersistenceProto.User;
-import com.taskable.protobufs.UserProto.SearchUserRequest;
-import com.taskable.protobufs.UserProto.SearchUserResponse;
-import com.taskable.protobufs.UserProto.GetProfileResponse;
+import com.taskable.protobufs.UserProto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +21,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/get-profile")
+    @GetMapping("/get-profile")
     public GetProfileResponse getProfile(@AuthenticationPrincipal CustomUserDetails userDetails) {
         return userService.getProfile(userDetails.userId());
+    }
+
+    @PostMapping("/{user_id}/update")
+    public void updateProfile(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("user_id") Integer userId,
+            @RequestBody UpdateProfileRequest req) {
+        userService.updateProfile(userId, req);
     }
 }

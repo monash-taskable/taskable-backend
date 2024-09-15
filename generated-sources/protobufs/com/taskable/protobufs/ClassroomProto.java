@@ -4937,31 +4937,46 @@ public final class ClassroomProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string class_name = 1;</code>
+     * <code>optional string class_name = 1;</code>
+     * @return Whether the className field is set.
+     */
+    boolean hasClassName();
+    /**
+     * <code>optional string class_name = 1;</code>
      * @return The className.
      */
     java.lang.String getClassName();
     /**
-     * <code>string class_name = 1;</code>
+     * <code>optional string class_name = 1;</code>
      * @return The bytes for className.
      */
     com.google.protobuf.ByteString
         getClassNameBytes();
 
     /**
-     * <code>string class_desc = 2;</code>
+     * <code>optional string class_desc = 2;</code>
+     * @return Whether the classDesc field is set.
+     */
+    boolean hasClassDesc();
+    /**
+     * <code>optional string class_desc = 2;</code>
      * @return The classDesc.
      */
     java.lang.String getClassDesc();
     /**
-     * <code>string class_desc = 2;</code>
+     * <code>optional string class_desc = 2;</code>
      * @return The bytes for classDesc.
      */
     com.google.protobuf.ByteString
         getClassDescBytes();
 
     /**
-     * <code>bool archived = 3;</code>
+     * <code>optional bool archived = 3;</code>
+     * @return Whether the archived field is set.
+     */
+    boolean hasArchived();
+    /**
+     * <code>optional bool archived = 3;</code>
      * @return The archived.
      */
     boolean getArchived();
@@ -5008,10 +5023,19 @@ public final class ClassroomProto {
               com.taskable.protobufs.ClassroomProto.UpdateClassRequest.class, com.taskable.protobufs.ClassroomProto.UpdateClassRequest.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLASS_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object className_;
     /**
-     * <code>string class_name = 1;</code>
+     * <code>optional string class_name = 1;</code>
+     * @return Whether the className field is set.
+     */
+    @java.lang.Override
+    public boolean hasClassName() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string class_name = 1;</code>
      * @return The className.
      */
     @java.lang.Override
@@ -5028,7 +5052,7 @@ public final class ClassroomProto {
       }
     }
     /**
-     * <code>string class_name = 1;</code>
+     * <code>optional string class_name = 1;</code>
      * @return The bytes for className.
      */
     @java.lang.Override
@@ -5049,7 +5073,15 @@ public final class ClassroomProto {
     public static final int CLASS_DESC_FIELD_NUMBER = 2;
     private volatile java.lang.Object classDesc_;
     /**
-     * <code>string class_desc = 2;</code>
+     * <code>optional string class_desc = 2;</code>
+     * @return Whether the classDesc field is set.
+     */
+    @java.lang.Override
+    public boolean hasClassDesc() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string class_desc = 2;</code>
      * @return The classDesc.
      */
     @java.lang.Override
@@ -5066,7 +5098,7 @@ public final class ClassroomProto {
       }
     }
     /**
-     * <code>string class_desc = 2;</code>
+     * <code>optional string class_desc = 2;</code>
      * @return The bytes for classDesc.
      */
     @java.lang.Override
@@ -5087,7 +5119,15 @@ public final class ClassroomProto {
     public static final int ARCHIVED_FIELD_NUMBER = 3;
     private boolean archived_;
     /**
-     * <code>bool archived = 3;</code>
+     * <code>optional bool archived = 3;</code>
+     * @return Whether the archived field is set.
+     */
+    @java.lang.Override
+    public boolean hasArchived() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional bool archived = 3;</code>
      * @return The archived.
      */
     @java.lang.Override
@@ -5109,13 +5149,13 @@ public final class ClassroomProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(className_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, className_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(classDesc_)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, classDesc_);
       }
-      if (archived_ != false) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeBool(3, archived_);
       }
       getUnknownFields().writeTo(output);
@@ -5127,13 +5167,13 @@ public final class ClassroomProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(className_)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, className_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(classDesc_)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, classDesc_);
       }
-      if (archived_ != false) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, archived_);
       }
@@ -5152,12 +5192,21 @@ public final class ClassroomProto {
       }
       com.taskable.protobufs.ClassroomProto.UpdateClassRequest other = (com.taskable.protobufs.ClassroomProto.UpdateClassRequest) obj;
 
-      if (!getClassName()
-          .equals(other.getClassName())) return false;
-      if (!getClassDesc()
-          .equals(other.getClassDesc())) return false;
-      if (getArchived()
-          != other.getArchived()) return false;
+      if (hasClassName() != other.hasClassName()) return false;
+      if (hasClassName()) {
+        if (!getClassName()
+            .equals(other.getClassName())) return false;
+      }
+      if (hasClassDesc() != other.hasClassDesc()) return false;
+      if (hasClassDesc()) {
+        if (!getClassDesc()
+            .equals(other.getClassDesc())) return false;
+      }
+      if (hasArchived() != other.hasArchived()) return false;
+      if (hasArchived()) {
+        if (getArchived()
+            != other.getArchived()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5169,13 +5218,19 @@ public final class ClassroomProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getClassName().hashCode();
-      hash = (37 * hash) + CLASS_DESC_FIELD_NUMBER;
-      hash = (53 * hash) + getClassDesc().hashCode();
-      hash = (37 * hash) + ARCHIVED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getArchived());
+      if (hasClassName()) {
+        hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getClassName().hashCode();
+      }
+      if (hasClassDesc()) {
+        hash = (37 * hash) + CLASS_DESC_FIELD_NUMBER;
+        hash = (53 * hash) + getClassDesc().hashCode();
+      }
+      if (hasArchived()) {
+        hash = (37 * hash) + ARCHIVED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getArchived());
+      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5305,11 +5360,11 @@ public final class ClassroomProto {
       public Builder clear() {
         super.clear();
         className_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         classDesc_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         archived_ = false;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -5336,9 +5391,21 @@ public final class ClassroomProto {
       @java.lang.Override
       public com.taskable.protobufs.ClassroomProto.UpdateClassRequest buildPartial() {
         com.taskable.protobufs.ClassroomProto.UpdateClassRequest result = new com.taskable.protobufs.ClassroomProto.UpdateClassRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.className_ = className_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.classDesc_ = classDesc_;
-        result.archived_ = archived_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.archived_ = archived_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -5387,15 +5454,17 @@ public final class ClassroomProto {
 
       public Builder mergeFrom(com.taskable.protobufs.ClassroomProto.UpdateClassRequest other) {
         if (other == com.taskable.protobufs.ClassroomProto.UpdateClassRequest.getDefaultInstance()) return this;
-        if (!other.getClassName().isEmpty()) {
+        if (other.hasClassName()) {
+          bitField0_ |= 0x00000001;
           className_ = other.className_;
           onChanged();
         }
-        if (!other.getClassDesc().isEmpty()) {
+        if (other.hasClassDesc()) {
+          bitField0_ |= 0x00000002;
           classDesc_ = other.classDesc_;
           onChanged();
         }
-        if (other.getArchived() != false) {
+        if (other.hasArchived()) {
           setArchived(other.getArchived());
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -5426,17 +5495,17 @@ public final class ClassroomProto {
                 break;
               case 10: {
                 className_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000001;
                 break;
               } // case 10
               case 18: {
                 classDesc_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000002;
                 break;
               } // case 18
               case 24: {
                 archived_ = input.readBool();
-
+                bitField0_ |= 0x00000004;
                 break;
               } // case 24
               default: {
@@ -5454,10 +5523,18 @@ public final class ClassroomProto {
         } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object className_ = "";
       /**
-       * <code>string class_name = 1;</code>
+       * <code>optional string class_name = 1;</code>
+       * @return Whether the className field is set.
+       */
+      public boolean hasClassName() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string class_name = 1;</code>
        * @return The className.
        */
       public java.lang.String getClassName() {
@@ -5473,7 +5550,7 @@ public final class ClassroomProto {
         }
       }
       /**
-       * <code>string class_name = 1;</code>
+       * <code>optional string class_name = 1;</code>
        * @return The bytes for className.
        */
       public com.google.protobuf.ByteString
@@ -5490,7 +5567,7 @@ public final class ClassroomProto {
         }
       }
       /**
-       * <code>string class_name = 1;</code>
+       * <code>optional string class_name = 1;</code>
        * @param value The className to set.
        * @return This builder for chaining.
        */
@@ -5499,23 +5576,23 @@ public final class ClassroomProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         className_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string class_name = 1;</code>
+       * <code>optional string class_name = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearClassName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         className_ = getDefaultInstance().getClassName();
         onChanged();
         return this;
       }
       /**
-       * <code>string class_name = 1;</code>
+       * <code>optional string class_name = 1;</code>
        * @param value The bytes for className to set.
        * @return This builder for chaining.
        */
@@ -5525,7 +5602,7 @@ public final class ClassroomProto {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000001;
         className_ = value;
         onChanged();
         return this;
@@ -5533,7 +5610,14 @@ public final class ClassroomProto {
 
       private java.lang.Object classDesc_ = "";
       /**
-       * <code>string class_desc = 2;</code>
+       * <code>optional string class_desc = 2;</code>
+       * @return Whether the classDesc field is set.
+       */
+      public boolean hasClassDesc() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string class_desc = 2;</code>
        * @return The classDesc.
        */
       public java.lang.String getClassDesc() {
@@ -5549,7 +5633,7 @@ public final class ClassroomProto {
         }
       }
       /**
-       * <code>string class_desc = 2;</code>
+       * <code>optional string class_desc = 2;</code>
        * @return The bytes for classDesc.
        */
       public com.google.protobuf.ByteString
@@ -5566,7 +5650,7 @@ public final class ClassroomProto {
         }
       }
       /**
-       * <code>string class_desc = 2;</code>
+       * <code>optional string class_desc = 2;</code>
        * @param value The classDesc to set.
        * @return This builder for chaining.
        */
@@ -5575,23 +5659,23 @@ public final class ClassroomProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         classDesc_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string class_desc = 2;</code>
+       * <code>optional string class_desc = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearClassDesc() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         classDesc_ = getDefaultInstance().getClassDesc();
         onChanged();
         return this;
       }
       /**
-       * <code>string class_desc = 2;</code>
+       * <code>optional string class_desc = 2;</code>
        * @param value The bytes for classDesc to set.
        * @return This builder for chaining.
        */
@@ -5601,7 +5685,7 @@ public final class ClassroomProto {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
+        bitField0_ |= 0x00000002;
         classDesc_ = value;
         onChanged();
         return this;
@@ -5609,7 +5693,15 @@ public final class ClassroomProto {
 
       private boolean archived_ ;
       /**
-       * <code>bool archived = 3;</code>
+       * <code>optional bool archived = 3;</code>
+       * @return Whether the archived field is set.
+       */
+      @java.lang.Override
+      public boolean hasArchived() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional bool archived = 3;</code>
        * @return The archived.
        */
       @java.lang.Override
@@ -5617,22 +5709,22 @@ public final class ClassroomProto {
         return archived_;
       }
       /**
-       * <code>bool archived = 3;</code>
+       * <code>optional bool archived = 3;</code>
        * @param value The archived to set.
        * @return This builder for chaining.
        */
       public Builder setArchived(boolean value) {
-        
+        bitField0_ |= 0x00000004;
         archived_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool archived = 3;</code>
+       * <code>optional bool archived = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearArchived() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         archived_ = false;
         onChanged();
         return this;
@@ -5760,11 +5852,12 @@ public final class ClassroomProto {
       " \003(\t\",\n\022AddMembersResponse\022\026\n\016invalid_em" +
       "ails\030\001 \003(\t\"=\n\022GetMembersResponse\022\'\n\rclas" +
       "s_members\030\001 \003(\0132\020.ClassroomMember\"\'\n\027Upd" +
-      "ateMemberRoleRequest\022\014\n\004role\030\001 \001(\t\"N\n\022Up" +
-      "dateClassRequest\022\022\n\nclass_name\030\001 \001(\t\022\022\n\n" +
-      "class_desc\030\002 \001(\t\022\020\n\010archived\030\003 \001(\010B(\n\026co" +
-      "m.taskable.protobufsB\016ClassroomProtob\006pr" +
-      "oto3"
+      "ateMemberRoleRequest\022\014\n\004role\030\001 \001(\t\"\210\001\n\022U" +
+      "pdateClassRequest\022\027\n\nclass_name\030\001 \001(\tH\000\210" +
+      "\001\001\022\027\n\nclass_desc\030\002 \001(\tH\001\210\001\001\022\025\n\010archived\030" +
+      "\003 \001(\010H\002\210\001\001B\r\n\013_class_nameB\r\n\013_class_desc" +
+      "B\013\n\t_archivedB(\n\026com.taskable.protobufsB" +
+      "\016ClassroomProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5818,7 +5911,7 @@ public final class ClassroomProto {
     internal_static_UpdateClassRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateClassRequest_descriptor,
-        new java.lang.String[] { "ClassName", "ClassDesc", "Archived", });
+        new java.lang.String[] { "ClassName", "ClassDesc", "Archived", "ClassName", "ClassDesc", "Archived", });
     com.taskable.protobufs.PersistenceProto.getDescriptor();
   }
 

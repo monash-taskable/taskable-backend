@@ -8,6 +8,7 @@ import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.ClassroomMember;
 import com.taskable.protobufs.PersistenceProto.Classroom;
 import org.apache.commons.lang3.tuple.Pair;
+import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -128,11 +130,19 @@ public class ClassRepository {
                 .execute();
     }
 
-    public void updateClassDetails(Integer classId, String class_name, String class_desc, boolean archived) {
+    public void updateClassDetails(Integer classId, String className, String classDesc, Boolean archived) {
+        var fieldsToUpdate = new HashMap<>();
+        if (className != null) {
+            fieldsToUpdate.put(CLASSROOM.NAME, className);
+        }
+        if (classDesc != null) {
+            fieldsToUpdate.put(CLASSROOM.DESCRIPTION, classDesc);
+        }
+        if (archived != null) {
+            fieldsToUpdate.put(CLASSROOM.ARCHIVED, (byte) (archived ? 1 : 0));
+        }
         dsl.update(CLASSROOM)
-                .set(CLASSROOM.NAME, class_name)
-                .set(CLASSROOM.DESCRIPTION, class_desc)
-                .set(CLASSROOM.ARCHIVED, (byte) (archived ? 1 : 0))
+                .set(fieldsToUpdate)
                 .where(CLASSROOM.ID.eq(classId))
                 .execute();
     }
