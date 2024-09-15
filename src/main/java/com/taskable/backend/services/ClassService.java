@@ -2,11 +2,8 @@ package com.taskable.backend.services;
 
 import com.taskable.backend.repositories.ClassRepository;
 import com.taskable.backend.repositories.UserRepository;
-import com.taskable.protobufs.ClassroomProto.AddMembersResponse;
-import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
-import com.taskable.protobufs.ClassroomProto.GetClassesResponse;
-import com.taskable.protobufs.ClassroomProto.CreateClassRequest;
-import com.taskable.protobufs.ClassroomProto.GetClassResponse;
+import com.taskable.protobufs.ClassroomProto.*;
+import com.taskable.protobufs.PersistenceProto.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -64,6 +61,13 @@ public class ClassService {
         return AddMembersResponse.newBuilder()
                 .addAllInvalidEmails(invalid_emails)
                 .build();
+    }
+
+    public void updateClassDetails(Integer classId, UpdateClassRequest req) {
+        classRepository.updateClassDetails(classId,
+                req.getClassName(),
+                req.getClassDesc(),
+                req.getArchived());
     }
 
     public GetMembersResponse getMembersInClass(Integer classId) {

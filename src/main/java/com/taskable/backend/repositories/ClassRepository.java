@@ -128,6 +128,15 @@ public class ClassRepository {
                 .execute();
     }
 
+    public void updateClassDetails(Integer classId, String class_name, String class_desc, boolean archived) {
+        dsl.update(CLASSROOM)
+                .set(CLASSROOM.NAME, class_name)
+                .set(CLASSROOM.DESCRIPTION, class_desc)
+                .set(CLASSROOM.ARCHIVED, (byte) (archived ? 1 : 0))
+                .where(CLASSROOM.ID.eq(classId))
+                .execute();
+    }
+
     public void deleteClassById(Integer classId) {
         dsl.deleteFrom(CLASSROOM)
                 .where(CLASSROOM.ID.eq(classId))

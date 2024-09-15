@@ -80,6 +80,15 @@ public class ClassController {
         classService.updateMemberRoleInClass(memberId, classId, req.getRole());
     }
 
+    @PostMapping("/{class_id}/update")
+    @PreAuthorize("@authorizationService.checkOwnerInClass(#userDetails.userId(), #classId)")
+    public void updateClassDetails(
+            @AuthenticationPrincipal CustomUserDetails userDetails,
+            @PathVariable("class_id") Integer classId,
+            @RequestBody UpdateClassRequest req) {
+        classService.updateClassDetails(classId, req);
+    }
+
     @DeleteMapping("/{class_id}/delete")
     @PreAuthorize("@authorizationService.checkOwnerInClass(#userDetails.userId(), #classId)")
     public void deleteClassroom(
@@ -87,4 +96,5 @@ public class ClassController {
             @PathVariable("class_id") Integer classId) {
         classService.deleteClassroom(classId);
     }
+
 }
