@@ -11,6 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ClassService {
@@ -48,18 +49,21 @@ public class ClassService {
 
     public AddMembersResponse addMembersToClass(Integer assignerId, List<String> userEmails, Integer classId) {
         // assignerId potentially used for logging
-        List<String> invalid_emails = new ArrayList<>();
+        Map<String, Integer> emailToId = userRepository.getUserIdsByEmails(userEmails);
+        List<String> invalidEmails = new ArrayList<>();
+        List<Integer> userIdsToAdd = new ArrayList<>();
         for (var email : userEmails) {
-            var userId = userRepository.getUserIdByEmail(email);
+            var userId = emailToId.get(email);
             if (userId == null) {
-                invalid_emails.add(email);
+                invalidEmails.add(email);
             }
             else {
-                classRepository.addUserToClass(userId, classId, "STUDENT");
+                userIdsToAdd.add(userId);
             }
         }
+        classRepository.addUsersToClass(userIdsToAdd, classId, "STUDENT");
         return AddMembersResponse.newBuilder()
-                .addAllInvalidEmails(invalid_emails)
+                .addAllInvalidEmails(invalidEmails)
                 .build();
     }
 

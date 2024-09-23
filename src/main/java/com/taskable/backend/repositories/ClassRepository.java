@@ -59,14 +59,27 @@ public class ClassRepository {
         return rec != null ? DbMapper.map(rec) : null;
     }
 
-    public boolean addUserToClass(Integer userId, Integer classId, String role) {
-        int status = dsl.insertInto(CLASSROOM_USER)
-                .set(CLASSROOM_USER.CLASSROOM_ID, classId)
-                .set(CLASSROOM_USER.USER_ID, userId)
-                .set(CLASSROOM_USER.ROLE, role)
-                .onDuplicateKeyIgnore()
-                .execute();
-        return status == 1;
+    public void addUserToClass(Integer userId, Integer classId, String role) {
+        dsl.insertInto(CLASSROOM_USER)
+            .set(CLASSROOM_USER.CLASSROOM_ID, classId)
+            .set(CLASSROOM_USER.USER_ID, userId)
+            .set(CLASSROOM_USER.ROLE, role)
+            .onDuplicateKeyIgnore()
+            .execute();
+    }
+
+    public void addUsersToClass(List<Integer> userIds, Integer classId, String role) {
+        // TODO: test insert empty
+        var insertStep = dsl.insertInto(CLASSROOM_USER,
+                CLASSROOM_USER.CLASSROOM_ID,
+                CLASSROOM_USER.USER_ID,
+                CLASSROOM_USER.ROLE);
+
+        for (var userId : userIds) {
+            insertStep.values(classId, userId, role);
+        }
+
+        insertStep.onDuplicateKeyIgnore().execute();
     }
 
     public String getUserRoleInClass(Integer userId, Integer classId) {

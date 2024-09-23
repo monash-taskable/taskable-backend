@@ -43,7 +43,7 @@ public class ClassController {
     }
 
     @PostMapping("/{class_id}/members/add")
-    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
     public AddMembersResponse addMembersToClass(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                                @PathVariable("class_id") Integer classId,
                                                                @RequestBody AddMembersRequest req) {

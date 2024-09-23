@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.taskable.jooq.tables.User.USER;
 
@@ -33,11 +34,11 @@ public class UserRepository {
                .fetchOne(USER.ID);
     }
 
-    public Integer getUserIdByEmail(String email) {
-        return dsl.select(USER.ID)
+    public Map<String, Integer> getUserIdsByEmails(List<String> emails) {
+        return dsl.select(USER.EMAIL, USER.ID)
                 .from(USER)
-                .where(USER.EMAIL.eq(email))
-                .fetchOne(USER.ID);
+                .where(USER.EMAIL.in(emails))
+                .fetchMap(USER.EMAIL, USER.ID);
     }
 
     public Integer storeUser(User user, String sub) {

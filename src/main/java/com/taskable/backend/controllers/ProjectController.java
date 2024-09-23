@@ -38,10 +38,11 @@ public class ProjectController {
     }
 
     @PostMapping("/{project_id}/members/add")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
     public AddProjectMembersResponse addProjectMembers(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                        @PathVariable("class_id") Integer classId,
                                                        @PathVariable("project_id") Integer projectId,
                                                        @RequestBody AddProjectMembersRequest req) {
-
+        return projectService.addProjectMembers(projectId, req);
     }
 }
