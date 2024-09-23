@@ -2,13 +2,8 @@ syntax = "proto3";
 
 option java_package = "com.taskable.protobufs";
 option java_outer_classname = "TemplateProto";
+import "persistence.proto";
 
-message Template {
-  int32 id = 1;
-  string name = 2;
-  string description = 3;
-  bool archived = 4;
-}
 
 message GetTemplatesResponse {
   repeated Template templates = 1;

@@ -45,5 +45,7 @@ message Project {
 
 message Template {
   int32 id = 1;
-  string description = 2;
+  string name = 2;
+  string description = 3;
+  bool archived = 4;
 }

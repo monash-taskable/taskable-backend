@@ -4536,7 +4536,12 @@ public final class PersistenceProto {
     int getId();
 
     /**
-     * <code>int32 template_id = 2;</code>
+     * <code>optional int32 template_id = 2;</code>
+     * @return Whether the templateId field is set.
+     */
+    boolean hasTemplateId();
+    /**
+     * <code>optional int32 template_id = 2;</code>
      * @return The templateId.
      */
     int getTemplateId();
@@ -4607,6 +4612,7 @@ public final class PersistenceProto {
               com.taskable.protobufs.PersistenceProto.Project.class, com.taskable.protobufs.PersistenceProto.Project.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -4621,7 +4627,15 @@ public final class PersistenceProto {
     public static final int TEMPLATE_ID_FIELD_NUMBER = 2;
     private int templateId_;
     /**
-     * <code>int32 template_id = 2;</code>
+     * <code>optional int32 template_id = 2;</code>
+     * @return Whether the templateId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTemplateId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional int32 template_id = 2;</code>
      * @return The templateId.
      */
     @java.lang.Override
@@ -4722,7 +4736,7 @@ public final class PersistenceProto {
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
-      if (templateId_ != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(2, templateId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
@@ -4744,7 +4758,7 @@ public final class PersistenceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (templateId_ != 0) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, templateId_);
       }
@@ -4771,8 +4785,11 @@ public final class PersistenceProto {
 
       if (getId()
           != other.getId()) return false;
-      if (getTemplateId()
-          != other.getTemplateId()) return false;
+      if (hasTemplateId() != other.hasTemplateId()) return false;
+      if (hasTemplateId()) {
+        if (getTemplateId()
+            != other.getTemplateId()) return false;
+      }
       if (!getTitle()
           .equals(other.getTitle())) return false;
       if (!getDescription()
@@ -4790,8 +4807,10 @@ public final class PersistenceProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
-      hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTemplateId();
+      if (hasTemplateId()) {
+        hash = (37 * hash) + TEMPLATE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTemplateId();
+      }
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -4927,7 +4946,7 @@ public final class PersistenceProto {
         id_ = 0;
 
         templateId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         title_ = "";
 
         description_ = "";
@@ -4958,10 +4977,16 @@ public final class PersistenceProto {
       @java.lang.Override
       public com.taskable.protobufs.PersistenceProto.Project buildPartial() {
         com.taskable.protobufs.PersistenceProto.Project result = new com.taskable.protobufs.PersistenceProto.Project(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.id_ = id_;
-        result.templateId_ = templateId_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.templateId_ = templateId_;
+          to_bitField0_ |= 0x00000001;
+        }
         result.title_ = title_;
         result.description_ = description_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -5013,7 +5038,7 @@ public final class PersistenceProto {
         if (other.getId() != 0) {
           setId(other.getId());
         }
-        if (other.getTemplateId() != 0) {
+        if (other.hasTemplateId()) {
           setTemplateId(other.getTemplateId());
         }
         if (!other.getTitle().isEmpty()) {
@@ -5057,7 +5082,7 @@ public final class PersistenceProto {
               } // case 8
               case 16: {
                 templateId_ = input.readInt32();
-
+                bitField0_ |= 0x00000001;
                 break;
               } // case 16
               case 26: {
@@ -5085,6 +5110,7 @@ public final class PersistenceProto {
         } // finally
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -5119,7 +5145,15 @@ public final class PersistenceProto {
 
       private int templateId_ ;
       /**
-       * <code>int32 template_id = 2;</code>
+       * <code>optional int32 template_id = 2;</code>
+       * @return Whether the templateId field is set.
+       */
+      @java.lang.Override
+      public boolean hasTemplateId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional int32 template_id = 2;</code>
        * @return The templateId.
        */
       @java.lang.Override
@@ -5127,22 +5161,22 @@ public final class PersistenceProto {
         return templateId_;
       }
       /**
-       * <code>int32 template_id = 2;</code>
+       * <code>optional int32 template_id = 2;</code>
        * @param value The templateId to set.
        * @return This builder for chaining.
        */
       public Builder setTemplateId(int value) {
-        
+        bitField0_ |= 0x00000001;
         templateId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 template_id = 2;</code>
+       * <code>optional int32 template_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTemplateId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         templateId_ = 0;
         onChanged();
         return this;
@@ -5374,16 +5408,34 @@ public final class PersistenceProto {
     int getId();
 
     /**
-     * <code>string description = 2;</code>
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string description = 3;</code>
      * @return The description.
      */
     java.lang.String getDescription();
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 3;</code>
      * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
+
+    /**
+     * <code>bool archived = 4;</code>
+     * @return The archived.
+     */
+    boolean getArchived();
   }
   /**
    * Protobuf type {@code Template}
@@ -5398,6 +5450,7 @@ public final class PersistenceProto {
       super(builder);
     }
     private Template() {
+      name_ = "";
       description_ = "";
     }
 
@@ -5437,10 +5490,48 @@ public final class PersistenceProto {
       return id_;
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 3;</code>
      * @return The description.
      */
     @java.lang.Override
@@ -5457,7 +5548,7 @@ public final class PersistenceProto {
       }
     }
     /**
-     * <code>string description = 2;</code>
+     * <code>string description = 3;</code>
      * @return The bytes for description.
      */
     @java.lang.Override
@@ -5473,6 +5564,17 @@ public final class PersistenceProto {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int ARCHIVED_FIELD_NUMBER = 4;
+    private boolean archived_;
+    /**
+     * <code>bool archived = 4;</code>
+     * @return The archived.
+     */
+    @java.lang.Override
+    public boolean getArchived() {
+      return archived_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5492,8 +5594,14 @@ public final class PersistenceProto {
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+      }
+      if (archived_ != false) {
+        output.writeBool(4, archived_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5508,8 +5616,15 @@ public final class PersistenceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+      }
+      if (archived_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, archived_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -5528,8 +5643,12 @@ public final class PersistenceProto {
 
       if (getId()
           != other.getId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
+      if (getArchived()
+          != other.getArchived()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5543,8 +5662,13 @@ public final class PersistenceProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + ARCHIVED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getArchived());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5675,7 +5799,11 @@ public final class PersistenceProto {
         super.clear();
         id_ = 0;
 
+        name_ = "";
+
         description_ = "";
+
+        archived_ = false;
 
         return this;
       }
@@ -5704,7 +5832,9 @@ public final class PersistenceProto {
       public com.taskable.protobufs.PersistenceProto.Template buildPartial() {
         com.taskable.protobufs.PersistenceProto.Template result = new com.taskable.protobufs.PersistenceProto.Template(this);
         result.id_ = id_;
+        result.name_ = name_;
         result.description_ = description_;
+        result.archived_ = archived_;
         onBuilt();
         return result;
       }
@@ -5756,9 +5886,16 @@ public final class PersistenceProto {
         if (other.getId() != 0) {
           setId(other.getId());
         }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
           onChanged();
+        }
+        if (other.getArchived() != false) {
+          setArchived(other.getArchived());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -5792,10 +5929,20 @@ public final class PersistenceProto {
                 break;
               } // case 8
               case 18: {
-                description_ = input.readStringRequireUtf8();
+                name_ = input.readStringRequireUtf8();
 
                 break;
               } // case 18
+              case 26: {
+                description_ = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              case 32: {
+                archived_ = input.readBool();
+
+                break;
+              } // case 32
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5843,9 +5990,85 @@ public final class PersistenceProto {
         return this;
       }
 
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 2;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object description_ = "";
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 3;</code>
        * @return The description.
        */
       public java.lang.String getDescription() {
@@ -5861,7 +6084,7 @@ public final class PersistenceProto {
         }
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 3;</code>
        * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
@@ -5878,7 +6101,7 @@ public final class PersistenceProto {
         }
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 3;</code>
        * @param value The description to set.
        * @return This builder for chaining.
        */
@@ -5893,7 +6116,7 @@ public final class PersistenceProto {
         return this;
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
@@ -5903,7 +6126,7 @@ public final class PersistenceProto {
         return this;
       }
       /**
-       * <code>string description = 2;</code>
+       * <code>string description = 3;</code>
        * @param value The bytes for description to set.
        * @return This builder for chaining.
        */
@@ -5915,6 +6138,37 @@ public final class PersistenceProto {
   checkByteStringIsUtf8(value);
         
         description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean archived_ ;
+      /**
+       * <code>bool archived = 4;</code>
+       * @return The archived.
+       */
+      @java.lang.Override
+      public boolean getArchived() {
+        return archived_;
+      }
+      /**
+       * <code>bool archived = 4;</code>
+       * @param value The archived to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArchived(boolean value) {
+        
+        archived_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool archived = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArchived() {
+        
+        archived_ = false;
         onChanged();
         return this;
       }
@@ -6036,12 +6290,13 @@ public final class PersistenceProto {
       "\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\022\n\n" +
       "created_at\030\004 \001(\t\022\020\n\010archived\030\005 \001(\010\"K\n\017Cl" +
       "assroomMember\022\n\n\002id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\022" +
-      "\036\n\nbasic_info\030\003 \001(\0132\n.BasicInfo\"N\n\007Proje" +
-      "ct\022\n\n\002id\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\r\n\005t" +
-      "itle\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\"+\n\010Templ" +
-      "ate\022\n\n\002id\030\001 \001(\005\022\023\n\013description\030\002 \001(\tB*\n\026" +
-      "com.taskable.protobufsB\020PersistenceProto" +
-      "b\006proto3"
+      "\036\n\nbasic_info\030\003 \001(\0132\n.BasicInfo\"c\n\007Proje" +
+      "ct\022\n\n\002id\030\001 \001(\005\022\030\n\013template_id\030\002 \001(\005H\000\210\001\001" +
+      "\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\tB\016\n\014" +
+      "_template_id\"K\n\010Template\022\n\n\002id\030\001 \001(\005\022\014\n\004" +
+      "name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020\n\010archi" +
+      "ved\030\004 \001(\010B*\n\026com.taskable.protobufsB\020Per" +
+      "sistenceProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6082,13 +6337,13 @@ public final class PersistenceProto {
     internal_static_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Project_descriptor,
-        new java.lang.String[] { "Id", "TemplateId", "Title", "Description", });
+        new java.lang.String[] { "Id", "TemplateId", "Title", "Description", "TemplateId", });
     internal_static_Template_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_Template_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Template_descriptor,
-        new java.lang.String[] { "Id", "Description", });
+        new java.lang.String[] { "Id", "Name", "Description", "Archived", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
