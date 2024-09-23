@@ -90,13 +90,6 @@ public class ClassRepository {
                 .fetchMap(USER.EMAIL, CLASSROOM_USER.USER_ID);
     }
 
-    public Set<Integer> getUserIdsInClass(Integer classId) {
-        return new HashSet<>(dsl.select(CLASSROOM_USER.USER_ID)
-                .from(CLASSROOM_USER)
-                .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
-                .fetchInto(Integer.class));
-    }
-
     public String getUserRoleInClass(Integer userId, Integer classId) {
         return dsl.select(CLASSROOM_USER.ROLE)
                 .from(CLASSROOM_USER)

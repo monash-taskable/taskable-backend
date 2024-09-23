@@ -26,3 +26,11 @@ message UpdateTemplateRequest {
   optional string description = 2;
   optional bool archived = 3;
 }
+
+message CreateProjectRequest {
+  string name = 1;
+}
+
+message CreateProjectResponse {
+  int32 id = 1;
+}

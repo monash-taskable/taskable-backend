@@ -7,10 +7,7 @@ import com.taskable.protobufs.TemplateProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/classes/{class_id}/templates")
@@ -29,4 +26,29 @@ public class TemplateController {
         return templateService.getTemplates(classId);
     }
 
+    @GetMapping("/{template_id}")
+    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    public GetTemplateResponse getTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                           @PathVariable("template_id") Integer templateId) {
+        return templateService.getTemplate(templateId);
+    }
+
+    @PostMapping("/create")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public CreateTemplateResponse createTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                 @RequestBody CreateTemplateRequest req) {
+        return templateService.createTemplate(req);
+    }
+
+    @PostMapping("/{template_id}/update")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public void updateTemplateDetails(@AuthenticationPrincipal CustomUserDetails userDetails,
+                               @PathVariable("template_id") Integer templateId,
+                               @RequestBody UpdateTemplateRequest req) {
+        templateService.updateTemplate(req, templateId);
+    }
+
+//    @PostMapping("/{template_id}/create-single")
+//    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+//
 }

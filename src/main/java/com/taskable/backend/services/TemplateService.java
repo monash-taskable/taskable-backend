@@ -20,4 +20,20 @@ public class TemplateService {
                 .addAllTemplates(templateRepository.getTemplatesInClass(classId))
                 .build();
     }
+
+    public GetTemplateResponse getTemplate(Integer templateId) {
+        return GetTemplateResponse.newBuilder()
+                .setTemplate(templateRepository.getTemplateById(templateId))
+                .build();
+    }
+
+    public CreateTemplateResponse createTemplate(CreateTemplateRequest req) {
+        return CreateTemplateResponse.newBuilder()
+                .setId(templateRepository.createTemplate(req.getName()))
+                .build();
+    }
+
+    public void updateTemplate(UpdateTemplateRequest req, Integer templateId) {
+        templateRepository.updateTemplateDetails(templateId, req.getName(), req.getDescription(), req.getArchived());
+    }
 }

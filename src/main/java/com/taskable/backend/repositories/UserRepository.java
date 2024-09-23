@@ -51,7 +51,7 @@ public class UserRepository {
     }
 
     public Integer storeUser(User user, String sub) {
-        UserRecord res = dsl.insertInto(USER)
+        return dsl.insertInto(USER)
                 .set(USER.EMAIL, user.getBasicInfo().getEmail())
                 .set(USER.SUB, sub)
                 .set(USER.FIRST_NAME, user.getBasicInfo().getFirstName())
@@ -61,8 +61,7 @@ public class UserRepository {
                 .set(USER.COLOUR, user.getUserSettings().getColor())
                 .set(USER.THEME, user.getUserSettings().getTheme())
                 .returning(USER.ID)
-                .fetchOne();
-        return res.getId();
+                .fetchOneInto(Integer.class);
     }
 
     @NotFoundOnNull(message = "Resource not found")
