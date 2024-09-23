@@ -2,12 +2,9 @@ package com.taskable.backend.utils;
 
 import com.taskable.jooq.tables.records.ClassroomRecord;
 import com.taskable.jooq.tables.records.ProjectRecord;
+import com.taskable.jooq.tables.records.TemplateRecord;
 import com.taskable.jooq.tables.records.UserRecord;
-import com.taskable.protobufs.PersistenceProto.BasicInfo;
-import com.taskable.protobufs.PersistenceProto.UserSettings;
-import com.taskable.protobufs.PersistenceProto.Classroom;
-import com.taskable.protobufs.PersistenceProto.User;
-import com.taskable.protobufs.PersistenceProto.Project;
+import com.taskable.protobufs.PersistenceProto.*;
 
 public class DbMapper {
     public static User map(UserRecord rec) {
@@ -42,6 +39,15 @@ public class DbMapper {
                 .setId(rec.getId())
                 .setTitle(rec.getName())
                 .setTemplateId(rec.getTemplateId())
+                .build();
+    }
+
+    public static Template map(TemplateRecord rec) {
+        return Template.newBuilder()
+                .setId(rec.getId())
+                .setName(rec.getName())
+                .setDescription(rec.getDescription())
+                .setArchived(rec.getArchived())
                 .build();
     }
 }

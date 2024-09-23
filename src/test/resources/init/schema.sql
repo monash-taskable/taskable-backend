@@ -31,7 +31,9 @@ CREATE TABLE classroom_user (
 CREATE TABLE template (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     classroom_id INTEGER,
+    name VARCHAR(255) NOT NULL,
     description VARCHAR(500),
+    archived BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE
 );
 
