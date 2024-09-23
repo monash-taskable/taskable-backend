@@ -7,6 +7,7 @@ package com.taskable.jooq.tables;
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
+import com.taskable.jooq.tables.Attachment.AttachmentPath;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
 import com.taskable.jooq.tables.SubtaskAssignee.SubtaskAssigneePath;
@@ -204,6 +205,19 @@ public class Project extends TableImpl<ProjectRecord> {
             _template = new TemplatePath(this, Keys.PROJECT_IBFK_2, null);
 
         return _template;
+    }
+
+    private transient AttachmentPath _attachment;
+
+    /**
+     * Get the implicit to-many join path to the <code>testdb.attachment</code>
+     * table
+     */
+    public AttachmentPath attachment() {
+        if (_attachment == null)
+            _attachment = new AttachmentPath(this, null, Keys.ATTACHMENT_IBFK_1.getInverseKey());
+
+        return _attachment;
     }
 
     private transient ProjectUserPath _projectUser;

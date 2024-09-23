@@ -7,6 +7,7 @@ package com.taskable.jooq.tables;
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
+import com.taskable.jooq.tables.Attachment.AttachmentPath;
 import com.taskable.jooq.tables.SubtaskAssignee.SubtaskAssigneePath;
 import com.taskable.jooq.tables.SubtaskComment.SubtaskCommentPath;
 import com.taskable.jooq.tables.Task.TaskPath;
@@ -204,6 +205,19 @@ public class Subtask extends TableImpl<SubtaskRecord> {
             _task = new TaskPath(this, Keys.SUBTASK_IBFK_1, null);
 
         return _task;
+    }
+
+    private transient AttachmentPath _attachment;
+
+    /**
+     * Get the implicit to-many join path to the <code>testdb.attachment</code>
+     * table
+     */
+    public AttachmentPath attachment() {
+        if (_attachment == null)
+            _attachment = new AttachmentPath(this, null, Keys.ATTACHMENT_IBFK_3.getInverseKey());
+
+        return _attachment;
     }
 
     private transient SubtaskAssigneePath _subtaskAssignee;

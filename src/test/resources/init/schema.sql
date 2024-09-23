@@ -102,10 +102,10 @@ CREATE TABLE attachment (
     template_id INTEGER NULL,
     subtask_id INTEGER NULL,
     type VARCHAR(50),
-    url VARCHAR(1000)
+    url VARCHAR(1000),
     FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
-    FOREIGN KEY (template_id) REFERENCES project(id) ON DELETE CASCADE,
-    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCAD,
+    FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE,
+    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE
 );
 
 

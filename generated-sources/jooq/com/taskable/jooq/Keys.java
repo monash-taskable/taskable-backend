@@ -4,6 +4,7 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Attachment;
 import com.taskable.jooq.tables.Classroom;
 import com.taskable.jooq.tables.ClassroomUser;
 import com.taskable.jooq.tables.Project;
@@ -14,6 +15,7 @@ import com.taskable.jooq.tables.SubtaskComment;
 import com.taskable.jooq.tables.Task;
 import com.taskable.jooq.tables.Template;
 import com.taskable.jooq.tables.User;
+import com.taskable.jooq.tables.records.AttachmentRecord;
 import com.taskable.jooq.tables.records.ClassroomRecord;
 import com.taskable.jooq.tables.records.ClassroomUserRecord;
 import com.taskable.jooq.tables.records.ProjectRecord;
@@ -43,6 +45,7 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<AttachmentRecord> KEY_ATTACHMENT_PRIMARY = Internal.createUniqueKey(Attachment.ATTACHMENT, DSL.name("KEY_attachment_PRIMARY"), new TableField[] { Attachment.ATTACHMENT.ID }, true);
     public static final UniqueKey<ClassroomRecord> KEY_CLASSROOM_PRIMARY = Internal.createUniqueKey(Classroom.CLASSROOM, DSL.name("KEY_classroom_PRIMARY"), new TableField[] { Classroom.CLASSROOM.ID }, true);
     public static final UniqueKey<ClassroomUserRecord> KEY_CLASSROOM_USER_PRIMARY = Internal.createUniqueKey(ClassroomUser.CLASSROOM_USER, DSL.name("KEY_classroom_user_PRIMARY"), new TableField[] { ClassroomUser.CLASSROOM_USER.USER_ID, ClassroomUser.CLASSROOM_USER.CLASSROOM_ID }, true);
     public static final UniqueKey<ProjectRecord> KEY_PROJECT_NAME = Internal.createUniqueKey(Project.PROJECT, DSL.name("KEY_project_name"), new TableField[] { Project.PROJECT.NAME }, true);
@@ -61,6 +64,9 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<AttachmentRecord, ProjectRecord> ATTACHMENT_IBFK_1 = Internal.createForeignKey(Attachment.ATTACHMENT, DSL.name("attachment_ibfk_1"), new TableField[] { Attachment.ATTACHMENT.PROJECT_ID }, Keys.KEY_PROJECT_PRIMARY, new TableField[] { Project.PROJECT.ID }, true);
+    public static final ForeignKey<AttachmentRecord, TemplateRecord> ATTACHMENT_IBFK_2 = Internal.createForeignKey(Attachment.ATTACHMENT, DSL.name("attachment_ibfk_2"), new TableField[] { Attachment.ATTACHMENT.TEMPLATE_ID }, Keys.KEY_TEMPLATE_PRIMARY, new TableField[] { Template.TEMPLATE.ID }, true);
+    public static final ForeignKey<AttachmentRecord, SubtaskRecord> ATTACHMENT_IBFK_3 = Internal.createForeignKey(Attachment.ATTACHMENT, DSL.name("attachment_ibfk_3"), new TableField[] { Attachment.ATTACHMENT.SUBTASK_ID }, Keys.KEY_SUBTASK_PRIMARY, new TableField[] { Subtask.SUBTASK.ID }, true);
     public static final ForeignKey<ClassroomUserRecord, UserRecord> CLASSROOM_USER_IBFK_1 = Internal.createForeignKey(ClassroomUser.CLASSROOM_USER, DSL.name("classroom_user_ibfk_1"), new TableField[] { ClassroomUser.CLASSROOM_USER.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
     public static final ForeignKey<ClassroomUserRecord, ClassroomRecord> CLASSROOM_USER_IBFK_2 = Internal.createForeignKey(ClassroomUser.CLASSROOM_USER, DSL.name("classroom_user_ibfk_2"), new TableField[] { ClassroomUser.CLASSROOM_USER.CLASSROOM_ID }, Keys.KEY_CLASSROOM_PRIMARY, new TableField[] { Classroom.CLASSROOM.ID }, true);
     public static final ForeignKey<ProjectRecord, ClassroomRecord> PROJECT_IBFK_1 = Internal.createForeignKey(Project.PROJECT, DSL.name("project_ibfk_1"), new TableField[] { Project.PROJECT.CLASSROOM_ID }, Keys.KEY_CLASSROOM_PRIMARY, new TableField[] { Classroom.CLASSROOM.ID }, true);

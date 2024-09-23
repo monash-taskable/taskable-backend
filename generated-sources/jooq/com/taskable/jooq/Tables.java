@@ -4,6 +4,7 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Attachment;
 import com.taskable.jooq.tables.Classroom;
 import com.taskable.jooq.tables.ClassroomUser;
 import com.taskable.jooq.tables.Project;
@@ -21,6 +22,11 @@ import com.taskable.jooq.tables.User;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Tables {
+
+    /**
+     * The table <code>testdb.attachment</code>.
+     */
+    public static final Attachment ATTACHMENT = Attachment.ATTACHMENT;
 
     /**
      * The table <code>testdb.classroom</code>.

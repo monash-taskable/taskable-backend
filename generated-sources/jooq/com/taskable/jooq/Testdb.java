@@ -4,6 +4,7 @@
 package com.taskable.jooq;
 
 
+import com.taskable.jooq.tables.Attachment;
 import com.taskable.jooq.tables.Classroom;
 import com.taskable.jooq.tables.ClassroomUser;
 import com.taskable.jooq.tables.Project;
@@ -35,6 +36,11 @@ public class Testdb extends SchemaImpl {
      * The reference instance of <code>testdb</code>
      */
     public static final Testdb TESTDB = new Testdb();
+
+    /**
+     * The table <code>testdb.attachment</code>.
+     */
+    public final Attachment ATTACHMENT = Attachment.ATTACHMENT;
 
     /**
      * The table <code>testdb.classroom</code>.
@@ -102,6 +108,7 @@ public class Testdb extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Attachment.ATTACHMENT,
             Classroom.CLASSROOM,
             ClassroomUser.CLASSROOM_USER,
             Project.PROJECT,
