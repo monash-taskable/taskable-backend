@@ -182,7 +182,7 @@ public class Template extends TableImpl<TemplateRecord> {
      */
     public ProjectPath project() {
         if (_project == null)
-            _project = new ProjectPath(this, null, Keys.PROJECT_IBFK_1.getInverseKey());
+            _project = new ProjectPath(this, null, Keys.PROJECT_IBFK_2.getInverseKey());
 
         return _project;
     }

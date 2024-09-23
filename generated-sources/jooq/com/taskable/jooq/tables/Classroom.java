@@ -7,6 +7,7 @@ package com.taskable.jooq.tables;
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
 import com.taskable.jooq.tables.ClassroomUser.ClassroomUserPath;
+import com.taskable.jooq.tables.Project.ProjectPath;
 import com.taskable.jooq.tables.Template.TemplatePath;
 import com.taskable.jooq.tables.User.UserPath;
 import com.taskable.jooq.tables.records.ClassroomRecord;
@@ -171,6 +172,19 @@ public class Classroom extends TableImpl<ClassroomRecord> {
             _classroomUser = new ClassroomUserPath(this, null, Keys.CLASSROOM_USER_IBFK_2.getInverseKey());
 
         return _classroomUser;
+    }
+
+    private transient ProjectPath _project;
+
+    /**
+     * Get the implicit to-many join path to the <code>testdb.project</code>
+     * table
+     */
+    public ProjectPath project() {
+        if (_project == null)
+            _project = new ProjectPath(this, null, Keys.PROJECT_IBFK_1.getInverseKey());
+
+        return _project;
     }
 
     private transient TemplatePath _template;

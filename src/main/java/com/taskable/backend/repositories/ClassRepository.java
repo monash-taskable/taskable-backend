@@ -1,6 +1,5 @@
 package com.taskable.backend.repositories;
 
-import com.google.common.collect.ImmutableList;
 import com.taskable.backend.exception_handling.NotFoundOnNull;
 import com.taskable.backend.utils.DbMapper;
 import com.taskable.backend.utils.DbUtils;
@@ -8,7 +7,6 @@ import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.ClassroomMember;
 import com.taskable.protobufs.PersistenceProto.Classroom;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.slf4j.Logger;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 import static com.taskable.jooq.tables.User.USER;
 import static com.taskable.jooq.tables.Classroom.CLASSROOM;

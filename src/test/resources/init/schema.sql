@@ -37,9 +37,11 @@ CREATE TABLE template (
 
 CREATE TABLE project (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    classroom_id INTEGER,
     template_id INTEGER,
     name VARCHAR(255) NOT NULL UNIQUE,
     created_at DATETIME NOT NULL,
+    FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE,
     FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE
 );
 

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.taskable.protobufs";
+option java_outer_classname = "ProjectProto";
+import "persistence.proto";
+
+
+message GetProjectResponse {
+  Project project = 1;
+}
+
+message GetProjectsResponse {
+  repeated Project projects = 1;
+}
+
+message AddProjectMembersRequest {
+  repeated string emails = 1;
+}
+
+message AddProjectMembersResponse {
+  repeated string invalid_emails = 1;
+}
+
+message RemoveProjectMemberRequest {
+  repeated int32 member_ids = 1;
+}

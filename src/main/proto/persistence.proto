@@ -35,3 +35,15 @@ message ClassroomMember {
   string role = 2;
   BasicInfo basic_info = 3;
 }
+
+message Project {
+  int32 id = 1;
+  int32 template_id = 2;
+  string title = 3;
+  string description = 4;
+}
+
+message Template {
+  int32 id = 1;
+  string description = 2;
+}

@@ -30,6 +30,7 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     public static final Index CLASSROOM_USER_CLASSROOM_ID = Internal.createIndex(DSL.name("classroom_id"), ClassroomUser.CLASSROOM_USER, new OrderField[] { ClassroomUser.CLASSROOM_USER.CLASSROOM_ID }, false);
+    public static final Index PROJECT_CLASSROOM_ID = Internal.createIndex(DSL.name("classroom_id"), Project.PROJECT, new OrderField[] { Project.PROJECT.CLASSROOM_ID }, false);
     public static final Index TEMPLATE_CLASSROOM_ID = Internal.createIndex(DSL.name("classroom_id"), Template.TEMPLATE, new OrderField[] { Template.TEMPLATE.CLASSROOM_ID }, false);
     public static final Index PROJECT_USER_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), ProjectUser.PROJECT_USER, new OrderField[] { ProjectUser.PROJECT_USER.PROJECT_ID }, false);
     public static final Index SUBTASK_ASSIGNEE_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), SubtaskAssignee.SUBTASK_ASSIGNEE, new OrderField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.PROJECT_ID }, false);

@@ -35,45 +35,59 @@ public class ProjectRecord extends UpdatableRecordImpl<ProjectRecord> {
     }
 
     /**
+     * Setter for <code>testdb.project.classroom_id</code>.
+     */
+    public void setClassroomId(Integer value) {
+        set(1, value);
+    }
+
+    /**
+     * Getter for <code>testdb.project.classroom_id</code>.
+     */
+    public Integer getClassroomId() {
+        return (Integer) get(1);
+    }
+
+    /**
      * Setter for <code>testdb.project.template_id</code>.
      */
     public void setTemplateId(Integer value) {
-        set(1, value);
+        set(2, value);
     }
 
     /**
      * Getter for <code>testdb.project.template_id</code>.
      */
     public Integer getTemplateId() {
-        return (Integer) get(1);
+        return (Integer) get(2);
     }
 
     /**
      * Setter for <code>testdb.project.name</code>.
      */
     public void setName(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>testdb.project.name</code>.
      */
     public String getName() {
-        return (String) get(2);
+        return (String) get(3);
     }
 
     /**
      * Setter for <code>testdb.project.created_at</code>.
      */
     public void setCreatedAt(LocalDateTime value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>testdb.project.created_at</code>.
      */
     public LocalDateTime getCreatedAt() {
-        return (LocalDateTime) get(3);
+        return (LocalDateTime) get(4);
     }
 
     // -------------------------------------------------------------------------
@@ -99,10 +113,11 @@ public class ProjectRecord extends UpdatableRecordImpl<ProjectRecord> {
     /**
      * Create a detached, initialised ProjectRecord
      */
-    public ProjectRecord(Integer id, Integer templateId, String name, LocalDateTime createdAt) {
+    public ProjectRecord(Integer id, Integer classroomId, Integer templateId, String name, LocalDateTime createdAt) {
         super(Project.PROJECT);
 
         setId(id);
+        setClassroomId(classroomId);
         setTemplateId(templateId);
         setName(name);
         setCreatedAt(createdAt);

@@ -1,7 +1,7 @@
 package com.taskable.backend.services;
 
-import com.taskable.backend.controllers.ClassController;
 import com.taskable.backend.repositories.ClassRepository;
+import com.taskable.backend.repositories.ProjectRepository;
 import com.taskable.backend.repositories.UserRepository;
 import com.taskable.backend.utils.enums.Role;
 import org.slf4j.Logger;
@@ -19,15 +19,22 @@ public class AuthorizationService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProjectRepository projectRepository;
+
     private static final Logger logger = LoggerFactory.getLogger(AuthorizationService.class);
 
     // update this method name to fulfil more roles if necessary
-    public boolean canUserAddToClass(Integer userId, Integer classId) {
+    public boolean checkStaffInClass(Integer userId, Integer classId) {
         return Set.of("OWNER", "ADMIN", "TEACHER").contains(classRepository.getUserRoleInClass(userId, classId));
     }
 
     public boolean userExistsInClass(Integer userId, Integer classId) {
         return classRepository.checkUserInClass(userId, classId);
+    }
+
+    public boolean userExistsInProject(Integer userId, Integer projectId) {
+        return projectRepository.checkUserInProject(userId, projectId);
     }
 
     public boolean checkOwnerOrAdminInClass(Integer userId, Integer classId) {

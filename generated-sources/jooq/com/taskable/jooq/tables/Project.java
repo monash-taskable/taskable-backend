@@ -7,6 +7,7 @@ package com.taskable.jooq.tables;
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
+import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
 import com.taskable.jooq.tables.SubtaskAssignee.SubtaskAssigneePath;
 import com.taskable.jooq.tables.Task.TaskPath;
@@ -68,6 +69,11 @@ public class Project extends TableImpl<ProjectRecord> {
      * The column <code>testdb.project.id</code>.
      */
     public final TableField<ProjectRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+
+    /**
+     * The column <code>testdb.project.classroom_id</code>.
+     */
+    public final TableField<ProjectRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>testdb.project.template_id</code>.
@@ -153,7 +159,7 @@ public class Project extends TableImpl<ProjectRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.PROJECT_TEMPLATE_ID);
+        return Arrays.asList(Indexes.PROJECT_CLASSROOM_ID, Indexes.PROJECT_TEMPLATE_ID);
     }
 
     @Override
@@ -173,7 +179,19 @@ public class Project extends TableImpl<ProjectRecord> {
 
     @Override
     public List<ForeignKey<ProjectRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.PROJECT_IBFK_1);
+        return Arrays.asList(Keys.PROJECT_IBFK_1, Keys.PROJECT_IBFK_2);
+    }
+
+    private transient ClassroomPath _classroom;
+
+    /**
+     * Get the implicit join path to the <code>testdb.classroom</code> table.
+     */
+    public ClassroomPath classroom() {
+        if (_classroom == null)
+            _classroom = new ClassroomPath(this, Keys.PROJECT_IBFK_1, null);
+
+        return _classroom;
     }
 
     private transient TemplatePath _template;
@@ -183,7 +201,7 @@ public class Project extends TableImpl<ProjectRecord> {
      */
     public TemplatePath template() {
         if (_template == null)
-            _template = new TemplatePath(this, Keys.PROJECT_IBFK_1, null);
+            _template = new TemplatePath(this, Keys.PROJECT_IBFK_2, null);
 
         return _template;
     }
