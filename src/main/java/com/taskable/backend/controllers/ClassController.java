@@ -69,6 +69,7 @@ public class ClassController {
         }
     }
 
+
     @PostMapping("/{class_id}/members/{member_id}/update-role")
     @PreAuthorize(
             "@authorizationService.canUserUpdateRole(#userDetails.userId(), #memberId, #req.getRole(), #classId)")

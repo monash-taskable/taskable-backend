@@ -14,9 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static com.taskable.jooq.tables.User.USER;
 import static com.taskable.jooq.tables.Classroom.CLASSROOM;
@@ -82,6 +80,23 @@ public class ClassRepository {
         insertStep.onDuplicateKeyIgnore().execute();
     }
 
+    public Map<String, Integer> getUserIdsInClassByEmails(List<String> emails, Integer classId) {
+        return dsl.select(USER.EMAIL, CLASSROOM_USER.USER_ID)
+                .from(CLASSROOM_USER)
+                .join(USER)
+                .on(CLASSROOM_USER.USER_ID.eq(USER.ID))
+                .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+                .and(USER.EMAIL.in(emails))
+                .fetchMap(USER.EMAIL, CLASSROOM_USER.USER_ID);
+    }
+
+    public Set<Integer> getUserIdsInClass(Integer classId) {
+        return new HashSet<>(dsl.select(CLASSROOM_USER.USER_ID)
+                .from(CLASSROOM_USER)
+                .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+                .fetchInto(Integer.class));
+    }
+
     public String getUserRoleInClass(Integer userId, Integer classId) {
         return dsl.select(CLASSROOM_USER.ROLE)
                 .from(CLASSROOM_USER)
@@ -116,8 +131,8 @@ public class ClassRepository {
 
     public List<ClassroomMember> getMembersFromClass(Integer classId) {
         return dsl.select(CLASSROOM_USER.USER_ID, USER.FIRST_NAME, USER.LAST_NAME, CLASSROOM_USER.ROLE)
-                .from(USER)
-                .join(CLASSROOM_USER)
+                .from(CLASSROOM_USER)
+                .join(USER)
                 .on(USER.ID.eq(CLASSROOM_USER.USER_ID))
                 .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
                 .fetch()

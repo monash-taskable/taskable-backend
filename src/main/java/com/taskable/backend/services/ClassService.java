@@ -61,6 +61,7 @@ public class ClassService {
                 userIdsToAdd.add(userId);
             }
         }
+        // TODO: TEST LARGE BULK INSERT
         classRepository.addUsersToClass(userIdsToAdd, classId, "STUDENT");
         return AddMembersResponse.newBuilder()
                 .addAllInvalidEmails(invalidEmails)

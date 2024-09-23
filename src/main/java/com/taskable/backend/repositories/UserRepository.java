@@ -35,10 +35,19 @@ public class UserRepository {
     }
 
     public Map<String, Integer> getUserIdsByEmails(List<String> emails) {
-        return dsl.select(USER.EMAIL, USER.ID)
-                .from(USER)
-                .where(USER.EMAIL.in(emails))
-                .fetchMap(USER.EMAIL, USER.ID);
+        Map<String, Integer> result = new HashMap<>();
+        int batchSize = 500;
+
+        for (int i = 0; i < emails.size(); i += batchSize) {
+            List<String> batch = emails.subList(i, Math.min(i + batchSize, emails.size()));
+            result.putAll(
+                    dsl.select(USER.EMAIL, USER.ID)
+                            .from(USER)
+                            .where(USER.EMAIL.in(batch))
+                            .fetchMap(USER.EMAIL, USER.ID)
+            );
+        }
+        return result;
     }
 
     public Integer storeUser(User user, String sub) {
