@@ -48,7 +48,18 @@ public class TemplateController {
         templateService.updateTemplate(req, templateId);
     }
 
-//    @PostMapping("/{template_id}/create-single")
-//    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
-//
+    @PostMapping("/{template_id}/create-single")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public CreateProjectResponse createProject(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                              @PathVariable("template_id") Integer templateId,
+                                              @RequestBody CreateProjectRequest req) {
+        return templateService.createProject(templateId, req);
+    }
+
+    @DeleteMapping("/{template_id}/delete")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public void deleteTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
+                               @PathVariable("template_id") Integer templateId) {
+        templateService.deleteTemplate(templateId);
+    }
 }

@@ -36,4 +36,14 @@ public class TemplateService {
     public void updateTemplate(UpdateTemplateRequest req, Integer templateId) {
         templateRepository.updateTemplateDetails(templateId, req.getName(), req.getDescription(), req.getArchived());
     }
+
+    public CreateProjectResponse createProject(Integer templateId, CreateProjectRequest req) {
+        return CreateProjectResponse.newBuilder()
+                .setId(projectRepository.createProject(templateId, req.getName()))
+                .build();
+    }
+
+    public void deleteTemplate(Integer templateId) {
+        templateRepository.deleteTemplateById(templateId);
+    }
 }

@@ -40,7 +40,7 @@ CREATE TABLE template (
 CREATE TABLE project (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     classroom_id INTEGER,
-    template_id INTEGER,
+    template_id INTEGER NULL,
     name VARCHAR(255) NOT NULL UNIQUE,
     created_at DATETIME NOT NULL,
     FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE,
@@ -94,6 +94,18 @@ CREATE TABLE subtask_comment (
     create_date DATETIME,
     FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+CREATE TABLE attachment (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    project_id INTEGER NULL,
+    template_id INTEGER NULL,
+    subtask_id INTEGER NULL,
+    type VARCHAR(50),
+    url VARCHAR(1000)
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
+    FOREIGN KEY (template_id) REFERENCES project(id) ON DELETE CASCADE,
+    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCAD,
 );
 
 

@@ -24,6 +24,14 @@ public class ProjectRepository {
     @Autowired
     public ProjectRepository(DSLContext dsl) {this.dsl = dsl;}
 
+    public Integer createProject(Integer templateId, String name) {
+        return dsl.insertInto(PROJECT)
+                .set(PROJECT.TEMPLATE_ID, templateId)
+                .set(PROJECT.NAME, name)
+                .returning(PROJECT.ID)
+                .fetchOneInto(Integer.class);
+    }
+
     public boolean checkUserInProject(Integer userId, Integer projectId) {
         return dsl.fetchExists(
                 dsl.selectFrom(PROJECT_USER)

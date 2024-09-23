@@ -59,4 +59,10 @@ public class TemplateRepository {
                 .where(TEMPLATE.ID.eq(templateId))
                 .execute();
     }
+
+    public void deleteTemplateById(Integer id) {
+        dsl.deleteFrom(TEMPLATE)
+                .where(TEMPLATE.ID.eq(id))
+                .execute();
+    }
 }
