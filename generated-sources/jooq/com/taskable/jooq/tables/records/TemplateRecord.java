@@ -47,17 +47,45 @@ public class TemplateRecord extends UpdatableRecordImpl<TemplateRecord> {
     }
 
     /**
+     * Setter for <code>testdb.template.name</code>.
+     */
+    public void setName(String value) {
+        set(2, value);
+    }
+
+    /**
+     * Getter for <code>testdb.template.name</code>.
+     */
+    public String getName() {
+        return (String) get(2);
+    }
+
+    /**
      * Setter for <code>testdb.template.description</code>.
      */
     public void setDescription(String value) {
-        set(2, value);
+        set(3, value);
     }
 
     /**
      * Getter for <code>testdb.template.description</code>.
      */
     public String getDescription() {
-        return (String) get(2);
+        return (String) get(3);
+    }
+
+    /**
+     * Setter for <code>testdb.template.archived</code>.
+     */
+    public void setArchived(Byte value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>testdb.template.archived</code>.
+     */
+    public Byte getArchived() {
+        return (Byte) get(4);
     }
 
     // -------------------------------------------------------------------------
@@ -83,12 +111,14 @@ public class TemplateRecord extends UpdatableRecordImpl<TemplateRecord> {
     /**
      * Create a detached, initialised TemplateRecord
      */
-    public TemplateRecord(Integer id, Integer classroomId, String description) {
+    public TemplateRecord(Integer id, Integer classroomId, String name, String description, Byte archived) {
         super(Template.TEMPLATE);
 
         setId(id);
         setClassroomId(classroomId);
+        setName(name);
         setDescription(description);
+        setArchived(archived);
         resetChangedOnNotNull();
     }
 }

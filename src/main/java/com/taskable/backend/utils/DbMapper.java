@@ -47,7 +47,7 @@ public class DbMapper {
                 .setId(rec.getId())
                 .setName(rec.getName())
                 .setDescription(rec.getDescription())
-                .setArchived(rec.getArchived())
+                .setArchived(rec.getArchived() == 1)
                 .build();
     }
 }

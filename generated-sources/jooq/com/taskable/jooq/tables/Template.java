@@ -71,9 +71,19 @@ public class Template extends TableImpl<TemplateRecord> {
     public final TableField<TemplateRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER, this, "");
 
     /**
+     * The column <code>testdb.template.name</code>.
+     */
+    public final TableField<TemplateRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
+
+    /**
      * The column <code>testdb.template.description</code>.
      */
     public final TableField<TemplateRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500), this, "");
+
+    /**
+     * The column <code>testdb.template.archived</code>.
+     */
+    public final TableField<TemplateRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
     private Template(Name alias, Table<TemplateRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
