@@ -7,6 +7,7 @@ import com.taskable.protobufs.UserProto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,11 +27,10 @@ public class UserController {
         return userService.getProfile(userDetails.userId());
     }
 
-    @PostMapping("/{user_id}/update")
+    @PostMapping("/update")
     public void updateProfile(
             @AuthenticationPrincipal CustomUserDetails userDetails,
-            @PathVariable("user_id") Integer userId,
             @RequestBody UpdateProfileRequest req) {
-        userService.updateProfile(userId, req);
+        userService.updateProfile(userDetails.userId(), req);
     }
 }
