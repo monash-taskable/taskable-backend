@@ -73,19 +73,19 @@ public class UserRepository {
         return res != null ? DbMapper.map(res) : null;
     }
 
-    public void updateProfileById(Integer userId, UserSettings settings) {
+    public void updateProfileById(Integer userId, String status, String language, String color, String theme) {
         var fieldsToUpdate = new HashMap<>();
-        if (!settings.getLanguage().isEmpty()) {
-            fieldsToUpdate.put(USER.LANGUAGE, settings.getLanguage());
+        if (language != null) {
+            fieldsToUpdate.put(USER.LANGUAGE, language);
         }
-        if (!settings.getColor().isEmpty()) {
-            fieldsToUpdate.put(USER.COLOUR, settings.getColor());
+        if (color != null) {
+            fieldsToUpdate.put(USER.COLOUR, color);
         }
-        if (!settings.getStatus().isEmpty()) {
-            fieldsToUpdate.put(USER.STATUS, settings.getStatus());
+        if (status != null) {
+            fieldsToUpdate.put(USER.STATUS, status);
         }
-        if (!settings.getTheme().isEmpty()) {
-            fieldsToUpdate.put(USER.THEME, settings.getTheme());
+        if (theme != null) {
+            fieldsToUpdate.put(USER.THEME, theme);
         }
         dsl.update(USER)
                 .set(fieldsToUpdate)

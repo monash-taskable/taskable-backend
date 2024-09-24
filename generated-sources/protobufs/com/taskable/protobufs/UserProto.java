@@ -616,19 +616,72 @@ public final class UserProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.UserSettings user_settings = 1;</code>
-     * @return Whether the userSettings field is set.
+     * <code>optional string status = 1;</code>
+     * @return Whether the status field is set.
      */
-    boolean hasUserSettings();
+    boolean hasStatus();
     /**
-     * <code>.UserSettings user_settings = 1;</code>
-     * @return The userSettings.
+     * <code>optional string status = 1;</code>
+     * @return The status.
      */
-    com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings();
+    java.lang.String getStatus();
     /**
-     * <code>.UserSettings user_settings = 1;</code>
+     * <code>optional string status = 1;</code>
+     * @return The bytes for status.
      */
-    com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder();
+    com.google.protobuf.ByteString
+        getStatusBytes();
+
+    /**
+     * <code>optional string language = 2;</code>
+     * @return Whether the language field is set.
+     */
+    boolean hasLanguage();
+    /**
+     * <code>optional string language = 2;</code>
+     * @return The language.
+     */
+    java.lang.String getLanguage();
+    /**
+     * <code>optional string language = 2;</code>
+     * @return The bytes for language.
+     */
+    com.google.protobuf.ByteString
+        getLanguageBytes();
+
+    /**
+     * <code>optional string color = 3;</code>
+     * @return Whether the color field is set.
+     */
+    boolean hasColor();
+    /**
+     * <code>optional string color = 3;</code>
+     * @return The color.
+     */
+    java.lang.String getColor();
+    /**
+     * <code>optional string color = 3;</code>
+     * @return The bytes for color.
+     */
+    com.google.protobuf.ByteString
+        getColorBytes();
+
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return Whether the theme field is set.
+     */
+    boolean hasTheme();
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return The theme.
+     */
+    java.lang.String getTheme();
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return The bytes for theme.
+     */
+    com.google.protobuf.ByteString
+        getThemeBytes();
   }
   /**
    * Protobuf type {@code UpdateProfileRequest}
@@ -643,6 +696,10 @@ public final class UserProto {
       super(builder);
     }
     private UpdateProfileRequest() {
+      status_ = "";
+      language_ = "";
+      color_ = "";
+      theme_ = "";
     }
 
     @java.lang.Override
@@ -670,30 +727,189 @@ public final class UserProto {
               com.taskable.protobufs.UserProto.UpdateProfileRequest.class, com.taskable.protobufs.UserProto.UpdateProfileRequest.Builder.class);
     }
 
-    public static final int USER_SETTINGS_FIELD_NUMBER = 1;
-    private com.taskable.protobufs.PersistenceProto.UserSettings userSettings_;
+    private int bitField0_;
+    public static final int STATUS_FIELD_NUMBER = 1;
+    private volatile java.lang.Object status_;
     /**
-     * <code>.UserSettings user_settings = 1;</code>
-     * @return Whether the userSettings field is set.
+     * <code>optional string status = 1;</code>
+     * @return Whether the status field is set.
      */
     @java.lang.Override
-    public boolean hasUserSettings() {
-      return userSettings_ != null;
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.UserSettings user_settings = 1;</code>
-     * @return The userSettings.
+     * <code>optional string status = 1;</code>
+     * @return The status.
      */
     @java.lang.Override
-    public com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings() {
-      return userSettings_ == null ? com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.UserSettings user_settings = 1;</code>
+     * <code>optional string status = 1;</code>
+     * @return The bytes for status.
      */
     @java.lang.Override
-    public com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder() {
-      return getUserSettings();
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LANGUAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object language_;
+    /**
+     * <code>optional string language = 2;</code>
+     * @return Whether the language field is set.
+     */
+    @java.lang.Override
+    public boolean hasLanguage() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string language = 2;</code>
+     * @return The language.
+     */
+    @java.lang.Override
+    public java.lang.String getLanguage() {
+      java.lang.Object ref = language_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        language_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string language = 2;</code>
+     * @return The bytes for language.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLanguageBytes() {
+      java.lang.Object ref = language_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        language_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COLOR_FIELD_NUMBER = 3;
+    private volatile java.lang.Object color_;
+    /**
+     * <code>optional string color = 3;</code>
+     * @return Whether the color field is set.
+     */
+    @java.lang.Override
+    public boolean hasColor() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string color = 3;</code>
+     * @return The color.
+     */
+    @java.lang.Override
+    public java.lang.String getColor() {
+      java.lang.Object ref = color_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        color_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string color = 3;</code>
+     * @return The bytes for color.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColorBytes() {
+      java.lang.Object ref = color_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        color_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int THEME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object theme_;
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return Whether the theme field is set.
+     */
+    @java.lang.Override
+    public boolean hasTheme() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return The theme.
+     */
+    @java.lang.Override
+    public java.lang.String getTheme() {
+      java.lang.Object ref = theme_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        theme_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string theme = 4;</code>
+     * @return The bytes for theme.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getThemeBytes() {
+      java.lang.Object ref = theme_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        theme_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -710,8 +926,17 @@ public final class UserProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (userSettings_ != null) {
-        output.writeMessage(1, getUserSettings());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, status_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, language_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, color_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, theme_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -722,9 +947,17 @@ public final class UserProto {
       if (size != -1) return size;
 
       size = 0;
-      if (userSettings_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getUserSettings());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, status_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, language_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, color_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, theme_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -741,10 +974,25 @@ public final class UserProto {
       }
       com.taskable.protobufs.UserProto.UpdateProfileRequest other = (com.taskable.protobufs.UserProto.UpdateProfileRequest) obj;
 
-      if (hasUserSettings() != other.hasUserSettings()) return false;
-      if (hasUserSettings()) {
-        if (!getUserSettings()
-            .equals(other.getUserSettings())) return false;
+      if (hasStatus() != other.hasStatus()) return false;
+      if (hasStatus()) {
+        if (!getStatus()
+            .equals(other.getStatus())) return false;
+      }
+      if (hasLanguage() != other.hasLanguage()) return false;
+      if (hasLanguage()) {
+        if (!getLanguage()
+            .equals(other.getLanguage())) return false;
+      }
+      if (hasColor() != other.hasColor()) return false;
+      if (hasColor()) {
+        if (!getColor()
+            .equals(other.getColor())) return false;
+      }
+      if (hasTheme() != other.hasTheme()) return false;
+      if (hasTheme()) {
+        if (!getTheme()
+            .equals(other.getTheme())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -757,9 +1005,21 @@ public final class UserProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasUserSettings()) {
-        hash = (37 * hash) + USER_SETTINGS_FIELD_NUMBER;
-        hash = (53 * hash) + getUserSettings().hashCode();
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getStatus().hashCode();
+      }
+      if (hasLanguage()) {
+        hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getLanguage().hashCode();
+      }
+      if (hasColor()) {
+        hash = (37 * hash) + COLOR_FIELD_NUMBER;
+        hash = (53 * hash) + getColor().hashCode();
+      }
+      if (hasTheme()) {
+        hash = (37 * hash) + THEME_FIELD_NUMBER;
+        hash = (53 * hash) + getTheme().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -889,12 +1149,14 @@ public final class UserProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (userSettingsBuilder_ == null) {
-          userSettings_ = null;
-        } else {
-          userSettings_ = null;
-          userSettingsBuilder_ = null;
-        }
+        status_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        language_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        color_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        theme_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -921,11 +1183,25 @@ public final class UserProto {
       @java.lang.Override
       public com.taskable.protobufs.UserProto.UpdateProfileRequest buildPartial() {
         com.taskable.protobufs.UserProto.UpdateProfileRequest result = new com.taskable.protobufs.UserProto.UpdateProfileRequest(this);
-        if (userSettingsBuilder_ == null) {
-          result.userSettings_ = userSettings_;
-        } else {
-          result.userSettings_ = userSettingsBuilder_.build();
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
         }
+        result.status_ = status_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.language_ = language_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.color_ = color_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.theme_ = theme_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -974,8 +1250,25 @@ public final class UserProto {
 
       public Builder mergeFrom(com.taskable.protobufs.UserProto.UpdateProfileRequest other) {
         if (other == com.taskable.protobufs.UserProto.UpdateProfileRequest.getDefaultInstance()) return this;
-        if (other.hasUserSettings()) {
-          mergeUserSettings(other.getUserSettings());
+        if (other.hasStatus()) {
+          bitField0_ |= 0x00000001;
+          status_ = other.status_;
+          onChanged();
+        }
+        if (other.hasLanguage()) {
+          bitField0_ |= 0x00000002;
+          language_ = other.language_;
+          onChanged();
+        }
+        if (other.hasColor()) {
+          bitField0_ |= 0x00000004;
+          color_ = other.color_;
+          onChanged();
+        }
+        if (other.hasTheme()) {
+          bitField0_ |= 0x00000008;
+          theme_ = other.theme_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1004,12 +1297,25 @@ public final class UserProto {
                 done = true;
                 break;
               case 10: {
-                input.readMessage(
-                    getUserSettingsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
+                status_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
                 break;
               } // case 10
+              case 18: {
+                language_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                color_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                theme_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1025,124 +1331,338 @@ public final class UserProto {
         } // finally
         return this;
       }
+      private int bitField0_;
 
-      private com.taskable.protobufs.PersistenceProto.UserSettings userSettings_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder> userSettingsBuilder_;
+      private java.lang.Object status_ = "";
       /**
-       * <code>.UserSettings user_settings = 1;</code>
-       * @return Whether the userSettings field is set.
+       * <code>optional string status = 1;</code>
+       * @return Whether the status field is set.
        */
-      public boolean hasUserSettings() {
-        return userSettingsBuilder_ != null || userSettings_ != null;
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>.UserSettings user_settings = 1;</code>
-       * @return The userSettings.
+       * <code>optional string status = 1;</code>
+       * @return The status.
        */
-      public com.taskable.protobufs.PersistenceProto.UserSettings getUserSettings() {
-        if (userSettingsBuilder_ == null) {
-          return userSettings_ == null ? com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
         } else {
-          return userSettingsBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.UserSettings user_settings = 1;</code>
+       * <code>optional string status = 1;</code>
+       * @return The bytes for status.
        */
-      public Builder setUserSettings(com.taskable.protobufs.PersistenceProto.UserSettings value) {
-        if (userSettingsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          userSettings_ = value;
-          onChanged();
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
         } else {
-          userSettingsBuilder_.setMessage(value);
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        return this;
       }
       /**
-       * <code>.UserSettings user_settings = 1;</code>
+       * <code>optional string status = 1;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
        */
-      public Builder setUserSettings(
-          com.taskable.protobufs.PersistenceProto.UserSettings.Builder builderForValue) {
-        if (userSettingsBuilder_ == null) {
-          userSettings_ = builderForValue.build();
-          onChanged();
-        } else {
-          userSettingsBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.UserSettings user_settings = 1;</code>
-       */
-      public Builder mergeUserSettings(com.taskable.protobufs.PersistenceProto.UserSettings value) {
-        if (userSettingsBuilder_ == null) {
-          if (userSettings_ != null) {
-            userSettings_ =
-              com.taskable.protobufs.PersistenceProto.UserSettings.newBuilder(userSettings_).mergeFrom(value).buildPartial();
-          } else {
-            userSettings_ = value;
-          }
-          onChanged();
-        } else {
-          userSettingsBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.UserSettings user_settings = 1;</code>
-       */
-      public Builder clearUserSettings() {
-        if (userSettingsBuilder_ == null) {
-          userSettings_ = null;
-          onChanged();
-        } else {
-          userSettings_ = null;
-          userSettingsBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.UserSettings user_settings = 1;</code>
-       */
-      public com.taskable.protobufs.PersistenceProto.UserSettings.Builder getUserSettingsBuilder() {
-        
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        status_ = value;
         onChanged();
-        return getUserSettingsFieldBuilder().getBuilder();
+        return this;
       }
       /**
-       * <code>.UserSettings user_settings = 1;</code>
+       * <code>optional string status = 1;</code>
+       * @return This builder for chaining.
        */
-      public com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder getUserSettingsOrBuilder() {
-        if (userSettingsBuilder_ != null) {
-          return userSettingsBuilder_.getMessageOrBuilder();
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string status = 1;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000001;
+        status_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object language_ = "";
+      /**
+       * <code>optional string language = 2;</code>
+       * @return Whether the language field is set.
+       */
+      public boolean hasLanguage() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string language = 2;</code>
+       * @return The language.
+       */
+      public java.lang.String getLanguage() {
+        java.lang.Object ref = language_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          language_ = s;
+          return s;
         } else {
-          return userSettings_ == null ?
-              com.taskable.protobufs.PersistenceProto.UserSettings.getDefaultInstance() : userSettings_;
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.UserSettings user_settings = 1;</code>
+       * <code>optional string language = 2;</code>
+       * @return The bytes for language.
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder> 
-          getUserSettingsFieldBuilder() {
-        if (userSettingsBuilder_ == null) {
-          userSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.taskable.protobufs.PersistenceProto.UserSettings, com.taskable.protobufs.PersistenceProto.UserSettings.Builder, com.taskable.protobufs.PersistenceProto.UserSettingsOrBuilder>(
-                  getUserSettings(),
-                  getParentForChildren(),
-                  isClean());
-          userSettings_ = null;
+      public com.google.protobuf.ByteString
+          getLanguageBytes() {
+        java.lang.Object ref = language_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          language_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-        return userSettingsBuilder_;
+      }
+      /**
+       * <code>optional string language = 2;</code>
+       * @param value The language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        language_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string language = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLanguage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        language_ = getDefaultInstance().getLanguage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string language = 2;</code>
+       * @param value The bytes for language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000002;
+        language_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object color_ = "";
+      /**
+       * <code>optional string color = 3;</code>
+       * @return Whether the color field is set.
+       */
+      public boolean hasColor() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string color = 3;</code>
+       * @return The color.
+       */
+      public java.lang.String getColor() {
+        java.lang.Object ref = color_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          color_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string color = 3;</code>
+       * @return The bytes for color.
+       */
+      public com.google.protobuf.ByteString
+          getColorBytes() {
+        java.lang.Object ref = color_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          color_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string color = 3;</code>
+       * @param value The color to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColor(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        color_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string color = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColor() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        color_ = getDefaultInstance().getColor();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string color = 3;</code>
+       * @param value The bytes for color to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000004;
+        color_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object theme_ = "";
+      /**
+       * <code>optional string theme = 4;</code>
+       * @return Whether the theme field is set.
+       */
+      public boolean hasTheme() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional string theme = 4;</code>
+       * @return The theme.
+       */
+      public java.lang.String getTheme() {
+        java.lang.Object ref = theme_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          theme_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string theme = 4;</code>
+       * @return The bytes for theme.
+       */
+      public com.google.protobuf.ByteString
+          getThemeBytes() {
+        java.lang.Object ref = theme_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          theme_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string theme = 4;</code>
+       * @param value The theme to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTheme(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        theme_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string theme = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTheme() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        theme_ = getDefaultInstance().getTheme();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string theme = 4;</code>
+       * @param value The bytes for theme to set.
+       * @return This builder for chaining.
+       */
+      public Builder setThemeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        bitField0_ |= 0x00000008;
+        theme_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2464,12 +2984,14 @@ public final class UserProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\032\021persistence.proto\")\n\022GetPr" +
-      "ofileResponse\022\023\n\004user\030\001 \001(\0132\005.User\"<\n\024Up" +
-      "dateProfileRequest\022$\n\ruser_settings\030\001 \001(" +
-      "\0132\r.UserSettings\"#\n\021SearchUserRequest\022\016\n" +
-      "\006emails\030\001 \003(\t\",\n\022SearchUserResponse\022\026\n\016i" +
-      "nvalid_emails\030\001 \003(\tB#\n\026com.taskable.prot" +
-      "obufsB\tUserProtob\006proto3"
+      "ofileResponse\022\023\n\004user\030\001 \001(\0132\005.User\"\226\001\n\024U" +
+      "pdateProfileRequest\022\023\n\006status\030\001 \001(\tH\000\210\001\001" +
+      "\022\025\n\010language\030\002 \001(\tH\001\210\001\001\022\022\n\005color\030\003 \001(\tH\002" +
+      "\210\001\001\022\022\n\005theme\030\004 \001(\tH\003\210\001\001B\t\n\007_statusB\013\n\t_l" +
+      "anguageB\010\n\006_colorB\010\n\006_theme\"#\n\021SearchUse" +
+      "rRequest\022\016\n\006emails\030\001 \003(\t\",\n\022SearchUserRe" +
+      "sponse\022\026\n\016invalid_emails\030\001 \003(\tB#\n\026com.ta" +
+      "skable.protobufsB\tUserProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2487,7 +3009,7 @@ public final class UserProto {
     internal_static_UpdateProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateProfileRequest_descriptor,
-        new java.lang.String[] { "UserSettings", });
+        new java.lang.String[] { "Status", "Language", "Color", "Theme", "Status", "Language", "Color", "Theme", });
     internal_static_SearchUserRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_SearchUserRequest_fieldAccessorTable = new

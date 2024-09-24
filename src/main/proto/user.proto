@@ -10,7 +10,10 @@ message GetProfileResponse {
 }
 
 message UpdateProfileRequest {
-  UserSettings user_settings = 1;
+  optional string status = 1;
+  optional string language = 2;
+  optional string color = 3;
+  optional string theme = 4;
 }
 
 message SearchUserRequest {

@@ -23,6 +23,11 @@ public class UserService {
     // TODO: ACCEPT/DENY INVITATION BUTTON
 
     public void updateProfile(Integer userId, UpdateProfileRequest req) {
-        userRepository.updateProfileById(userId, req.getUserSettings());
+        userRepository.updateProfileById(
+            userId,
+            req.hasStatus() ? req.getStatus() : null,
+            req.hasColor() ? req.getColor() : null,
+            req.hasLanguage() ? req.getLanguage() : null,
+            req.hasTheme() ? req.getTheme() : null);
     }
 }
