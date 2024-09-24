@@ -87,9 +87,19 @@ public class Project extends TableImpl<ProjectRecord> {
     public final TableField<ProjectRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
+     * The column <code>testdb.project.description</code>.
+     */
+    public final TableField<ProjectRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
+
+    /**
      * The column <code>testdb.project.created_at</code>.
      */
     public final TableField<ProjectRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
+
+    /**
+     * The column <code>testdb.project.archived</code>.
+     */
+    public final TableField<ProjectRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
     private Project(Name alias, Table<ProjectRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);

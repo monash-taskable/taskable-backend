@@ -72,7 +72,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     /**
      * The column <code>testdb.classroom.description</code>.
      */
-    public final TableField<ClassroomRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500), this, "");
+    public final TableField<ClassroomRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>testdb.classroom.created_at</code>.
@@ -82,7 +82,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     /**
      * The column <code>testdb.classroom.archived</code>.
      */
-    public final TableField<ClassroomRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
+    public final TableField<ClassroomRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
     private Classroom(Name alias, Table<ClassroomRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);

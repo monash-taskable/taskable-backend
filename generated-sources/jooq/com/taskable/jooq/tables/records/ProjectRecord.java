@@ -77,17 +77,45 @@ public class ProjectRecord extends UpdatableRecordImpl<ProjectRecord> {
     }
 
     /**
+     * Setter for <code>testdb.project.description</code>.
+     */
+    public void setDescription(String value) {
+        set(4, value);
+    }
+
+    /**
+     * Getter for <code>testdb.project.description</code>.
+     */
+    public String getDescription() {
+        return (String) get(4);
+    }
+
+    /**
      * Setter for <code>testdb.project.created_at</code>.
      */
     public void setCreatedAt(LocalDateTime value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>testdb.project.created_at</code>.
      */
     public LocalDateTime getCreatedAt() {
-        return (LocalDateTime) get(4);
+        return (LocalDateTime) get(5);
+    }
+
+    /**
+     * Setter for <code>testdb.project.archived</code>.
+     */
+    public void setArchived(Byte value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>testdb.project.archived</code>.
+     */
+    public Byte getArchived() {
+        return (Byte) get(6);
     }
 
     // -------------------------------------------------------------------------
@@ -113,14 +141,16 @@ public class ProjectRecord extends UpdatableRecordImpl<ProjectRecord> {
     /**
      * Create a detached, initialised ProjectRecord
      */
-    public ProjectRecord(Integer id, Integer classroomId, Integer templateId, String name, LocalDateTime createdAt) {
+    public ProjectRecord(Integer id, Integer classroomId, Integer templateId, String name, String description, LocalDateTime createdAt, Byte archived) {
         super(Project.PROJECT);
 
         setId(id);
         setClassroomId(classroomId);
         setTemplateId(templateId);
         setName(name);
+        setDescription(description);
         setCreatedAt(createdAt);
+        setArchived(archived);
         resetChangedOnNotNull();
     }
 }
