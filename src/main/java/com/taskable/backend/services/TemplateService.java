@@ -34,7 +34,11 @@ public class TemplateService {
     }
 
     public void updateTemplate(UpdateTemplateRequest req, Integer templateId) {
-        templateRepository.updateTemplateDetails(templateId, req.getName(), req.getDescription(), req.getArchived());
+        templateRepository.updateTemplateDetails(
+            templateId,
+            req.hasName() ? req.getName() : null,
+            req.hasDescription() ? req.getDescription() : null,
+            req.hasArchived() ? req.getArchived() : null);
     }
 
     public CreateProjectResponse createProject(Integer templateId, Integer userId, Integer classId, CreateProjectRequest req) {

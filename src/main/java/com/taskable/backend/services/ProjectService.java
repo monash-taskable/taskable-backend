@@ -74,10 +74,18 @@ public class ProjectService {
     }
 
     public void updateProject(UpdateProjectRequest req, Integer projectId) {
-        projectRepository.updateProjectDetails(projectId, req.getTitle(), req.getDescription(), req.getArchived());
+        projectRepository.updateProjectDetails(
+            projectId,
+            req.hasTitle() ? req.getTitle() : null,
+            req.hasDescription() ? req.getDescription() : null,
+            req.hasArchived() ? req.getArchived(): null);
     }
 
     public void deleteProject(Integer projectId) {
         projectRepository.deleteProject(projectId);
+    }
+
+    public void detachProject(Integer projectId) {
+        projectRepository.deleteTemplateId(projectId);
     }
 }

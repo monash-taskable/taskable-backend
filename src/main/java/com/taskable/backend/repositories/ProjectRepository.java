@@ -84,7 +84,7 @@ public class ProjectRepository {
     }
 
     public List<ClassroomMember> getMembersFromProject(Integer projectId) {
-        return dsl.select(USER.ID, USER.FIRST_NAME, USER.LAST_NAME, CLASSROOM_USER.ROLE)
+        return dsl.select(USER.ID, USER.FIRST_NAME, USER.LAST_NAME, USER.EMAIL, CLASSROOM_USER.ROLE)
                 .from(PROJECT_USER)
                 .join(CLASSROOM_USER).on(PROJECT_USER.USER_ID.eq(CLASSROOM_USER.USER_ID))
                 .join(USER).on(PROJECT_USER.USER_ID.eq(USER.ID))
@@ -141,6 +141,13 @@ public class ProjectRepository {
         dsl.deleteFrom(PROJECT)
                 .where(PROJECT.ID.eq(projectId))
                 .execute();
+    }
+
+    public void deleteTemplateId(Integer projectId) {
+        dsl.update(PROJECT)
+            .set(PROJECT.TEMPLATE_ID, (Integer) null)
+            .where(PROJECT.ID.eq(projectId))
+            .execute();
     }
 
 }

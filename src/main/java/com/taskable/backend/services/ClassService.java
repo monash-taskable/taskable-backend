@@ -71,9 +71,9 @@ public class ClassService {
 
     public void updateClassDetails(Integer classId, UpdateClassRequest req) {
         classRepository.updateClassDetails(classId,
-                req.getClassName(),
-                req.getClassDesc(),
-                req.getArchived());
+                req.hasClassName()  ? req.getClassName() : null,
+                req.hasClassDesc() ? req.getClassDesc() : null,
+                req.hasArchived() ? req.getArchived() : null);
     }
 
     public GetMembersResponse getMembersInClass(Integer classId) {

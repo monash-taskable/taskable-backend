@@ -81,4 +81,12 @@ public class ProjectController {
                               @PathVariable("project_id") Integer projectId) {
         projectService.deleteProject(projectId);
     }
+
+    @PostMapping("/{project_id}/detach")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public void detachProject(@AuthenticationPrincipal CustomUserDetails userDetails,
+                              @PathVariable("class_id") Integer classId,
+                              @PathVariable("project_id") Integer projectId) {
+        projectService.detachProject(projectId);
+    }
 }
