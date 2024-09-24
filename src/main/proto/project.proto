@@ -13,6 +13,12 @@ message GetProjectsResponse {
   repeated Project projects = 1;
 }
 
+message UpdateProjectRequest {
+    optional string title = 1;
+    optional string description = 2;
+    optional bool archived = 3;
+}
+
 message AddProjectMembersRequest {
   repeated string emails = 1;
 }

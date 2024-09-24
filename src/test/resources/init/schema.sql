@@ -14,9 +14,9 @@ CREATE TABLE user (
 CREATE TABLE classroom (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description VARCHAR(500),
+    description VARCHAR(500) NOT NULL DEFAULT '',
     created_at DATETIME NOT NULL,
-    archived BOOLEAN DEFAULT FALSE
+    archived BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE classroom_user (
@@ -32,8 +32,8 @@ CREATE TABLE template (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     classroom_id INTEGER,
     name VARCHAR(255) NOT NULL,
-    description VARCHAR(500),
-    archived BOOLEAN DEFAULT FALSE,
+    description VARCHAR(500) NOT NULL DEFAULT '',
+    archived BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE
 );
 
@@ -42,7 +42,9 @@ CREATE TABLE project (
     classroom_id INTEGER,
     template_id INTEGER NULL,
     name VARCHAR(255) NOT NULL UNIQUE,
+    description VARCHAR(500) NOT NULL DEFAULT '',
     created_at DATETIME NOT NULL,
+    archived BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE,
     FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE
 );
