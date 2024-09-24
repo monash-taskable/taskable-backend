@@ -35,11 +35,13 @@ public class DbMapper {
     }
 
     public static Project map(ProjectRecord rec) {
-        return Project.newBuilder()
+        var projectBuilder =  Project.newBuilder()
                 .setId(rec.getId())
-                .setTitle(rec.getName())
-                .setTemplateId(rec.getTemplateId())
-                .build();
+                .setTitle(rec.getName());
+        if (rec.getTemplateId() != null) {
+            projectBuilder.setTemplateId(rec.getTemplateId());
+        }
+        return projectBuilder.build();
     }
 
     public static Template map(TemplateRecord rec) {
