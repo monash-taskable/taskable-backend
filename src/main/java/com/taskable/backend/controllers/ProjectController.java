@@ -64,4 +64,21 @@ public class ProjectController {
                                         @PathVariable("project_id") Integer projectId) {
         projectService.deleteProjectMember(userId, projectId);
     }
+
+    @PostMapping("/{project_id}/update")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public void updateProject(@AuthenticationPrincipal CustomUserDetails userDetails,
+                              @PathVariable("class_id") Integer classId,
+                              @PathVariable("project_id") Integer projectId,
+                              @RequestBody UpdateProjectRequest req) {
+        projectService.updateProject(req, projectId);
+    }
+
+    @DeleteMapping("/{project_id}/delete")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public void deleteProject(@AuthenticationPrincipal CustomUserDetails userDetails,
+                              @PathVariable("class_id") Integer classId,
+                              @PathVariable("project_id") Integer projectId) {
+        projectService.deleteProject(projectId);
+    }
 }

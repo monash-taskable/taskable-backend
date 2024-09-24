@@ -7,6 +7,7 @@ import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
 import com.taskable.protobufs.PersistenceProto;
 import com.taskable.protobufs.ProjectProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -72,4 +73,11 @@ public class ProjectService {
         projectRepository.deleteProjectUser(userId, projectId);
     }
 
+    public void updateProject(UpdateProjectRequest req, Integer projectId) {
+        projectRepository.updateProjectDetails(projectId, req.getTitle(), req.getDescription(), req.getArchived());
+    }
+
+    public void deleteProject(Integer projectId) {
+        projectRepository.deleteProject(projectId);
+    }
 }

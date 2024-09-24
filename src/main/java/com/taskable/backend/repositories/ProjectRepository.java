@@ -10,12 +10,14 @@ import org.jooq.DSLContext;
 
 import com.taskable.protobufs.PersistenceProto.Project;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static com.taskable.jooq.tables.ClassroomUser.CLASSROOM_USER;
 import static com.taskable.jooq.tables.Project.PROJECT;
 import static com.taskable.jooq.tables.ProjectUser.PROJECT_USER;
 import static com.taskable.jooq.tables.Classroom.CLASSROOM;
+import static com.taskable.jooq.tables.Template.TEMPLATE;
 import static com.taskable.jooq.tables.User.USER;
 
 @Repository
@@ -94,6 +96,7 @@ public class ProjectRepository {
                                 PersistenceProto.BasicInfo.newBuilder()
                                         .setFirstName(record.get(USER.FIRST_NAME))
                                         .setLastName(record.get(USER.LAST_NAME))
+                                        .setEmail(record.get(USER.EMAIL))
                                         .build()
                         )
                         .setRole(record.get(CLASSROOM_USER.ROLE))
@@ -110,10 +113,33 @@ public class ProjectRepository {
             .map(DbMapper::map);
     }
 
+    public void updateProjectDetails(Integer projectId, String title, String description, Boolean archived) {
+        var fieldsToUpdate = new HashMap<>();
+        if (title != null) {
+            fieldsToUpdate.put(PROJECT.NAME, title);
+        }
+        if (description != null) {
+            fieldsToUpdate.put(PROJECT.DESCRIPTION, description);
+        }
+        if (archived != null) {
+            fieldsToUpdate.put(PROJECT.ARCHIVED, (byte) (archived ? 1 : 0));
+        }
+        dsl.update(PROJECT)
+                .set(fieldsToUpdate)
+                .where(PROJECT.ID.eq(projectId))
+                .execute();
+    }
+
     public void deleteProjectUser(Integer userId, Integer projectId) {
         dsl.deleteFrom(PROJECT_USER)
                 .where(PROJECT_USER.USER_ID.eq(userId))
                 .and(PROJECT_USER.PROJECT_ID.eq(projectId))
+                .execute();
+    }
+
+    public void deleteProject(Integer projectId) {
+        dsl.deleteFrom(PROJECT)
+                .where(PROJECT.ID.eq(projectId))
                 .execute();
     }
 
