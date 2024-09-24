@@ -26,8 +26,8 @@ public class UserService {
         userRepository.updateProfileById(
             userId,
             req.hasStatus() ? req.getStatus() : null,
-            req.hasColor() ? req.getColor() : null,
             req.hasLanguage() ? req.getLanguage() : null,
+            req.hasColor() ? req.getColor() : null,
             req.hasTheme() ? req.getTheme() : null);
     }
 }
