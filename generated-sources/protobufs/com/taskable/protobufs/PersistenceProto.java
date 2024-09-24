@@ -7381,29 +7381,6 @@ public final class PersistenceProto {
      */
     com.google.protobuf.ByteString
         getEndBytes();
-
-    /**
-     * <code>bool completed = 9;</code>
-     * @return The completed.
-     */
-    boolean getCompleted();
-
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @return A list containing the assigneeIds.
-     */
-    java.util.List<java.lang.Integer> getAssigneeIdsList();
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @return The count of assigneeIds.
-     */
-    int getAssigneeIdsCount();
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @param index The index of the element to return.
-     * @return The assigneeIds at the given index.
-     */
-    int getAssigneeIds(int index);
   }
   /**
    * Protobuf type {@code Subtask}
@@ -7424,7 +7401,6 @@ public final class PersistenceProto {
       priority_ = "";
       start_ = "";
       end_ = "";
-      assigneeIds_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -7702,45 +7678,6 @@ public final class PersistenceProto {
       }
     }
 
-    public static final int COMPLETED_FIELD_NUMBER = 9;
-    private boolean completed_;
-    /**
-     * <code>bool completed = 9;</code>
-     * @return The completed.
-     */
-    @java.lang.Override
-    public boolean getCompleted() {
-      return completed_;
-    }
-
-    public static final int ASSIGNEE_IDS_FIELD_NUMBER = 10;
-    private com.google.protobuf.Internal.IntList assigneeIds_;
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @return A list containing the assigneeIds.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Integer>
-        getAssigneeIdsList() {
-      return assigneeIds_;
-    }
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @return The count of assigneeIds.
-     */
-    public int getAssigneeIdsCount() {
-      return assigneeIds_.size();
-    }
-    /**
-     * <code>repeated int32 assignee_ids = 10;</code>
-     * @param index The index of the element to return.
-     * @return The assigneeIds at the given index.
-     */
-    public int getAssigneeIds(int index) {
-      return assigneeIds_.getInt(index);
-    }
-    private int assigneeIdsMemoizedSerializedSize = -1;
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7755,7 +7692,6 @@ public final class PersistenceProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
@@ -7779,16 +7715,6 @@ public final class PersistenceProto {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, end_);
-      }
-      if (completed_ != false) {
-        output.writeBool(9, completed_);
-      }
-      if (getAssigneeIdsList().size() > 0) {
-        output.writeUInt32NoTag(82);
-        output.writeUInt32NoTag(assigneeIdsMemoizedSerializedSize);
-      }
-      for (int i = 0; i < assigneeIds_.size(); i++) {
-        output.writeInt32NoTag(assigneeIds_.getInt(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -7825,24 +7751,6 @@ public final class PersistenceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, end_);
       }
-      if (completed_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(9, completed_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < assigneeIds_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(assigneeIds_.getInt(i));
-        }
-        size += dataSize;
-        if (!getAssigneeIdsList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        assigneeIdsMemoizedSerializedSize = dataSize;
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7874,10 +7782,6 @@ public final class PersistenceProto {
           .equals(other.getStart())) return false;
       if (!getEnd()
           .equals(other.getEnd())) return false;
-      if (getCompleted()
-          != other.getCompleted()) return false;
-      if (!getAssigneeIdsList()
-          .equals(other.getAssigneeIdsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7905,13 +7809,6 @@ public final class PersistenceProto {
       hash = (53 * hash) + getStart().hashCode();
       hash = (37 * hash) + END_FIELD_NUMBER;
       hash = (53 * hash) + getEnd().hashCode();
-      hash = (37 * hash) + COMPLETED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCompleted());
-      if (getAssigneeIdsCount() > 0) {
-        hash = (37 * hash) + ASSIGNEE_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getAssigneeIdsList().hashCode();
-      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8056,10 +7953,6 @@ public final class PersistenceProto {
 
         end_ = "";
 
-        completed_ = false;
-
-        assigneeIds_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -8086,7 +7979,6 @@ public final class PersistenceProto {
       @java.lang.Override
       public com.taskable.protobufs.PersistenceProto.Subtask buildPartial() {
         com.taskable.protobufs.PersistenceProto.Subtask result = new com.taskable.protobufs.PersistenceProto.Subtask(this);
-        int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.taskId_ = taskId_;
         result.title_ = title_;
@@ -8095,12 +7987,6 @@ public final class PersistenceProto {
         result.priority_ = priority_;
         result.start_ = start_;
         result.end_ = end_;
-        result.completed_ = completed_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          assigneeIds_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.assigneeIds_ = assigneeIds_;
         onBuilt();
         return result;
       }
@@ -8179,19 +8065,6 @@ public final class PersistenceProto {
           end_ = other.end_;
           onChanged();
         }
-        if (other.getCompleted() != false) {
-          setCompleted(other.getCompleted());
-        }
-        if (!other.assigneeIds_.isEmpty()) {
-          if (assigneeIds_.isEmpty()) {
-            assigneeIds_ = other.assigneeIds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureAssigneeIdsIsMutable();
-            assigneeIds_.addAll(other.assigneeIds_);
-          }
-          onChanged();
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -8258,27 +8131,6 @@ public final class PersistenceProto {
 
                 break;
               } // case 66
-              case 72: {
-                completed_ = input.readBool();
-
-                break;
-              } // case 72
-              case 80: {
-                int v = input.readInt32();
-                ensureAssigneeIdsIsMutable();
-                assigneeIds_.addInt(v);
-                break;
-              } // case 80
-              case 82: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureAssigneeIdsIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  assigneeIds_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 82
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -8294,7 +8146,6 @@ public final class PersistenceProto {
         } // finally
         return this;
       }
-      private int bitField0_;
 
       private int id_ ;
       /**
@@ -8810,116 +8661,6 @@ public final class PersistenceProto {
   checkByteStringIsUtf8(value);
         
         end_ = value;
-        onChanged();
-        return this;
-      }
-
-      private boolean completed_ ;
-      /**
-       * <code>bool completed = 9;</code>
-       * @return The completed.
-       */
-      @java.lang.Override
-      public boolean getCompleted() {
-        return completed_;
-      }
-      /**
-       * <code>bool completed = 9;</code>
-       * @param value The completed to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCompleted(boolean value) {
-        
-        completed_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool completed = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCompleted() {
-        
-        completed_ = false;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.Internal.IntList assigneeIds_ = emptyIntList();
-      private void ensureAssigneeIdsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          assigneeIds_ = mutableCopy(assigneeIds_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @return A list containing the assigneeIds.
-       */
-      public java.util.List<java.lang.Integer>
-          getAssigneeIdsList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(assigneeIds_) : assigneeIds_;
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @return The count of assigneeIds.
-       */
-      public int getAssigneeIdsCount() {
-        return assigneeIds_.size();
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @param index The index of the element to return.
-       * @return The assigneeIds at the given index.
-       */
-      public int getAssigneeIds(int index) {
-        return assigneeIds_.getInt(index);
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @param index The index to set the value at.
-       * @param value The assigneeIds to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAssigneeIds(
-          int index, int value) {
-        ensureAssigneeIdsIsMutable();
-        assigneeIds_.setInt(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @param value The assigneeIds to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAssigneeIds(int value) {
-        ensureAssigneeIdsIsMutable();
-        assigneeIds_.addInt(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @param values The assigneeIds to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllAssigneeIds(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureAssigneeIdsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, assigneeIds_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 assignee_ids = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearAssigneeIds() {
-        assigneeIds_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9971,16 +9712,15 @@ public final class PersistenceProto {
       "te\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descript" +
       "ion\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010\"X\n\004Task\022\n\n\002i" +
       "d\030\001 \001(\005\022\021\n\tprojectId\030\002 \001(\005\022\r\n\005title\030\003 \001(" +
-      "\t\022\023\n\013description\030\004 \001(\t\022\r\n\005color\030\005 \001(\t\"\261\001" +
+      "\t\022\023\n\013description\030\004 \001(\t\022\r\n\005color\030\005 \001(\t\"\210\001" +
       "\n\007Subtask\022\n\n\002id\030\001 \001(\005\022\017\n\007task_id\030\002 \001(\005\022\r" +
       "\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006st" +
       "atus\030\005 \001(\t\022\020\n\010priority\030\006 \001(\t\022\r\n\005start\030\007 " +
-      "\001(\t\022\013\n\003end\030\010 \001(\t\022\021\n\tcompleted\030\t \001(\010\022\024\n\014a" +
-      "ssignee_ids\030\n \003(\005\"a\n\007Comment\022\n\n\002id\030\001 \001(\005" +
-      "\022\022\n\nsubtask_id\030\002 \001(\005\022\017\n\007user_id\030\003 \001(\005\022\017\n" +
-      "\007comment\030\004 \001(\t\022\024\n\014created_date\030\005 \001(\tB*\n\026" +
-      "com.taskable.protobufsB\020PersistenceProto" +
-      "b\006proto3"
+      "\001(\t\022\013\n\003end\030\010 \001(\t\"a\n\007Comment\022\n\n\002id\030\001 \001(\005\022" +
+      "\022\n\nsubtask_id\030\002 \001(\005\022\017\n\007user_id\030\003 \001(\005\022\017\n\007" +
+      "comment\030\004 \001(\t\022\024\n\014created_date\030\005 \001(\tB*\n\026c" +
+      "om.taskable.protobufsB\020PersistenceProtob" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10039,7 +9779,7 @@ public final class PersistenceProto {
     internal_static_Subtask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Subtask_descriptor,
-        new java.lang.String[] { "Id", "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", "Completed", "AssigneeIds", });
+        new java.lang.String[] { "Id", "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", });
     internal_static_Comment_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_Comment_fieldAccessorTable = new

@@ -72,4 +72,17 @@ public class DbMapper {
             .setColor(rec.getColor())
             .build();
     }
+
+    public static Subtask map(SubtaskRecord rec) {
+        return Subtask.newBuilder()
+            .setId(rec.getId())
+            .setTaskId(rec.getTaskId())
+            .setTitle(rec.getTitle())
+            .setDescription(rec.getDescription())
+            .setStatus(rec.getStatus())
+            .setPriority(rec.getPriority())
+            .setStart(rec.getStartDate().toString())
+            .setEnd(rec.getDueDate().toString())
+            .build();
+    }
 }

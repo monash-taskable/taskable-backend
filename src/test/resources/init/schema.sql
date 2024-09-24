@@ -75,7 +75,6 @@ CREATE TABLE subtask (
     priority VARCHAR(20),
     start_date DATETIME NOT NULL,
     due_date DATETIME,
-    completed BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (task_id) REFERENCES task(id) ON DELETE CASCADE
 );
 

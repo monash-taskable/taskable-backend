@@ -103,11 +103,6 @@ public class Subtask extends TableImpl<SubtaskRecord> {
      */
     public final TableField<SubtaskRecord, LocalDateTime> DUE_DATE = createField(DSL.name("due_date"), SQLDataType.LOCALDATETIME(0), this, "");
 
-    /**
-     * The column <code>testdb.subtask.completed</code>.
-     */
-    public final TableField<SubtaskRecord, Byte> COMPLETED = createField(DSL.name("completed"), SQLDataType.TINYINT.defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
-
     private Subtask(Name alias, Table<SubtaskRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);
     }

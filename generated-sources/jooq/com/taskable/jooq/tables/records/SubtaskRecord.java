@@ -132,20 +132,6 @@ public class SubtaskRecord extends UpdatableRecordImpl<SubtaskRecord> {
         return (LocalDateTime) get(7);
     }
 
-    /**
-     * Setter for <code>testdb.subtask.completed</code>.
-     */
-    public void setCompleted(Byte value) {
-        set(8, value);
-    }
-
-    /**
-     * Getter for <code>testdb.subtask.completed</code>.
-     */
-    public Byte getCompleted() {
-        return (Byte) get(8);
-    }
-
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -169,7 +155,7 @@ public class SubtaskRecord extends UpdatableRecordImpl<SubtaskRecord> {
     /**
      * Create a detached, initialised SubtaskRecord
      */
-    public SubtaskRecord(Integer id, Integer taskId, String title, String description, String status, String priority, LocalDateTime startDate, LocalDateTime dueDate, Byte completed) {
+    public SubtaskRecord(Integer id, Integer taskId, String title, String description, String status, String priority, LocalDateTime startDate, LocalDateTime dueDate) {
         super(Subtask.SUBTASK);
 
         setId(id);
@@ -180,7 +166,6 @@ public class SubtaskRecord extends UpdatableRecordImpl<SubtaskRecord> {
         setPriority(priority);
         setStartDate(startDate);
         setDueDate(dueDate);
-        setCompleted(completed);
         resetChangedOnNotNull();
     }
 }

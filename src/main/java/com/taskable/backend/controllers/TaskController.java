@@ -47,4 +47,56 @@ public class TaskController {
                                    @PathVariable("project_id") Integer projectId) {
     return taskService.getTasks(projectId);
   }
+
+  @PostMapping("{task_id}/update")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public void updateTask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                         @PathVariable("class_id") Integer classId,
+                         @PathVariable("project_id") Integer projectId,
+                         @PathVariable("task_id") Integer taskId,
+                         @RequestBody UpdateTaskRequest req) {
+    taskService.updateTask(taskId, req);
+  }
+
+  @DeleteMapping("{task_id}/delete")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public void deleteTask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                         @PathVariable("class_id") Integer classId,
+                         @PathVariable("project_id") Integer projectId,
+                         @PathVariable("task_id") Integer taskId) {
+    taskService.deleteTask(taskId);
+  }
+
+  @PostMapping("{task_id}/subtasks/create")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public CreateSubtaskResponse createSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                             @PathVariable("class_id") Integer classId,
+                                             @PathVariable("project_id") Integer projectId,
+                                             @PathVariable("task_id") Integer taskId,
+                                             @RequestBody CreateSubtaskRequest req) {
+    return taskService.createSubtask(taskId, req);
+  }
+
+  @GetMapping("{task_id}/subtasks/{subtask_id}")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  public GetSubtaskResponse getSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                       @PathVariable("class_id") Integer classId,
+                                       @PathVariable("project_id") Integer projectId,
+                                       @PathVariable("subtask_id") Integer subtaskId) {
+    return taskService.getSubtask(subtaskId);
+  }
+
+  @GetMapping("{task_id}/subtasks")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  public GetSubtasksResponse getSubtasks(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                         @PathVariable("class_id") Integer classId,
+                                         @PathVariable("project_id") Integer projectId,
+                                         @PathVariable("task_id") Integer taskId) {
+    return taskService.getSubtasks(taskId);
+  }
 }

@@ -3655,78 +3655,72 @@ public final class TaskProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 task_id = 1;</code>
-     * @return The taskId.
-     */
-    int getTaskId();
-
-    /**
-     * <code>string title = 2;</code>
+     * <code>string title = 1;</code>
      * @return The title.
      */
     java.lang.String getTitle();
     /**
-     * <code>string title = 2;</code>
+     * <code>string title = 1;</code>
      * @return The bytes for title.
      */
     com.google.protobuf.ByteString
         getTitleBytes();
 
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 2;</code>
      * @return The description.
      */
     java.lang.String getDescription();
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 2;</code>
      * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 3;</code>
      * @return The status.
      */
     java.lang.String getStatus();
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 3;</code>
      * @return The bytes for status.
      */
     com.google.protobuf.ByteString
         getStatusBytes();
 
     /**
-     * <code>string priority = 5;</code>
+     * <code>string priority = 4;</code>
      * @return The priority.
      */
     java.lang.String getPriority();
     /**
-     * <code>string priority = 5;</code>
+     * <code>string priority = 4;</code>
      * @return The bytes for priority.
      */
     com.google.protobuf.ByteString
         getPriorityBytes();
 
     /**
-     * <code>string start = 6;</code>
+     * <code>string start = 5;</code>
      * @return The start.
      */
     java.lang.String getStart();
     /**
-     * <code>string start = 6;</code>
+     * <code>string start = 5;</code>
      * @return The bytes for start.
      */
     com.google.protobuf.ByteString
         getStartBytes();
 
     /**
-     * <code>string end = 7;</code>
+     * <code>string end = 6;</code>
      * @return The end.
      */
     java.lang.String getEnd();
     /**
-     * <code>string end = 7;</code>
+     * <code>string end = 6;</code>
      * @return The bytes for end.
      */
     com.google.protobuf.ByteString
@@ -3782,21 +3776,10 @@ public final class TaskProto {
               com.taskable.protobufs.TaskProto.CreateSubtaskRequest.class, com.taskable.protobufs.TaskProto.CreateSubtaskRequest.Builder.class);
     }
 
-    public static final int TASK_ID_FIELD_NUMBER = 1;
-    private int taskId_;
-    /**
-     * <code>int32 task_id = 1;</code>
-     * @return The taskId.
-     */
-    @java.lang.Override
-    public int getTaskId() {
-      return taskId_;
-    }
-
-    public static final int TITLE_FIELD_NUMBER = 2;
+    public static final int TITLE_FIELD_NUMBER = 1;
     private volatile java.lang.Object title_;
     /**
-     * <code>string title = 2;</code>
+     * <code>string title = 1;</code>
      * @return The title.
      */
     @java.lang.Override
@@ -3813,7 +3796,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string title = 2;</code>
+     * <code>string title = 1;</code>
      * @return The bytes for title.
      */
     @java.lang.Override
@@ -3831,10 +3814,10 @@ public final class TaskProto {
       }
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
     private volatile java.lang.Object description_;
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 2;</code>
      * @return The description.
      */
     @java.lang.Override
@@ -3851,7 +3834,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>string description = 2;</code>
      * @return The bytes for description.
      */
     @java.lang.Override
@@ -3869,10 +3852,10 @@ public final class TaskProto {
       }
     }
 
-    public static final int STATUS_FIELD_NUMBER = 4;
+    public static final int STATUS_FIELD_NUMBER = 3;
     private volatile java.lang.Object status_;
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 3;</code>
      * @return The status.
      */
     @java.lang.Override
@@ -3889,7 +3872,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string status = 4;</code>
+     * <code>string status = 3;</code>
      * @return The bytes for status.
      */
     @java.lang.Override
@@ -3907,10 +3890,10 @@ public final class TaskProto {
       }
     }
 
-    public static final int PRIORITY_FIELD_NUMBER = 5;
+    public static final int PRIORITY_FIELD_NUMBER = 4;
     private volatile java.lang.Object priority_;
     /**
-     * <code>string priority = 5;</code>
+     * <code>string priority = 4;</code>
      * @return The priority.
      */
     @java.lang.Override
@@ -3927,7 +3910,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string priority = 5;</code>
+     * <code>string priority = 4;</code>
      * @return The bytes for priority.
      */
     @java.lang.Override
@@ -3945,10 +3928,10 @@ public final class TaskProto {
       }
     }
 
-    public static final int START_FIELD_NUMBER = 6;
+    public static final int START_FIELD_NUMBER = 5;
     private volatile java.lang.Object start_;
     /**
-     * <code>string start = 6;</code>
+     * <code>string start = 5;</code>
      * @return The start.
      */
     @java.lang.Override
@@ -3965,7 +3948,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string start = 6;</code>
+     * <code>string start = 5;</code>
      * @return The bytes for start.
      */
     @java.lang.Override
@@ -3983,10 +3966,10 @@ public final class TaskProto {
       }
     }
 
-    public static final int END_FIELD_NUMBER = 7;
+    public static final int END_FIELD_NUMBER = 6;
     private volatile java.lang.Object end_;
     /**
-     * <code>string end = 7;</code>
+     * <code>string end = 6;</code>
      * @return The end.
      */
     @java.lang.Override
@@ -4003,7 +3986,7 @@ public final class TaskProto {
       }
     }
     /**
-     * <code>string end = 7;</code>
+     * <code>string end = 6;</code>
      * @return The bytes for end.
      */
     @java.lang.Override
@@ -4035,26 +4018,23 @@ public final class TaskProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (taskId_ != 0) {
-        output.writeInt32(1, taskId_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, status_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, priority_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, priority_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(start_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, start_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, start_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, end_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, end_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4065,27 +4045,23 @@ public final class TaskProto {
       if (size != -1) return size;
 
       size = 0;
-      if (taskId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, taskId_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, status_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, priority_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, priority_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(start_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, start_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, start_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(end_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, end_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, end_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4102,8 +4078,6 @@ public final class TaskProto {
       }
       com.taskable.protobufs.TaskProto.CreateSubtaskRequest other = (com.taskable.protobufs.TaskProto.CreateSubtaskRequest) obj;
 
-      if (getTaskId()
-          != other.getTaskId()) return false;
       if (!getTitle()
           .equals(other.getTitle())) return false;
       if (!getDescription()
@@ -4127,8 +4101,6 @@ public final class TaskProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTaskId();
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -4273,8 +4245,6 @@ public final class TaskProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        taskId_ = 0;
-
         title_ = "";
 
         description_ = "";
@@ -4313,7 +4283,6 @@ public final class TaskProto {
       @java.lang.Override
       public com.taskable.protobufs.TaskProto.CreateSubtaskRequest buildPartial() {
         com.taskable.protobufs.TaskProto.CreateSubtaskRequest result = new com.taskable.protobufs.TaskProto.CreateSubtaskRequest(this);
-        result.taskId_ = taskId_;
         result.title_ = title_;
         result.description_ = description_;
         result.status_ = status_;
@@ -4368,9 +4337,6 @@ public final class TaskProto {
 
       public Builder mergeFrom(com.taskable.protobufs.TaskProto.CreateSubtaskRequest other) {
         if (other == com.taskable.protobufs.TaskProto.CreateSubtaskRequest.getDefaultInstance()) return this;
-        if (other.getTaskId() != 0) {
-          setTaskId(other.getTaskId());
-        }
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
           onChanged();
@@ -4421,41 +4387,36 @@ public final class TaskProto {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                taskId_ = input.readInt32();
+              case 10: {
+                title_ = input.readStringRequireUtf8();
 
                 break;
-              } // case 8
+              } // case 10
               case 18: {
-                title_ = input.readStringRequireUtf8();
+                description_ = input.readStringRequireUtf8();
 
                 break;
               } // case 18
               case 26: {
-                description_ = input.readStringRequireUtf8();
+                status_ = input.readStringRequireUtf8();
 
                 break;
               } // case 26
               case 34: {
-                status_ = input.readStringRequireUtf8();
+                priority_ = input.readStringRequireUtf8();
 
                 break;
               } // case 34
               case 42: {
-                priority_ = input.readStringRequireUtf8();
+                start_ = input.readStringRequireUtf8();
 
                 break;
               } // case 42
               case 50: {
-                start_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 50
-              case 58: {
                 end_ = input.readStringRequireUtf8();
 
                 break;
-              } // case 58
+              } // case 50
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4472,40 +4433,9 @@ public final class TaskProto {
         return this;
       }
 
-      private int taskId_ ;
-      /**
-       * <code>int32 task_id = 1;</code>
-       * @return The taskId.
-       */
-      @java.lang.Override
-      public int getTaskId() {
-        return taskId_;
-      }
-      /**
-       * <code>int32 task_id = 1;</code>
-       * @param value The taskId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTaskId(int value) {
-        
-        taskId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 task_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTaskId() {
-        
-        taskId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object title_ = "";
       /**
-       * <code>string title = 2;</code>
+       * <code>string title = 1;</code>
        * @return The title.
        */
       public java.lang.String getTitle() {
@@ -4521,7 +4451,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string title = 2;</code>
+       * <code>string title = 1;</code>
        * @return The bytes for title.
        */
       public com.google.protobuf.ByteString
@@ -4538,7 +4468,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string title = 2;</code>
+       * <code>string title = 1;</code>
        * @param value The title to set.
        * @return This builder for chaining.
        */
@@ -4553,7 +4483,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string title = 2;</code>
+       * <code>string title = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
@@ -4563,7 +4493,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string title = 2;</code>
+       * <code>string title = 1;</code>
        * @param value The bytes for title to set.
        * @return This builder for chaining.
        */
@@ -4581,7 +4511,7 @@ public final class TaskProto {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>string description = 3;</code>
+       * <code>string description = 2;</code>
        * @return The description.
        */
       public java.lang.String getDescription() {
@@ -4597,7 +4527,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string description = 3;</code>
+       * <code>string description = 2;</code>
        * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
@@ -4614,7 +4544,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string description = 3;</code>
+       * <code>string description = 2;</code>
        * @param value The description to set.
        * @return This builder for chaining.
        */
@@ -4629,7 +4559,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string description = 3;</code>
+       * <code>string description = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
@@ -4639,7 +4569,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string description = 3;</code>
+       * <code>string description = 2;</code>
        * @param value The bytes for description to set.
        * @return This builder for chaining.
        */
@@ -4657,7 +4587,7 @@ public final class TaskProto {
 
       private java.lang.Object status_ = "";
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 3;</code>
        * @return The status.
        */
       public java.lang.String getStatus() {
@@ -4673,7 +4603,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 3;</code>
        * @return The bytes for status.
        */
       public com.google.protobuf.ByteString
@@ -4690,7 +4620,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 3;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -4705,7 +4635,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -4715,7 +4645,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string status = 4;</code>
+       * <code>string status = 3;</code>
        * @param value The bytes for status to set.
        * @return This builder for chaining.
        */
@@ -4733,7 +4663,7 @@ public final class TaskProto {
 
       private java.lang.Object priority_ = "";
       /**
-       * <code>string priority = 5;</code>
+       * <code>string priority = 4;</code>
        * @return The priority.
        */
       public java.lang.String getPriority() {
@@ -4749,7 +4679,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string priority = 5;</code>
+       * <code>string priority = 4;</code>
        * @return The bytes for priority.
        */
       public com.google.protobuf.ByteString
@@ -4766,7 +4696,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string priority = 5;</code>
+       * <code>string priority = 4;</code>
        * @param value The priority to set.
        * @return This builder for chaining.
        */
@@ -4781,7 +4711,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string priority = 5;</code>
+       * <code>string priority = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPriority() {
@@ -4791,7 +4721,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string priority = 5;</code>
+       * <code>string priority = 4;</code>
        * @param value The bytes for priority to set.
        * @return This builder for chaining.
        */
@@ -4809,7 +4739,7 @@ public final class TaskProto {
 
       private java.lang.Object start_ = "";
       /**
-       * <code>string start = 6;</code>
+       * <code>string start = 5;</code>
        * @return The start.
        */
       public java.lang.String getStart() {
@@ -4825,7 +4755,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string start = 6;</code>
+       * <code>string start = 5;</code>
        * @return The bytes for start.
        */
       public com.google.protobuf.ByteString
@@ -4842,7 +4772,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string start = 6;</code>
+       * <code>string start = 5;</code>
        * @param value The start to set.
        * @return This builder for chaining.
        */
@@ -4857,7 +4787,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string start = 6;</code>
+       * <code>string start = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStart() {
@@ -4867,7 +4797,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string start = 6;</code>
+       * <code>string start = 5;</code>
        * @param value The bytes for start to set.
        * @return This builder for chaining.
        */
@@ -4885,7 +4815,7 @@ public final class TaskProto {
 
       private java.lang.Object end_ = "";
       /**
-       * <code>string end = 7;</code>
+       * <code>string end = 6;</code>
        * @return The end.
        */
       public java.lang.String getEnd() {
@@ -4901,7 +4831,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string end = 7;</code>
+       * <code>string end = 6;</code>
        * @return The bytes for end.
        */
       public com.google.protobuf.ByteString
@@ -4918,7 +4848,7 @@ public final class TaskProto {
         }
       }
       /**
-       * <code>string end = 7;</code>
+       * <code>string end = 6;</code>
        * @param value The end to set.
        * @return This builder for chaining.
        */
@@ -4933,7 +4863,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string end = 7;</code>
+       * <code>string end = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearEnd() {
@@ -4943,7 +4873,7 @@ public final class TaskProto {
         return this;
       }
       /**
-       * <code>string end = 7;</code>
+       * <code>string end = 6;</code>
        * @param value The bytes for end to set.
        * @return This builder for chaining.
        */
@@ -5031,12 +4961,6 @@ public final class TaskProto {
      * @return The id.
      */
     int getId();
-
-    /**
-     * <code>int32 task_id = 2;</code>
-     * @return The taskId.
-     */
-    int getTaskId();
   }
   /**
    * Protobuf type {@code CreateSubtaskResponse}
@@ -5089,17 +5013,6 @@ public final class TaskProto {
       return id_;
     }
 
-    public static final int TASK_ID_FIELD_NUMBER = 2;
-    private int taskId_;
-    /**
-     * <code>int32 task_id = 2;</code>
-     * @return The taskId.
-     */
-    @java.lang.Override
-    public int getTaskId() {
-      return taskId_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5117,9 +5030,6 @@ public final class TaskProto {
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
-      if (taskId_ != 0) {
-        output.writeInt32(2, taskId_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -5132,10 +5042,6 @@ public final class TaskProto {
       if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
-      }
-      if (taskId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, taskId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -5154,8 +5060,6 @@ public final class TaskProto {
 
       if (getId()
           != other.getId()) return false;
-      if (getTaskId()
-          != other.getTaskId()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5169,8 +5073,6 @@ public final class TaskProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
-      hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTaskId();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5301,8 +5203,6 @@ public final class TaskProto {
         super.clear();
         id_ = 0;
 
-        taskId_ = 0;
-
         return this;
       }
 
@@ -5330,7 +5230,6 @@ public final class TaskProto {
       public com.taskable.protobufs.TaskProto.CreateSubtaskResponse buildPartial() {
         com.taskable.protobufs.TaskProto.CreateSubtaskResponse result = new com.taskable.protobufs.TaskProto.CreateSubtaskResponse(this);
         result.id_ = id_;
-        result.taskId_ = taskId_;
         onBuilt();
         return result;
       }
@@ -5382,9 +5281,6 @@ public final class TaskProto {
         if (other.getId() != 0) {
           setId(other.getId());
         }
-        if (other.getTaskId() != 0) {
-          setTaskId(other.getTaskId());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -5416,11 +5312,6 @@ public final class TaskProto {
 
                 break;
               } // case 8
-              case 16: {
-                taskId_ = input.readInt32();
-
-                break;
-              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5464,37 +5355,6 @@ public final class TaskProto {
       public Builder clearId() {
         
         id_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int taskId_ ;
-      /**
-       * <code>int32 task_id = 2;</code>
-       * @return The taskId.
-       */
-      @java.lang.Override
-      public int getTaskId() {
-        return taskId_;
-      }
-      /**
-       * <code>int32 task_id = 2;</code>
-       * @param value The taskId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTaskId(int value) {
-        
-        taskId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 task_id = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTaskId() {
-        
-        taskId_ = 0;
         onChanged();
         return this;
       }
@@ -5580,6 +5440,23 @@ public final class TaskProto {
      * <code>.Subtask subtask = 1;</code>
      */
     com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder getSubtaskOrBuilder();
+
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @return A list containing the assigneeIds.
+     */
+    java.util.List<java.lang.Integer> getAssigneeIdsList();
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @return The count of assigneeIds.
+     */
+    int getAssigneeIdsCount();
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The assigneeIds at the given index.
+     */
+    int getAssigneeIds(int index);
   }
   /**
    * Protobuf type {@code GetSubtaskResponse}
@@ -5594,6 +5471,7 @@ public final class TaskProto {
       super(builder);
     }
     private GetSubtaskResponse() {
+      assigneeIds_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -5647,6 +5525,34 @@ public final class TaskProto {
       return getSubtask();
     }
 
+    public static final int ASSIGNEE_IDS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.IntList assigneeIds_;
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @return A list containing the assigneeIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+        getAssigneeIdsList() {
+      return assigneeIds_;
+    }
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @return The count of assigneeIds.
+     */
+    public int getAssigneeIdsCount() {
+      return assigneeIds_.size();
+    }
+    /**
+     * <code>repeated int32 assignee_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The assigneeIds at the given index.
+     */
+    public int getAssigneeIds(int index) {
+      return assigneeIds_.getInt(index);
+    }
+    private int assigneeIdsMemoizedSerializedSize = -1;
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5661,8 +5567,16 @@ public final class TaskProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (subtask_ != null) {
         output.writeMessage(1, getSubtask());
+      }
+      if (getAssigneeIdsList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(assigneeIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < assigneeIds_.size(); i++) {
+        output.writeInt32NoTag(assigneeIds_.getInt(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -5676,6 +5590,20 @@ public final class TaskProto {
       if (subtask_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getSubtask());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < assigneeIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(assigneeIds_.getInt(i));
+        }
+        size += dataSize;
+        if (!getAssigneeIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        assigneeIdsMemoizedSerializedSize = dataSize;
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -5697,6 +5625,8 @@ public final class TaskProto {
         if (!getSubtask()
             .equals(other.getSubtask())) return false;
       }
+      if (!getAssigneeIdsList()
+          .equals(other.getAssigneeIdsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -5711,6 +5641,10 @@ public final class TaskProto {
       if (hasSubtask()) {
         hash = (37 * hash) + SUBTASK_FIELD_NUMBER;
         hash = (53 * hash) + getSubtask().hashCode();
+      }
+      if (getAssigneeIdsCount() > 0) {
+        hash = (37 * hash) + ASSIGNEE_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getAssigneeIdsList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -5846,6 +5780,8 @@ public final class TaskProto {
           subtask_ = null;
           subtaskBuilder_ = null;
         }
+        assigneeIds_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -5872,11 +5808,17 @@ public final class TaskProto {
       @java.lang.Override
       public com.taskable.protobufs.TaskProto.GetSubtaskResponse buildPartial() {
         com.taskable.protobufs.TaskProto.GetSubtaskResponse result = new com.taskable.protobufs.TaskProto.GetSubtaskResponse(this);
+        int from_bitField0_ = bitField0_;
         if (subtaskBuilder_ == null) {
           result.subtask_ = subtask_;
         } else {
           result.subtask_ = subtaskBuilder_.build();
         }
+        if (((bitField0_ & 0x00000001) != 0)) {
+          assigneeIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.assigneeIds_ = assigneeIds_;
         onBuilt();
         return result;
       }
@@ -5928,6 +5870,16 @@ public final class TaskProto {
         if (other.hasSubtask()) {
           mergeSubtask(other.getSubtask());
         }
+        if (!other.assigneeIds_.isEmpty()) {
+          if (assigneeIds_.isEmpty()) {
+            assigneeIds_ = other.assigneeIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAssigneeIdsIsMutable();
+            assigneeIds_.addAll(other.assigneeIds_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -5961,6 +5913,22 @@ public final class TaskProto {
 
                 break;
               } // case 10
+              case 16: {
+                int v = input.readInt32();
+                ensureAssigneeIdsIsMutable();
+                assigneeIds_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureAssigneeIdsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  assigneeIds_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5976,6 +5944,7 @@ public final class TaskProto {
         } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.taskable.protobufs.PersistenceProto.Subtask subtask_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6095,6 +6064,85 @@ public final class TaskProto {
         }
         return subtaskBuilder_;
       }
+
+      private com.google.protobuf.Internal.IntList assigneeIds_ = emptyIntList();
+      private void ensureAssigneeIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          assigneeIds_ = mutableCopy(assigneeIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @return A list containing the assigneeIds.
+       */
+      public java.util.List<java.lang.Integer>
+          getAssigneeIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(assigneeIds_) : assigneeIds_;
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @return The count of assigneeIds.
+       */
+      public int getAssigneeIdsCount() {
+        return assigneeIds_.size();
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @param index The index of the element to return.
+       * @return The assigneeIds at the given index.
+       */
+      public int getAssigneeIds(int index) {
+        return assigneeIds_.getInt(index);
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The assigneeIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAssigneeIds(
+          int index, int value) {
+        ensureAssigneeIdsIsMutable();
+        assigneeIds_.setInt(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @param value The assigneeIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAssigneeIds(int value) {
+        ensureAssigneeIdsIsMutable();
+        assigneeIds_.addInt(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @param values The assigneeIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllAssigneeIds(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureAssigneeIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, assigneeIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 assignee_ids = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAssigneeIds() {
+        assigneeIds_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6164,27 +6212,27 @@ public final class TaskProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
-    java.util.List<com.taskable.protobufs.PersistenceProto.Subtask> 
-        getSubtasksList();
+    java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse> 
+        getSubtaskResponsesList();
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
-    com.taskable.protobufs.PersistenceProto.Subtask getSubtasks(int index);
+    com.taskable.protobufs.TaskProto.GetSubtaskResponse getSubtaskResponses(int index);
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
-    int getSubtasksCount();
+    int getSubtaskResponsesCount();
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
-    java.util.List<? extends com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder> 
-        getSubtasksOrBuilderList();
+    java.util.List<? extends com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder> 
+        getSubtaskResponsesOrBuilderList();
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
-    com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder getSubtasksOrBuilder(
+    com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder getSubtaskResponsesOrBuilder(
         int index);
   }
   /**
@@ -6200,7 +6248,7 @@ public final class TaskProto {
       super(builder);
     }
     private GetSubtasksResponse() {
-      subtasks_ = java.util.Collections.emptyList();
+      subtaskResponses_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -6228,44 +6276,44 @@ public final class TaskProto {
               com.taskable.protobufs.TaskProto.GetSubtasksResponse.class, com.taskable.protobufs.TaskProto.GetSubtasksResponse.Builder.class);
     }
 
-    public static final int SUBTASKS_FIELD_NUMBER = 1;
-    private java.util.List<com.taskable.protobufs.PersistenceProto.Subtask> subtasks_;
+    public static final int SUBTASKRESPONSES_FIELD_NUMBER = 1;
+    private java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse> subtaskResponses_;
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<com.taskable.protobufs.PersistenceProto.Subtask> getSubtasksList() {
-      return subtasks_;
+    public java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse> getSubtaskResponsesList() {
+      return subtaskResponses_;
     }
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder> 
-        getSubtasksOrBuilderList() {
-      return subtasks_;
+    public java.util.List<? extends com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder> 
+        getSubtaskResponsesOrBuilderList() {
+      return subtaskResponses_;
     }
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
     @java.lang.Override
-    public int getSubtasksCount() {
-      return subtasks_.size();
+    public int getSubtaskResponsesCount() {
+      return subtaskResponses_.size();
     }
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
     @java.lang.Override
-    public com.taskable.protobufs.PersistenceProto.Subtask getSubtasks(int index) {
-      return subtasks_.get(index);
+    public com.taskable.protobufs.TaskProto.GetSubtaskResponse getSubtaskResponses(int index) {
+      return subtaskResponses_.get(index);
     }
     /**
-     * <code>repeated .Subtask subtasks = 1;</code>
+     * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
      */
     @java.lang.Override
-    public com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder getSubtasksOrBuilder(
+    public com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder getSubtaskResponsesOrBuilder(
         int index) {
-      return subtasks_.get(index);
+      return subtaskResponses_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6282,8 +6330,8 @@ public final class TaskProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < subtasks_.size(); i++) {
-        output.writeMessage(1, subtasks_.get(i));
+      for (int i = 0; i < subtaskResponses_.size(); i++) {
+        output.writeMessage(1, subtaskResponses_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -6294,9 +6342,9 @@ public final class TaskProto {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < subtasks_.size(); i++) {
+      for (int i = 0; i < subtaskResponses_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, subtasks_.get(i));
+          .computeMessageSize(1, subtaskResponses_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6313,8 +6361,8 @@ public final class TaskProto {
       }
       com.taskable.protobufs.TaskProto.GetSubtasksResponse other = (com.taskable.protobufs.TaskProto.GetSubtasksResponse) obj;
 
-      if (!getSubtasksList()
-          .equals(other.getSubtasksList())) return false;
+      if (!getSubtaskResponsesList()
+          .equals(other.getSubtaskResponsesList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -6326,9 +6374,9 @@ public final class TaskProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getSubtasksCount() > 0) {
-        hash = (37 * hash) + SUBTASKS_FIELD_NUMBER;
-        hash = (53 * hash) + getSubtasksList().hashCode();
+      if (getSubtaskResponsesCount() > 0) {
+        hash = (37 * hash) + SUBTASKRESPONSES_FIELD_NUMBER;
+        hash = (53 * hash) + getSubtaskResponsesList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -6458,11 +6506,11 @@ public final class TaskProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (subtasksBuilder_ == null) {
-          subtasks_ = java.util.Collections.emptyList();
+        if (subtaskResponsesBuilder_ == null) {
+          subtaskResponses_ = java.util.Collections.emptyList();
         } else {
-          subtasks_ = null;
-          subtasksBuilder_.clear();
+          subtaskResponses_ = null;
+          subtaskResponsesBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -6492,14 +6540,14 @@ public final class TaskProto {
       public com.taskable.protobufs.TaskProto.GetSubtasksResponse buildPartial() {
         com.taskable.protobufs.TaskProto.GetSubtasksResponse result = new com.taskable.protobufs.TaskProto.GetSubtasksResponse(this);
         int from_bitField0_ = bitField0_;
-        if (subtasksBuilder_ == null) {
+        if (subtaskResponsesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            subtasks_ = java.util.Collections.unmodifiableList(subtasks_);
+            subtaskResponses_ = java.util.Collections.unmodifiableList(subtaskResponses_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.subtasks_ = subtasks_;
+          result.subtaskResponses_ = subtaskResponses_;
         } else {
-          result.subtasks_ = subtasksBuilder_.build();
+          result.subtaskResponses_ = subtaskResponsesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -6549,29 +6597,29 @@ public final class TaskProto {
 
       public Builder mergeFrom(com.taskable.protobufs.TaskProto.GetSubtasksResponse other) {
         if (other == com.taskable.protobufs.TaskProto.GetSubtasksResponse.getDefaultInstance()) return this;
-        if (subtasksBuilder_ == null) {
-          if (!other.subtasks_.isEmpty()) {
-            if (subtasks_.isEmpty()) {
-              subtasks_ = other.subtasks_;
+        if (subtaskResponsesBuilder_ == null) {
+          if (!other.subtaskResponses_.isEmpty()) {
+            if (subtaskResponses_.isEmpty()) {
+              subtaskResponses_ = other.subtaskResponses_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureSubtasksIsMutable();
-              subtasks_.addAll(other.subtasks_);
+              ensureSubtaskResponsesIsMutable();
+              subtaskResponses_.addAll(other.subtaskResponses_);
             }
             onChanged();
           }
         } else {
-          if (!other.subtasks_.isEmpty()) {
-            if (subtasksBuilder_.isEmpty()) {
-              subtasksBuilder_.dispose();
-              subtasksBuilder_ = null;
-              subtasks_ = other.subtasks_;
+          if (!other.subtaskResponses_.isEmpty()) {
+            if (subtaskResponsesBuilder_.isEmpty()) {
+              subtaskResponsesBuilder_.dispose();
+              subtaskResponsesBuilder_ = null;
+              subtaskResponses_ = other.subtaskResponses_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              subtasksBuilder_ = 
+              subtaskResponsesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getSubtasksFieldBuilder() : null;
+                   getSubtaskResponsesFieldBuilder() : null;
             } else {
-              subtasksBuilder_.addAllMessages(other.subtasks_);
+              subtaskResponsesBuilder_.addAllMessages(other.subtaskResponses_);
             }
           }
         }
@@ -6602,15 +6650,15 @@ public final class TaskProto {
                 done = true;
                 break;
               case 10: {
-                com.taskable.protobufs.PersistenceProto.Subtask m =
+                com.taskable.protobufs.TaskProto.GetSubtaskResponse m =
                     input.readMessage(
-                        com.taskable.protobufs.PersistenceProto.Subtask.parser(),
+                        com.taskable.protobufs.TaskProto.GetSubtaskResponse.parser(),
                         extensionRegistry);
-                if (subtasksBuilder_ == null) {
-                  ensureSubtasksIsMutable();
-                  subtasks_.add(m);
+                if (subtaskResponsesBuilder_ == null) {
+                  ensureSubtaskResponsesIsMutable();
+                  subtaskResponses_.add(m);
                 } else {
-                  subtasksBuilder_.addMessage(m);
+                  subtaskResponsesBuilder_.addMessage(m);
                 }
                 break;
               } // case 10
@@ -6631,244 +6679,244 @@ public final class TaskProto {
       }
       private int bitField0_;
 
-      private java.util.List<com.taskable.protobufs.PersistenceProto.Subtask> subtasks_ =
+      private java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse> subtaskResponses_ =
         java.util.Collections.emptyList();
-      private void ensureSubtasksIsMutable() {
+      private void ensureSubtaskResponsesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          subtasks_ = new java.util.ArrayList<com.taskable.protobufs.PersistenceProto.Subtask>(subtasks_);
+          subtaskResponses_ = new java.util.ArrayList<com.taskable.protobufs.TaskProto.GetSubtaskResponse>(subtaskResponses_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.taskable.protobufs.PersistenceProto.Subtask, com.taskable.protobufs.PersistenceProto.Subtask.Builder, com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder> subtasksBuilder_;
+          com.taskable.protobufs.TaskProto.GetSubtaskResponse, com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder, com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder> subtaskResponsesBuilder_;
 
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public java.util.List<com.taskable.protobufs.PersistenceProto.Subtask> getSubtasksList() {
-        if (subtasksBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(subtasks_);
+      public java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse> getSubtaskResponsesList() {
+        if (subtaskResponsesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(subtaskResponses_);
         } else {
-          return subtasksBuilder_.getMessageList();
+          return subtaskResponsesBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public int getSubtasksCount() {
-        if (subtasksBuilder_ == null) {
-          return subtasks_.size();
+      public int getSubtaskResponsesCount() {
+        if (subtaskResponsesBuilder_ == null) {
+          return subtaskResponses_.size();
         } else {
-          return subtasksBuilder_.getCount();
+          return subtaskResponsesBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public com.taskable.protobufs.PersistenceProto.Subtask getSubtasks(int index) {
-        if (subtasksBuilder_ == null) {
-          return subtasks_.get(index);
+      public com.taskable.protobufs.TaskProto.GetSubtaskResponse getSubtaskResponses(int index) {
+        if (subtaskResponsesBuilder_ == null) {
+          return subtaskResponses_.get(index);
         } else {
-          return subtasksBuilder_.getMessage(index);
+          return subtaskResponsesBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder setSubtasks(
-          int index, com.taskable.protobufs.PersistenceProto.Subtask value) {
-        if (subtasksBuilder_ == null) {
+      public Builder setSubtaskResponses(
+          int index, com.taskable.protobufs.TaskProto.GetSubtaskResponse value) {
+        if (subtaskResponsesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureSubtasksIsMutable();
-          subtasks_.set(index, value);
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.set(index, value);
           onChanged();
         } else {
-          subtasksBuilder_.setMessage(index, value);
+          subtaskResponsesBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder setSubtasks(
-          int index, com.taskable.protobufs.PersistenceProto.Subtask.Builder builderForValue) {
-        if (subtasksBuilder_ == null) {
-          ensureSubtasksIsMutable();
-          subtasks_.set(index, builderForValue.build());
+      public Builder setSubtaskResponses(
+          int index, com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder builderForValue) {
+        if (subtaskResponsesBuilder_ == null) {
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.set(index, builderForValue.build());
           onChanged();
         } else {
-          subtasksBuilder_.setMessage(index, builderForValue.build());
+          subtaskResponsesBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder addSubtasks(com.taskable.protobufs.PersistenceProto.Subtask value) {
-        if (subtasksBuilder_ == null) {
+      public Builder addSubtaskResponses(com.taskable.protobufs.TaskProto.GetSubtaskResponse value) {
+        if (subtaskResponsesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureSubtasksIsMutable();
-          subtasks_.add(value);
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.add(value);
           onChanged();
         } else {
-          subtasksBuilder_.addMessage(value);
+          subtaskResponsesBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder addSubtasks(
-          int index, com.taskable.protobufs.PersistenceProto.Subtask value) {
-        if (subtasksBuilder_ == null) {
+      public Builder addSubtaskResponses(
+          int index, com.taskable.protobufs.TaskProto.GetSubtaskResponse value) {
+        if (subtaskResponsesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureSubtasksIsMutable();
-          subtasks_.add(index, value);
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.add(index, value);
           onChanged();
         } else {
-          subtasksBuilder_.addMessage(index, value);
+          subtaskResponsesBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder addSubtasks(
-          com.taskable.protobufs.PersistenceProto.Subtask.Builder builderForValue) {
-        if (subtasksBuilder_ == null) {
-          ensureSubtasksIsMutable();
-          subtasks_.add(builderForValue.build());
+      public Builder addSubtaskResponses(
+          com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder builderForValue) {
+        if (subtaskResponsesBuilder_ == null) {
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.add(builderForValue.build());
           onChanged();
         } else {
-          subtasksBuilder_.addMessage(builderForValue.build());
+          subtaskResponsesBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder addSubtasks(
-          int index, com.taskable.protobufs.PersistenceProto.Subtask.Builder builderForValue) {
-        if (subtasksBuilder_ == null) {
-          ensureSubtasksIsMutable();
-          subtasks_.add(index, builderForValue.build());
+      public Builder addSubtaskResponses(
+          int index, com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder builderForValue) {
+        if (subtaskResponsesBuilder_ == null) {
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.add(index, builderForValue.build());
           onChanged();
         } else {
-          subtasksBuilder_.addMessage(index, builderForValue.build());
+          subtaskResponsesBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder addAllSubtasks(
-          java.lang.Iterable<? extends com.taskable.protobufs.PersistenceProto.Subtask> values) {
-        if (subtasksBuilder_ == null) {
-          ensureSubtasksIsMutable();
+      public Builder addAllSubtaskResponses(
+          java.lang.Iterable<? extends com.taskable.protobufs.TaskProto.GetSubtaskResponse> values) {
+        if (subtaskResponsesBuilder_ == null) {
+          ensureSubtaskResponsesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, subtasks_);
+              values, subtaskResponses_);
           onChanged();
         } else {
-          subtasksBuilder_.addAllMessages(values);
+          subtaskResponsesBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder clearSubtasks() {
-        if (subtasksBuilder_ == null) {
-          subtasks_ = java.util.Collections.emptyList();
+      public Builder clearSubtaskResponses() {
+        if (subtaskResponsesBuilder_ == null) {
+          subtaskResponses_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          subtasksBuilder_.clear();
+          subtaskResponsesBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public Builder removeSubtasks(int index) {
-        if (subtasksBuilder_ == null) {
-          ensureSubtasksIsMutable();
-          subtasks_.remove(index);
+      public Builder removeSubtaskResponses(int index) {
+        if (subtaskResponsesBuilder_ == null) {
+          ensureSubtaskResponsesIsMutable();
+          subtaskResponses_.remove(index);
           onChanged();
         } else {
-          subtasksBuilder_.remove(index);
+          subtaskResponsesBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public com.taskable.protobufs.PersistenceProto.Subtask.Builder getSubtasksBuilder(
+      public com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder getSubtaskResponsesBuilder(
           int index) {
-        return getSubtasksFieldBuilder().getBuilder(index);
+        return getSubtaskResponsesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder getSubtasksOrBuilder(
+      public com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder getSubtaskResponsesOrBuilder(
           int index) {
-        if (subtasksBuilder_ == null) {
-          return subtasks_.get(index);  } else {
-          return subtasksBuilder_.getMessageOrBuilder(index);
+        if (subtaskResponsesBuilder_ == null) {
+          return subtaskResponses_.get(index);  } else {
+          return subtaskResponsesBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public java.util.List<? extends com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder> 
-           getSubtasksOrBuilderList() {
-        if (subtasksBuilder_ != null) {
-          return subtasksBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder> 
+           getSubtaskResponsesOrBuilderList() {
+        if (subtaskResponsesBuilder_ != null) {
+          return subtaskResponsesBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(subtasks_);
+          return java.util.Collections.unmodifiableList(subtaskResponses_);
         }
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public com.taskable.protobufs.PersistenceProto.Subtask.Builder addSubtasksBuilder() {
-        return getSubtasksFieldBuilder().addBuilder(
-            com.taskable.protobufs.PersistenceProto.Subtask.getDefaultInstance());
+      public com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder addSubtaskResponsesBuilder() {
+        return getSubtaskResponsesFieldBuilder().addBuilder(
+            com.taskable.protobufs.TaskProto.GetSubtaskResponse.getDefaultInstance());
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public com.taskable.protobufs.PersistenceProto.Subtask.Builder addSubtasksBuilder(
+      public com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder addSubtaskResponsesBuilder(
           int index) {
-        return getSubtasksFieldBuilder().addBuilder(
-            index, com.taskable.protobufs.PersistenceProto.Subtask.getDefaultInstance());
+        return getSubtaskResponsesFieldBuilder().addBuilder(
+            index, com.taskable.protobufs.TaskProto.GetSubtaskResponse.getDefaultInstance());
       }
       /**
-       * <code>repeated .Subtask subtasks = 1;</code>
+       * <code>repeated .GetSubtaskResponse subtaskResponses = 1;</code>
        */
-      public java.util.List<com.taskable.protobufs.PersistenceProto.Subtask.Builder> 
-           getSubtasksBuilderList() {
-        return getSubtasksFieldBuilder().getBuilderList();
+      public java.util.List<com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder> 
+           getSubtaskResponsesBuilderList() {
+        return getSubtaskResponsesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.taskable.protobufs.PersistenceProto.Subtask, com.taskable.protobufs.PersistenceProto.Subtask.Builder, com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder> 
-          getSubtasksFieldBuilder() {
-        if (subtasksBuilder_ == null) {
-          subtasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.taskable.protobufs.PersistenceProto.Subtask, com.taskable.protobufs.PersistenceProto.Subtask.Builder, com.taskable.protobufs.PersistenceProto.SubtaskOrBuilder>(
-                  subtasks_,
+          com.taskable.protobufs.TaskProto.GetSubtaskResponse, com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder, com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder> 
+          getSubtaskResponsesFieldBuilder() {
+        if (subtaskResponsesBuilder_ == null) {
+          subtaskResponsesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.taskable.protobufs.TaskProto.GetSubtaskResponse, com.taskable.protobufs.TaskProto.GetSubtaskResponse.Builder, com.taskable.protobufs.TaskProto.GetSubtaskResponseOrBuilder>(
+                  subtaskResponses_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          subtasks_ = null;
+          subtaskResponses_ = null;
         }
-        return subtasksBuilder_;
+        return subtaskResponsesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7050,17 +7098,6 @@ public final class TaskProto {
      */
     com.google.protobuf.ByteString
         getEndBytes();
-
-    /**
-     * <code>optional bool completed = 8;</code>
-     * @return Whether the completed field is set.
-     */
-    boolean hasCompleted();
-    /**
-     * <code>optional bool completed = 8;</code>
-     * @return The completed.
-     */
-    boolean getCompleted();
   }
   /**
    * Protobuf type {@code UpdateSubtaskRequest}
@@ -7404,25 +7441,6 @@ public final class TaskProto {
       }
     }
 
-    public static final int COMPLETED_FIELD_NUMBER = 8;
-    private boolean completed_;
-    /**
-     * <code>optional bool completed = 8;</code>
-     * @return Whether the completed field is set.
-     */
-    @java.lang.Override
-    public boolean hasCompleted() {
-      return ((bitField0_ & 0x00000080) != 0);
-    }
-    /**
-     * <code>optional bool completed = 8;</code>
-     * @return The completed.
-     */
-    @java.lang.Override
-    public boolean getCompleted() {
-      return completed_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7458,9 +7476,6 @@ public final class TaskProto {
       if (((bitField0_ & 0x00000040) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, end_);
       }
-      if (((bitField0_ & 0x00000080) != 0)) {
-        output.writeBool(8, completed_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -7491,10 +7506,6 @@ public final class TaskProto {
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, end_);
-      }
-      if (((bitField0_ & 0x00000080) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(8, completed_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7546,11 +7557,6 @@ public final class TaskProto {
         if (!getEnd()
             .equals(other.getEnd())) return false;
       }
-      if (hasCompleted() != other.hasCompleted()) return false;
-      if (hasCompleted()) {
-        if (getCompleted()
-            != other.getCompleted()) return false;
-      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7589,11 +7595,6 @@ public final class TaskProto {
       if (hasEnd()) {
         hash = (37 * hash) + END_FIELD_NUMBER;
         hash = (53 * hash) + getEnd().hashCode();
-      }
-      if (hasCompleted()) {
-        hash = (37 * hash) + COMPLETED_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getCompleted());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -7737,8 +7738,6 @@ public final class TaskProto {
         bitField0_ = (bitField0_ & ~0x00000020);
         end_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        completed_ = false;
-        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -7795,10 +7794,6 @@ public final class TaskProto {
           to_bitField0_ |= 0x00000040;
         }
         result.end_ = end_;
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.completed_ = completed_;
-          to_bitField0_ |= 0x00000080;
-        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7881,9 +7876,6 @@ public final class TaskProto {
           end_ = other.end_;
           onChanged();
         }
-        if (other.hasCompleted()) {
-          setCompleted(other.getCompleted());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -7945,11 +7937,6 @@ public final class TaskProto {
                 bitField0_ |= 0x00000040;
                 break;
               } // case 58
-              case 64: {
-                completed_ = input.readBool();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 64
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -8500,45 +8487,6 @@ public final class TaskProto {
   checkByteStringIsUtf8(value);
         bitField0_ |= 0x00000040;
         end_ = value;
-        onChanged();
-        return this;
-      }
-
-      private boolean completed_ ;
-      /**
-       * <code>optional bool completed = 8;</code>
-       * @return Whether the completed field is set.
-       */
-      @java.lang.Override
-      public boolean hasCompleted() {
-        return ((bitField0_ & 0x00000080) != 0);
-      }
-      /**
-       * <code>optional bool completed = 8;</code>
-       * @return The completed.
-       */
-      @java.lang.Override
-      public boolean getCompleted() {
-        return completed_;
-      }
-      /**
-       * <code>optional bool completed = 8;</code>
-       * @param value The completed to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCompleted(boolean value) {
-        bitField0_ |= 0x00000080;
-        completed_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool completed = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCompleted() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        completed_ = false;
         onChanged();
         return this;
       }
@@ -11624,8 +11572,8 @@ public final class TaskProto {
 
   }
 
-  public interface UpdateCommentsResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:UpdateCommentsResponse)
+  public interface UpdateCommentRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UpdateCommentRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11641,18 +11589,18 @@ public final class TaskProto {
         getCommentBytes();
   }
   /**
-   * Protobuf type {@code UpdateCommentsResponse}
+   * Protobuf type {@code UpdateCommentRequest}
    */
-  public static final class UpdateCommentsResponse extends
+  public static final class UpdateCommentRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:UpdateCommentsResponse)
-      UpdateCommentsResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:UpdateCommentRequest)
+      UpdateCommentRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use UpdateCommentsResponse.newBuilder() to construct.
-    private UpdateCommentsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use UpdateCommentRequest.newBuilder() to construct.
+    private UpdateCommentRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private UpdateCommentsResponse() {
+    private UpdateCommentRequest() {
       comment_ = "";
     }
 
@@ -11660,7 +11608,7 @@ public final class TaskProto {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new UpdateCommentsResponse();
+      return new UpdateCommentRequest();
     }
 
     @java.lang.Override
@@ -11670,15 +11618,15 @@ public final class TaskProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentsResponse_descriptor;
+      return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentsResponse_fieldAccessorTable
+      return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.taskable.protobufs.TaskProto.UpdateCommentsResponse.class, com.taskable.protobufs.TaskProto.UpdateCommentsResponse.Builder.class);
+              com.taskable.protobufs.TaskProto.UpdateCommentRequest.class, com.taskable.protobufs.TaskProto.UpdateCommentRequest.Builder.class);
     }
 
     public static final int COMMENT_FIELD_NUMBER = 1;
@@ -11758,10 +11706,10 @@ public final class TaskProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.taskable.protobufs.TaskProto.UpdateCommentsResponse)) {
+      if (!(obj instanceof com.taskable.protobufs.TaskProto.UpdateCommentRequest)) {
         return super.equals(obj);
       }
-      com.taskable.protobufs.TaskProto.UpdateCommentsResponse other = (com.taskable.protobufs.TaskProto.UpdateCommentsResponse) obj;
+      com.taskable.protobufs.TaskProto.UpdateCommentRequest other = (com.taskable.protobufs.TaskProto.UpdateCommentRequest) obj;
 
       if (!getComment()
           .equals(other.getComment())) return false;
@@ -11783,69 +11731,69 @@ public final class TaskProto {
       return hash;
     }
 
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(byte[] data)
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(java.io.InputStream input)
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseDelimitedFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse parseFrom(
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11858,7 +11806,7 @@ public final class TaskProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.taskable.protobufs.TaskProto.UpdateCommentsResponse prototype) {
+    public static Builder newBuilder(com.taskable.protobufs.TaskProto.UpdateCommentRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11874,26 +11822,26 @@ public final class TaskProto {
       return builder;
     }
     /**
-     * Protobuf type {@code UpdateCommentsResponse}
+     * Protobuf type {@code UpdateCommentRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:UpdateCommentsResponse)
-        com.taskable.protobufs.TaskProto.UpdateCommentsResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:UpdateCommentRequest)
+        com.taskable.protobufs.TaskProto.UpdateCommentRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentsResponse_descriptor;
+        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentsResponse_fieldAccessorTable
+        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.taskable.protobufs.TaskProto.UpdateCommentsResponse.class, com.taskable.protobufs.TaskProto.UpdateCommentsResponse.Builder.class);
+                com.taskable.protobufs.TaskProto.UpdateCommentRequest.class, com.taskable.protobufs.TaskProto.UpdateCommentRequest.Builder.class);
       }
 
-      // Construct using com.taskable.protobufs.TaskProto.UpdateCommentsResponse.newBuilder()
+      // Construct using com.taskable.protobufs.TaskProto.UpdateCommentRequest.newBuilder()
       private Builder() {
 
       }
@@ -11914,17 +11862,17 @@ public final class TaskProto {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentsResponse_descriptor;
+        return com.taskable.protobufs.TaskProto.internal_static_UpdateCommentRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.taskable.protobufs.TaskProto.UpdateCommentsResponse getDefaultInstanceForType() {
-        return com.taskable.protobufs.TaskProto.UpdateCommentsResponse.getDefaultInstance();
+      public com.taskable.protobufs.TaskProto.UpdateCommentRequest getDefaultInstanceForType() {
+        return com.taskable.protobufs.TaskProto.UpdateCommentRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.taskable.protobufs.TaskProto.UpdateCommentsResponse build() {
-        com.taskable.protobufs.TaskProto.UpdateCommentsResponse result = buildPartial();
+      public com.taskable.protobufs.TaskProto.UpdateCommentRequest build() {
+        com.taskable.protobufs.TaskProto.UpdateCommentRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11932,8 +11880,8 @@ public final class TaskProto {
       }
 
       @java.lang.Override
-      public com.taskable.protobufs.TaskProto.UpdateCommentsResponse buildPartial() {
-        com.taskable.protobufs.TaskProto.UpdateCommentsResponse result = new com.taskable.protobufs.TaskProto.UpdateCommentsResponse(this);
+      public com.taskable.protobufs.TaskProto.UpdateCommentRequest buildPartial() {
+        com.taskable.protobufs.TaskProto.UpdateCommentRequest result = new com.taskable.protobufs.TaskProto.UpdateCommentRequest(this);
         result.comment_ = comment_;
         onBuilt();
         return result;
@@ -11973,16 +11921,16 @@ public final class TaskProto {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.taskable.protobufs.TaskProto.UpdateCommentsResponse) {
-          return mergeFrom((com.taskable.protobufs.TaskProto.UpdateCommentsResponse)other);
+        if (other instanceof com.taskable.protobufs.TaskProto.UpdateCommentRequest) {
+          return mergeFrom((com.taskable.protobufs.TaskProto.UpdateCommentRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.taskable.protobufs.TaskProto.UpdateCommentsResponse other) {
-        if (other == com.taskable.protobufs.TaskProto.UpdateCommentsResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.taskable.protobufs.TaskProto.UpdateCommentRequest other) {
+        if (other == com.taskable.protobufs.TaskProto.UpdateCommentRequest.getDefaultInstance()) return this;
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
           onChanged();
@@ -12122,23 +12070,23 @@ public final class TaskProto {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:UpdateCommentsResponse)
+      // @@protoc_insertion_point(builder_scope:UpdateCommentRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:UpdateCommentsResponse)
-    private static final com.taskable.protobufs.TaskProto.UpdateCommentsResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:UpdateCommentRequest)
+    private static final com.taskable.protobufs.TaskProto.UpdateCommentRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.taskable.protobufs.TaskProto.UpdateCommentsResponse();
+      DEFAULT_INSTANCE = new com.taskable.protobufs.TaskProto.UpdateCommentRequest();
     }
 
-    public static com.taskable.protobufs.TaskProto.UpdateCommentsResponse getDefaultInstance() {
+    public static com.taskable.protobufs.TaskProto.UpdateCommentRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<UpdateCommentsResponse>
-        PARSER = new com.google.protobuf.AbstractParser<UpdateCommentsResponse>() {
+    private static final com.google.protobuf.Parser<UpdateCommentRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UpdateCommentRequest>() {
       @java.lang.Override
-      public UpdateCommentsResponse parsePartialFrom(
+      public UpdateCommentRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12157,17 +12105,17 @@ public final class TaskProto {
       }
     };
 
-    public static com.google.protobuf.Parser<UpdateCommentsResponse> parser() {
+    public static com.google.protobuf.Parser<UpdateCommentRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UpdateCommentsResponse> getParserForType() {
+    public com.google.protobuf.Parser<UpdateCommentRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.taskable.protobufs.TaskProto.UpdateCommentsResponse getDefaultInstanceForType() {
+    public com.taskable.protobufs.TaskProto.UpdateCommentRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12249,10 +12197,10 @@ public final class TaskProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetCommentsResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UpdateCommentsResponse_descriptor;
+    internal_static_UpdateCommentRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UpdateCommentsResponse_fieldAccessorTable;
+      internal_static_UpdateCommentRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12270,30 +12218,29 @@ public final class TaskProto {
       "\005tasks\030\001 \003(\0132\005.Task\"y\n\021UpdateTaskRequest" +
       "\022\022\n\005title\030\003 \001(\tH\000\210\001\001\022\030\n\013description\030\004 \001(" +
       "\tH\001\210\001\001\022\022\n\005color\030\005 \001(\tH\002\210\001\001B\010\n\006_titleB\016\n\014" +
-      "_descriptionB\010\n\006_color\"\211\001\n\024CreateSubtask" +
-      "Request\022\017\n\007task_id\030\001 \001(\005\022\r\n\005title\030\002 \001(\t\022" +
-      "\023\n\013description\030\003 \001(\t\022\016\n\006status\030\004 \001(\t\022\020\n\010" +
-      "priority\030\005 \001(\t\022\r\n\005start\030\006 \001(\t\022\013\n\003end\030\007 \001" +
-      "(\t\"4\n\025CreateSubtaskResponse\022\n\n\002id\030\001 \001(\005\022" +
-      "\017\n\007task_id\030\002 \001(\005\"/\n\022GetSubtaskResponse\022\031" +
-      "\n\007subtask\030\001 \001(\0132\010.Subtask\"1\n\023GetSubtasks" +
-      "Response\022\032\n\010subtasks\030\001 \003(\0132\010.Subtask\"\242\002\n" +
-      "\024UpdateSubtaskRequest\022\024\n\007task_id\030\001 \001(\005H\000" +
-      "\210\001\001\022\022\n\005title\030\002 \001(\tH\001\210\001\001\022\030\n\013description\030\003" +
-      " \001(\tH\002\210\001\001\022\023\n\006status\030\004 \001(\tH\003\210\001\001\022\025\n\010priori" +
-      "ty\030\005 \001(\tH\004\210\001\001\022\022\n\005start\030\006 \001(\tH\005\210\001\001\022\020\n\003end" +
-      "\030\007 \001(\tH\006\210\001\001\022\026\n\tcompleted\030\010 \001(\010H\007\210\001\001B\n\n\010_" +
-      "task_idB\010\n\006_titleB\016\n\014_descriptionB\t\n\007_st" +
-      "atusB\013\n\t_priorityB\010\n\006_startB\006\n\004_endB\014\n\n_" +
-      "completed\")\n\026AssignToSubtaskRequest\022\017\n\007u" +
-      "ser_id\030\001 \001(\005\"=\n\024CreateCommentRequest\022\017\n\007" +
-      "comment\030\001 \001(\t\022\024\n\014created_date\030\002 \001(\t\"#\n\025C" +
-      "reateCommentResponse\022\n\n\002id\030\001 \001(\005\"/\n\022GetC" +
-      "ommentResponse\022\031\n\007comment\030\001 \001(\0132\010.Commen" +
-      "t\"1\n\023GetCommentsResponse\022\032\n\010comments\030\002 \003" +
-      "(\0132\010.Comment\")\n\026UpdateCommentsResponse\022\017" +
-      "\n\007comment\030\001 \001(\tB#\n\026com.taskable.protobuf" +
-      "sB\tTaskProtob\006proto3"
+      "_descriptionB\010\n\006_color\"x\n\024CreateSubtaskR" +
+      "equest\022\r\n\005title\030\001 \001(\t\022\023\n\013description\030\002 \001" +
+      "(\t\022\016\n\006status\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\022\r\n\005" +
+      "start\030\005 \001(\t\022\013\n\003end\030\006 \001(\t\"#\n\025CreateSubtas" +
+      "kResponse\022\n\n\002id\030\001 \001(\005\"E\n\022GetSubtaskRespo" +
+      "nse\022\031\n\007subtask\030\001 \001(\0132\010.Subtask\022\024\n\014assign" +
+      "ee_ids\030\002 \003(\005\"D\n\023GetSubtasksResponse\022-\n\020s" +
+      "ubtaskResponses\030\001 \003(\0132\023.GetSubtaskRespon" +
+      "se\"\374\001\n\024UpdateSubtaskRequest\022\024\n\007task_id\030\001" +
+      " \001(\005H\000\210\001\001\022\022\n\005title\030\002 \001(\tH\001\210\001\001\022\030\n\013descrip" +
+      "tion\030\003 \001(\tH\002\210\001\001\022\023\n\006status\030\004 \001(\tH\003\210\001\001\022\025\n\010" +
+      "priority\030\005 \001(\tH\004\210\001\001\022\022\n\005start\030\006 \001(\tH\005\210\001\001\022" +
+      "\020\n\003end\030\007 \001(\tH\006\210\001\001B\n\n\010_task_idB\010\n\006_titleB" +
+      "\016\n\014_descriptionB\t\n\007_statusB\013\n\t_priorityB" +
+      "\010\n\006_startB\006\n\004_end\")\n\026AssignToSubtaskRequ" +
+      "est\022\017\n\007user_id\030\001 \001(\005\"=\n\024CreateCommentReq" +
+      "uest\022\017\n\007comment\030\001 \001(\t\022\024\n\014created_date\030\002 " +
+      "\001(\t\"#\n\025CreateCommentResponse\022\n\n\002id\030\001 \001(\005" +
+      "\"/\n\022GetCommentResponse\022\031\n\007comment\030\001 \001(\0132" +
+      "\010.Comment\"1\n\023GetCommentsResponse\022\032\n\010comm" +
+      "ents\030\002 \003(\0132\010.Comment\"\'\n\024UpdateCommentReq" +
+      "uest\022\017\n\007comment\030\001 \001(\tB#\n\026com.taskable.pr" +
+      "otobufsB\tTaskProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12335,31 +12282,31 @@ public final class TaskProto {
     internal_static_CreateSubtaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateSubtaskRequest_descriptor,
-        new java.lang.String[] { "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", });
+        new java.lang.String[] { "Title", "Description", "Status", "Priority", "Start", "End", });
     internal_static_CreateSubtaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_CreateSubtaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateSubtaskResponse_descriptor,
-        new java.lang.String[] { "Id", "TaskId", });
+        new java.lang.String[] { "Id", });
     internal_static_GetSubtaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_GetSubtaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetSubtaskResponse_descriptor,
-        new java.lang.String[] { "Subtask", });
+        new java.lang.String[] { "Subtask", "AssigneeIds", });
     internal_static_GetSubtasksResponse_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_GetSubtasksResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetSubtasksResponse_descriptor,
-        new java.lang.String[] { "Subtasks", });
+        new java.lang.String[] { "SubtaskResponses", });
     internal_static_UpdateSubtaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_UpdateSubtaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateSubtaskRequest_descriptor,
-        new java.lang.String[] { "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", "Completed", "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", "Completed", });
+        new java.lang.String[] { "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", "TaskId", "Title", "Description", "Status", "Priority", "Start", "End", });
     internal_static_AssignToSubtaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_AssignToSubtaskRequest_fieldAccessorTable = new
@@ -12390,11 +12337,11 @@ public final class TaskProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetCommentsResponse_descriptor,
         new java.lang.String[] { "Comments", });
-    internal_static_UpdateCommentsResponse_descriptor =
+    internal_static_UpdateCommentRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_UpdateCommentsResponse_fieldAccessorTable = new
+    internal_static_UpdateCommentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UpdateCommentsResponse_descriptor,
+        internal_static_UpdateCommentRequest_descriptor,
         new java.lang.String[] { "Comment", });
     com.taskable.protobufs.PersistenceProto.getDescriptor();
   }

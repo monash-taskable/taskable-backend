@@ -68,9 +68,8 @@ message Subtask {
   string priority = 6;
   string start = 7;
   string end = 8;
-  bool completed = 9;
-  repeated int32 assignee_ids = 10;
 }
+
 
 message Comment {
   int32 id = 1;
