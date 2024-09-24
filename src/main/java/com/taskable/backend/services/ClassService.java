@@ -116,6 +116,8 @@ public class ClassService {
     }
 
     public void updateAnnouncement(Integer announcementId, UpdateAnnouncementRequest req) {
-        classRepository.updateAnnouncement(announcementId, req.getTitle(), req.getContent());
+        classRepository.updateAnnouncement(announcementId,
+            req.hasTitle() ? req.getTitle() : null,
+            req.hasContent() ? req.getContent() : null);
     }
 }

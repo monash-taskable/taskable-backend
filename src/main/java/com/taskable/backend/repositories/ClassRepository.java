@@ -215,9 +215,16 @@ public class ClassRepository {
     }
 
     public void updateAnnouncement(Integer announcementId, String title, String content) {
+        var fieldsToUpdate = new HashMap<>();
+        if (title != null) {
+            fieldsToUpdate.put(ANNOUNCEMENT.TITLE, title);
+        }
+        if (content != null) {
+            fieldsToUpdate.put(ANNOUNCEMENT.MESSAGE, content);
+        }
+
         dsl.update(ANNOUNCEMENT)
-            .set(ANNOUNCEMENT.TITLE, title)
-            .set(ANNOUNCEMENT.MESSAGE, content)
+            .set(fieldsToUpdate)
             .where(ANNOUNCEMENT.ID.eq(announcementId))
             .execute();
     }
