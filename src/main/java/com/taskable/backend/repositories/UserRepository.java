@@ -61,7 +61,7 @@ public class UserRepository {
                 .set(USER.COLOUR, user.getUserSettings().getColor())
                 .set(USER.THEME, user.getUserSettings().getTheme())
                 .returning(USER.ID)
-                .fetchOneInto(Integer.class);
+                .fetchOne(USER.ID);
     }
 
     @NotFoundOnNull(message = "Resource not found")

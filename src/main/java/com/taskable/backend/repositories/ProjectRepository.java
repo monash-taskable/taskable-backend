@@ -1,6 +1,7 @@
 package com.taskable.backend.repositories;
 
 import com.taskable.backend.utils.DbMapper;
+import com.taskable.backend.utils.DbUtils;
 import com.taskable.protobufs.PersistenceProto;
 import com.taskable.protobufs.PersistenceProto.ClassroomMember;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,22 @@ public class ProjectRepository {
     @Autowired
     public ProjectRepository(DSLContext dsl) {this.dsl = dsl;}
 
-    public Integer createProject(Integer templateId, String name) {
+    public Integer createProject(Integer templateId, String name, Integer classId, String createdAt, String description) {
         return dsl.insertInto(PROJECT)
                 .set(PROJECT.TEMPLATE_ID, templateId)
                 .set(PROJECT.NAME, name)
+            .set(PROJECT.CLASSROOM_ID, classId)
+            .set(PROJECT.CREATED_AT, DbUtils.getDateTime(createdAt))
                 .returning(PROJECT.ID)
-                .fetchOneInto(Integer.class);
+                .fetchOne(PROJECT.ID);
+    }
+
+    public void addUserToProject(Integer userId, Integer projectId) {
+        dsl.insertInto(PROJECT_USER)
+            .set(PROJECT_USER.PROJECT_ID, projectId)
+            .set(PROJECT_USER.USER_ID, userId)
+            .onDuplicateKeyIgnore()
+            .execute();
     }
 
     public boolean checkUserInProject(Integer userId, Integer projectId) {
@@ -78,7 +89,7 @@ public class ProjectRepository {
                 .where(PROJECT_USER.PROJECT_ID.eq(projectId))
                 .fetch()
                 .map(record -> ClassroomMember.newBuilder()
-                        .setId(record.get(CLASSROOM_USER.USER_ID))
+                        .setId(record.get(USER.ID))
                         .setBasicInfo(
                                 PersistenceProto.BasicInfo.newBuilder()
                                         .setFirstName(record.get(USER.FIRST_NAME))

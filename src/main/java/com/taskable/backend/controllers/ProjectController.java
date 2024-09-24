@@ -60,6 +60,7 @@ public class ProjectController {
     @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
     public void deleteProjectMember(@AuthenticationPrincipal CustomUserDetails userDetails,
                                         @PathVariable("user_id") Integer userId,
+                                    @PathVariable("class_id") Integer classId,
                                         @PathVariable("project_id") Integer projectId) {
         projectService.deleteProjectMember(userId, projectId);
     }

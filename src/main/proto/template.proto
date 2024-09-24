@@ -29,6 +29,7 @@ message UpdateTemplateRequest {
 
 message CreateProjectRequest {
   string name = 1;
+  string created_at = 2;
 }
 
 message CreateProjectResponse {

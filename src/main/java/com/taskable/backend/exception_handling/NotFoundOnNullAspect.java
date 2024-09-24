@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class NotFoundOnNullAspect {
 
-    @Around("@annotation(notFoundOnNull) || @within(notFoundOnNull)")
+    @Around("@annotation(notFoundOnNull)")
     public Object throwNotFoundOnNull(ProceedingJoinPoint joinPoint, NotFoundOnNull notFoundOnNull) throws Throwable {
         Object result = joinPoint.proceed();
 

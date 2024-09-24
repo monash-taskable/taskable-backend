@@ -36,11 +36,14 @@ public class TemplateRepository {
         return rec != null ? DbMapper.map(rec) : null;
     }
 
-    public Integer createTemplate(String name) {
+    public Integer createTemplate(String name, Integer classId, String description, Boolean archived) {
         return dsl.insertInto(TEMPLATE)
                 .set(TEMPLATE.NAME, name)
+            .set(TEMPLATE.CLASSROOM_ID, classId)
+            .set(TEMPLATE.DESCRIPTION, description)
+            .set(TEMPLATE.ARCHIVED, (byte) (archived ? 1 : 0))
                 .returning(TEMPLATE.ID)
-                .fetchOneInto(Integer.class);
+                .fetchOne(TEMPLATE.ID);
     }
 
     public void updateTemplateDetails(Integer templateId, String name, String description, Boolean archived) {

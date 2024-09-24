@@ -27,9 +27,9 @@ public class TemplateService {
                 .build();
     }
 
-    public CreateTemplateResponse createTemplate(CreateTemplateRequest req) {
+    public CreateTemplateResponse createTemplate(CreateTemplateRequest req, Integer classId) {
         return CreateTemplateResponse.newBuilder()
-                .setId(templateRepository.createTemplate(req.getName()))
+                .setId(templateRepository.createTemplate(req.getName(), classId, "", false))
                 .build();
     }
 
@@ -37,9 +37,11 @@ public class TemplateService {
         templateRepository.updateTemplateDetails(templateId, req.getName(), req.getDescription(), req.getArchived());
     }
 
-    public CreateProjectResponse createProject(Integer templateId, CreateProjectRequest req) {
+    public CreateProjectResponse createProject(Integer templateId, Integer userId, Integer classId, CreateProjectRequest req) {
+        var projectId = projectRepository.createProject(templateId, req.getName(), classId, req.getCreatedAt(), "");
+        projectRepository.addUserToProject(userId, projectId);
         return CreateProjectResponse.newBuilder()
-                .setId(projectRepository.createProject(templateId, req.getName()))
+                .setId(projectId)
                 .build();
     }
 

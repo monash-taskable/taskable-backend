@@ -24,6 +24,7 @@ public class ClassService {
     public GetClassResponse createClass(CreateClassRequest req, Integer userId) {
 
         var classroom = classRepository.storeClass(userId, req.getClassName(), req.getTimestamp(), req.getClassDesc());
+        classRepository.addUserToClass(userId, classroom.getId(), "OWNER");
         return GetClassResponse.newBuilder()
                 .setClassroom(classroom)
                 .setRole("OWNER")
