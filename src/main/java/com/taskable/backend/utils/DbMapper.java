@@ -62,4 +62,14 @@ public class DbMapper {
             .setSentAt(rec.getSentAt().toString())
             .build();
     }
+
+    public static Task map(TaskRecord rec) {
+        return Task.newBuilder()
+            .setId(rec.getId())
+            .setProjectId(rec.getProjectId())
+            .setTitle(rec.getTitle())
+            .setDescription(rec.getDescription())
+            .setColor(rec.getColor())
+            .build();
+    }
 }

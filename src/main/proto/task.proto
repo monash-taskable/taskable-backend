@@ -1,30 +1,8 @@
-message Task {
-  int32 id = 1;
-  int32 projectId = 2;
-  string title = 3;
-  string description = 4;
-  string color = 5;
-}
+syntax = "proto3";
 
-message Subtask {
-  int32 id = 1;
-  int32 task_id = 2;
-  string title = 3;
-  string description = 4;
-  string status = 5;
-  string priority = 6;
-  string start = 7;
-  string end = 8;
-  bool completed = 9;
-}
-
-message Comment {
-  int32 id = 1;
-  int32 subtask_id = 2;
-  int32 user_id = 3;
-  string comment = 4;
-  string created_date = 5;
-}
+option java_package = "com.taskable.protobufs";
+option java_outer_classname = "TaskProto";
+import "persistence.proto";
 
 // TASKS Reqs
 message CreateTaskRequest {
@@ -42,7 +20,7 @@ message GetTaskResponse {
 }
 
 message GetTasksResponse {
-  repeated Task task = 1;
+  repeated Task tasks = 1;
 }
 
 message UpdateTaskRequest {

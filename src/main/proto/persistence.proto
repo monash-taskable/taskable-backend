@@ -50,3 +50,32 @@ message Template {
   string description = 3;
   bool archived = 4;
 }
+
+message Task {
+  int32 id = 1;
+  int32 projectId = 2;
+  string title = 3;
+  string description = 4;
+  string color = 5;
+}
+
+message Subtask {
+  int32 id = 1;
+  int32 task_id = 2;
+  string title = 3;
+  string description = 4;
+  string status = 5;
+  string priority = 6;
+  string start = 7;
+  string end = 8;
+  bool completed = 9;
+  repeated int32 assignee_ids = 10;
+}
+
+message Comment {
+  int32 id = 1;
+  int32 subtask_id = 2;
+  int32 user_id = 3;
+  string comment = 4;
+  string created_date = 5;
+}

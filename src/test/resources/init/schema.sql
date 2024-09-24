@@ -61,7 +61,8 @@ CREATE TABLE task (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     project_id INTEGER,
     title VARCHAR(255),
-    description VARCHAR(500),
+    description VARCHAR(500) NULL DEFAULT '',
+    color VARCHAR(30),
     FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
 );
 
