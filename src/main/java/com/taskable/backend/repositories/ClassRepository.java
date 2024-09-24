@@ -208,4 +208,10 @@ public class ClassRepository {
         return rec != null ? DbMapper.map(rec) : null;
     }
 
+    public void deleteAnnouncementById(Integer announcementId) {
+        dsl.deleteFrom(ANNOUNCEMENT)
+            .where(ANNOUNCEMENT.ID.eq(announcementId))
+            .execute();
+    }
+
 }

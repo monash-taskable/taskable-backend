@@ -121,4 +121,12 @@ public class ClassController {
                                                    @PathVariable("announcement_id") Integer announcementId) {
         return classService.getAnnouncement(announcementId);
     }
+
+    @DeleteMapping("{class_id}/announcements/{announcement_id}/delete")
+    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    public void deleteAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                   @PathVariable("class_id") Integer classId,
+                                   @PathVariable("announcement_id") Integer announcementId){
+        classService.deleteAnnouncement(announcementId);
+    }
 }

@@ -110,4 +110,8 @@ public class ClassService {
             .setAnnouncement(classRepository.getAnnouncement(announcementId))
             .build();
     }
+
+    public void deleteAnnouncement(Integer announcementId) {
+        classRepository.deleteAnnouncementById(announcementId);
+    }
 }
