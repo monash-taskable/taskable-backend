@@ -77,6 +77,11 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     public final TableField<AnnouncementRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER, this, "");
 
     /**
+     * The column <code>testdb.announcement.title</code>.
+     */
+    public final TableField<AnnouncementRecord, String> TITLE = createField(DSL.name("title"), SQLDataType.VARCHAR(200).nullable(false), this, "");
+
+    /**
      * The column <code>testdb.announcement.message</code>.
      */
     public final TableField<AnnouncementRecord, String> MESSAGE = createField(DSL.name("message"), SQLDataType.VARCHAR(1000).nullable(false), this, "");

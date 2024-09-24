@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_package = "com.taskable.protobufs";
+option java_outer_classname = "AnnouncementProto";
+
+message Announcement {
+  int32 id = 1;
+  int32 class_id = 2;
+  int32 author_id = 3;
+  string title = 4;
+  string content = 5;
+  string sent_at = 6;
+}
+
+message CreateAnnouncementRequest {
+  string title = 1;
+  string content = 2;
+  string sent_at = 3;
+}
+
+message CreateAnnouncementResponse {
+  int32 id = 1;
+}
+
+message GetAnnouncementResponse {
+  Announcement announcement = 1;
+}
+
+message GetAnnouncementsResponse {
+  repeated Announcement announcements = 1;
+}
+
+message UpdateAnnouncementRequest {
+  optional string title = 1;
+  optional string content = 2;
+}

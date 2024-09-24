@@ -102,6 +102,7 @@ CREATE TABLE announcement (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     classroom_id INTEGER,
     user_id INTEGER,
+    title VARCHAR(200) NOT NULL,
     message VARCHAR(1000) NOT NULL,
     sent_at DATETIME,
     FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE,

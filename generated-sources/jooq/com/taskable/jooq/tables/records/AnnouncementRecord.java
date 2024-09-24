@@ -63,31 +63,45 @@ public class AnnouncementRecord extends UpdatableRecordImpl<AnnouncementRecord> 
     }
 
     /**
+     * Setter for <code>testdb.announcement.title</code>.
+     */
+    public void setTitle(String value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for <code>testdb.announcement.title</code>.
+     */
+    public String getTitle() {
+        return (String) get(3);
+    }
+
+    /**
      * Setter for <code>testdb.announcement.message</code>.
      */
     public void setMessage(String value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>testdb.announcement.message</code>.
      */
     public String getMessage() {
-        return (String) get(3);
+        return (String) get(4);
     }
 
     /**
      * Setter for <code>testdb.announcement.sent_at</code>.
      */
     public void setSentAt(LocalDateTime value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>testdb.announcement.sent_at</code>.
      */
     public LocalDateTime getSentAt() {
-        return (LocalDateTime) get(4);
+        return (LocalDateTime) get(5);
     }
 
     // -------------------------------------------------------------------------
@@ -113,12 +127,13 @@ public class AnnouncementRecord extends UpdatableRecordImpl<AnnouncementRecord> 
     /**
      * Create a detached, initialised AnnouncementRecord
      */
-    public AnnouncementRecord(Integer id, Integer classroomId, Integer userId, String message, LocalDateTime sentAt) {
+    public AnnouncementRecord(Integer id, Integer classroomId, Integer userId, String title, String message, LocalDateTime sentAt) {
         super(Announcement.ANNOUNCEMENT);
 
         setId(id);
         setClassroomId(classroomId);
         setUserId(userId);
+        setTitle(title);
         setMessage(message);
         setSentAt(sentAt);
         resetChangedOnNotNull();
