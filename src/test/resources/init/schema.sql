@@ -98,6 +98,16 @@ CREATE TABLE subtask_comment (
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
+CREATE TABLE announcement (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    classroom_id INTEGER,
+    user_id INTEGER,
+    message VARCHAR(1000) NOT NULL,
+    sent_at DATETIME,
+    FOREIGN KEY (classroom_id) REFERENCES classroom(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
 CREATE TABLE attachment (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     project_id INTEGER NULL,

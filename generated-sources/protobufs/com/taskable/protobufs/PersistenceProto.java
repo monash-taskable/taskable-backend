@@ -4569,6 +4569,12 @@ public final class PersistenceProto {
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
+
+    /**
+     * <code>bool archived = 5;</code>
+     * @return The archived.
+     */
+    boolean getArchived();
   }
   /**
    * Protobuf type {@code Project}
@@ -4719,6 +4725,17 @@ public final class PersistenceProto {
       }
     }
 
+    public static final int ARCHIVED_FIELD_NUMBER = 5;
+    private boolean archived_;
+    /**
+     * <code>bool archived = 5;</code>
+     * @return The archived.
+     */
+    @java.lang.Override
+    public boolean getArchived() {
+      return archived_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4745,6 +4762,9 @@ public final class PersistenceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
       }
+      if (archived_ != false) {
+        output.writeBool(5, archived_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4767,6 +4787,10 @@ public final class PersistenceProto {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
+      }
+      if (archived_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, archived_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4794,6 +4818,8 @@ public final class PersistenceProto {
           .equals(other.getTitle())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
+      if (getArchived()
+          != other.getArchived()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4815,6 +4841,9 @@ public final class PersistenceProto {
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + ARCHIVED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getArchived());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4951,6 +4980,8 @@ public final class PersistenceProto {
 
         description_ = "";
 
+        archived_ = false;
+
         return this;
       }
 
@@ -4986,6 +5017,7 @@ public final class PersistenceProto {
         }
         result.title_ = title_;
         result.description_ = description_;
+        result.archived_ = archived_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5049,6 +5081,9 @@ public final class PersistenceProto {
           description_ = other.description_;
           onChanged();
         }
+        if (other.getArchived() != false) {
+          setArchived(other.getArchived());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -5095,6 +5130,11 @@ public final class PersistenceProto {
 
                 break;
               } // case 34
+              case 40: {
+                archived_ = input.readBool();
+
+                break;
+              } // case 40
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5330,6 +5370,37 @@ public final class PersistenceProto {
   checkByteStringIsUtf8(value);
         
         description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean archived_ ;
+      /**
+       * <code>bool archived = 5;</code>
+       * @return The archived.
+       */
+      @java.lang.Override
+      public boolean getArchived() {
+        return archived_;
+      }
+      /**
+       * <code>bool archived = 5;</code>
+       * @param value The archived to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArchived(boolean value) {
+        
+        archived_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool archived = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArchived() {
+        
+        archived_ = false;
         onChanged();
         return this;
       }
@@ -6290,13 +6361,13 @@ public final class PersistenceProto {
       "\005\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\022\n\n" +
       "created_at\030\004 \001(\t\022\020\n\010archived\030\005 \001(\010\"K\n\017Cl" +
       "assroomMember\022\n\n\002id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\022" +
-      "\036\n\nbasic_info\030\003 \001(\0132\n.BasicInfo\"c\n\007Proje" +
+      "\036\n\nbasic_info\030\003 \001(\0132\n.BasicInfo\"u\n\007Proje" +
       "ct\022\n\n\002id\030\001 \001(\005\022\030\n\013template_id\030\002 \001(\005H\000\210\001\001" +
-      "\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\tB\016\n\014" +
-      "_template_id\"K\n\010Template\022\n\n\002id\030\001 \001(\005\022\014\n\004" +
-      "name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\020\n\010archi" +
-      "ved\030\004 \001(\010B*\n\026com.taskable.protobufsB\020Per" +
-      "sistenceProtob\006proto3"
+      "\022\r\n\005title\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020\n\010" +
+      "archived\030\005 \001(\010B\016\n\014_template_id\"K\n\010Templa" +
+      "te\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\023\n\013descript" +
+      "ion\030\003 \001(\t\022\020\n\010archived\030\004 \001(\010B*\n\026com.taska" +
+      "ble.protobufsB\020PersistenceProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6337,7 +6408,7 @@ public final class PersistenceProto {
     internal_static_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Project_descriptor,
-        new java.lang.String[] { "Id", "TemplateId", "Title", "Description", "TemplateId", });
+        new java.lang.String[] { "Id", "TemplateId", "Title", "Description", "Archived", "TemplateId", });
     internal_static_Template_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_Template_fieldAccessorTable = new

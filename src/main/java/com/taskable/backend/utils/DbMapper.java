@@ -36,8 +36,9 @@ public class DbMapper {
 
     public static Project map(ProjectRecord rec) {
         var projectBuilder =  Project.newBuilder()
-                .setId(rec.getId())
-                .setTitle(rec.getName());
+            .setId(rec.getId())
+            .setTitle(rec.getName())
+            .setArchived(rec.getArchived() == 1);
         if (rec.getTemplateId() != null) {
             projectBuilder.setTemplateId(rec.getTemplateId());
         }

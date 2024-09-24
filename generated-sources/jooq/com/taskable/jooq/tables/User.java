@@ -6,6 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Keys;
 import com.taskable.jooq.Testdb;
+import com.taskable.jooq.tables.Announcement.AnnouncementPath;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ClassroomUser.ClassroomUserPath;
 import com.taskable.jooq.tables.Project.ProjectPath;
@@ -192,6 +193,19 @@ public class User extends TableImpl<UserRecord> {
     @Override
     public List<UniqueKey<UserRecord>> getUniqueKeys() {
         return Arrays.asList(Keys.KEY_USER_SUB, Keys.KEY_USER_EMAIL);
+    }
+
+    private transient AnnouncementPath _announcement;
+
+    /**
+     * Get the implicit to-many join path to the
+     * <code>testdb.announcement</code> table
+     */
+    public AnnouncementPath announcement() {
+        if (_announcement == null)
+            _announcement = new AnnouncementPath(this, null, Keys.ANNOUNCEMENT_IBFK_2.getInverseKey());
+
+        return _announcement;
     }
 
     private transient ClassroomUserPath _classroomUser;
