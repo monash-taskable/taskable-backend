@@ -4,6 +4,7 @@ package com.taskable.backend.controllers;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.ClassService;
+import com.taskable.protobufs.AnnouncementProto.*;
 import com.taskable.protobufs.ClassroomProto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -98,4 +99,26 @@ public class ClassController {
         classService.deleteClassroom(classId);
     }
 
+    @PostMapping("/{class_id}/announcements/create")
+    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    public CreateAnnouncementResponse createAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                         @PathVariable("class_id") Integer classId,
+                                                         @RequestBody CreateAnnouncementRequest req) {
+        return classService.createAnnouncement(userDetails.userId(), classId, req);
+    }
+
+    @GetMapping("/{class_id}/announcements")
+    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
+    public GetAnnouncementsResponse getAnnouncements(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                     @PathVariable("class_id") Integer classId) {
+        return classService.getAnnouncements(classId);
+    }
+
+    @GetMapping("{class_id}/announcements/{announcement_id}")
+    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
+    public GetAnnouncementResponse getAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                                   @PathVariable("class_id") Integer classId,
+                                                   @PathVariable("announcement_id") Integer announcementId) {
+        return classService.getAnnouncement(announcementId);
+    }
 }

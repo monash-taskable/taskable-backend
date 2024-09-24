@@ -2,6 +2,7 @@ package com.taskable.backend.services;
 
 import com.taskable.backend.repositories.ClassRepository;
 import com.taskable.backend.repositories.UserRepository;
+import com.taskable.protobufs.AnnouncementProto.*;
 import com.taskable.protobufs.ClassroomProto.*;
 import com.taskable.protobufs.PersistenceProto.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,5 +91,23 @@ public class ClassService {
 
     public void deleteClassroom(Integer classId) {
         classRepository.deleteClassById(classId);
+    }
+
+    public CreateAnnouncementResponse createAnnouncement(Integer userId, Integer classId, CreateAnnouncementRequest req) {
+        return CreateAnnouncementResponse.newBuilder()
+            .setId(classRepository.createAnnouncement(classId, userId, req.getTitle(), req.getContent(), req.getSentAt()))
+            .build();
+    }
+
+    public GetAnnouncementsResponse getAnnouncements(Integer classId) {
+        return GetAnnouncementsResponse.newBuilder()
+            .addAllAnnouncements(classRepository.getAnnouncementsInClass(classId))
+            .build();
+    }
+
+    public GetAnnouncementResponse getAnnouncement(Integer announcementId) {
+        return GetAnnouncementResponse.newBuilder()
+            .setAnnouncement(classRepository.getAnnouncement(announcementId))
+            .build();
     }
 }

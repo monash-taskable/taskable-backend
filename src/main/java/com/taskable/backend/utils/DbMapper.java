@@ -1,9 +1,7 @@
 package com.taskable.backend.utils;
 
-import com.taskable.jooq.tables.records.ClassroomRecord;
-import com.taskable.jooq.tables.records.ProjectRecord;
-import com.taskable.jooq.tables.records.TemplateRecord;
-import com.taskable.jooq.tables.records.UserRecord;
+import com.taskable.jooq.tables.records.*;
+import com.taskable.protobufs.AnnouncementProto.Announcement;
 import com.taskable.protobufs.PersistenceProto.*;
 
 public class DbMapper {
@@ -52,5 +50,16 @@ public class DbMapper {
                 .setDescription(rec.getDescription())
                 .setArchived(rec.getArchived() == 1)
                 .build();
+    }
+
+    public static Announcement map(AnnouncementRecord rec) {
+        return Announcement.newBuilder()
+            .setId(rec.getId())
+            .setClassId(rec.getClassroomId())
+            .setAuthorId(rec.getUserId())
+            .setTitle(rec.getTitle())
+            .setContent(rec.getMessage())
+            .setSentAt(rec.getSentAt().toString())
+            .build();
     }
 }

@@ -3,6 +3,7 @@ package com.taskable.backend.repositories;
 import com.taskable.backend.exception_handling.NotFoundOnNull;
 import com.taskable.backend.utils.DbMapper;
 import com.taskable.backend.utils.DbUtils;
+import com.taskable.protobufs.AnnouncementProto.*;
 import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.ClassroomMember;
 import com.taskable.protobufs.PersistenceProto.Classroom;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+import static com.taskable.jooq.Tables.ANNOUNCEMENT;
 import static com.taskable.jooq.tables.User.USER;
 import static com.taskable.jooq.tables.Classroom.CLASSROOM;
 import static com.taskable.jooq.tables.ClassroomUser.CLASSROOM_USER;
@@ -174,6 +176,36 @@ public class ClassRepository {
                 .where(CLASSROOM_USER.USER_ID.eq(userId))
                 .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
                 .execute();
+    }
+
+    public Integer createAnnouncement(Integer classId,
+                                           Integer authorId,
+                                           String title,
+                                           String content,
+                                           String sent_at) {
+        return dsl.insertInto(ANNOUNCEMENT)
+            .set(ANNOUNCEMENT.CLASSROOM_ID, classId)
+            .set(ANNOUNCEMENT.USER_ID, authorId)
+            .set(ANNOUNCEMENT.TITLE, title)
+            .set(ANNOUNCEMENT.MESSAGE, content)
+            .set(ANNOUNCEMENT.SENT_AT, DbUtils.getDateTime(sent_at))
+            .returning(ANNOUNCEMENT.ID)
+            .fetchOne(ANNOUNCEMENT.ID);
+    }
+
+    public List<Announcement> getAnnouncementsInClass(Integer classId) {
+        return dsl.selectFrom(ANNOUNCEMENT)
+            .where(ANNOUNCEMENT.CLASSROOM_ID.eq(classId))
+            .fetch()
+            .map(DbMapper::map);
+    }
+
+    @NotFoundOnNull(message = "Announcement not found")
+    public Announcement getAnnouncement(Integer announcementId) {
+        var rec = dsl.selectFrom(ANNOUNCEMENT)
+            .where(ANNOUNCEMENT.ID.eq(announcementId))
+            .fetchOneInto(ANNOUNCEMENT);
+        return rec != null ? DbMapper.map(rec) : null;
     }
 
 }
