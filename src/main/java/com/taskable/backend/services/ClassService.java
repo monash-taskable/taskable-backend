@@ -114,4 +114,8 @@ public class ClassService {
     public void deleteAnnouncement(Integer announcementId) {
         classRepository.deleteAnnouncementById(announcementId);
     }
+
+    public void updateAnnouncement(Integer announcementId, UpdateAnnouncementRequest req) {
+        classRepository.updateAnnouncement(announcementId, req.getTitle(), req.getContent());
+    }
 }

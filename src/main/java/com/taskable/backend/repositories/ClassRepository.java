@@ -214,4 +214,12 @@ public class ClassRepository {
             .execute();
     }
 
+    public void updateAnnouncement(Integer announcementId, String title, String content) {
+        dsl.update(ANNOUNCEMENT)
+            .set(ANNOUNCEMENT.TITLE, title)
+            .set(ANNOUNCEMENT.MESSAGE, content)
+            .where(ANNOUNCEMENT.ID.eq(announcementId))
+            .execute();
+    }
+
 }

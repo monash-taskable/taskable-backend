@@ -129,4 +129,13 @@ public class ClassController {
                                    @PathVariable("announcement_id") Integer announcementId){
         classService.deleteAnnouncement(announcementId);
     }
+
+    @PostMapping("{class_id}/announcements/{announcement_id}/update")
+    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    public void updateAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                   @PathVariable("class_id") Integer classId,
+                                   @PathVariable("announcement_id") Integer announcementId,
+                                   @RequestBody UpdateAnnouncementRequest req) {
+        classService.updateAnnouncement(announcementId, req);
+    }
 }
