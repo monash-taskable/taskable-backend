@@ -6,6 +6,7 @@ import com.taskable.backend.services.GoogleTokenService;
 import com.taskable.protobufs.AuthProto.GetCsrfResponse;
 import com.taskable.protobufs.AuthProto.LoginExchangeRequest;
 import com.taskable.protobufs.AuthProto.LoginExchangeResponse;
+import com.taskable.protobufs.PersistenceProto.UserSettings;
 import com.taskable.protobufs.PersistenceProto.BasicInfo;
 import com.taskable.protobufs.PersistenceProto.User;
 import jakarta.servlet.http.*;
@@ -61,12 +62,15 @@ public class AuthController {
             String lastName = (String) idTokenPayload.get("family_name");
             String firstName = (String) idTokenPayload.get("given_name");
             User user = User.newBuilder()
-                    .setBasicInfo(BasicInfo.newBuilder()
-                            .setFirstName(firstName != null ? firstName : "")
-                            .setLastName(lastName != null ? lastName : "")
-                            .setEmail(idTokenPayload.getEmail())
-                            .build())
-                    .build();
+                .setBasicInfo(BasicInfo.newBuilder()
+                    .setFirstName(firstName != null ? firstName : "")
+                    .setLastName(lastName != null ? lastName : "")
+                    .setEmail(idTokenPayload.getEmail())
+                    .build())
+                .setUserSettings(UserSettings.newBuilder()
+                    .setLanguage("en-au")
+                    .build())
+                .build();
             userId = userRepository.storeUser(user, idTokenPayload.getSubject());
         }
         logger.info("user id from repo:" + String.valueOf(userId));
