@@ -53,7 +53,7 @@ public class ProjectController {
     public GetMembersResponse getProjectMembers(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                 @PathVariable("class_id") Integer classId,
                                                 @PathVariable("project_id") Integer projectId) {
-        return projectService.getProjectMembers(projectId);
+        return projectService.getProjectMembers(projectId, classId);
     }
 
     @DeleteMapping("/{project_id}/members/{user_id}/delete")

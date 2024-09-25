@@ -76,39 +76,38 @@ public class ProjectRepository {
     public List<Project> getProjectsInClass(Integer classId) {
         return dsl.select(PROJECT.fields())
                 .from(PROJECT)
-                .join(CLASSROOM)
-                .on(PROJECT.CLASSROOM_ID.eq(CLASSROOM.ID))
-                .where(CLASSROOM.ID.eq(classId))
+                .where(PROJECT.CLASSROOM_ID.eq(classId))
                 .fetchInto(PROJECT)
                 .map(DbMapper::map);
     }
 
-    public List<ClassroomMember> getMembersFromProject(Integer projectId) {
-        return dsl.select(USER.ID, USER.FIRST_NAME, USER.LAST_NAME, USER.EMAIL, CLASSROOM_USER.ROLE)
-                .from(PROJECT_USER)
-                .join(CLASSROOM_USER).on(PROJECT_USER.USER_ID.eq(CLASSROOM_USER.USER_ID))
-                .join(USER).on(PROJECT_USER.USER_ID.eq(USER.ID))
-                .where(PROJECT_USER.PROJECT_ID.eq(projectId))
-                .fetch()
-                .map(record -> ClassroomMember.newBuilder()
-                        .setId(record.get(USER.ID))
-                        .setBasicInfo(
-                                PersistenceProto.BasicInfo.newBuilder()
-                                        .setFirstName(record.get(USER.FIRST_NAME))
-                                        .setLastName(record.get(USER.LAST_NAME))
-                                        .setEmail(record.get(USER.EMAIL))
-                                        .build()
-                        )
-                        .setRole(record.get(CLASSROOM_USER.ROLE))
-                        .build());
+    public List<ClassroomMember> getMembersFromProject(Integer projectId, Integer classId) {
+        return dsl.select(PROJECT_USER.USER_ID, USER.FIRST_NAME, USER.LAST_NAME, USER.EMAIL, CLASSROOM_USER.ROLE)
+            .from(PROJECT_USER)
+            .join(USER).on(PROJECT_USER.USER_ID.eq(USER.ID))
+                .and(PROJECT_USER.PROJECT_ID.eq(projectId))
+            .join(CLASSROOM_USER).on(PROJECT_USER.USER_ID.eq(CLASSROOM_USER.USER_ID))
+                .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+            .fetch()
+            .map(record -> ClassroomMember.newBuilder()
+                .setId(record.get(USER.ID))
+                .setBasicInfo(
+                    PersistenceProto.BasicInfo.newBuilder()
+                        .setFirstName(record.get(USER.FIRST_NAME))
+                        .setLastName(record.get(USER.LAST_NAME))
+                        .setEmail(record.get(USER.EMAIL))
+                        .build()
+                )
+                .setRole(record.get(CLASSROOM_USER.ROLE))
+                .build());
     }
 
     public List<Project> getProjectsByUserId(Integer userId) {
         return dsl.select(PROJECT.fields())
-            .from(PROJECT)
-            .join(PROJECT_USER)
-            .on(PROJECT_USER.USER_ID.eq(userId))
-            .where(PROJECT_USER.USER_ID.eq(userId))
+            .from(PROJECT_USER)
+            .join(PROJECT)
+            .on(PROJECT_USER.PROJECT_ID.eq(PROJECT.ID))
+                .and(PROJECT_USER.USER_ID.eq(userId))
             .fetchInto(PROJECT)
             .map(DbMapper::map);
     }

@@ -63,9 +63,9 @@ public class ProjectService {
         return AddProjectMembersResponse.newBuilder().addAllInvalidEmails(invalidEmails).build();
     }
 
-    public GetMembersResponse getProjectMembers(Integer projectId) {
+    public GetMembersResponse getProjectMembers(Integer projectId, Integer classId) {
         return GetMembersResponse.newBuilder()
-                .addAllClassMembers(projectRepository.getMembersFromProject(projectId))
+                .addAllClassMembers(projectRepository.getMembersFromProject(projectId, classId))
                 .build();
     }
 

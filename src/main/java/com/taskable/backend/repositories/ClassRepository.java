@@ -83,8 +83,8 @@ public class ClassRepository {
                 .from(CLASSROOM_USER)
                 .join(USER)
                 .on(CLASSROOM_USER.USER_ID.eq(USER.ID))
-                .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
-                .and(USER.EMAIL.in(emails))
+                    .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+                .where(USER.EMAIL.in(emails))
                 .fetchMap(USER.EMAIL, CLASSROOM_USER.USER_ID);
     }
 
@@ -126,7 +126,7 @@ public class ClassRepository {
                 .from(CLASSROOM_USER)
                 .join(USER)
                 .on(USER.ID.eq(CLASSROOM_USER.USER_ID))
-                .where(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+                .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
                 .fetch()
                 .map(record -> ClassroomMember.newBuilder()
                         .setId(record.get(CLASSROOM_USER.USER_ID))

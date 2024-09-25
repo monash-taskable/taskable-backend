@@ -109,14 +109,14 @@ public class TaskRepository {
 
   public List<SubtaskWithAssignees> getSubtasks(Integer taskId) {
     dsl.configuration().settings().withRenderGroupConcatMaxLenSessionVariable(false);
-    Field<String> assigneeIdsField = DSL.groupConcat(SUBTASK_ASSIGNEE.USER_ID).as("assigneeIds");
+    var assigneeIdsField = DSL.groupConcat(SUBTASK_ASSIGNEE.USER_ID).as("assigneeIds");
 
     return dsl.select(SUBTASK.fields())
         .select(assigneeIdsField)
         .from(SUBTASK)
         .leftJoin(SUBTASK_ASSIGNEE)
         .on(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(SUBTASK.ID))
-        .where(SUBTASK.TASK_ID.eq(taskId))
+          .and(SUBTASK.TASK_ID.eq(taskId))
         .groupBy(SUBTASK.ID)
         .fetch()
         .map(record -> {
