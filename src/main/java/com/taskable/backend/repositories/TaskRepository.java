@@ -4,8 +4,11 @@ import com.taskable.backend.exception_handling.NotFoundOnNull;
 import com.taskable.backend.utils.DbMapper;
 import com.taskable.backend.utils.DbUtils;
 import com.taskable.backend.utils.SubtaskWithAssignees;
+import com.taskable.protobufs.PersistenceProto.Comment;
 import com.taskable.protobufs.PersistenceProto.Subtask;
 import com.taskable.protobufs.PersistenceProto.Task;
+import com.taskable.protobufs.TaskProto;
+import com.taskable.protobufs.TaskProto.UpdateSubtaskRequest;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
@@ -125,5 +128,58 @@ public class TaskRepository {
               .collect(Collectors.toList());
           return new SubtaskWithAssignees(DbMapper.map(subtask), assigneeIds);
         });
+  }
+
+  public void updateSubtask(Integer subtaskId, UpdateSubtaskRequest req) {
+    var fieldsToUpdate = new HashMap<>();
+    if (req.hasTaskId()) {
+      fieldsToUpdate.put(SUBTASK.TASK_ID, req.getTaskId());
+    }
+    if (req.hasTitle()) {
+      fieldsToUpdate.put(SUBTASK.TITLE, req.getTitle());
+    }
+    if (req.hasDescription()) {
+      fieldsToUpdate.put(SUBTASK.DESCRIPTION, req.getDescription());
+    }
+    if (req.hasStart()) {
+      fieldsToUpdate.put(SUBTASK.STATUS, req.getStatus());
+    }
+    if (req.hasPriority()) {
+      fieldsToUpdate.put(SUBTASK.PRIORITY, req.getPriority());
+    }
+    if (req.hasStart()) {
+      fieldsToUpdate.put(SUBTASK.START_DATE, DbUtils.getDateTime(req.getStart()));
+    }
+    if (req.hasEnd()) {
+      fieldsToUpdate.put(SUBTASK.DUE_DATE, DbUtils.getDateTime(req.getEnd()));
+    }
+    dsl.update(SUBTASK)
+        .set(fieldsToUpdate)
+        .where(SUBTASK.ID.eq(subtaskId))
+        .execute();
+  }
+
+  public void deleteSubtask(Integer subtaskId) {
+    dsl.deleteFrom(SUBTASK)
+        .where(SUBTASK.ID.eq(subtaskId))
+        .execute();
+  }
+
+  public Integer createSubtaskComment(Integer userId, Integer subtaskId, TaskProto.CreateCommentRequest req) {
+    return dsl.insertInto(SUBTASK_COMMENT)
+        .set(SUBTASK_COMMENT.USER_ID, userId)
+        .set(SUBTASK_COMMENT.SUBTASK_ID, subtaskId)
+        .set(SUBTASK_COMMENT.COMMENT, req.getComment())
+        .set(SUBTASK_COMMENT.CREATE_DATE, DbUtils.getDateTime(req.getCreatedDate()))
+        .returning(SUBTASK_COMMENT.ID)
+        .fetchOne(SUBTASK_COMMENT.ID);
+  }
+
+  @NotFoundOnNull(message = "Comment doesn't exist")
+  public Comment getComment(Integer commentId) {
+    var rec = dsl.selectFrom(SUBTASK_COMMENT)
+        .where(SUBTASK_COMMENT.ID.eq(commentId))
+        .fetchOneInto(SUBTASK_COMMENT);
+    return rec != null ? DbMapper.map(rec) : null;
   }
 }

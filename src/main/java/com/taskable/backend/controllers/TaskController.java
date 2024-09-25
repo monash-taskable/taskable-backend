@@ -103,4 +103,53 @@ public class TaskController {
                                          @PathVariable("task_id") Integer taskId) {
     return taskService.getSubtasks(taskId);
   }
+
+  @PostMapping("{task_id}/subtasks/{subtask_id}/update")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public void updateSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                            @PathVariable("class_id") Integer classId,
+                            @PathVariable("project_id") Integer projectId,
+                            @PathVariable("subtask_id") Integer subtaskId,
+                            @RequestBody UpdateSubtaskRequest req) {
+    taskService.updateSubtask(subtaskId, req);
+  }
+
+  @PostMapping("{task_id}/subtasks/{subtask_id}/delete")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public void deleteSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                            @PathVariable("class_id") Integer classId,
+                            @PathVariable("project_id") Integer projectId,
+                            @PathVariable("subtask_id") Integer subtaskId) {
+    taskService.deleteSubtask(subtaskId);
+  }
+
+  @PostMapping("{task_id}/subtasks/{subtask_id}/comments/create")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  public CreateCommentResponse createComment(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                             @PathVariable("class_id") Integer classId,
+                                             @PathVariable("project_id") Integer projectId,
+                                             @PathVariable("subtask_id") Integer subtaskId,
+                                             @RequestBody CreateCommentRequest req) {
+    return taskService.createComment(userDetails.userId(), subtaskId, req);
+  }
+
+  @GetMapping("{task_id}/subtasks/{subtask_id}/comments/{comment_id}")
+  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  public GetCommentResponse getComment(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                       @PathVariable("class_id") Integer classId,
+                                       @PathVariable("project_id") Integer projectId,
+                                       @PathVariable("comment_id") Integer commentId) {
+    return taskService.getComment(commentId);
+  }
+
+//  @GetMapping("{task_id}/subtasks/{subtask_id}/comments")
+//  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
+//      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+//  public GetCommentsResponse getComments() {
+//
+//  }
 }

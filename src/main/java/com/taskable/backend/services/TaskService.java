@@ -84,4 +84,24 @@ public class TaskService {
                   .build()
             ).toList()).build();
   }
+
+  public void updateSubtask(Integer subtaskId, UpdateSubtaskRequest req) {
+    taskRepository.updateSubtask(subtaskId, req);
+  }
+
+  public void deleteSubtask(Integer subtaskId) {
+    taskRepository.deleteSubtask(subtaskId);
+  }
+
+  public CreateCommentResponse createComment(Integer userId, Integer subtaskId, CreateCommentRequest req) {
+    return CreateCommentResponse.newBuilder()
+        .setId(taskRepository.createSubtaskComment(userId, subtaskId, req))
+        .build();
+  }
+
+  public GetCommentResponse getComment(Integer commentId) {
+    return GetCommentResponse.newBuilder()
+        .setComment(taskRepository.getComment(commentId))
+        .build();
+  }
 }

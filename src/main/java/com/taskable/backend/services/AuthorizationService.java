@@ -57,4 +57,6 @@ public class AuthorizationService {
         var assigneeRolePos = Role.valueOf(classRepository.getUserRoleInClass(assigneeId, classId)).ordinal();
         return userRolePos > assigneeRolePos;
     }
+
+//    public boolean canAccessTask(Integer userId, )
 }

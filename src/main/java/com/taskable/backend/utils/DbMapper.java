@@ -85,4 +85,14 @@ public class DbMapper {
             .setEnd(rec.getDueDate().toString())
             .build();
     }
+
+    public static Comment map(SubtaskCommentRecord rec) {
+        return Comment.newBuilder()
+            .setId(rec.getId())
+            .setSubtaskId(rec.getSubtaskId())
+            .setUserId(rec.getUserId())
+            .setComment(rec.getComment())
+            .setCreatedDate(rec.getCreateDate().toString())
+            .build();
+    }
 }
