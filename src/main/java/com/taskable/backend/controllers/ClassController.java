@@ -114,7 +114,7 @@ public class ClassController {
         return classService.getAnnouncements(classId);
     }
 
-    @GetMapping("{class_id}/announcements/{announcement_id}")
+    @GetMapping("/{class_id}/announcements/{announcement_id}")
     @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
     public GetAnnouncementResponse getAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                    @PathVariable("class_id") Integer classId,
@@ -122,7 +122,7 @@ public class ClassController {
         return classService.getAnnouncement(announcementId);
     }
 
-    @DeleteMapping("{class_id}/announcements/{announcement_id}/delete")
+    @DeleteMapping("/{class_id}/announcements/{announcement_id}/delete")
     @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
     public void deleteAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,
@@ -130,7 +130,7 @@ public class ClassController {
         classService.deleteAnnouncement(announcementId);
     }
 
-    @PostMapping("{class_id}/announcements/{announcement_id}/update")
+    @PostMapping("/{class_id}/announcements/{announcement_id}/update")
     @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
     public void updateAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,

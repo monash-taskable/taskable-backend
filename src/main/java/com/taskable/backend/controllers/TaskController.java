@@ -52,7 +52,7 @@ public class TaskController {
     return taskService.getTasks(projectId);
   }
 
-  @PostMapping("{task_id}/update")
+  @PostMapping("/{task_id}/update")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public void updateTask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -63,7 +63,7 @@ public class TaskController {
     taskService.updateTask(taskId, req);
   }
 
-  @DeleteMapping("{task_id}/delete")
+  @DeleteMapping("/{task_id}/delete")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public void deleteTask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -73,7 +73,7 @@ public class TaskController {
     taskService.deleteTask(taskId);
   }
 
-  @PostMapping("{task_id}/subtasks/create")
+  @PostMapping("/{task_id}/subtasks/create")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public CreateSubtaskResponse createSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -84,7 +84,7 @@ public class TaskController {
     return taskService.createSubtask(taskId, req);
   }
 
-  @GetMapping("{task_id}/subtasks/{subtask_id}")
+  @GetMapping("/{task_id}/subtasks/{subtask_id}")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
   public GetSubtaskResponse getSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -94,7 +94,7 @@ public class TaskController {
     return taskService.getSubtask(subtaskId);
   }
 
-  @GetMapping("{task_id}/subtasks")
+  @GetMapping("/{task_id}/subtasks")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
   public GetSubtasksResponse getSubtasks(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -104,7 +104,7 @@ public class TaskController {
     return taskService.getSubtasks(taskId);
   }
 
-  @PostMapping("{task_id}/subtasks/{subtask_id}/update")
+  @PostMapping("/{task_id}/subtasks/{subtask_id}/update")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public void updateSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -115,7 +115,7 @@ public class TaskController {
     taskService.updateSubtask(subtaskId, req);
   }
 
-  @PostMapping("{task_id}/subtasks/{subtask_id}/delete")
+  @PostMapping("/{task_id}/subtasks/{subtask_id}/delete")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public void deleteSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -125,7 +125,7 @@ public class TaskController {
     taskService.deleteSubtask(subtaskId);
   }
 
-  @PostMapping("{task_id}/subtasks/{subtask_id}/comments/create")
+  @PostMapping("/{task_id}/subtasks/{subtask_id}/comments/create")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public CreateCommentResponse createComment(@AuthenticationPrincipal CustomUserDetails userDetails,
@@ -136,7 +136,7 @@ public class TaskController {
     return taskService.createComment(userDetails.userId(), subtaskId, req);
   }
 
-  @GetMapping("{task_id}/subtasks/{subtask_id}/comments/{comment_id}")
+  @GetMapping("/{task_id}/subtasks/{subtask_id}/comments/{comment_id}")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
   public GetCommentResponse getComment(@AuthenticationPrincipal CustomUserDetails userDetails,
