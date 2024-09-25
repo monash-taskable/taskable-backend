@@ -83,9 +83,10 @@ CREATE TABLE subtask_assignee (
     project_id INTEGER,
     subtask_id INTEGER,
     PRIMARY KEY (user_id, project_id, subtask_id),
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
-    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
-    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE
+    FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE,
+    CONSTRAINT fk_sa_pj FOREIGN KEY (user_id, project_id)
+        REFERENCES project_user (user_id, project_id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE subtask_comment (

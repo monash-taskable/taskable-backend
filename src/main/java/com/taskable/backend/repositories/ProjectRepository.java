@@ -90,7 +90,7 @@ public class ProjectRepository {
                 .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
             .fetch()
             .map(record -> ClassroomMember.newBuilder()
-                .setId(record.get(USER.ID))
+                .setId(record.get(PROJECT_USER.USER_ID))
                 .setBasicInfo(
                     PersistenceProto.BasicInfo.newBuilder()
                         .setFirstName(record.get(USER.FIRST_NAME))

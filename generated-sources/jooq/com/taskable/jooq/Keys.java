@@ -40,7 +40,7 @@ import org.jooq.impl.Internal;
  * A class modelling foreign key relationships and constraints of tables in
  * testdb.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Keys {
 
     // -------------------------------------------------------------------------
@@ -79,9 +79,8 @@ public class Keys {
     public static final ForeignKey<ProjectUserRecord, UserRecord> PROJECT_USER_IBFK_1 = Internal.createForeignKey(ProjectUser.PROJECT_USER, DSL.name("project_user_ibfk_1"), new TableField[] { ProjectUser.PROJECT_USER.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
     public static final ForeignKey<ProjectUserRecord, ProjectRecord> PROJECT_USER_IBFK_2 = Internal.createForeignKey(ProjectUser.PROJECT_USER, DSL.name("project_user_ibfk_2"), new TableField[] { ProjectUser.PROJECT_USER.PROJECT_ID }, Keys.KEY_PROJECT_PRIMARY, new TableField[] { Project.PROJECT.ID }, true);
     public static final ForeignKey<SubtaskRecord, TaskRecord> SUBTASK_IBFK_1 = Internal.createForeignKey(Subtask.SUBTASK, DSL.name("subtask_ibfk_1"), new TableField[] { Subtask.SUBTASK.TASK_ID }, Keys.KEY_TASK_PRIMARY, new TableField[] { Task.TASK.ID }, true);
-    public static final ForeignKey<SubtaskAssigneeRecord, UserRecord> SUBTASK_ASSIGNEE_IBFK_1 = Internal.createForeignKey(SubtaskAssignee.SUBTASK_ASSIGNEE, DSL.name("subtask_assignee_ibfk_1"), new TableField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
-    public static final ForeignKey<SubtaskAssigneeRecord, ProjectRecord> SUBTASK_ASSIGNEE_IBFK_2 = Internal.createForeignKey(SubtaskAssignee.SUBTASK_ASSIGNEE, DSL.name("subtask_assignee_ibfk_2"), new TableField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.PROJECT_ID }, Keys.KEY_PROJECT_PRIMARY, new TableField[] { Project.PROJECT.ID }, true);
-    public static final ForeignKey<SubtaskAssigneeRecord, SubtaskRecord> SUBTASK_ASSIGNEE_IBFK_3 = Internal.createForeignKey(SubtaskAssignee.SUBTASK_ASSIGNEE, DSL.name("subtask_assignee_ibfk_3"), new TableField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.SUBTASK_ID }, Keys.KEY_SUBTASK_PRIMARY, new TableField[] { Subtask.SUBTASK.ID }, true);
+    public static final ForeignKey<SubtaskAssigneeRecord, ProjectUserRecord> FK_SA_PJ = Internal.createForeignKey(SubtaskAssignee.SUBTASK_ASSIGNEE, DSL.name("fk_sa_pj"), new TableField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.USER_ID, SubtaskAssignee.SUBTASK_ASSIGNEE.PROJECT_ID }, Keys.KEY_PROJECT_USER_PRIMARY, new TableField[] { ProjectUser.PROJECT_USER.USER_ID, ProjectUser.PROJECT_USER.PROJECT_ID }, true);
+    public static final ForeignKey<SubtaskAssigneeRecord, SubtaskRecord> SUBTASK_ASSIGNEE_IBFK_1 = Internal.createForeignKey(SubtaskAssignee.SUBTASK_ASSIGNEE, DSL.name("subtask_assignee_ibfk_1"), new TableField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.SUBTASK_ID }, Keys.KEY_SUBTASK_PRIMARY, new TableField[] { Subtask.SUBTASK.ID }, true);
     public static final ForeignKey<SubtaskCommentRecord, SubtaskRecord> SUBTASK_COMMENT_IBFK_1 = Internal.createForeignKey(SubtaskComment.SUBTASK_COMMENT, DSL.name("subtask_comment_ibfk_1"), new TableField[] { SubtaskComment.SUBTASK_COMMENT.SUBTASK_ID }, Keys.KEY_SUBTASK_PRIMARY, new TableField[] { Subtask.SUBTASK.ID }, true);
     public static final ForeignKey<SubtaskCommentRecord, UserRecord> SUBTASK_COMMENT_IBFK_2 = Internal.createForeignKey(SubtaskComment.SUBTASK_COMMENT, DSL.name("subtask_comment_ibfk_2"), new TableField[] { SubtaskComment.SUBTASK_COMMENT.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
     public static final ForeignKey<TaskRecord, ProjectRecord> TASK_IBFK_1 = Internal.createForeignKey(Task.TASK, DSL.name("task_ibfk_1"), new TableField[] { Task.TASK.PROJECT_ID }, Keys.KEY_PROJECT_PRIMARY, new TableField[] { Project.PROJECT.ID }, true);

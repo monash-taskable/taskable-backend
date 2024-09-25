@@ -24,7 +24,7 @@ import org.jooq.impl.Internal;
 /**
  * A class modelling indexes of tables in testdb.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Indexes {
 
     // -------------------------------------------------------------------------
@@ -37,7 +37,6 @@ public class Indexes {
     public static final Index TEMPLATE_CLASSROOM_ID = Internal.createIndex(DSL.name("classroom_id"), Template.TEMPLATE, new OrderField[] { Template.TEMPLATE.CLASSROOM_ID }, false);
     public static final Index ATTACHMENT_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), Attachment.ATTACHMENT, new OrderField[] { Attachment.ATTACHMENT.PROJECT_ID }, false);
     public static final Index PROJECT_USER_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), ProjectUser.PROJECT_USER, new OrderField[] { ProjectUser.PROJECT_USER.PROJECT_ID }, false);
-    public static final Index SUBTASK_ASSIGNEE_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), SubtaskAssignee.SUBTASK_ASSIGNEE, new OrderField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.PROJECT_ID }, false);
     public static final Index TASK_PROJECT_ID = Internal.createIndex(DSL.name("project_id"), Task.TASK, new OrderField[] { Task.TASK.PROJECT_ID }, false);
     public static final Index ATTACHMENT_SUBTASK_ID = Internal.createIndex(DSL.name("subtask_id"), Attachment.ATTACHMENT, new OrderField[] { Attachment.ATTACHMENT.SUBTASK_ID }, false);
     public static final Index SUBTASK_ASSIGNEE_SUBTASK_ID = Internal.createIndex(DSL.name("subtask_id"), SubtaskAssignee.SUBTASK_ASSIGNEE, new OrderField[] { SubtaskAssignee.SUBTASK_ASSIGNEE.SUBTASK_ID }, false);

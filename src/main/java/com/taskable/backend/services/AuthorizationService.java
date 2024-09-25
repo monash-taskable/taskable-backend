@@ -26,7 +26,7 @@ public class AuthorizationService {
 
     // update this method name to fulfil more roles if necessary
     public boolean checkStaffInClass(Integer userId, Integer classId) {
-        return Set.of("OWNER", "ADMIN", "TEACHER").contains(classRepository.getUserRoleInClass(userId, classId));
+        return Set.of("OWNER", "ADMIN", "TUTOR").contains(classRepository.getUserRoleInClass(userId, classId));
     }
 
     public boolean userExistsInClass(Integer userId, Integer classId) {

@@ -116,7 +116,7 @@ public class TaskRepository {
         .from(SUBTASK)
         .leftJoin(SUBTASK_ASSIGNEE)
         .on(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(SUBTASK.ID))
-          .and(SUBTASK.TASK_ID.eq(taskId))
+          .where(SUBTASK.TASK_ID.eq(taskId))
         .groupBy(SUBTASK.ID)
         .fetch()
         .map(record -> {
