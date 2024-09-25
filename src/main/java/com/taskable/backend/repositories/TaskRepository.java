@@ -12,9 +12,11 @@ import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.taskable.jooq.Tables.*;
 
@@ -104,18 +106,23 @@ public class TaskRepository {
   public List<SubtaskWithAssignees> getSubtasks(Integer taskId) {
     return dsl.select(
             SUBTASK.asterisk(),
-            DSL.multiset(
-                DSL.select(SUBTASK_ASSIGNEE.USER_ID)
-                    .from(SUBTASK_ASSIGNEE)
-                    .where(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(SUBTASK.ID))
-            ).as("assigneeIds")
+            DSL.groupConcat(SUBTASK_ASSIGNEE.USER_ID).as("assigneeIds")
         )
         .from(SUBTASK)
+        .leftJoin(SUBTASK_ASSIGNEE)
+        .on(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(SUBTASK.ID))
         .where(SUBTASK.TASK_ID.eq(taskId))
+        .groupBy(SUBTASK.ID)
         .fetch()
         .map(record -> {
           var subtask = record.into(SUBTASK);
-          List<Integer> assigneeIds = record.get("assigneeIds", List.class);
+          String assigneeIdsStr = record.get("assigneeIds", String.class);
+          List<Integer> assigneeIds = Arrays.stream(
+                  assigneeIdsStr != null ? assigneeIdsStr.split(",") : new String[0]
+              )
+              .filter(s -> !s.isEmpty())
+              .map(Integer::valueOf)
+              .collect(Collectors.toList());
           return new SubtaskWithAssignees(DbMapper.map(subtask), assigneeIds);
         });
   }
