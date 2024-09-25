@@ -21,7 +21,7 @@ import com.taskable.jooq.tables.User;
 /**
  * Convenience access to all tables in testdb.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
 
     /**

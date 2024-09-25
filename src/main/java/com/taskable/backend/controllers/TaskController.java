@@ -115,6 +115,24 @@ public class TaskController {
     taskService.updateSubtask(subtaskId, req);
   }
 
+  @PostMapping("/{task_id}/subtasks/{subtask_id}/assign")
+  public void assignUsersToSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                          @PathVariable("class_id") Integer classId,
+                          @PathVariable("project_id") Integer projectId,
+                          @PathVariable("subtask_id") Integer subtaskId,
+                          @RequestBody AssignMultipleToSubtaskRequest req) {
+    taskService.assignUsersToSubtask(subtaskId, projectId, req);
+  }
+
+  @DeleteMapping("/{task_id}/subtasks/{subtask_id}/unassign")
+  public void unassignUsersFromSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                       @PathVariable("class_id") Integer classId,
+                                       @PathVariable("project_id") Integer projectId,
+                                       @PathVariable("subtask_id") Integer subtaskId,
+                                       @RequestBody UnassignMultipleToSubtaskRequest req) {
+    taskService.unassignUsersFromSubtask(subtaskId, projectId, req);
+  }
+
   @DeleteMapping("/{task_id}/subtasks/{subtask_id}/delete")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")

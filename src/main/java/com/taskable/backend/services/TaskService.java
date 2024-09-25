@@ -1,6 +1,5 @@
 package com.taskable.backend.services;
 
-import com.taskable.backend.controllers.ClassController;
 import com.taskable.backend.repositories.TaskRepository;
 import com.taskable.protobufs.PersistenceProto.Subtask;
 import com.taskable.protobufs.TaskProto.*;
@@ -103,5 +102,13 @@ public class TaskService {
     return GetCommentResponse.newBuilder()
         .setComment(taskRepository.getComment(commentId))
         .build();
+  }
+
+  public void assignUsersToSubtask(Integer subtaskId, Integer projectId, AssignMultipleToSubtaskRequest req) {
+    taskRepository.createSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
+  }
+
+  public void unassignUsersFromSubtask(Integer subtaskId, Integer projectId, UnassignMultipleToSubtaskRequest req) {
+    taskRepository.deleteSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
   }
 }

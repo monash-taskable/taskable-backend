@@ -9,9 +9,7 @@ import com.taskable.protobufs.PersistenceProto.Subtask;
 import com.taskable.protobufs.PersistenceProto.Task;
 import com.taskable.protobufs.TaskProto;
 import com.taskable.protobufs.TaskProto.UpdateSubtaskRequest;
-import org.apache.commons.lang3.tuple.Pair;
 import org.jooq.DSLContext;
-import org.jooq.Field;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +17,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.taskable.jooq.Tables.*;
@@ -183,5 +180,25 @@ public class TaskRepository {
         .where(SUBTASK_COMMENT.ID.eq(commentId))
         .fetchOneInto(SUBTASK_COMMENT);
     return rec != null ? DbMapper.map(rec) : null;
+  }
+
+  public void createSubtaskAssignees(Integer subtaskId, Integer projectId, List<Integer> userIds) {
+    var insertStep = dsl.insertInto(SUBTASK_ASSIGNEE,
+        SUBTASK_ASSIGNEE.PROJECT_ID,
+        SUBTASK_ASSIGNEE.USER_ID,
+        SUBTASK_ASSIGNEE.SUBTASK_ID);
+
+    for (var userId : userIds) {
+      insertStep.values(projectId, userId, subtaskId);
+    }
+    insertStep.onDuplicateKeyIgnore().execute();
+  }
+
+  public void deleteSubtaskAssignees(Integer subtaskId, Integer projectId, List<Integer> usersToDelete) {
+    dsl.deleteFrom(SUBTASK_ASSIGNEE)
+        .where(SUBTASK_ASSIGNEE.USER_ID.in(usersToDelete))
+        .and(SUBTASK_ASSIGNEE.PROJECT_ID.eq(projectId))
+        .and(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(subtaskId))
+        .execute();
   }
 }
