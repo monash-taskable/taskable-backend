@@ -1,8 +1,11 @@
 package com.taskable.backend.services;
 
+import com.taskable.backend.controllers.ClassController;
 import com.taskable.backend.repositories.TaskRepository;
 import com.taskable.protobufs.PersistenceProto.Subtask;
 import com.taskable.protobufs.TaskProto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +15,10 @@ public class TaskService {
   @Autowired
   private TaskRepository taskRepository;
 
+  private static final Logger logger = LoggerFactory.getLogger(TaskService.class);
+
   public CreateTaskResponse createTask(Integer projectId, CreateTaskRequest req) {
+    logger.info("check create task being called");
     return CreateTaskResponse.newBuilder()
         .setId(taskRepository.createTask(projectId,
             req.getTitle(),

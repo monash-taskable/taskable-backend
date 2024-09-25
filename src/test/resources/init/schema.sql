@@ -120,14 +120,3 @@ CREATE TABLE attachment (
     FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE,
     FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE
 );
-
-
-INSERT INTO user (id, sub, email, first_name, last_name) VALUES (1, '101', 'testemail', 'john', 'pork');
-INSERT INTO classroom (id, name, created_at) VALUES (1, 'test1', '2024-08-20 14:30:00');
-INSERT INTO classroom_user (user_id, classroom_id, role) VALUES (1, 1, "OWNER");
-
-
-
-
-
-

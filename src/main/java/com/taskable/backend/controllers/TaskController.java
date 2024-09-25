@@ -4,13 +4,15 @@ import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.TaskService;
 import com.taskable.protobufs.TaskProto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/{class_id}/projects/{project_id}/tasks")
+@RequestMapping("/api/classes/{class_id}/projects/{project_id}/tasks")
 public class TaskController {
 
   @Autowired
@@ -18,6 +20,8 @@ public class TaskController {
 
   @Autowired
   private AuthorizationService authorizationService;
+
+  private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
 
   @PostMapping("/create")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
