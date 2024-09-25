@@ -115,7 +115,7 @@ public class TaskController {
     taskService.updateSubtask(subtaskId, req);
   }
 
-  @PostMapping("/{task_id}/subtasks/{subtask_id}/delete")
+  @DeleteMapping("/{task_id}/subtasks/{subtask_id}/delete")
   @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
       "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
   public void deleteSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
