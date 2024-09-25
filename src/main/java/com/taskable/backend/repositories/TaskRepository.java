@@ -11,6 +11,7 @@ import com.taskable.protobufs.TaskProto;
 import com.taskable.protobufs.TaskProto.UpdateSubtaskRequest;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jooq.DSLContext;
+import org.jooq.Field;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -107,10 +108,11 @@ public class TaskRepository {
   }
 
   public List<SubtaskWithAssignees> getSubtasks(Integer taskId) {
-    return dsl.select(
-            SUBTASK.asterisk(),
-            DSL.groupConcat(SUBTASK_ASSIGNEE.USER_ID).as("assigneeIds")
-        )
+    dsl.configuration().settings().withRenderGroupConcatMaxLenSessionVariable(false);
+    Field<String> assigneeIdsField = DSL.groupConcat(SUBTASK_ASSIGNEE.USER_ID).as("assigneeIds");
+
+    return dsl.select(SUBTASK.fields())
+        .select(assigneeIdsField)
         .from(SUBTASK)
         .leftJoin(SUBTASK_ASSIGNEE)
         .on(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(SUBTASK.ID))
@@ -118,15 +120,15 @@ public class TaskRepository {
         .groupBy(SUBTASK.ID)
         .fetch()
         .map(record -> {
-          var subtask = record.into(SUBTASK);
-          String assigneeIdsStr = record.get("assigneeIds", String.class);
+          var subtask = DbMapper.map(record.into(SUBTASK));
+          String assigneeIdsStr = record.get(assigneeIdsField);
           List<Integer> assigneeIds = Arrays.stream(
                   assigneeIdsStr != null ? assigneeIdsStr.split(",") : new String[0]
               )
               .filter(s -> !s.isEmpty())
               .map(Integer::valueOf)
               .collect(Collectors.toList());
-          return new SubtaskWithAssignees(DbMapper.map(subtask), assigneeIds);
+          return new SubtaskWithAssignees(subtask, assigneeIds);
         });
   }
 
