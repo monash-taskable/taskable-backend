@@ -100,7 +100,7 @@ public class ClassController {
     }
 
     @PostMapping("/{class_id}/announcements/create")
-    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyAnnouncement(#userDetails.userId(), #announcementId, #classId)")
     public CreateAnnouncementResponse createAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                          @PathVariable("class_id") Integer classId,
                                                          @RequestBody CreateAnnouncementRequest req) {
@@ -108,14 +108,14 @@ public class ClassController {
     }
 
     @GetMapping("/{class_id}/announcements")
-    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canReadAnnouncement(#userDetails.userId(), #announcementId, #classId)")
     public GetAnnouncementsResponse getAnnouncements(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                      @PathVariable("class_id") Integer classId) {
         return classService.getAnnouncements(classId);
     }
 
     @GetMapping("/{class_id}/announcements/{announcement_id}")
-    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canReadAnnouncement(#userDetails.userId(), #announcementId, #classId)")
     public GetAnnouncementResponse getAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                    @PathVariable("class_id") Integer classId,
                                                    @PathVariable("announcement_id") Integer announcementId) {
@@ -123,7 +123,7 @@ public class ClassController {
     }
 
     @DeleteMapping("/{class_id}/announcements/{announcement_id}/delete")
-    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyAnnouncement(#userDetails.userId(), #announcementId, #classId)")
     public void deleteAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,
                                    @PathVariable("announcement_id") Integer announcementId){
@@ -131,7 +131,7 @@ public class ClassController {
     }
 
     @PostMapping("/{class_id}/announcements/{announcement_id}/update")
-    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyAnnouncement(#userDetails.userId(), #announcementId, #classId)")
     public void updateAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,
                                    @PathVariable("announcement_id") Integer announcementId,

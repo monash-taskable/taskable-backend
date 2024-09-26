@@ -115,9 +115,10 @@ public class ClassRepository {
 
     public boolean checkUserInClass(Integer userId, Integer classId) {
         return dsl.fetchExists(
-                dsl.selectFrom(CLASSROOM_USER)
-                        .where(CLASSROOM_USER.USER_ID.eq(userId))
-                        .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
+                dsl.selectOne()
+                    .from(CLASSROOM_USER)
+                    .where(CLASSROOM_USER.USER_ID.eq(userId))
+                    .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
         );
     }
 
@@ -227,6 +228,15 @@ public class ClassRepository {
             .set(fieldsToUpdate)
             .where(ANNOUNCEMENT.ID.eq(announcementId))
             .execute();
+    }
+
+    public boolean checkAnnouncementInClass(Integer announcementId, Integer classId) {
+        return dsl.fetchExists(
+            dsl.selectOne()
+                .from(ANNOUNCEMENT)
+                .where(ANNOUNCEMENT.ID.eq(announcementId))
+                .and(ANNOUNCEMENT.CLASSROOM_ID.eq(classId))
+        );
     }
 
 }

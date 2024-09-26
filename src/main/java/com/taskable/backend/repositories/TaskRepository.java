@@ -9,7 +9,7 @@ import com.taskable.protobufs.PersistenceProto.Subtask;
 import com.taskable.protobufs.PersistenceProto.Task;
 import com.taskable.protobufs.TaskProto;
 import com.taskable.protobufs.TaskProto.UpdateSubtaskRequest;
-import org.jooq.DSLContext;
+import org.jooq.*;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -140,7 +140,7 @@ public class TaskRepository {
     if (req.hasDescription()) {
       fieldsToUpdate.put(SUBTASK.DESCRIPTION, req.getDescription());
     }
-    if (req.hasStart()) {
+    if (req.hasStatus()) {
       fieldsToUpdate.put(SUBTASK.STATUS, req.getStatus());
     }
     if (req.hasPriority()) {
@@ -200,5 +200,62 @@ public class TaskRepository {
         .and(SUBTASK_ASSIGNEE.PROJECT_ID.eq(projectId))
         .and(SUBTASK_ASSIGNEE.SUBTASK_ID.eq(subtaskId))
         .execute();
+  }
+
+  public boolean checkSubtaskCommentBelongsToUser(Integer commentId, Integer userId) {
+    return dsl.fetchExists(
+        dsl.selectOne()
+            .from(SUBTASK_COMMENT)
+            .where(SUBTASK_COMMENT.ID.eq(commentId))
+            .and(SUBTASK_COMMENT.USER_ID.eq(userId))
+    );
+  }
+
+  public boolean checkStCommentBelongsToProjectAndClass(Integer commentId, Integer projectId, Integer classId) {
+    return dsl.fetchExists(
+        dsl.selectOne()
+            .from(SUBTASK_COMMENT)
+            .join(SUBTASK).on(SUBTASK_COMMENT.SUBTASK_ID.eq(SUBTASK.ID))
+            .and(SUBTASK_COMMENT.ID.eq(commentId))
+            .join(TASK).on(SUBTASK.TASK_ID.eq(TASK.ID))
+            .and(TASK.PROJECT_ID.eq(projectId))
+            .join(PROJECT)
+            .on(TASK.PROJECT_ID.eq(PROJECT.ID))
+            .where(PROJECT.CLASSROOM_ID.eq(classId))
+    );
+  }
+
+  // Will stay a single row if it succeeds, or empty if fails somewhere
+  public boolean checkSubtaskBelongsToProjectAndClass(Integer subtaskId, Integer projectId, Integer classId) {
+    return dsl.fetchExists(
+        dsl.selectOne()
+            .from(SUBTASK)
+            .join(TASK).on(SUBTASK.TASK_ID.eq(TASK.ID))
+            .and(SUBTASK.ID.eq(subtaskId))
+            .and(TASK.PROJECT_ID.eq(projectId))
+            .join(PROJECT)
+            .on(TASK.PROJECT_ID.eq(PROJECT.ID))
+            .where(PROJECT.CLASSROOM_ID.eq(classId))
+    );
+  }
+
+  public boolean checkTaskBelongsToProjectAndClass(Integer taskId, Integer projectId, Integer classId) {
+    return dsl.fetchExists(
+        dsl.selectOne()
+            .from(TASK)
+            .join(PROJECT).on(TASK.PROJECT_ID.eq(PROJECT.ID))
+            .and(TASK.ID.eq(taskId))
+            .and(TASK.PROJECT_ID.eq(projectId))
+            .where(PROJECT.CLASSROOM_ID.eq(classId))
+    );
+  }
+
+  public boolean checkProjectBelongsToClass(Integer projectId, Integer classId) {
+    return dsl.fetchExists(
+        dsl.selectOne()
+            .from(PROJECT)
+            .where(PROJECT.ID.eq(projectId))
+            .and(PROJECT.CLASSROOM_ID.eq(classId))
+    );
   }
 }

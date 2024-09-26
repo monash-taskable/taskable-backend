@@ -27,7 +27,7 @@ public class TemplateController {
     }
 
     @GetMapping("/{template_id}")
-    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canReadTemplate(#userDetails.userId(), #templateId, #classId)")
     public GetTemplateResponse getTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
                                            @PathVariable("class_id") Integer classId,
                                            @PathVariable("template_id") Integer templateId) {
@@ -35,7 +35,7 @@ public class TemplateController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
     public CreateTemplateResponse createTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                  @PathVariable("class_id") Integer classId,
                                                  @RequestBody CreateTemplateRequest req) {
@@ -43,7 +43,7 @@ public class TemplateController {
     }
 
     @PostMapping("/{template_id}/update")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
     public void updateTemplateDetails(@AuthenticationPrincipal CustomUserDetails userDetails,
                                @PathVariable("template_id") Integer templateId,
                                       @PathVariable("class_id") Integer classId,
@@ -52,7 +52,7 @@ public class TemplateController {
     }
 
     @PostMapping("/{template_id}/create-single")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
     public CreateProjectResponse createProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                                               @PathVariable("template_id") Integer templateId,
                                                @PathVariable("class_id") Integer classId,
@@ -61,7 +61,7 @@ public class TemplateController {
     }
 
     @DeleteMapping("/{template_id}/delete")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
     public void deleteTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
                                @PathVariable("class_id") Integer classId,
                                @PathVariable("template_id") Integer templateId) {

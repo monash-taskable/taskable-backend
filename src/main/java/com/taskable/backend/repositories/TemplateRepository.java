@@ -68,4 +68,13 @@ public class TemplateRepository {
                 .where(TEMPLATE.ID.eq(id))
                 .execute();
     }
+
+    public boolean checkTemplateInClass(Integer templateId, Integer classId) {
+        return dsl.fetchExists(
+            dsl.selectOne()
+                .from(TEMPLATE)
+                .where(TEMPLATE.ID.eq(templateId))
+                .and(TEMPLATE.CLASSROOM_ID.eq(classId))
+        );
+    }
 }

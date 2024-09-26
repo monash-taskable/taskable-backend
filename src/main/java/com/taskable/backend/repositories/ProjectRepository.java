@@ -47,9 +47,10 @@ public class ProjectRepository {
 
     public boolean checkUserInProject(Integer userId, Integer projectId) {
         return dsl.fetchExists(
-                dsl.selectFrom(PROJECT_USER)
-                        .where(PROJECT_USER.USER_ID.eq(userId))
-                        .and(PROJECT_USER.PROJECT_ID.eq(projectId))
+                dsl.selectOne()
+                    .from(PROJECT_USER)
+                    .where(PROJECT_USER.USER_ID.eq(userId))
+                    .and(PROJECT_USER.PROJECT_ID.eq(projectId))
         );
     }
 

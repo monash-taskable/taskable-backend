@@ -24,8 +24,7 @@ public class ProjectController {
     private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 
     @GetMapping("/{project_id}")
-    @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-                  "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canReadProject(#userDetails.userId(), #projectId, #classId)")
     public GetProjectResponse getProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                       @PathVariable("class_id") Integer classId,
                                                       @PathVariable("project_id") Integer projectId) {
@@ -33,13 +32,14 @@ public class ProjectController {
     }
 
     @GetMapping("")
+    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
     public GetProjectsResponse getProjects(@AuthenticationPrincipal CustomUserDetails userDetails,
                                            @PathVariable("class_id") Integer classId) {
         return projectService.getProjects(userDetails.userId(), classId);
     }
 
     @PostMapping("/{project_id}/members/add")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
     public AddProjectMembersResponse addProjectMembers(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                        @PathVariable("class_id") Integer classId,
                                                        @PathVariable("project_id") Integer projectId,
@@ -48,8 +48,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{project_id}/members")
-    @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-                  "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canReadProject(#userDetails.userId(), #projectId, #classId)")
     public GetMembersResponse getProjectMembers(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                 @PathVariable("class_id") Integer classId,
                                                 @PathVariable("project_id") Integer projectId) {
@@ -57,7 +56,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{project_id}/members/{user_id}/delete")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
     public void deleteProjectMember(@AuthenticationPrincipal CustomUserDetails userDetails,
                                         @PathVariable("user_id") Integer userId,
                                     @PathVariable("class_id") Integer classId,
@@ -66,7 +65,7 @@ public class ProjectController {
     }
 
     @PostMapping("/{project_id}/update")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
     public void updateProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                               @PathVariable("class_id") Integer classId,
                               @PathVariable("project_id") Integer projectId,
@@ -75,7 +74,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{project_id}/delete")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
     public void deleteProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                               @PathVariable("class_id") Integer classId,
                               @PathVariable("project_id") Integer projectId) {
@@ -83,7 +82,7 @@ public class ProjectController {
     }
 
     @PostMapping("/{project_id}/detach")
-    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
     public void detachProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                               @PathVariable("class_id") Integer classId,
                               @PathVariable("project_id") Integer projectId) {

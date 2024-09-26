@@ -24,8 +24,7 @@ public class TaskController {
   private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
 
   @PostMapping("/create")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadProject(#userDetails.userId(), #projectId, #classId)")
   public CreateTaskResponse createTask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                        @PathVariable("class_id") Integer classId,
                                        @PathVariable("project_id") Integer projectId,
@@ -34,8 +33,7 @@ public class TaskController {
   }
 
   @GetMapping("/{task_id}")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadTask(#userDetails.userId(), #projectId, #taskId, #classId)")
   public GetTaskResponse getTask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                  @PathVariable("class_id") Integer classId,
                                  @PathVariable("project_id") Integer projectId,
@@ -44,8 +42,7 @@ public class TaskController {
   }
 
   @GetMapping("")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadProject(#userDetails.userId(), #projectId, #classId)")
   public GetTasksResponse getTasks(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,
                                    @PathVariable("project_id") Integer projectId) {
@@ -53,8 +50,7 @@ public class TaskController {
   }
 
   @PostMapping("/{task_id}/update")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canModifyTask(#userDetails.userId(), #projectId, #taskId, #classId)")
   public void updateTask(@AuthenticationPrincipal CustomUserDetails userDetails,
                          @PathVariable("class_id") Integer classId,
                          @PathVariable("project_id") Integer projectId,
@@ -64,8 +60,7 @@ public class TaskController {
   }
 
   @DeleteMapping("/{task_id}/delete")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canModifyTask(#userDetails.userId(), #projectId, #taskId, #classId)")
   public void deleteTask(@AuthenticationPrincipal CustomUserDetails userDetails,
                          @PathVariable("class_id") Integer classId,
                          @PathVariable("project_id") Integer projectId,
@@ -74,8 +69,7 @@ public class TaskController {
   }
 
   @PostMapping("/{task_id}/subtasks/create")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadTask(#userDetails.userId(), #projectId, #taskId, #classId)")
   public CreateSubtaskResponse createSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                              @PathVariable("class_id") Integer classId,
                                              @PathVariable("project_id") Integer projectId,
@@ -85,8 +79,7 @@ public class TaskController {
   }
 
   @GetMapping("/{task_id}/subtasks/{subtask_id}")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadSubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public GetSubtaskResponse getSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                        @PathVariable("class_id") Integer classId,
                                        @PathVariable("project_id") Integer projectId,
@@ -95,8 +88,7 @@ public class TaskController {
   }
 
   @GetMapping("/{task_id}/subtasks")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadTask(#userDetails.userId(), #projectId, #taskId, #classId)")
   public GetSubtasksResponse getSubtasks(@AuthenticationPrincipal CustomUserDetails userDetails,
                                          @PathVariable("class_id") Integer classId,
                                          @PathVariable("project_id") Integer projectId,
@@ -105,8 +97,7 @@ public class TaskController {
   }
 
   @PostMapping("/{task_id}/subtasks/{subtask_id}/update")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public void updateSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                             @PathVariable("class_id") Integer classId,
                             @PathVariable("project_id") Integer projectId,
@@ -116,6 +107,7 @@ public class TaskController {
   }
 
   @PostMapping("/{task_id}/subtasks/{subtask_id}/assign")
+  @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public void assignUsersToSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                           @PathVariable("class_id") Integer classId,
                           @PathVariable("project_id") Integer projectId,
@@ -125,6 +117,7 @@ public class TaskController {
   }
 
   @DeleteMapping("/{task_id}/subtasks/{subtask_id}/unassign")
+  @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public void unassignUsersFromSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                        @PathVariable("class_id") Integer classId,
                                        @PathVariable("project_id") Integer projectId,
@@ -134,8 +127,7 @@ public class TaskController {
   }
 
   @DeleteMapping("/{task_id}/subtasks/{subtask_id}/delete")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public void deleteSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                             @PathVariable("class_id") Integer classId,
                             @PathVariable("project_id") Integer projectId,
@@ -144,8 +136,7 @@ public class TaskController {
   }
 
   @PostMapping("/{task_id}/subtasks/{subtask_id}/comments/create")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadSubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public CreateCommentResponse createComment(@AuthenticationPrincipal CustomUserDetails userDetails,
                                              @PathVariable("class_id") Integer classId,
                                              @PathVariable("project_id") Integer projectId,
@@ -155,8 +146,7 @@ public class TaskController {
   }
 
   @GetMapping("/{task_id}/subtasks/{subtask_id}/comments/{comment_id}")
-  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
+  @PreAuthorize("@authorizationService.canReadSubtaskComment(#userDetails.userId(), #commentId, #projectId, #classId)")
   public GetCommentResponse getComment(@AuthenticationPrincipal CustomUserDetails userDetails,
                                        @PathVariable("class_id") Integer classId,
                                        @PathVariable("project_id") Integer projectId,
