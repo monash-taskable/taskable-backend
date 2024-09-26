@@ -88,13 +88,13 @@ public class ClassRepository {
                 .fetchMap(USER.EMAIL, CLASSROOM_USER.USER_ID);
     }
 
-    @NotFoundOnNull(message = "Resource not found when getting role of user")
     public String getUserRoleInClass(Integer userId, Integer classId) {
         return dsl.select(CLASSROOM_USER.ROLE)
                 .from(CLASSROOM_USER)
                 .where(CLASSROOM_USER.USER_ID.eq(userId))
                 .and(CLASSROOM_USER.CLASSROOM_ID.eq(classId))
-                .fetchOne(CLASSROOM_USER.ROLE);
+                .fetchOptional(CLASSROOM_USER.ROLE)
+                .orElse("");
     }
 
     public List<Pair<Classroom, String>> getClassesAndRolesByUserId(Integer userId) {
