@@ -99,7 +99,7 @@ public class AuthorizationService {
 
     public boolean canReadProject(Integer userId, Integer projectId, Integer classId) {
         return taskRepository.checkProjectBelongsToClass(projectId, classId)
-            && (userExistsInProject(userId, projectId) || checkOwnerOrAdminInClass(userId, classId));
+            && (userExistsInProject(userId, projectId) || checkStaffInClass(userId, classId));
     }
 
     public boolean canReadAnnouncement(Integer userId, Integer announcementId, Integer classId) {
