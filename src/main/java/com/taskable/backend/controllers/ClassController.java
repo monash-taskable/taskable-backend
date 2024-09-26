@@ -100,7 +100,7 @@ public class ClassController {
     }
 
     @PostMapping("/{class_id}/announcements/create")
-    @PreAuthorize("@authorizationService.canModifyAnnouncement(#userDetails.userId(), #announcementId, #classId)")
+    @PreAuthorize("@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
     public CreateAnnouncementResponse createAnnouncement(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                          @PathVariable("class_id") Integer classId,
                                                          @RequestBody CreateAnnouncementRequest req) {
@@ -108,7 +108,7 @@ public class ClassController {
     }
 
     @GetMapping("/{class_id}/announcements")
-    @PreAuthorize("@authorizationService.canReadAnnouncement(#userDetails.userId(), #announcementId, #classId)")
+    @PreAuthorize("@authorizationService.userExistsInClass(#userDetails.userId(), #classId)")
     public GetAnnouncementsResponse getAnnouncements(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                      @PathVariable("class_id") Integer classId) {
         return classService.getAnnouncements(classId);

@@ -35,7 +35,7 @@ public class TemplateController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
     public CreateTemplateResponse createTemplate(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                  @PathVariable("class_id") Integer classId,
                                                  @RequestBody CreateTemplateRequest req) {
