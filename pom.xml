@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent POM for Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- Lookup parent from repository -->
     </parent>
+
     <groupId>com.taskable</groupId>
     <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>backend</name>
-    <description>taskable backend</description>
+    <description>Taskable Backend Application</description>
+
+    <!-- Properties for version management -->
     <properties>
         <java.version>21</java.version>
+        <!-- AWS SDK BOM version -->
+        <aws.sdk.version>2.28.10</aws.sdk.version>
+        <!-- jOOQ version -->
+        <jooq.version>3.19.11</jooq.version>
+        <!-- Protobuf version -->
+        <protobuf.version>3.21.9</protobuf.version>
     </properties>
+
+    <!-- Dependency Management for BOMs -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- AWS SDK BOM to manage AWS dependencies' versions -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws.sdk.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Additional BOMs can be added here if needed -->
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+        <!-- AWS S3 Client (Version managed by AWS BOM) -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+        </dependency>
+
+        <!-- Apache Commons Lang -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.16.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
-            <version>2.28.10</version>
-        </dependency>
-
-        <!-- SLF4J and Logback dependencies -->
+        <!-- SLF4J API (Version managed by Spring Boot) -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.13</version>
         </dependency>
+
+        <!-- Logback Classic (Version managed by Spring Boot) -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.4.14</version>
         </dependency>
 
         <!-- Google OAuth Client Library -->
@@ -48,7 +78,7 @@
             <version>1.34.1</version>
         </dependency>
 
-        <!-- Google HTTP Client Library -->
+        <!-- Google HTTP Client Library with Gson -->
         <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client-gson</artifactId>
@@ -62,58 +92,83 @@
             <version>1.32.1</version>
         </dependency>
 
-        <!-- Security -->
+        <!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!-- Spring OAuth2 Client -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
 
-        <!-- Jackson -->
+        <!-- Jackson Databind (Version managed by Spring Boot) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.15.3</version>
         </dependency>
 
-        <!-- jOOQ dependencies -->
+        <!-- jOOQ Core (Version managed via property) -->
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <!-- jOOQ Meta (Version managed via property) -->
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <!-- jOOQ Codegen (Version managed via property) -->
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <!-- MySQL Connector/J (Version managed by Spring Boot) -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
-            <version>8.2.0</version>
         </dependency>
+
+        <!-- Spring Boot JDBC Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq</artifactId>
-            <version>3.19.11</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq-meta</artifactId>
-            <version>3.19.11</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq-codegen</artifactId>
-            <version>3.19.7</version>
-        </dependency>
 
-        <!-- AOP dependency -->
+        <!-- Spring Boot AOP Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- Test dependencies -->
+        <!-- Protobuf Java -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Web Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-testcontainers</artifactId>
@@ -125,20 +180,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>1.16.2</version>
+            <version>1.19.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
-            <version>1.16.2</version>
+            <version>1.19.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -147,41 +197,29 @@
             <version>1.19.8</version>
             <scope>test</scope>
         </dependency>
-        <!-- JUnit 5 dependencies -->
+        <!-- JUnit 5 API and Engine (Version managed by Spring Boot) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- Explicit SLF4J Binding for Tests -->
+        <!-- SLF4J Simple Binding for Tests -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.36</version>
             <scope>test</scope>
         </dependency>
-        <!-- Protobuf -->
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.21.9</version>
-        </dependency>
-        <!-- API web server -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
         <extensions>
+            <!-- OS Maven Plugin for platform-specific configurations -->
             <extension>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
@@ -189,14 +227,16 @@
             </extension>
         </extensions>
         <plugins>
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- jOOQ Codegen Maven Plugin -->
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
-                <version>3.19.7</version>
+                <version>${jooq.version}</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
@@ -225,12 +265,13 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Protobuf Maven Plugin -->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:3.21.9:exe:${os.detected.classifier}</protocArtifact>
+                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
                     <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
                     <outputDirectory>${project.basedir}/generated-sources/protobufs</outputDirectory>
                 </configuration>
@@ -242,6 +283,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Build Helper Maven Plugin to Add Generated Sources -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

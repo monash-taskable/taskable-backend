@@ -10,7 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/classes/${classId}")
+@RequestMapping("/classes/{class_id}")
 public class FileController {
 
   private final FileService fileService;
@@ -20,7 +20,7 @@ public class FileController {
     this.fileService = fileService;
   }
 
-  @PostMapping("/projects/${project_id}/files/pre-upload")
+  @PostMapping("/projects/{project_id}/files/pre-upload")
   @PreAuthorize("@authorizationService.canModifyProject(#userDetails.userId(), #projectId, #classId)")
   public FilePreUploadResponse getProjectFileUploadUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                     @PathVariable("class_id") Integer classId,
@@ -30,7 +30,7 @@ public class FileController {
 
   }
 
-  @GetMapping("/projects/${project_id}/files")
+  @GetMapping("/projects/{project_id}/files")
   @PreAuthorize("@authorizationService.canReadProject(#userDetails.userId(), #projectId, #classId)")
   public GetFilesResponse getFilesInProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                                             @PathVariable("class_id") Integer classId,
@@ -38,7 +38,7 @@ public class FileController {
     return fileService.getFilesInProject(projectId);
   }
 
-  @GetMapping("/projects/${project_id}/files/${file_id}")
+  @GetMapping("/projects/{project_id}/files/{file_id}")
   @PreAuthorize("@authorizationService.canReadProjectFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public GetFileResponse getProjectFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                  @PathVariable("class_id") Integer classId,
@@ -47,7 +47,7 @@ public class FileController {
     return fileService.getFile(fileId);
   }
 
-  @DeleteMapping("/projects/${project_id}/files/${file_id}/delete")
+  @DeleteMapping("/projects/{project_id}/files/{file_id}/delete")
   @PreAuthorize("@authorizationService.canModifyProjectFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public void deleteProjectFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                 @PathVariable("class_id") Integer classId,
@@ -56,7 +56,7 @@ public class FileController {
     fileService.deleteFile(fileId);
   }
 
-  @GetMapping("/projects/${project_id}/files/${file_id}/download")
+  @GetMapping("/projects/{project_id}/files/{file_id}/download")
   @PreAuthorize("@authorizationService.canReadProjectFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public GetFileDownloadResponse getProjectFileDownloadUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                      @PathVariable("class_id") Integer classId,
@@ -65,7 +65,7 @@ public class FileController {
     return fileService.generatePresignedDownloadUrl(fileId);
   }
 
-  @PostMapping("/templates/${template_id}/files/pre-upload")
+  @PostMapping("/templates/{template_id}/files/pre-upload")
   @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
   public FilePreUploadResponse getTemplateFileUploadUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                         @PathVariable("class_id") Integer classId,
@@ -75,7 +75,7 @@ public class FileController {
     return fileService.generatePresignedUploadUrl(req.getFilename(), req.getSize(), null, templateId, null);
   }
 
-  @GetMapping("/templates/${template_id}/files")
+  @GetMapping("/templates/{template_id}/files")
   @PreAuthorize("@authorizationService.canReadTemplate(#userDetails.userId(), #templateId, #classId)")
   public GetFilesResponse getTemplateFiles(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                         @PathVariable("class_id") Integer classId,
@@ -85,7 +85,7 @@ public class FileController {
     return fileService.getTemplateFiles(templateId);
   }
 
-  @GetMapping("/projects/${template_id}/files/${file_id}")
+  @GetMapping("/projects/{template_id}/files/{file_id}")
   @PreAuthorize("@authorizationService.canReadTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public GetFileResponse getTemplateFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                         @PathVariable("class_id") Integer classId,
@@ -94,7 +94,7 @@ public class FileController {
     return fileService.getFile(fileId);
   }
 
-  @DeleteMapping("/projects/${template_id}/files/${file_id}/delete")
+  @DeleteMapping("/projects/{template_id}/files/{file_id}/delete")
   @PreAuthorize("@authorizationService.canModifyTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public void deleteTemplateFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                 @PathVariable("class_id") Integer classId,
@@ -103,7 +103,7 @@ public class FileController {
     fileService.deleteFile(fileId);
   }
 
-  @DeleteMapping("/projects/${template_id}/files/${file_id}/download")
+  @DeleteMapping("/projects/{template_id}/files/{file_id}/download")
   @PreAuthorize("@authorizationService.canReadTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public GetFileDownloadResponse getDownloadTemplateFileUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,
@@ -112,7 +112,7 @@ public class FileController {
     return fileService.generatePresignedDownloadUrl(fileId);
   }
 
-  @PostMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files/pre-upload")
+  @PostMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/pre-upload")
   @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public FilePreUploadResponse getSubtaskFileUploadUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                        @PathVariable("class_id") Integer classId,
@@ -122,7 +122,7 @@ public class FileController {
     return fileService.generatePresignedUploadUrl(req.getFilename(), req.getSize(), projectId, null, subtaskId);
   }
 
-  @GetMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files")
+  @GetMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files")
   @PreAuthorize("@authorizationService.canReadSubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public GetSubtaskFilesResponse getSubtaskFiles(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                  @PathVariable("class_id") Integer classId,
@@ -131,7 +131,7 @@ public class FileController {
     return fileService.getSubtaskFiles(subtaskId);
   }
 
-  @GetMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files/{file_id}")
+  @GetMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/{file_id}")
   @PreAuthorize("@authorizationService.canReadSubtaskFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public GetFileResponse getSubtaskFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                  @PathVariable("class_id") Integer classId,
@@ -141,7 +141,7 @@ public class FileController {
     return fileService.getFile(fileId);
   }
 
-  @DeleteMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files/{file_id}/detach")
+  @DeleteMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/{file_id}/detach")
   @PreAuthorize("@authorizationService.canModifySubtaskFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public void detachFileFromSubtask(@AuthenticationPrincipal CustomUserDetails userDetails,
                                         @PathVariable("class_id") Integer classId,
@@ -151,7 +151,7 @@ public class FileController {
     fileService.detachFileFromSubtask(fileId);
   }
 
-  @PostMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files/attach")
+  @PostMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/attach")
   @PreAuthorize("@authorizationService.canModifySubtaskFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public void attachFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                          @PathVariable("class_id") Integer classId,
@@ -161,7 +161,7 @@ public class FileController {
     fileService.attachFileToSubtask(req.getId(), subtaskId);
   }
 
-  @GetMapping("/projects/${project_id}/tasks/${task_id}/subtasks/${subtask_id}/files/{file_id}/download")
+  @GetMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/{file_id}/download")
   @PreAuthorize("@authorizationService.canReadSubtaskFile(#userDetails.userId(), #fileId, #projectId, #classId)")
   public GetFileDownloadResponse downloadSubtaskFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                      @PathVariable("class_id") Integer classId,
