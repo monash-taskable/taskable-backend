@@ -92,6 +92,14 @@ public class TaskService {
     taskRepository.deleteSubtask(subtaskId);
   }
 
+  public void assignUsersToSubtask(Integer subtaskId, Integer projectId, AssignMultipleToSubtaskRequest req) {
+    taskRepository.createSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
+  }
+
+  public void unassignUsersFromSubtask(Integer subtaskId, Integer projectId, UnassignMultipleToSubtaskRequest req) {
+    taskRepository.deleteSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
+  }
+
   public CreateCommentResponse createComment(Integer userId, Integer subtaskId, CreateCommentRequest req) {
     return CreateCommentResponse.newBuilder()
         .setId(taskRepository.createSubtaskComment(userId, subtaskId, req))
@@ -104,11 +112,11 @@ public class TaskService {
         .build();
   }
 
-  public void assignUsersToSubtask(Integer subtaskId, Integer projectId, AssignMultipleToSubtaskRequest req) {
-    taskRepository.createSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
+  public GetCommentsResponse getComments(Integer subtaskId) {
+    return GetCommentsResponse.newBuilder()
+        .addAllComments(taskRepository.getCommentsInSubtask(subtaskId))
+        .build();
   }
 
-  public void unassignUsersFromSubtask(Integer subtaskId, Integer projectId, UnassignMultipleToSubtaskRequest req) {
-    taskRepository.deleteSubtaskAssignees(subtaskId, projectId, req.getUserIdsList());
-  }
+
 }

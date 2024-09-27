@@ -182,6 +182,13 @@ public class TaskRepository {
     return rec != null ? DbMapper.map(rec) : null;
   }
 
+  public List<Comment> getCommentsInSubtask(Integer subtaskId) {
+    return dsl.selectFrom(SUBTASK_COMMENT)
+        .where(SUBTASK_COMMENT.ID.eq(subtaskId))
+        .fetch()
+        .map(DbMapper::map);
+  }
+
   public void createSubtaskAssignees(Integer subtaskId, Integer projectId, List<Integer> userIds) {
     var insertStep = dsl.insertInto(SUBTASK_ASSIGNEE,
         SUBTASK_ASSIGNEE.PROJECT_ID,

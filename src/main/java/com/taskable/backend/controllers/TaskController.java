@@ -154,10 +154,13 @@ public class TaskController {
     return taskService.getComment(commentId);
   }
 
-//  @GetMapping("{task_id}/subtasks/{subtask_id}/comments")
-//  @PreAuthorize("@authorizationService.userExistsInProject(#userDetails.userId(), #projectId) || " +
-//      "@authorizationService.checkStaffInClass(#userDetails.userId(), #classId)")
-//  public GetCommentsResponse getComments() {
-//
-//  }
+  @GetMapping("{task_id}/subtasks/{subtask_id}/comments")
+  @PreAuthorize("@authorizationService.canReadSubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
+  public GetCommentsResponse getComments(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                         @PathVariable("class_id") Integer classId,
+                                         @PathVariable("project_id") Integer projectId,
+                                         @PathVariable("subtask_id") Integer subtaskId) {
+    return taskService.getComments(subtaskId);
+  }
+
 }
