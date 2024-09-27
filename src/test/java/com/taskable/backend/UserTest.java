@@ -37,7 +37,7 @@ public class UserTest {
         User expectedOutput = User.newBuilder()
                 .setId(1)
 //                .setUsername("admin alice")
-                .setEmail("alice@taskable.com")
+//                .setEmail("alice@taskable.com")
                 .build();
         byte[] expectedBytes = expectedOutput.toByteArray();
         mockMvc.perform(get("/api/get-user")

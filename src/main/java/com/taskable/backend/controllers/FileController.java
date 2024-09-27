@@ -127,7 +127,7 @@ public class FileController {
   public GetSubtaskFilesResponse getSubtaskFiles(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                  @PathVariable("class_id") Integer classId,
                                                  @PathVariable("subtask_id") Integer subtaskId,
-                                                 @PathVariable("project_d") Integer projectId) {
+                                                 @PathVariable("project_id") Integer projectId) {
     return fileService.getSubtaskFiles(subtaskId);
   }
 
@@ -152,7 +152,7 @@ public class FileController {
   }
 
   @PostMapping("/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/files/attach")
-  @PreAuthorize("@authorizationService.canModifySubtaskFile(#userDetails.userId(), #fileId, #projectId, #classId)")
+  @PreAuthorize("@authorizationService.canModifySubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public void attachFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                          @PathVariable("class_id") Integer classId,
                          @PathVariable("subtask_id") Integer subtaskId,

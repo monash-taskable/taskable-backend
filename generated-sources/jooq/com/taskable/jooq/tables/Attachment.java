@@ -89,7 +89,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     /**
      * The column <code>testdb.attachment.s3_key</code>.
      */
-    public final TableField<AttachmentRecord, String> S3_KEY = createField(DSL.name("s3_key"), SQLDataType.VARCHAR(100), this, "");
+    public final TableField<AttachmentRecord, String> S3_KEY = createField(DSL.name("s3_key"), SQLDataType.VARCHAR(200), this, "");
 
     /**
      * The column <code>testdb.attachment.size_bytes</code>.
