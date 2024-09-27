@@ -6,6 +6,7 @@ import com.taskable.backend.repositories.UserRepository;
 import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
 import com.taskable.protobufs.PersistenceProto;
 import com.taskable.protobufs.ProjectProto.*;
+import com.taskable.protobufs.TemplateProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -87,5 +88,11 @@ public class ProjectService {
 
     public void detachProject(Integer projectId) {
         projectRepository.deleteTemplateId(projectId);
+    }
+
+    public CreateProjectResponse createProject(Integer classId, CreateProjectRequest req) {
+        return CreateProjectResponse.newBuilder()
+            .setId(projectRepository.createProject(classId, req.getName(), req.getCreatedAt()))
+            .build();
     }
 }

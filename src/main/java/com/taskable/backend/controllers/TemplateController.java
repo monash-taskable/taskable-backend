@@ -3,6 +3,7 @@ package com.taskable.backend.controllers;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.TemplateService;
+import com.taskable.protobufs.ProjectProto.BatchCreateRequest;
 import com.taskable.protobufs.TemplateProto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -66,5 +67,14 @@ public class TemplateController {
                                @PathVariable("class_id") Integer classId,
                                @PathVariable("template_id") Integer templateId) {
         templateService.deleteTemplate(templateId);
+    }
+
+    @PostMapping("/{template_id}/create-multiple")
+    @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
+    public BatchCreateResponse batchCreateProjects(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                    @PathVariable("class_id") Integer classId,
+                                    @PathVariable("template_id") Integer templateId,
+                                    @RequestBody BatchCreateRequest req) {
+        return templateService.batchCreateProjects(templateId, classId, req);
     }
 }

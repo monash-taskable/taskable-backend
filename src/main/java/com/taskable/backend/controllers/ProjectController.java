@@ -5,6 +5,7 @@ import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.ProjectService;
 import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
 import com.taskable.protobufs.ProjectProto.*;
+import com.taskable.protobufs.TemplateProto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,5 +88,13 @@ public class ProjectController {
                               @PathVariable("class_id") Integer classId,
                               @PathVariable("project_id") Integer projectId) {
         projectService.detachProject(projectId);
+    }
+
+    @PostMapping("/create")
+    @PreAuthorize("@authorizationService.checkOwnerOrAdminInClass(#userDetails.userId(), #classId)")
+    public CreateProjectResponse createProject(@AuthenticationPrincipal CustomUserDetails userDetails,
+                                               @PathVariable("class_id") Integer classId,
+                                               @RequestBody CreateProjectRequest req) {
+        return projectService.createProject(classId, req);
     }
 }

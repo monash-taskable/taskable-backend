@@ -35,3 +35,7 @@ message CreateProjectRequest {
 message CreateProjectResponse {
   int32 id = 1;
 }
+
+message BatchCreateResponse {
+  repeated string invalid_emails = 1;
+}

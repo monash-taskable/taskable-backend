@@ -30,3 +30,13 @@ message AddProjectMembersResponse {
 message RemoveProjectMemberRequest {
   repeated int32 member_ids = 1;
 }
+
+message ProjectGroup {
+  string project_name = 1;
+  repeated string students = 2;
+}
+
+message BatchCreateRequest {
+  repeated ProjectGroup projects = 1;
+  string created_at = 2;
+}
