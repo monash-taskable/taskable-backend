@@ -44,7 +44,7 @@ public class FileRepository {
     return dsl.selectFrom(ATTACHMENT)
         .where(ATTACHMENT.PROJECT_ID.eq(projectId))
         .or(ATTACHMENT.TEMPLATE_ID.eq(
-            dsl.select(TEMPLATE.ID)
+            dsl.select(PROJECT.TEMPLATE_ID)
                 .from(PROJECT)
                 .where(PROJECT.ID.eq(projectId))
         ))
@@ -59,10 +59,16 @@ public class FileRepository {
     return rec != null ? DbMapper.map(rec) : null;
   }
 
-  public void deleteFileById(Integer attachmentId) {
+  public String deleteFileById(Integer attachmentId) {
+    var s3Key = dsl.select(ATTACHMENT.S3_KEY)
+        .from(ATTACHMENT)
+        .where(ATTACHMENT.ID.eq(attachmentId))
+        .fetchOneInto(String.class);
+
     dsl.deleteFrom(ATTACHMENT)
         .where(ATTACHMENT.ID.eq(attachmentId))
         .execute();
+    return s3Key;
   }
 
   public List<File> getFilesByTemplateId(Integer templateId) {

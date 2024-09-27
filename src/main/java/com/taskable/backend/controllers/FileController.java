@@ -85,7 +85,7 @@ public class FileController {
     return fileService.getTemplateFiles(templateId);
   }
 
-  @GetMapping("/projects/{template_id}/files/{file_id}")
+  @GetMapping("/templates/{template_id}/files/{file_id}")
   @PreAuthorize("@authorizationService.canReadTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public GetFileResponse getTemplateFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                         @PathVariable("class_id") Integer classId,
@@ -94,7 +94,7 @@ public class FileController {
     return fileService.getFile(fileId);
   }
 
-  @DeleteMapping("/projects/{template_id}/files/{file_id}/delete")
+  @DeleteMapping("/templates/{template_id}/files/{file_id}/delete")
   @PreAuthorize("@authorizationService.canModifyTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public void deleteTemplateFile(@AuthenticationPrincipal CustomUserDetails userDetails,
                                 @PathVariable("class_id") Integer classId,
@@ -103,7 +103,7 @@ public class FileController {
     fileService.deleteFile(fileId);
   }
 
-  @DeleteMapping("/projects/{template_id}/files/{file_id}/download")
+  @DeleteMapping("/templates/{template_id}/files/{file_id}/download")
   @PreAuthorize("@authorizationService.canReadTemplateFile(#userDetails.userId(), #fileId, #templateId, #classId)")
   public GetFileDownloadResponse getDownloadTemplateFileUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                    @PathVariable("class_id") Integer classId,

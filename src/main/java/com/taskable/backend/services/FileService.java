@@ -5,9 +5,13 @@ import com.taskable.backend.utils.DbMapper;
 import com.taskable.protobufs.AttachmentProto.*;
 import com.taskable.protobufs.PersistenceProto.File;
 import org.apache.commons.lang3.tuple.Pair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
@@ -27,12 +31,17 @@ public class FileService {
 
   private final FileRepository fileRepository;
   private final S3Presigner s3Presigner;
+  private final S3Client s3Client;
   private final String bucketName;
+
+  private static final Logger logger = LoggerFactory.getLogger(FileService.class);
 
   @Autowired
   public FileService(S3Presigner s3Presigner,
+                     S3Client s3Client,
                      @Value("${aws.s3.bucket}") String bucketName,
                      FileRepository fileRepository) {
+    this.s3Client = s3Client;
     this.s3Presigner = s3Presigner;
     this.bucketName = bucketName;
     this.fileRepository = fileRepository;
@@ -63,7 +72,8 @@ public class FileService {
   }
 
   public void deleteFile(Integer fileId) {
-    fileRepository.deleteFileById(fileId);
+    var s3Key = fileRepository.deleteFileById(fileId);
+    deleteFileFromS3(s3Key);
   }
 
   public GetFilesResponse getTemplateFiles(Integer templateId) {
@@ -98,7 +108,7 @@ public class FileService {
         .bucket(bucketName)
         .key(s3Key)
         .contentType("application/octet-stream")
-        .acl("private")
+//        .acl("private")
         .build();
     var presignRequest = PutObjectPresignRequest.builder()
         .signatureDuration(Duration.ofMinutes(15)) // url will be valid for 15 minutes
@@ -127,5 +137,18 @@ public class FileService {
     return GetFileDownloadResponse.newBuilder()
         .setUrl(s3Presigner.presignGetObject(presignRequest).url().toString())
         .build();
+  }
+
+  private void deleteFileFromS3(String s3Key) {
+    try {
+      var deleteObjectRequest = DeleteObjectRequest.builder()
+          .bucket(bucketName)
+          .key(s3Key)
+          .build();
+
+      s3Client.deleteObject(deleteObjectRequest);
+    } catch (Exception e) {
+      logger.error("Error deleting object {}: {}", s3Key, e.getMessage());
+    }
   }
 }
