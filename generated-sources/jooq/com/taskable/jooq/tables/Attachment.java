@@ -82,14 +82,19 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     public final TableField<AttachmentRecord, Integer> SUBTASK_ID = createField(DSL.name("subtask_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.attachment.type</code>.
+     * The column <code>testdb.attachment.name</code>.
      */
-    public final TableField<AttachmentRecord, String> TYPE = createField(DSL.name("type"), SQLDataType.VARCHAR(50), this, "");
+    public final TableField<AttachmentRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * The column <code>testdb.attachment.url</code>.
+     * The column <code>testdb.attachment.s3_key</code>.
      */
-    public final TableField<AttachmentRecord, String> URL = createField(DSL.name("url"), SQLDataType.VARCHAR(1000), this, "");
+    public final TableField<AttachmentRecord, String> S3_KEY = createField(DSL.name("s3_key"), SQLDataType.VARCHAR(100), this, "");
+
+    /**
+     * The column <code>testdb.attachment.size_bytes</code>.
+     */
+    public final TableField<AttachmentRecord, Integer> SIZE_BYTES = createField(DSL.name("size_bytes"), SQLDataType.INTEGER, this, "");
 
     private Attachment(Name alias, Table<AttachmentRecord> aliased) {
         this(alias, aliased, (Field<?>[]) null, null);

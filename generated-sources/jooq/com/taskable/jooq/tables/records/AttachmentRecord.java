@@ -75,31 +75,45 @@ public class AttachmentRecord extends UpdatableRecordImpl<AttachmentRecord> {
     }
 
     /**
-     * Setter for <code>testdb.attachment.type</code>.
+     * Setter for <code>testdb.attachment.name</code>.
      */
-    public void setType(String value) {
+    public void setName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.type</code>.
+     * Getter for <code>testdb.attachment.name</code>.
      */
-    public String getType() {
+    public String getName() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>testdb.attachment.url</code>.
+     * Setter for <code>testdb.attachment.s3_key</code>.
      */
-    public void setUrl(String value) {
+    public void setS3Key(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.url</code>.
+     * Getter for <code>testdb.attachment.s3_key</code>.
      */
-    public String getUrl() {
+    public String getS3Key() {
         return (String) get(5);
+    }
+
+    /**
+     * Setter for <code>testdb.attachment.size_bytes</code>.
+     */
+    public void setSizeBytes(Integer value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>testdb.attachment.size_bytes</code>.
+     */
+    public Integer getSizeBytes() {
+        return (Integer) get(6);
     }
 
     // -------------------------------------------------------------------------
@@ -125,15 +139,16 @@ public class AttachmentRecord extends UpdatableRecordImpl<AttachmentRecord> {
     /**
      * Create a detached, initialised AttachmentRecord
      */
-    public AttachmentRecord(Integer id, Integer projectId, Integer templateId, Integer subtaskId, String type, String url) {
+    public AttachmentRecord(Integer id, Integer projectId, Integer templateId, Integer subtaskId, String name, String s3Key, Integer sizeBytes) {
         super(Attachment.ATTACHMENT);
 
         setId(id);
         setProjectId(projectId);
         setTemplateId(templateId);
         setSubtaskId(subtaskId);
-        setType(type);
-        setUrl(url);
+        setName(name);
+        setS3Key(s3Key);
+        setSizeBytes(sizeBytes);
         resetChangedOnNotNull();
     }
 }

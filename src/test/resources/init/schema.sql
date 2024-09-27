@@ -115,8 +115,9 @@ CREATE TABLE attachment (
     project_id INTEGER NULL,
     template_id INTEGER NULL,
     subtask_id INTEGER NULL,
-    type VARCHAR(50),
-    url VARCHAR(1000),
+    name VARCHAR(200),
+    s3_key VARCHAR(100),
+    size_bytes INTEGER,
     FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE,
     FOREIGN KEY (template_id) REFERENCES template(id) ON DELETE CASCADE,
     FOREIGN KEY (subtask_id) REFERENCES subtask(id) ON DELETE CASCADE

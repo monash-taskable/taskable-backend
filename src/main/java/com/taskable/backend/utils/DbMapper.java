@@ -95,4 +95,12 @@ public class DbMapper {
             .setCreatedDate(rec.getCreateDate().toString())
             .build();
     }
+
+    public static File map(AttachmentRecord rec) {
+        return File.newBuilder()
+            .setId(rec.getId())
+            .setFilename(rec.getName())
+            .setSize(rec.getSizeBytes())
+            .build();
+    }
 }

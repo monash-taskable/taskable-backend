@@ -2,6 +2,7 @@ package com.taskable.backend.services;
 
 import com.taskable.backend.repositories.*;
 import com.taskable.backend.utils.enums.Role;
+import com.taskable.protobufs.PersistenceProto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class AuthorizationService {
 
     @Autowired
     private TemplateRepository templateRepository;
+
+    @Autowired
+    private FileRepository fileRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(AuthorizationService.class);
 
@@ -120,5 +124,35 @@ public class AuthorizationService {
     public boolean canReadTemplate(Integer userId, Integer templateId, Integer classId) {
         return templateRepository.checkTemplateInClass(templateId, classId)
             && (checkStaffInClass(userId, classId));
+    }
+
+    public boolean canReadSubtaskFile(Integer userId, Integer fileId, Integer projectId, Integer classId) {
+        return fileRepository.checkSubtaskAttachment(fileId, projectId, classId)
+            && (userExistsInProject(userId, projectId) || checkStaffInClass(userId, classId));
+    }
+
+    public boolean canModifySubtaskFile(Integer userId, Integer fileId, Integer projectId, Integer classId) {
+        return fileRepository.checkSubtaskAttachment(fileId, projectId, classId)
+            && (userExistsInProject(userId, projectId) || checkOwnerOrAdminInClass(userId, classId));
+    }
+
+    public boolean canReadProjectFile(Integer userId, Integer fileId, Integer projectId, Integer classId) {
+        return fileRepository.checkProjectAttachment(fileId, projectId, classId)
+            && (userExistsInProject(userId, projectId) || checkStaffInClass(userId, classId));
+    }
+
+    public boolean canModifyProjectFile(Integer userId, Integer fileId, Integer projectId, Integer classId) {
+        return fileRepository.checkProjectAttachment(fileId, projectId, classId)
+            && (userExistsInProject(userId, projectId) || checkOwnerOrAdminInClass(userId, classId));
+    }
+
+    public boolean canReadTemplateFile(Integer userId, Integer fileId, Integer templateId, Integer classId) {
+        return fileRepository.checkTemplateAttachment(fileId, templateId, classId)
+            && checkStaffInClass(userId, classId);
+    }
+
+    public boolean canModifyTemplateFile(Integer userId, Integer fileId, Integer templateId, Integer classId) {
+        return fileRepository.checkTemplateAttachment(fileId, templateId, classId)
+            && checkOwnerOrAdminInClass(userId, classId);
     }
 }

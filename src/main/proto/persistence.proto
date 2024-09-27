@@ -70,11 +70,16 @@ message Subtask {
   string end = 8;
 }
 
-
 message Comment {
   int32 id = 1;
   int32 subtask_id = 2;
   int32 user_id = 3;
   string comment = 4;
   string created_date = 5;
+}
+
+message File {
+  int32 id = 1;
+  string filename = 2;
+  int32 size = 3;
 }

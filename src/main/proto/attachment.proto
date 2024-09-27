@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_package = "com.taskable.protobufs";
+option java_outer_classname = "AttachmentProto";
+
+import "persistence.proto";
+
+message FilePreUploadRequest {
+  string filename = 1;
+  int32 size = 2;
+}
+
+message FilePreUploadResponse {
+  int32 id = 1;
+  string url = 2;
+}
+
+message GetFilesResponse {
+  repeated File project_files = 1;
+  repeated File template_files = 2;
+}
+
+message GetSubtaskFilesResponse {
+  repeated File files = 1;
+}
+
+message GetFileResponse {
+  File file = 1;
+}
+
+message GetFileDownloadResponse {
+  string url = 1;
+}
+
+message AttachFileRequest {
+  int32 id = 1;
+}
