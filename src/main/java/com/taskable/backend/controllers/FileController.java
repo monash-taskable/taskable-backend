@@ -10,7 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/classes/{class_id}")
+@RequestMapping("/api/classes/{class_id}")
 public class FileController {
 
   private final FileService fileService;
