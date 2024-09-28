@@ -154,7 +154,7 @@ public class TaskController {
     return taskService.getComment(commentId);
   }
 
-  @GetMapping("{task_id}/subtasks/{subtask_id}/comments")
+  @GetMapping("/{task_id}/subtasks/{subtask_id}/comments")
   @PreAuthorize("@authorizationService.canReadSubtask(#userDetails.userId(), #subtaskId, #projectId, #classId)")
   public GetCommentsResponse getComments(@AuthenticationPrincipal CustomUserDetails userDetails,
                                          @PathVariable("class_id") Integer classId,
