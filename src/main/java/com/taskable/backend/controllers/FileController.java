@@ -69,7 +69,7 @@ public class FileController {
   @PreAuthorize("@authorizationService.canModifyTemplate(#userDetails.userId(), #templateId, #classId)")
   public FilePreUploadResponse getTemplateFileUploadUrl(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                         @PathVariable("class_id") Integer classId,
-                                                        @PathVariable("project_id") Integer projectId,
+
                                                         @PathVariable("template_id") Integer templateId,
                                                         @RequestBody FilePreUploadRequest req) {
     return fileService.generatePresignedUploadUrl(req.getFilename(), req.getSize(), null, templateId, null);
