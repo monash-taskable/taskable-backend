@@ -118,5 +118,11 @@ public class TaskService {
         .build();
   }
 
+  public void updateComment(Integer commentId, UpdateCommentRequest req) {
+    taskRepository.updateComment(commentId, req.getComment());
+  }
 
+  public void deleteComment(Integer commentId) {
+    taskRepository.deleteComment(commentId);
+  }
 }

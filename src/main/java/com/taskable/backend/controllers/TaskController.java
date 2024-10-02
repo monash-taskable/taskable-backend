@@ -163,4 +163,22 @@ public class TaskController {
     return taskService.getComments(subtaskId);
   }
 
+  @PostMapping("/{task_id}/subtasks/{subtask_id}/comments/{comment_id}/update")
+  @PreAuthorize("@authorizationService.canModifySubtaskComment(#userDetails.userId(), #commentId, #projectId, #classId)")
+  public void updateComment(@AuthenticationPrincipal CustomUserDetails userDetails,
+                            @PathVariable("class_id") Integer classId,
+                            @PathVariable("project_id") Integer projectId,
+                            @PathVariable("comment_id") Integer commentId,
+                            @RequestBody UpdateCommentRequest req) {
+    taskService.updateComment(commentId, req);
+  }
+
+  @DeleteMapping("/{task_id}/subtasks/{subtask_id}/comments/{comment_id}/delete")
+  @PreAuthorize("@authorizationService.canModifySubtaskComment(#userDetails.userId(), #commentId, #projectId, #classId)")
+  public void deleteComment(@AuthenticationPrincipal CustomUserDetails userDetails,
+                            @PathVariable("class_id") Integer classId,
+                            @PathVariable("project_id") Integer projectId,
+                            @PathVariable("comment_id") Integer commentId) {
+    taskService.deleteComment(commentId);
+  }
 }

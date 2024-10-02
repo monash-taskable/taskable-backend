@@ -265,4 +265,17 @@ public class TaskRepository {
             .and(PROJECT.CLASSROOM_ID.eq(classId))
     );
   }
+
+  public void updateComment(Integer commentId, String comment) {
+    dsl.update(SUBTASK_COMMENT)
+        .set(SUBTASK_COMMENT.COMMENT, comment)
+        .where(SUBTASK_COMMENT.ID.eq(commentId))
+        .execute();
+  }
+
+  public void deleteComment(Integer commentId) {
+    dsl.deleteFrom(SUBTASK_COMMENT)
+        .where(SUBTASK_COMMENT.ID.eq(commentId))
+        .execute();
+  }
 }
