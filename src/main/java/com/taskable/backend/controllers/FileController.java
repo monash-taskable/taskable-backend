@@ -79,8 +79,7 @@ public class FileController {
   @PreAuthorize("@authorizationService.canReadTemplate(#userDetails.userId(), #templateId, #classId)")
   public GetFilesResponse getTemplateFiles(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                         @PathVariable("class_id") Integer classId,
-                                                        @PathVariable("template_id") Integer templateId,
-                                                        @RequestBody FilePreUploadRequest req) {
+                                                        @PathVariable("template_id") Integer templateId) {
     return fileService.getTemplateFiles(templateId);
   }
 
