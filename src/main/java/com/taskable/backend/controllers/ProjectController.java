@@ -3,6 +3,7 @@ package com.taskable.backend.controllers;
 import com.taskable.backend.auth.CustomUserDetails;
 import com.taskable.backend.services.AuthorizationService;
 import com.taskable.backend.services.ProjectService;
+import com.taskable.backend.services.TemplateService;
 import com.taskable.protobufs.ClassroomProto.GetMembersResponse;
 import com.taskable.protobufs.ProjectProto.*;
 import com.taskable.protobufs.TemplateProto.*;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    private TemplateService templateService;
 
     @Autowired
     private AuthorizationService authorizationService;
@@ -95,6 +99,6 @@ public class ProjectController {
     public CreateProjectResponse createProject(@AuthenticationPrincipal CustomUserDetails userDetails,
                                                @PathVariable("class_id") Integer classId,
                                                @RequestBody CreateProjectRequest req) {
-        return projectService.createProject(classId, req);
+        return templateService.createProject(null, userDetails.userId(), classId, req);
     }
 }
