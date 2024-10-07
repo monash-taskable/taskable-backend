@@ -30,6 +30,7 @@
         <protobuf.version>3.21.9</protobuf.version>
     </properties>
 
+
     <!-- Dependency Management for BOMs -->
     <dependencyManagement>
         <dependencies>
@@ -57,6 +58,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.16.0</version>
+        </dependency>
+
+        <!-- Importing env variables -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
         <!-- SLF4J API (Version managed by Spring Boot) -->
