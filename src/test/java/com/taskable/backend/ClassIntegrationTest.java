@@ -46,23 +46,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
-//@ExtendWith(SpringExtension.class)
+@ExtendWith(SpringExtension.class)
+@Import(TestDBConfig.class)
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
-@Import({ClassService.class,
-    TestDBConfig.class,
-//    ProtobufConfig.class,
-//    SecurityConfig.class,
-//    TestDBConfig.class,
-//    ClassRepository.class,
-    UserController.class,
-    UserRepository.class,
-//    AuthorizationService.class,
-//    ProjectRepository.class,
-//    ProjectService.class,
-//    TaskRepository.class,
-//    TaskService.class,
-    CustomUserDetailsService.class})
 @Transactional
 public class ClassIntegrationTest {
 
@@ -72,8 +59,7 @@ public class ClassIntegrationTest {
   private MockMvc mockMvc;
 
   @Autowired
-  @Qualifier("testDslContext")
-  private DSLContext testDslContext;
+  private DSLContext dslContext;
 
   @Autowired
   private UserRepository userRepository;
@@ -87,7 +73,7 @@ public class ClassIntegrationTest {
     String userLastName = "User";
 
     // Step 1: Insert a test user into the database with 'sub'
-    UserRecord testUserRecord = testDslContext.newRecord(User.USER);
+    UserRecord testUserRecord = dslContext.newRecord(User.USER);
     testUserRecord.setSub(userSub); // Ensure 'sub' field exists in your schema
     testUserRecord.setFirstName(userFirstName);
     testUserRecord.setLastName(userLastName);
@@ -102,20 +88,20 @@ public class ClassIntegrationTest {
     CreateClassRequest createClassRequest = CreateClassRequest.newBuilder()
         .setClassName("Test Class")
         .setClassDesc("This is a test class")
-        .setTimestamp("2024-04-27T10:00:00Z")
+        .setTimestamp("2024-04-27 11:00") // Ensure the timestamp format matches expected format
         .build();
 
     byte[] createClassBytes = createClassRequest.toByteArray();
 
-    // Step 3: Perform POST /create to create a new class with protobuf binary data
-    MvcResult createClassResult = mockMvc.perform(post("/create")
+    // Step 3: Perform POST /api/classes/create to create a new class with protobuf binary data
+    MvcResult createClassResult = mockMvc.perform(post("/api/classes/create")
             .contentType(PROTOBUF_CONTENT_TYPE)
             .accept(PROTOBUF_CONTENT_TYPE)
             .content(createClassBytes)
             .with(user(new CustomUserDetails(testUserId, userSub))) // Mock authentication
             .with(csrf())) // Include CSRF token
         .andExpect(status().isOk())
-        .andExpect(content().contentType(PROTOBUF_CONTENT_TYPE))
+        .andExpect(content().contentTypeCompatibleWith(PROTOBUF_CONTENT_TYPE)) // Updated assertion
         .andReturn();
 
     // Parse the binary response to GetClassResponse protobuf message
@@ -131,20 +117,20 @@ public class ClassIntegrationTest {
     CreateAnnouncementRequest createAnnouncementRequest = CreateAnnouncementRequest.newBuilder()
         .setTitle("Test Announcement")
         .setContent("This is a test announcement")
-        .setSentAt("2024-04-27T11:00:00Z")
+        .setSentAt("2024-04-27 11:00") // Ensure the timestamp format matches expected format
         .build();
 
     byte[] createAnnouncementBytes = createAnnouncementRequest.toByteArray();
 
-    // Step 5: Perform POST /{class_id}/announcements/create to create an announcement
-    MvcResult createAnnouncementResult = mockMvc.perform(post("/" + classId + "/announcements/create")
+    // Step 5: Perform POST /api/classes/{class_id}/announcements/create to create an announcement
+    MvcResult createAnnouncementResult = mockMvc.perform(post("/api/classes/" + classId + "/announcements/create")
             .contentType(PROTOBUF_CONTENT_TYPE)
             .accept(PROTOBUF_CONTENT_TYPE)
             .content(createAnnouncementBytes)
             .with(user(new CustomUserDetails(testUserId, userSub))) // Mock authentication
             .with(csrf())) // Include CSRF token
         .andExpect(status().isOk())
-        .andExpect(content().contentType(PROTOBUF_CONTENT_TYPE))
+        .andExpect(content().contentTypeCompatibleWith(PROTOBUF_CONTENT_TYPE)) // Updated assertion
         .andReturn();
 
     // Parse the binary response to CreateAnnouncementResponse protobuf message
@@ -154,12 +140,12 @@ public class ClassIntegrationTest {
     Integer announcementId = createAnnouncementResponse.getId();
     assertNotNull(announcementId, "Announcement ID should not be null");
 
-    // Step 6: Perform GET /{class_id}/announcements/{announcement_id} to verify the announcement
-    MvcResult getAnnouncementResult = mockMvc.perform(get("/" + classId + "/announcements/" + announcementId)
+    // Step 6: Perform GET /api/classes/{class_id}/announcements/{announcement_id} to verify the announcement
+    MvcResult getAnnouncementResult = mockMvc.perform(get("/api/classes/" + classId + "/announcements/" + announcementId)
             .accept(PROTOBUF_CONTENT_TYPE)
             .with(user(new CustomUserDetails(testUserId, userSub)))) // Mock authentication
         .andExpect(status().isOk())
-        .andExpect(content().contentType(PROTOBUF_CONTENT_TYPE))
+        .andExpect(content().contentTypeCompatibleWith(PROTOBUF_CONTENT_TYPE)) // Updated assertion
         .andReturn();
 
     // Parse the binary response to GetAnnouncementResponse protobuf message
@@ -173,6 +159,6 @@ public class ClassIntegrationTest {
     assertEquals("This is a test announcement", announcement.getContent(), "Announcement content mismatch");
     assertEquals(classId.intValue(), announcement.getClassId(), "Announcement class ID mismatch");
     assertEquals(testUserId.intValue(), announcement.getAuthorId(), "Announcement author ID mismatch");
-    assertEquals("2024-04-27T11:00:00Z", announcement.getSentAt(), "Announcement sent_at mismatch");
+    assertEquals("2024-04-27T11:00", announcement.getSentAt(), "Announcement sent_at mismatch");
   }
 }

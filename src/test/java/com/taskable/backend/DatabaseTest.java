@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,13 +28,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DatabaseTest {
 
     @Autowired
-    private DSLContext testDslContext;
+    private DSLContext dslContext;
 
     private static final Logger logger = LoggerFactory.getLogger(DatabaseTest.class);
 
     @BeforeEach
     public void setupTests(){
-        testDslContext.insertInto(USER)
+        dslContext.insertInto(USER)
             .set(USER.FIRST_NAME, "John")
             .set(USER.SUB, "test sub")
             .set(USER.EMAIL, "test email")
@@ -44,14 +43,14 @@ class DatabaseTest {
 
     @Test
     public void testUserTableNotEmpty() {
-        var results = testDslContext.select().from(USER).fetch();
+        var results = dslContext.select().from(USER).fetch();
         assertFalse(results.isEmpty(), "Users table should not be empty");
         logger.info(results.format());
     }
 
     @Test
     public void testName() {
-        var userRec = testDslContext.select().from(USER).limit(1).fetchOneInto(UserRecord.class);
+        var userRec = dslContext.select().from(USER).limit(1).fetchOneInto(UserRecord.class);
         var name = userRec.getFirstName();
         assertEquals("John", name, "Name isn't John");
         logger.info(userRec.format());

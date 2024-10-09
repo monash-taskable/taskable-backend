@@ -4,7 +4,6 @@ import com.taskable.jooq.tables.User;
 import com.taskable.jooq.tables.records.UserRecord;
 import configurations.TestDBConfig;
 import org.jooq.DSLContext;
-import org.jooq.impl.DefaultConnectionProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,23 +27,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Transactional
 public class DatabaseIntegrationTest {
     @Autowired
-    private DSLContext testDslContext;
+    private DSLContext dslContext;
 
     private static final Logger logger = LoggerFactory.getLogger(DatabaseIntegrationTest.class);
 
     @Test
     public void testConnection() throws Exception {
-        Connection connection = testDslContext.configuration().connectionProvider().acquire();
+        Connection connection = dslContext.configuration().connectionProvider().acquire();
         assertNotNull(connection);
         System.out.println("Connected to database: " + connection.getMetaData().getURL());
     }
     @Test
     public void testInsertAndSelect() throws Exception {
-        Connection connection = testDslContext.configuration().connectionProvider().acquire();
+        Connection connection = dslContext.configuration().connectionProvider().acquire();
         assertNotNull(connection);
         logger.info("Connected to database: " + connection.getMetaData().getURL());
 
-        UserRecord userRecord = testDslContext.newRecord(User.USER);
+        UserRecord userRecord = dslContext.newRecord(User.USER);
         userRecord.setSub("101");
         userRecord.setUsername("testuser");
         userRecord.setFirstName("john");
@@ -54,7 +52,7 @@ public class DatabaseIntegrationTest {
         userRecord.setTheme("dark");
         userRecord.store();
 
-        UserRecord rec = testDslContext.select().from(User.USER).where(User.USER.SUB.eq(("101"))).fetchOneInto(UserRecord.class);
+        UserRecord rec = dslContext.select().from(User.USER).where(User.USER.SUB.eq(("101"))).fetchOneInto(UserRecord.class);
         assertNotNull(rec);
         assertEquals(rec.getFirstName(), "john", "name is not john");
     }
