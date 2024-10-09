@@ -206,14 +206,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- HikariCP -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>5.0.1</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- JUnit 5 API and Engine (Version managed by Spring Boot) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
