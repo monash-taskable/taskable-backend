@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Attachment.AttachmentPath;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
@@ -53,7 +53,7 @@ public class Project extends TableImpl<ProjectRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.project</code>
+     * The reference instance of <code>taskable.project</code>
      */
     public static final Project PROJECT = new Project();
 
@@ -66,37 +66,37 @@ public class Project extends TableImpl<ProjectRecord> {
     }
 
     /**
-     * The column <code>testdb.project.id</code>.
+     * The column <code>taskable.project.id</code>.
      */
     public final TableField<ProjectRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.project.classroom_id</code>.
+     * The column <code>taskable.project.classroom_id</code>.
      */
     public final TableField<ProjectRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.project.template_id</code>.
+     * The column <code>taskable.project.template_id</code>.
      */
     public final TableField<ProjectRecord, Integer> TEMPLATE_ID = createField(DSL.name("template_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.project.name</code>.
+     * The column <code>taskable.project.name</code>.
      */
     public final TableField<ProjectRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.project.description</code>.
+     * The column <code>taskable.project.description</code>.
      */
     public final TableField<ProjectRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>testdb.project.created_at</code>.
+     * The column <code>taskable.project.created_at</code>.
      */
     public final TableField<ProjectRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.project.archived</code>.
+     * The column <code>taskable.project.archived</code>.
      */
     public final TableField<ProjectRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
@@ -109,21 +109,21 @@ public class Project extends TableImpl<ProjectRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.project</code> table reference
+     * Create an aliased <code>taskable.project</code> table reference
      */
     public Project(String alias) {
         this(DSL.name(alias), PROJECT);
     }
 
     /**
-     * Create an aliased <code>testdb.project</code> table reference
+     * Create an aliased <code>taskable.project</code> table reference
      */
     public Project(Name alias) {
         this(alias, PROJECT);
     }
 
     /**
-     * Create a <code>testdb.project</code> table reference
+     * Create a <code>taskable.project</code> table reference
      */
     public Project() {
         this(DSL.name("project"), null);
@@ -164,7 +164,7 @@ public class Project extends TableImpl<ProjectRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -195,7 +195,7 @@ public class Project extends TableImpl<ProjectRecord> {
     private transient ClassroomPath _classroom;
 
     /**
-     * Get the implicit join path to the <code>testdb.classroom</code> table.
+     * Get the implicit join path to the <code>taskable.classroom</code> table.
      */
     public ClassroomPath classroom() {
         if (_classroom == null)
@@ -207,7 +207,7 @@ public class Project extends TableImpl<ProjectRecord> {
     private transient TemplatePath _template;
 
     /**
-     * Get the implicit join path to the <code>testdb.template</code> table.
+     * Get the implicit join path to the <code>taskable.template</code> table.
      */
     public TemplatePath template() {
         if (_template == null)
@@ -219,8 +219,8 @@ public class Project extends TableImpl<ProjectRecord> {
     private transient AttachmentPath _attachment;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.attachment</code>
-     * table
+     * Get the implicit to-many join path to the
+     * <code>taskable.attachment</code> table
      */
     public AttachmentPath attachment() {
         if (_attachment == null)
@@ -233,7 +233,7 @@ public class Project extends TableImpl<ProjectRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.project_user</code> table
+     * <code>taskable.project_user</code> table
      */
     public ProjectUserPath projectUser() {
         if (_projectUser == null)
@@ -245,7 +245,8 @@ public class Project extends TableImpl<ProjectRecord> {
     private transient TaskPath _task;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.task</code> table
+     * Get the implicit to-many join path to the <code>taskable.task</code>
+     * table
      */
     public TaskPath task() {
         if (_task == null)
@@ -255,7 +256,7 @@ public class Project extends TableImpl<ProjectRecord> {
     }
 
     /**
-     * Get the implicit many-to-many join path to the <code>testdb.user</code>
+     * Get the implicit many-to-many join path to the <code>taskable.user</code>
      * table
      */
     public UserPath user() {

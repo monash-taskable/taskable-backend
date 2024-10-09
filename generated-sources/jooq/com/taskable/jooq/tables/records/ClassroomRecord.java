@@ -21,70 +21,70 @@ public class ClassroomRecord extends UpdatableRecordImpl<ClassroomRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.classroom.id</code>.
+     * Setter for <code>taskable.classroom.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom.id</code>.
+     * Getter for <code>taskable.classroom.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.classroom.name</code>.
+     * Setter for <code>taskable.classroom.name</code>.
      */
     public void setName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom.name</code>.
+     * Getter for <code>taskable.classroom.name</code>.
      */
     public String getName() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>testdb.classroom.description</code>.
+     * Setter for <code>taskable.classroom.description</code>.
      */
     public void setDescription(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom.description</code>.
+     * Getter for <code>taskable.classroom.description</code>.
      */
     public String getDescription() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>testdb.classroom.created_at</code>.
+     * Setter for <code>taskable.classroom.created_at</code>.
      */
     public void setCreatedAt(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom.created_at</code>.
+     * Getter for <code>taskable.classroom.created_at</code>.
      */
     public LocalDateTime getCreatedAt() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>testdb.classroom.archived</code>.
+     * Setter for <code>taskable.classroom.archived</code>.
      */
     public void setArchived(Byte value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom.archived</code>.
+     * Getter for <code>taskable.classroom.archived</code>.
      */
     public Byte getArchived() {
         return (Byte) get(4);

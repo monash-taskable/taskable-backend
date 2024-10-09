@@ -19,42 +19,42 @@ public class ClassroomUserRecord extends UpdatableRecordImpl<ClassroomUserRecord
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.classroom_user.user_id</code>.
+     * Setter for <code>taskable.classroom_user.user_id</code>.
      */
     public void setUserId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom_user.user_id</code>.
+     * Getter for <code>taskable.classroom_user.user_id</code>.
      */
     public Integer getUserId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.classroom_user.classroom_id</code>.
+     * Setter for <code>taskable.classroom_user.classroom_id</code>.
      */
     public void setClassroomId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom_user.classroom_id</code>.
+     * Getter for <code>taskable.classroom_user.classroom_id</code>.
      */
     public Integer getClassroomId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.classroom_user.role</code>.
+     * Setter for <code>taskable.classroom_user.role</code>.
      */
     public void setRole(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.classroom_user.role</code>.
+     * Getter for <code>taskable.classroom_user.role</code>.
      */
     public String getRole() {
         return (String) get(2);

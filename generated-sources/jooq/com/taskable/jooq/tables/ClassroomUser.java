@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.User.UserPath;
 import com.taskable.jooq.tables.records.ClassroomUserRecord;
@@ -47,7 +47,7 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.classroom_user</code>
+     * The reference instance of <code>taskable.classroom_user</code>
      */
     public static final ClassroomUser CLASSROOM_USER = new ClassroomUser();
 
@@ -60,17 +60,17 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
     }
 
     /**
-     * The column <code>testdb.classroom_user.user_id</code>.
+     * The column <code>taskable.classroom_user.user_id</code>.
      */
     public final TableField<ClassroomUserRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>testdb.classroom_user.classroom_id</code>.
+     * The column <code>taskable.classroom_user.classroom_id</code>.
      */
     public final TableField<ClassroomUserRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>testdb.classroom_user.role</code>.
+     * The column <code>taskable.classroom_user.role</code>.
      */
     public final TableField<ClassroomUserRecord, String> ROLE = createField(DSL.name("role"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
@@ -83,21 +83,21 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.classroom_user</code> table reference
+     * Create an aliased <code>taskable.classroom_user</code> table reference
      */
     public ClassroomUser(String alias) {
         this(DSL.name(alias), CLASSROOM_USER);
     }
 
     /**
-     * Create an aliased <code>testdb.classroom_user</code> table reference
+     * Create an aliased <code>taskable.classroom_user</code> table reference
      */
     public ClassroomUser(Name alias) {
         this(alias, CLASSROOM_USER);
     }
 
     /**
-     * Create a <code>testdb.classroom_user</code> table reference
+     * Create a <code>taskable.classroom_user</code> table reference
      */
     public ClassroomUser() {
         this(DSL.name("classroom_user"), null);
@@ -138,7 +138,7 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -159,7 +159,7 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
     private transient UserPath _user;
 
     /**
-     * Get the implicit join path to the <code>testdb.user</code> table.
+     * Get the implicit join path to the <code>taskable.user</code> table.
      */
     public UserPath user() {
         if (_user == null)
@@ -171,7 +171,7 @@ public class ClassroomUser extends TableImpl<ClassroomUserRecord> {
     private transient ClassroomPath _classroom;
 
     /**
-     * Get the implicit join path to the <code>testdb.classroom</code> table.
+     * Get the implicit join path to the <code>taskable.classroom</code> table.
      */
     public ClassroomPath classroom() {
         if (_classroom == null)

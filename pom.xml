@@ -268,14 +268,14 @@
                         <configuration>
                             <jdbc>
                                 <driver>com.mysql.cj.jdbc.Driver</driver>
-                                <url>jdbc:mysql://localhost:3306/testdb</url>
+                                <url>jdbc:mysql://localhost:3306/taskable</url>
                                 <user>testuser</user>
                                 <password>testpass</password>
                             </jdbc>
                             <generator>
                                 <database>
                                     <name>org.jooq.meta.mysql.MySQLDatabase</name>
-                                    <inputSchema>testdb</inputSchema>
+                                    <inputSchema>taskable</inputSchema>
                                 </database>
                                 <target>
                                     <packageName>com.taskable.jooq</packageName>

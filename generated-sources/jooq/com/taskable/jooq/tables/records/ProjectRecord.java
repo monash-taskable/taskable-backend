@@ -21,98 +21,98 @@ public class ProjectRecord extends UpdatableRecordImpl<ProjectRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.project.id</code>.
+     * Setter for <code>taskable.project.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.project.id</code>.
+     * Getter for <code>taskable.project.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.project.classroom_id</code>.
+     * Setter for <code>taskable.project.classroom_id</code>.
      */
     public void setClassroomId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.project.classroom_id</code>.
+     * Getter for <code>taskable.project.classroom_id</code>.
      */
     public Integer getClassroomId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.project.template_id</code>.
+     * Setter for <code>taskable.project.template_id</code>.
      */
     public void setTemplateId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.project.template_id</code>.
+     * Getter for <code>taskable.project.template_id</code>.
      */
     public Integer getTemplateId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>testdb.project.name</code>.
+     * Setter for <code>taskable.project.name</code>.
      */
     public void setName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.project.name</code>.
+     * Getter for <code>taskable.project.name</code>.
      */
     public String getName() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.project.description</code>.
+     * Setter for <code>taskable.project.description</code>.
      */
     public void setDescription(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.project.description</code>.
+     * Getter for <code>taskable.project.description</code>.
      */
     public String getDescription() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>testdb.project.created_at</code>.
+     * Setter for <code>taskable.project.created_at</code>.
      */
     public void setCreatedAt(LocalDateTime value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>testdb.project.created_at</code>.
+     * Getter for <code>taskable.project.created_at</code>.
      */
     public LocalDateTime getCreatedAt() {
         return (LocalDateTime) get(5);
     }
 
     /**
-     * Setter for <code>testdb.project.archived</code>.
+     * Setter for <code>taskable.project.archived</code>.
      */
     public void setArchived(Byte value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>testdb.project.archived</code>.
+     * Getter for <code>taskable.project.archived</code>.
      */
     public Byte getArchived() {
         return (Byte) get(6);

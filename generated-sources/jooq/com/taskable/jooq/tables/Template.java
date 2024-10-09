@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Attachment.AttachmentPath;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.Project.ProjectPath;
@@ -49,7 +49,7 @@ public class Template extends TableImpl<TemplateRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.template</code>
+     * The reference instance of <code>taskable.template</code>
      */
     public static final Template TEMPLATE = new Template();
 
@@ -62,27 +62,27 @@ public class Template extends TableImpl<TemplateRecord> {
     }
 
     /**
-     * The column <code>testdb.template.id</code>.
+     * The column <code>taskable.template.id</code>.
      */
     public final TableField<TemplateRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.template.classroom_id</code>.
+     * The column <code>taskable.template.classroom_id</code>.
      */
     public final TableField<TemplateRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.template.name</code>.
+     * The column <code>taskable.template.name</code>.
      */
     public final TableField<TemplateRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.template.description</code>.
+     * The column <code>taskable.template.description</code>.
      */
     public final TableField<TemplateRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>testdb.template.archived</code>.
+     * The column <code>taskable.template.archived</code>.
      */
     public final TableField<TemplateRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
@@ -95,21 +95,21 @@ public class Template extends TableImpl<TemplateRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.template</code> table reference
+     * Create an aliased <code>taskable.template</code> table reference
      */
     public Template(String alias) {
         this(DSL.name(alias), TEMPLATE);
     }
 
     /**
-     * Create an aliased <code>testdb.template</code> table reference
+     * Create an aliased <code>taskable.template</code> table reference
      */
     public Template(Name alias) {
         this(alias, TEMPLATE);
     }
 
     /**
-     * Create a <code>testdb.template</code> table reference
+     * Create a <code>taskable.template</code> table reference
      */
     public Template() {
         this(DSL.name("template"), null);
@@ -150,7 +150,7 @@ public class Template extends TableImpl<TemplateRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -176,7 +176,7 @@ public class Template extends TableImpl<TemplateRecord> {
     private transient ClassroomPath _classroom;
 
     /**
-     * Get the implicit join path to the <code>testdb.classroom</code> table.
+     * Get the implicit join path to the <code>taskable.classroom</code> table.
      */
     public ClassroomPath classroom() {
         if (_classroom == null)
@@ -188,8 +188,8 @@ public class Template extends TableImpl<TemplateRecord> {
     private transient AttachmentPath _attachment;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.attachment</code>
-     * table
+     * Get the implicit to-many join path to the
+     * <code>taskable.attachment</code> table
      */
     public AttachmentPath attachment() {
         if (_attachment == null)
@@ -201,7 +201,7 @@ public class Template extends TableImpl<TemplateRecord> {
     private transient ProjectPath _project;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.project</code>
+     * Get the implicit to-many join path to the <code>taskable.project</code>
      * table
      */
     public ProjectPath project() {

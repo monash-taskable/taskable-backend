@@ -5,7 +5,7 @@ package com.taskable.jooq.tables;
 
 
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Announcement.AnnouncementPath;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.ClassroomUser.ClassroomUserPath;
@@ -50,7 +50,7 @@ public class User extends TableImpl<UserRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.user</code>
+     * The reference instance of <code>taskable.user</code>
      */
     public static final User USER = new User();
 
@@ -63,52 +63,52 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * The column <code>testdb.user.id</code>.
+     * The column <code>taskable.user.id</code>.
      */
     public final TableField<UserRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.user.sub</code>.
+     * The column <code>taskable.user.sub</code>.
      */
     public final TableField<UserRecord, String> SUB = createField(DSL.name("sub"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.user.username</code>.
+     * The column <code>taskable.user.username</code>.
      */
     public final TableField<UserRecord, String> USERNAME = createField(DSL.name("username"), SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>testdb.user.email</code>.
+     * The column <code>taskable.user.email</code>.
      */
     public final TableField<UserRecord, String> EMAIL = createField(DSL.name("email"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.user.first_name</code>.
+     * The column <code>taskable.user.first_name</code>.
      */
     public final TableField<UserRecord, String> FIRST_NAME = createField(DSL.name("first_name"), SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>testdb.user.last_name</code>.
+     * The column <code>taskable.user.last_name</code>.
      */
     public final TableField<UserRecord, String> LAST_NAME = createField(DSL.name("last_name"), SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>testdb.user.status</code>.
+     * The column <code>taskable.user.status</code>.
      */
     public final TableField<UserRecord, String> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR(20), this, "");
 
     /**
-     * The column <code>testdb.user.language</code>.
+     * The column <code>taskable.user.language</code>.
      */
     public final TableField<UserRecord, String> LANGUAGE = createField(DSL.name("language"), SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>testdb.user.colour</code>.
+     * The column <code>taskable.user.colour</code>.
      */
     public final TableField<UserRecord, String> COLOUR = createField(DSL.name("colour"), SQLDataType.VARCHAR(20), this, "");
 
     /**
-     * The column <code>testdb.user.theme</code>.
+     * The column <code>taskable.user.theme</code>.
      */
     public final TableField<UserRecord, String> THEME = createField(DSL.name("theme"), SQLDataType.VARCHAR(20), this, "");
 
@@ -121,21 +121,21 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.user</code> table reference
+     * Create an aliased <code>taskable.user</code> table reference
      */
     public User(String alias) {
         this(DSL.name(alias), USER);
     }
 
     /**
-     * Create an aliased <code>testdb.user</code> table reference
+     * Create an aliased <code>taskable.user</code> table reference
      */
     public User(Name alias) {
         this(alias, USER);
     }
 
     /**
-     * Create a <code>testdb.user</code> table reference
+     * Create a <code>taskable.user</code> table reference
      */
     public User() {
         this(DSL.name("user"), null);
@@ -176,7 +176,7 @@ public class User extends TableImpl<UserRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -198,7 +198,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.announcement</code> table
+     * <code>taskable.announcement</code> table
      */
     public AnnouncementPath announcement() {
         if (_announcement == null)
@@ -211,7 +211,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.classroom_user</code> table
+     * <code>taskable.classroom_user</code> table
      */
     public ClassroomUserPath classroomUser() {
         if (_classroomUser == null)
@@ -224,7 +224,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.project_user</code> table
+     * <code>taskable.project_user</code> table
      */
     public ProjectUserPath projectUser() {
         if (_projectUser == null)
@@ -237,7 +237,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.subtask_comment</code> table
+     * <code>taskable.subtask_comment</code> table
      */
     public SubtaskCommentPath subtaskComment() {
         if (_subtaskComment == null)
@@ -248,7 +248,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit many-to-many join path to the
-     * <code>testdb.classroom</code> table
+     * <code>taskable.classroom</code> table
      */
     public ClassroomPath classroom() {
         return classroomUser().classroom();
@@ -256,7 +256,7 @@ public class User extends TableImpl<UserRecord> {
 
     /**
      * Get the implicit many-to-many join path to the
-     * <code>testdb.project</code> table
+     * <code>taskable.project</code> table
      */
     public ProjectPath project() {
         return projectUser().project();

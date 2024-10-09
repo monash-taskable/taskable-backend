@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Classroom.ClassroomPath;
 import com.taskable.jooq.tables.User.UserPath;
 import com.taskable.jooq.tables.records.AnnouncementRecord;
@@ -49,7 +49,7 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.announcement</code>
+     * The reference instance of <code>taskable.announcement</code>
      */
     public static final Announcement ANNOUNCEMENT = new Announcement();
 
@@ -62,32 +62,32 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     }
 
     /**
-     * The column <code>testdb.announcement.id</code>.
+     * The column <code>taskable.announcement.id</code>.
      */
     public final TableField<AnnouncementRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.announcement.classroom_id</code>.
+     * The column <code>taskable.announcement.classroom_id</code>.
      */
     public final TableField<AnnouncementRecord, Integer> CLASSROOM_ID = createField(DSL.name("classroom_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.announcement.user_id</code>.
+     * The column <code>taskable.announcement.user_id</code>.
      */
     public final TableField<AnnouncementRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.announcement.title</code>.
+     * The column <code>taskable.announcement.title</code>.
      */
     public final TableField<AnnouncementRecord, String> TITLE = createField(DSL.name("title"), SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.announcement.message</code>.
+     * The column <code>taskable.announcement.message</code>.
      */
     public final TableField<AnnouncementRecord, String> MESSAGE = createField(DSL.name("message"), SQLDataType.VARCHAR(1000).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.announcement.sent_at</code>.
+     * The column <code>taskable.announcement.sent_at</code>.
      */
     public final TableField<AnnouncementRecord, LocalDateTime> SENT_AT = createField(DSL.name("sent_at"), SQLDataType.LOCALDATETIME(0), this, "");
 
@@ -100,21 +100,21 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.announcement</code> table reference
+     * Create an aliased <code>taskable.announcement</code> table reference
      */
     public Announcement(String alias) {
         this(DSL.name(alias), ANNOUNCEMENT);
     }
 
     /**
-     * Create an aliased <code>testdb.announcement</code> table reference
+     * Create an aliased <code>taskable.announcement</code> table reference
      */
     public Announcement(Name alias) {
         this(alias, ANNOUNCEMENT);
     }
 
     /**
-     * Create a <code>testdb.announcement</code> table reference
+     * Create a <code>taskable.announcement</code> table reference
      */
     public Announcement() {
         this(DSL.name("announcement"), null);
@@ -155,7 +155,7 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -181,7 +181,7 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     private transient ClassroomPath _classroom;
 
     /**
-     * Get the implicit join path to the <code>testdb.classroom</code> table.
+     * Get the implicit join path to the <code>taskable.classroom</code> table.
      */
     public ClassroomPath classroom() {
         if (_classroom == null)
@@ -193,7 +193,7 @@ public class Announcement extends TableImpl<AnnouncementRecord> {
     private transient UserPath _user;
 
     /**
-     * Get the implicit join path to the <code>testdb.user</code> table.
+     * Get the implicit join path to the <code>taskable.user</code> table.
      */
     public UserPath user() {
         if (_user == null)

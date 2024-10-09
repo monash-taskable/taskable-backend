@@ -21,84 +21,84 @@ public class AnnouncementRecord extends UpdatableRecordImpl<AnnouncementRecord> 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.announcement.id</code>.
+     * Setter for <code>taskable.announcement.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.id</code>.
+     * Getter for <code>taskable.announcement.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.announcement.classroom_id</code>.
+     * Setter for <code>taskable.announcement.classroom_id</code>.
      */
     public void setClassroomId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.classroom_id</code>.
+     * Getter for <code>taskable.announcement.classroom_id</code>.
      */
     public Integer getClassroomId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.announcement.user_id</code>.
+     * Setter for <code>taskable.announcement.user_id</code>.
      */
     public void setUserId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.user_id</code>.
+     * Getter for <code>taskable.announcement.user_id</code>.
      */
     public Integer getUserId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>testdb.announcement.title</code>.
+     * Setter for <code>taskable.announcement.title</code>.
      */
     public void setTitle(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.title</code>.
+     * Getter for <code>taskable.announcement.title</code>.
      */
     public String getTitle() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.announcement.message</code>.
+     * Setter for <code>taskable.announcement.message</code>.
      */
     public void setMessage(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.message</code>.
+     * Getter for <code>taskable.announcement.message</code>.
      */
     public String getMessage() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>testdb.announcement.sent_at</code>.
+     * Setter for <code>taskable.announcement.sent_at</code>.
      */
     public void setSentAt(LocalDateTime value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>testdb.announcement.sent_at</code>.
+     * Getter for <code>taskable.announcement.sent_at</code>.
      */
     public LocalDateTime getSentAt() {
         return (LocalDateTime) get(5);

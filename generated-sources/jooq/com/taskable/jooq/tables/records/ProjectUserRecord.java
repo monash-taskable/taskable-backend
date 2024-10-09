@@ -19,28 +19,28 @@ public class ProjectUserRecord extends UpdatableRecordImpl<ProjectUserRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.project_user.user_id</code>.
+     * Setter for <code>taskable.project_user.user_id</code>.
      */
     public void setUserId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.project_user.user_id</code>.
+     * Getter for <code>taskable.project_user.user_id</code>.
      */
     public Integer getUserId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.project_user.project_id</code>.
+     * Setter for <code>taskable.project_user.project_id</code>.
      */
     public void setProjectId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.project_user.project_id</code>.
+     * Getter for <code>taskable.project_user.project_id</code>.
      */
     public Integer getProjectId() {
         return (Integer) get(1);

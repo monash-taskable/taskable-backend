@@ -19,140 +19,140 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.user.id</code>.
+     * Setter for <code>taskable.user.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.user.id</code>.
+     * Getter for <code>taskable.user.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.user.sub</code>.
+     * Setter for <code>taskable.user.sub</code>.
      */
     public void setSub(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.user.sub</code>.
+     * Getter for <code>taskable.user.sub</code>.
      */
     public String getSub() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>testdb.user.username</code>.
+     * Setter for <code>taskable.user.username</code>.
      */
     public void setUsername(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.user.username</code>.
+     * Getter for <code>taskable.user.username</code>.
      */
     public String getUsername() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>testdb.user.email</code>.
+     * Setter for <code>taskable.user.email</code>.
      */
     public void setEmail(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.user.email</code>.
+     * Getter for <code>taskable.user.email</code>.
      */
     public String getEmail() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.user.first_name</code>.
+     * Setter for <code>taskable.user.first_name</code>.
      */
     public void setFirstName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.user.first_name</code>.
+     * Getter for <code>taskable.user.first_name</code>.
      */
     public String getFirstName() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>testdb.user.last_name</code>.
+     * Setter for <code>taskable.user.last_name</code>.
      */
     public void setLastName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>testdb.user.last_name</code>.
+     * Getter for <code>taskable.user.last_name</code>.
      */
     public String getLastName() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>testdb.user.status</code>.
+     * Setter for <code>taskable.user.status</code>.
      */
     public void setStatus(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>testdb.user.status</code>.
+     * Getter for <code>taskable.user.status</code>.
      */
     public String getStatus() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>testdb.user.language</code>.
+     * Setter for <code>taskable.user.language</code>.
      */
     public void setLanguage(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>testdb.user.language</code>.
+     * Getter for <code>taskable.user.language</code>.
      */
     public String getLanguage() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>testdb.user.colour</code>.
+     * Setter for <code>taskable.user.colour</code>.
      */
     public void setColour(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>testdb.user.colour</code>.
+     * Getter for <code>taskable.user.colour</code>.
      */
     public String getColour() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>testdb.user.theme</code>.
+     * Setter for <code>taskable.user.theme</code>.
      */
     public void setTheme(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>testdb.user.theme</code>.
+     * Getter for <code>taskable.user.theme</code>.
      */
     public String getTheme() {
         return (String) get(9);

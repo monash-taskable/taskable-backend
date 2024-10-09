@@ -19,70 +19,70 @@ public class TemplateRecord extends UpdatableRecordImpl<TemplateRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.template.id</code>.
+     * Setter for <code>taskable.template.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.template.id</code>.
+     * Getter for <code>taskable.template.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.template.classroom_id</code>.
+     * Setter for <code>taskable.template.classroom_id</code>.
      */
     public void setClassroomId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.template.classroom_id</code>.
+     * Getter for <code>taskable.template.classroom_id</code>.
      */
     public Integer getClassroomId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.template.name</code>.
+     * Setter for <code>taskable.template.name</code>.
      */
     public void setName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.template.name</code>.
+     * Getter for <code>taskable.template.name</code>.
      */
     public String getName() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>testdb.template.description</code>.
+     * Setter for <code>taskable.template.description</code>.
      */
     public void setDescription(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.template.description</code>.
+     * Getter for <code>taskable.template.description</code>.
      */
     public String getDescription() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.template.archived</code>.
+     * Setter for <code>taskable.template.archived</code>.
      */
     public void setArchived(Byte value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.template.archived</code>.
+     * Getter for <code>taskable.template.archived</code>.
      */
     public Byte getArchived() {
         return (Byte) get(4);

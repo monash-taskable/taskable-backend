@@ -5,7 +5,7 @@ package com.taskable.jooq.tables;
 
 
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Announcement.AnnouncementPath;
 import com.taskable.jooq.tables.ClassroomUser.ClassroomUserPath;
 import com.taskable.jooq.tables.Project.ProjectPath;
@@ -48,7 +48,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.classroom</code>
+     * The reference instance of <code>taskable.classroom</code>
      */
     public static final Classroom CLASSROOM = new Classroom();
 
@@ -61,27 +61,27 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     }
 
     /**
-     * The column <code>testdb.classroom.id</code>.
+     * The column <code>taskable.classroom.id</code>.
      */
     public final TableField<ClassroomRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.classroom.name</code>.
+     * The column <code>taskable.classroom.name</code>.
      */
     public final TableField<ClassroomRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.classroom.description</code>.
+     * The column <code>taskable.classroom.description</code>.
      */
     public final TableField<ClassroomRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).nullable(false).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>testdb.classroom.created_at</code>.
+     * The column <code>taskable.classroom.created_at</code>.
      */
     public final TableField<ClassroomRecord, LocalDateTime> CREATED_AT = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>testdb.classroom.archived</code>.
+     * The column <code>taskable.classroom.archived</code>.
      */
     public final TableField<ClassroomRecord, Byte> ARCHIVED = createField(DSL.name("archived"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
@@ -94,21 +94,21 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.classroom</code> table reference
+     * Create an aliased <code>taskable.classroom</code> table reference
      */
     public Classroom(String alias) {
         this(DSL.name(alias), CLASSROOM);
     }
 
     /**
-     * Create an aliased <code>testdb.classroom</code> table reference
+     * Create an aliased <code>taskable.classroom</code> table reference
      */
     public Classroom(Name alias) {
         this(alias, CLASSROOM);
     }
 
     /**
-     * Create a <code>testdb.classroom</code> table reference
+     * Create a <code>taskable.classroom</code> table reference
      */
     public Classroom() {
         this(DSL.name("classroom"), null);
@@ -149,7 +149,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -166,7 +166,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.announcement</code> table
+     * <code>taskable.announcement</code> table
      */
     public AnnouncementPath announcement() {
         if (_announcement == null)
@@ -179,7 +179,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
 
     /**
      * Get the implicit to-many join path to the
-     * <code>testdb.classroom_user</code> table
+     * <code>taskable.classroom_user</code> table
      */
     public ClassroomUserPath classroomUser() {
         if (_classroomUser == null)
@@ -191,7 +191,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     private transient ProjectPath _project;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.project</code>
+     * Get the implicit to-many join path to the <code>taskable.project</code>
      * table
      */
     public ProjectPath project() {
@@ -204,7 +204,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     private transient TemplatePath _template;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.template</code>
+     * Get the implicit to-many join path to the <code>taskable.template</code>
      * table
      */
     public TemplatePath template() {
@@ -215,7 +215,7 @@ public class Classroom extends TableImpl<ClassroomRecord> {
     }
 
     /**
-     * Get the implicit many-to-many join path to the <code>testdb.user</code>
+     * Get the implicit many-to-many join path to the <code>taskable.user</code>
      * table
      */
     public UserPath user() {

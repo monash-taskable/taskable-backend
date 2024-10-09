@@ -22,7 +22,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables in testdb.
+ * A class modelling indexes of tables in taskable.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Indexes {

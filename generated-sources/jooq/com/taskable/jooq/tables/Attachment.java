@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Project.ProjectPath;
 import com.taskable.jooq.tables.Subtask.SubtaskPath;
 import com.taskable.jooq.tables.Template.TemplatePath;
@@ -49,7 +49,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.attachment</code>
+     * The reference instance of <code>taskable.attachment</code>
      */
     public static final Attachment ATTACHMENT = new Attachment();
 
@@ -62,37 +62,37 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     }
 
     /**
-     * The column <code>testdb.attachment.id</code>.
+     * The column <code>taskable.attachment.id</code>.
      */
     public final TableField<AttachmentRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.attachment.project_id</code>.
+     * The column <code>taskable.attachment.project_id</code>.
      */
     public final TableField<AttachmentRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.attachment.template_id</code>.
+     * The column <code>taskable.attachment.template_id</code>.
      */
     public final TableField<AttachmentRecord, Integer> TEMPLATE_ID = createField(DSL.name("template_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.attachment.subtask_id</code>.
+     * The column <code>taskable.attachment.subtask_id</code>.
      */
     public final TableField<AttachmentRecord, Integer> SUBTASK_ID = createField(DSL.name("subtask_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.attachment.name</code>.
+     * The column <code>taskable.attachment.name</code>.
      */
     public final TableField<AttachmentRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * The column <code>testdb.attachment.s3_key</code>.
+     * The column <code>taskable.attachment.s3_key</code>.
      */
     public final TableField<AttachmentRecord, String> S3_KEY = createField(DSL.name("s3_key"), SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * The column <code>testdb.attachment.size_bytes</code>.
+     * The column <code>taskable.attachment.size_bytes</code>.
      */
     public final TableField<AttachmentRecord, Integer> SIZE_BYTES = createField(DSL.name("size_bytes"), SQLDataType.INTEGER, this, "");
 
@@ -105,21 +105,21 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.attachment</code> table reference
+     * Create an aliased <code>taskable.attachment</code> table reference
      */
     public Attachment(String alias) {
         this(DSL.name(alias), ATTACHMENT);
     }
 
     /**
-     * Create an aliased <code>testdb.attachment</code> table reference
+     * Create an aliased <code>taskable.attachment</code> table reference
      */
     public Attachment(Name alias) {
         this(alias, ATTACHMENT);
     }
 
     /**
-     * Create a <code>testdb.attachment</code> table reference
+     * Create a <code>taskable.attachment</code> table reference
      */
     public Attachment() {
         this(DSL.name("attachment"), null);
@@ -160,7 +160,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -186,7 +186,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     private transient ProjectPath _project;
 
     /**
-     * Get the implicit join path to the <code>testdb.project</code> table.
+     * Get the implicit join path to the <code>taskable.project</code> table.
      */
     public ProjectPath project() {
         if (_project == null)
@@ -198,7 +198,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     private transient TemplatePath _template;
 
     /**
-     * Get the implicit join path to the <code>testdb.template</code> table.
+     * Get the implicit join path to the <code>taskable.template</code> table.
      */
     public TemplatePath template() {
         if (_template == null)
@@ -210,7 +210,7 @@ public class Attachment extends TableImpl<AttachmentRecord> {
     private transient SubtaskPath _subtask;
 
     /**
-     * Get the implicit join path to the <code>testdb.subtask</code> table.
+     * Get the implicit join path to the <code>taskable.subtask</code> table.
      */
     public SubtaskPath subtask() {
         if (_subtask == null)

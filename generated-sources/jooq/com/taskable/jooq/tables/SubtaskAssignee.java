@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.ProjectUser.ProjectUserPath;
 import com.taskable.jooq.tables.Subtask.SubtaskPath;
 import com.taskable.jooq.tables.records.SubtaskAssigneeRecord;
@@ -47,7 +47,7 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.subtask_assignee</code>
+     * The reference instance of <code>taskable.subtask_assignee</code>
      */
     public static final SubtaskAssignee SUBTASK_ASSIGNEE = new SubtaskAssignee();
 
@@ -60,17 +60,17 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
     }
 
     /**
-     * The column <code>testdb.subtask_assignee.user_id</code>.
+     * The column <code>taskable.subtask_assignee.user_id</code>.
      */
     public final TableField<SubtaskAssigneeRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>testdb.subtask_assignee.project_id</code>.
+     * The column <code>taskable.subtask_assignee.project_id</code>.
      */
     public final TableField<SubtaskAssigneeRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>testdb.subtask_assignee.subtask_id</code>.
+     * The column <code>taskable.subtask_assignee.subtask_id</code>.
      */
     public final TableField<SubtaskAssigneeRecord, Integer> SUBTASK_ID = createField(DSL.name("subtask_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
@@ -83,21 +83,21 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.subtask_assignee</code> table reference
+     * Create an aliased <code>taskable.subtask_assignee</code> table reference
      */
     public SubtaskAssignee(String alias) {
         this(DSL.name(alias), SUBTASK_ASSIGNEE);
     }
 
     /**
-     * Create an aliased <code>testdb.subtask_assignee</code> table reference
+     * Create an aliased <code>taskable.subtask_assignee</code> table reference
      */
     public SubtaskAssignee(Name alias) {
         this(alias, SUBTASK_ASSIGNEE);
     }
 
     /**
-     * Create a <code>testdb.subtask_assignee</code> table reference
+     * Create a <code>taskable.subtask_assignee</code> table reference
      */
     public SubtaskAssignee() {
         this(DSL.name("subtask_assignee"), null);
@@ -138,7 +138,7 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -159,7 +159,8 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
     private transient ProjectUserPath _projectUser;
 
     /**
-     * Get the implicit join path to the <code>testdb.project_user</code> table.
+     * Get the implicit join path to the <code>taskable.project_user</code>
+     * table.
      */
     public ProjectUserPath projectUser() {
         if (_projectUser == null)
@@ -171,7 +172,7 @@ public class SubtaskAssignee extends TableImpl<SubtaskAssigneeRecord> {
     private transient SubtaskPath _subtask;
 
     /**
-     * Get the implicit join path to the <code>testdb.subtask</code> table.
+     * Get the implicit join path to the <code>taskable.subtask</code> table.
      */
     public SubtaskPath subtask() {
         if (_subtask == null)

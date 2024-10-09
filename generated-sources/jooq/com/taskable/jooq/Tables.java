@@ -19,68 +19,68 @@ import com.taskable.jooq.tables.User;
 
 
 /**
- * Convenience access to all tables in testdb.
+ * Convenience access to all tables in taskable.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Tables {
 
     /**
-     * The table <code>testdb.announcement</code>.
+     * The table <code>taskable.announcement</code>.
      */
     public static final Announcement ANNOUNCEMENT = Announcement.ANNOUNCEMENT;
 
     /**
-     * The table <code>testdb.attachment</code>.
+     * The table <code>taskable.attachment</code>.
      */
     public static final Attachment ATTACHMENT = Attachment.ATTACHMENT;
 
     /**
-     * The table <code>testdb.classroom</code>.
+     * The table <code>taskable.classroom</code>.
      */
     public static final Classroom CLASSROOM = Classroom.CLASSROOM;
 
     /**
-     * The table <code>testdb.classroom_user</code>.
+     * The table <code>taskable.classroom_user</code>.
      */
     public static final ClassroomUser CLASSROOM_USER = ClassroomUser.CLASSROOM_USER;
 
     /**
-     * The table <code>testdb.project</code>.
+     * The table <code>taskable.project</code>.
      */
     public static final Project PROJECT = Project.PROJECT;
 
     /**
-     * The table <code>testdb.project_user</code>.
+     * The table <code>taskable.project_user</code>.
      */
     public static final ProjectUser PROJECT_USER = ProjectUser.PROJECT_USER;
 
     /**
-     * The table <code>testdb.subtask</code>.
+     * The table <code>taskable.subtask</code>.
      */
     public static final Subtask SUBTASK = Subtask.SUBTASK;
 
     /**
-     * The table <code>testdb.subtask_assignee</code>.
+     * The table <code>taskable.subtask_assignee</code>.
      */
     public static final SubtaskAssignee SUBTASK_ASSIGNEE = SubtaskAssignee.SUBTASK_ASSIGNEE;
 
     /**
-     * The table <code>testdb.subtask_comment</code>.
+     * The table <code>taskable.subtask_comment</code>.
      */
     public static final SubtaskComment SUBTASK_COMMENT = SubtaskComment.SUBTASK_COMMENT;
 
     /**
-     * The table <code>testdb.task</code>.
+     * The table <code>taskable.task</code>.
      */
     public static final Task TASK = Task.TASK;
 
     /**
-     * The table <code>testdb.template</code>.
+     * The table <code>taskable.template</code>.
      */
     public static final Template TEMPLATE = Template.TEMPLATE;
 
     /**
-     * The table <code>testdb.user</code>.
+     * The table <code>taskable.user</code>.
      */
     public static final User USER = User.USER;
 }

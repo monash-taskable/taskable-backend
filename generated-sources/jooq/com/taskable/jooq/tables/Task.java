@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Project.ProjectPath;
 import com.taskable.jooq.tables.Subtask.SubtaskPath;
 import com.taskable.jooq.tables.records.TaskRecord;
@@ -48,7 +48,7 @@ public class Task extends TableImpl<TaskRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.task</code>
+     * The reference instance of <code>taskable.task</code>
      */
     public static final Task TASK = new Task();
 
@@ -61,27 +61,27 @@ public class Task extends TableImpl<TaskRecord> {
     }
 
     /**
-     * The column <code>testdb.task.id</code>.
+     * The column <code>taskable.task.id</code>.
      */
     public final TableField<TaskRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.task.project_id</code>.
+     * The column <code>taskable.task.project_id</code>.
      */
     public final TableField<TaskRecord, Integer> PROJECT_ID = createField(DSL.name("project_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.task.title</code>.
+     * The column <code>taskable.task.title</code>.
      */
     public final TableField<TaskRecord, String> TITLE = createField(DSL.name("title"), SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>testdb.task.description</code>.
+     * The column <code>taskable.task.description</code>.
      */
     public final TableField<TaskRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.VARCHAR(500).defaultValue(DSL.inline("", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>testdb.task.color</code>.
+     * The column <code>taskable.task.color</code>.
      */
     public final TableField<TaskRecord, String> COLOR = createField(DSL.name("color"), SQLDataType.VARCHAR(30), this, "");
 
@@ -94,21 +94,21 @@ public class Task extends TableImpl<TaskRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.task</code> table reference
+     * Create an aliased <code>taskable.task</code> table reference
      */
     public Task(String alias) {
         this(DSL.name(alias), TASK);
     }
 
     /**
-     * Create an aliased <code>testdb.task</code> table reference
+     * Create an aliased <code>taskable.task</code> table reference
      */
     public Task(Name alias) {
         this(alias, TASK);
     }
 
     /**
-     * Create a <code>testdb.task</code> table reference
+     * Create a <code>taskable.task</code> table reference
      */
     public Task() {
         this(DSL.name("task"), null);
@@ -149,7 +149,7 @@ public class Task extends TableImpl<TaskRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -175,7 +175,7 @@ public class Task extends TableImpl<TaskRecord> {
     private transient ProjectPath _project;
 
     /**
-     * Get the implicit join path to the <code>testdb.project</code> table.
+     * Get the implicit join path to the <code>taskable.project</code> table.
      */
     public ProjectPath project() {
         if (_project == null)
@@ -187,7 +187,7 @@ public class Task extends TableImpl<TaskRecord> {
     private transient SubtaskPath _subtask;
 
     /**
-     * Get the implicit to-many join path to the <code>testdb.subtask</code>
+     * Get the implicit to-many join path to the <code>taskable.subtask</code>
      * table
      */
     public SubtaskPath subtask() {

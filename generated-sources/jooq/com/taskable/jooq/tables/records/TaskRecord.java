@@ -19,70 +19,70 @@ public class TaskRecord extends UpdatableRecordImpl<TaskRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.task.id</code>.
+     * Setter for <code>taskable.task.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.task.id</code>.
+     * Getter for <code>taskable.task.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.task.project_id</code>.
+     * Setter for <code>taskable.task.project_id</code>.
      */
     public void setProjectId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.task.project_id</code>.
+     * Getter for <code>taskable.task.project_id</code>.
      */
     public Integer getProjectId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.task.title</code>.
+     * Setter for <code>taskable.task.title</code>.
      */
     public void setTitle(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.task.title</code>.
+     * Getter for <code>taskable.task.title</code>.
      */
     public String getTitle() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>testdb.task.description</code>.
+     * Setter for <code>taskable.task.description</code>.
      */
     public void setDescription(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.task.description</code>.
+     * Getter for <code>taskable.task.description</code>.
      */
     public String getDescription() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.task.color</code>.
+     * Setter for <code>taskable.task.color</code>.
      */
     public void setColor(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.task.color</code>.
+     * Getter for <code>taskable.task.color</code>.
      */
     public String getColor() {
         return (String) get(4);

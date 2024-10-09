@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: testdb
+      MYSQL_DATABASE: taskable
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpass
     ports:

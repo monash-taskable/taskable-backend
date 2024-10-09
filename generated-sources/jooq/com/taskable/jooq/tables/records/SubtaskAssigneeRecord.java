@@ -19,42 +19,42 @@ public class SubtaskAssigneeRecord extends UpdatableRecordImpl<SubtaskAssigneeRe
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.subtask_assignee.user_id</code>.
+     * Setter for <code>taskable.subtask_assignee.user_id</code>.
      */
     public void setUserId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_assignee.user_id</code>.
+     * Getter for <code>taskable.subtask_assignee.user_id</code>.
      */
     public Integer getUserId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.subtask_assignee.project_id</code>.
+     * Setter for <code>taskable.subtask_assignee.project_id</code>.
      */
     public void setProjectId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_assignee.project_id</code>.
+     * Getter for <code>taskable.subtask_assignee.project_id</code>.
      */
     public Integer getProjectId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.subtask_assignee.subtask_id</code>.
+     * Setter for <code>taskable.subtask_assignee.subtask_id</code>.
      */
     public void setSubtaskId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_assignee.subtask_id</code>.
+     * Getter for <code>taskable.subtask_assignee.subtask_id</code>.
      */
     public Integer getSubtaskId() {
         return (Integer) get(2);

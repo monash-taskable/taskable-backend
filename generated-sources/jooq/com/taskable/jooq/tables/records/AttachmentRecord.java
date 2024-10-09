@@ -19,98 +19,98 @@ public class AttachmentRecord extends UpdatableRecordImpl<AttachmentRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.attachment.id</code>.
+     * Setter for <code>taskable.attachment.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.id</code>.
+     * Getter for <code>taskable.attachment.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.attachment.project_id</code>.
+     * Setter for <code>taskable.attachment.project_id</code>.
      */
     public void setProjectId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.project_id</code>.
+     * Getter for <code>taskable.attachment.project_id</code>.
      */
     public Integer getProjectId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.attachment.template_id</code>.
+     * Setter for <code>taskable.attachment.template_id</code>.
      */
     public void setTemplateId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.template_id</code>.
+     * Getter for <code>taskable.attachment.template_id</code>.
      */
     public Integer getTemplateId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>testdb.attachment.subtask_id</code>.
+     * Setter for <code>taskable.attachment.subtask_id</code>.
      */
     public void setSubtaskId(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.subtask_id</code>.
+     * Getter for <code>taskable.attachment.subtask_id</code>.
      */
     public Integer getSubtaskId() {
         return (Integer) get(3);
     }
 
     /**
-     * Setter for <code>testdb.attachment.name</code>.
+     * Setter for <code>taskable.attachment.name</code>.
      */
     public void setName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.name</code>.
+     * Getter for <code>taskable.attachment.name</code>.
      */
     public String getName() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>testdb.attachment.s3_key</code>.
+     * Setter for <code>taskable.attachment.s3_key</code>.
      */
     public void setS3Key(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.s3_key</code>.
+     * Getter for <code>taskable.attachment.s3_key</code>.
      */
     public String getS3Key() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>testdb.attachment.size_bytes</code>.
+     * Setter for <code>taskable.attachment.size_bytes</code>.
      */
     public void setSizeBytes(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>testdb.attachment.size_bytes</code>.
+     * Getter for <code>taskable.attachment.size_bytes</code>.
      */
     public Integer getSizeBytes() {
         return (Integer) get(6);

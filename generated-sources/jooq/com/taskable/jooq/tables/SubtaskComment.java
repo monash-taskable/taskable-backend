@@ -6,7 +6,7 @@ package com.taskable.jooq.tables;
 
 import com.taskable.jooq.Indexes;
 import com.taskable.jooq.Keys;
-import com.taskable.jooq.Testdb;
+import com.taskable.jooq.Taskable;
 import com.taskable.jooq.tables.Subtask.SubtaskPath;
 import com.taskable.jooq.tables.User.UserPath;
 import com.taskable.jooq.tables.records.SubtaskCommentRecord;
@@ -49,7 +49,7 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>testdb.subtask_comment</code>
+     * The reference instance of <code>taskable.subtask_comment</code>
      */
     public static final SubtaskComment SUBTASK_COMMENT = new SubtaskComment();
 
@@ -62,27 +62,27 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
     }
 
     /**
-     * The column <code>testdb.subtask_comment.id</code>.
+     * The column <code>taskable.subtask_comment.id</code>.
      */
     public final TableField<SubtaskCommentRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>testdb.subtask_comment.subtask_id</code>.
+     * The column <code>taskable.subtask_comment.subtask_id</code>.
      */
     public final TableField<SubtaskCommentRecord, Integer> SUBTASK_ID = createField(DSL.name("subtask_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.subtask_comment.user_id</code>.
+     * The column <code>taskable.subtask_comment.user_id</code>.
      */
     public final TableField<SubtaskCommentRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>testdb.subtask_comment.comment</code>.
+     * The column <code>taskable.subtask_comment.comment</code>.
      */
     public final TableField<SubtaskCommentRecord, String> COMMENT = createField(DSL.name("comment"), SQLDataType.VARCHAR(1000), this, "");
 
     /**
-     * The column <code>testdb.subtask_comment.create_date</code>.
+     * The column <code>taskable.subtask_comment.create_date</code>.
      */
     public final TableField<SubtaskCommentRecord, LocalDateTime> CREATE_DATE = createField(DSL.name("create_date"), SQLDataType.LOCALDATETIME(0), this, "");
 
@@ -95,21 +95,21 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
     }
 
     /**
-     * Create an aliased <code>testdb.subtask_comment</code> table reference
+     * Create an aliased <code>taskable.subtask_comment</code> table reference
      */
     public SubtaskComment(String alias) {
         this(DSL.name(alias), SUBTASK_COMMENT);
     }
 
     /**
-     * Create an aliased <code>testdb.subtask_comment</code> table reference
+     * Create an aliased <code>taskable.subtask_comment</code> table reference
      */
     public SubtaskComment(Name alias) {
         this(alias, SUBTASK_COMMENT);
     }
 
     /**
-     * Create a <code>testdb.subtask_comment</code> table reference
+     * Create a <code>taskable.subtask_comment</code> table reference
      */
     public SubtaskComment() {
         this(DSL.name("subtask_comment"), null);
@@ -150,7 +150,7 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Testdb.TESTDB;
+        return aliased() ? null : Taskable.TASKABLE;
     }
 
     @Override
@@ -176,7 +176,7 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
     private transient SubtaskPath _subtask;
 
     /**
-     * Get the implicit join path to the <code>testdb.subtask</code> table.
+     * Get the implicit join path to the <code>taskable.subtask</code> table.
      */
     public SubtaskPath subtask() {
         if (_subtask == null)
@@ -188,7 +188,7 @@ public class SubtaskComment extends TableImpl<SubtaskCommentRecord> {
     private transient UserPath _user;
 
     /**
-     * Get the implicit join path to the <code>testdb.user</code> table.
+     * Get the implicit join path to the <code>taskable.user</code> table.
      */
     public UserPath user() {
         if (_user == null)

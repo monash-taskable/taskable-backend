@@ -21,70 +21,70 @@ public class SubtaskCommentRecord extends UpdatableRecordImpl<SubtaskCommentReco
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>testdb.subtask_comment.id</code>.
+     * Setter for <code>taskable.subtask_comment.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_comment.id</code>.
+     * Getter for <code>taskable.subtask_comment.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>testdb.subtask_comment.subtask_id</code>.
+     * Setter for <code>taskable.subtask_comment.subtask_id</code>.
      */
     public void setSubtaskId(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_comment.subtask_id</code>.
+     * Getter for <code>taskable.subtask_comment.subtask_id</code>.
      */
     public Integer getSubtaskId() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>testdb.subtask_comment.user_id</code>.
+     * Setter for <code>taskable.subtask_comment.user_id</code>.
      */
     public void setUserId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_comment.user_id</code>.
+     * Getter for <code>taskable.subtask_comment.user_id</code>.
      */
     public Integer getUserId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>testdb.subtask_comment.comment</code>.
+     * Setter for <code>taskable.subtask_comment.comment</code>.
      */
     public void setComment(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_comment.comment</code>.
+     * Getter for <code>taskable.subtask_comment.comment</code>.
      */
     public String getComment() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>testdb.subtask_comment.create_date</code>.
+     * Setter for <code>taskable.subtask_comment.create_date</code>.
      */
     public void setCreateDate(LocalDateTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>testdb.subtask_comment.create_date</code>.
+     * Getter for <code>taskable.subtask_comment.create_date</code>.
      */
     public LocalDateTime getCreateDate() {
         return (LocalDateTime) get(4);
