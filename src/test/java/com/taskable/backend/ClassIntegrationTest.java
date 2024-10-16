@@ -69,7 +69,7 @@ public class ClassIntegrationTest {
     // Define test user attributes
     String userSub = "test-sub-123";
     String userEmail = "testuser@example.com";
-    String userFirstName = "Test";
+    String userFirstName = "Test1";
     String userLastName = "User";
 
     // Step 1: Insert a test user into the database with 'sub'
